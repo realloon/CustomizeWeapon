@@ -130,10 +130,6 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_RapidReceiver</weaponTraitDef>
         <part>Receiver</part>
-        <texture>
-          <!-- <texturePath>CustomizeWeapon/Modules/RapidReceiver</texturePath> -->
-          <!-- <outlinePath>CustomizeWeapon/Modules/RapidReceiver_o</outlinePath> -->
-        </texture>
       </li>
     </modExtensions>
   </ThingDef>
@@ -238,6 +234,7 @@
   <!-- #endregion -->
 
   <!-- #region Sight -->
+  <!-- > Holoscope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_Holoscope</defName>
     <label>holoscope module</label>
@@ -261,8 +258,69 @@
         <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
         <part>Sight</part>
         <texture>
-          <texturePath>CustomizeWeapon/Modules/ScopSight/ScopSight</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/ScopSight/ScopSight_o</outlinePath>
+          <texturePath>CustomizeWeapon/Modules/Holoscope/Holoscope</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/Holoscope/Holoscope_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > RedDotScope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_RedDotScope</defName>
+    <label>red dot scope module</label>
+    <description>red dot scope.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_RedDotScope</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_RedDotScope</weaponTraitDef>
+        <part>Sight</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/RedDotScope/RedDotScope</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/RedDotScope/RedDotScope_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_2xScope</defName>
+    <label>2x scope module</label>
+    <description>2x scope.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_2xScope</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_2xScope</weaponTraitDef>
+        <part>Sight</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/2xScope/2xScope</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/2xScope/2xScope_o</outlinePath>
         </texture>
       </li>
     </modExtensions>
@@ -358,6 +416,66 @@
         <texture>
           <texturePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip</texturePath>
           <outlinePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_TriangularGrip</defName>
+    <label>triangular grip module</label>
+    <description>A triangular grip.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_TriangularGrip</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_TriangularGrip</weaponTraitDef>
+        <part>Underbarrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/TriangularGrip/TriangularGrip</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/TriangularGrip/TriangularGrip_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_AimAssistance</defName>
+    <label>aim assistance module</label>
+    <description>A aim assistance.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_AimAssistance</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_AimAssistance</weaponTraitDef>
+        <part>Underbarrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/AimAssistance/AimAssistance</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/AimAssistance/AimAssistance_o</outlinePath>
         </texture>
       </li>
     </modExtensions>

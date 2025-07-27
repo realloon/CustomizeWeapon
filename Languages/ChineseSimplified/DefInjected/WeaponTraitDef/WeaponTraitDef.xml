@@ -13,9 +13,6 @@
     <CWF_Trait_RapidTrigger.label>高速扳机</CWF_Trait_RapidTrigger.label>
     <CWF_Trait_RapidTrigger.description>高速扳机……</CWF_Trait_RapidTrigger.description>
 
-    <CWF_Trait_ExtendedBarrel.label>拓展弹匣</CWF_Trait_ExtendedBarrel.label>
-    <CWF_Trait_ExtendedBarrel.description>拓展弹匣……</CWF_Trait_ExtendedBarrel.description>
-
     <CWF_Trait_TelescopicStock.label>折叠枪托</CWF_Trait_TelescopicStock.label>
     <CWF_Trait_TelescopicStock.description>折叠枪托……</CWF_Trait_TelescopicStock.description>
 
@@ -31,8 +28,8 @@
     <CWF_Trait_ExtendedMagazine.label>拓展弹匣</CWF_Trait_ExtendedMagazine.label>
     <CWF_Trait_ExtendedMagazine.description>拓展弹匣……</CWF_Trait_ExtendedMagazine.description>
 
-    <CWF_Trait_ExtendedBarrel.label>拓展弹匣</CWF_Trait_ExtendedBarrel.label>
-    <CWF_Trait_ExtendedBarrel.description>拓展弹匣……</CWF_Trait_ExtendedBarrel.description>
+    <CWF_Trait_ExtendedMagazine.label>拓展弹匣</CWF_Trait_ExtendedMagazine.label>
+    <CWF_Trait_ExtendedMagazine.description>拓展弹匣……</CWF_Trait_ExtendedMagazine.description>
 
     <CWF_Trait_VerticalGrip.label>垂直握把</CWF_Trait_VerticalGrip.label>
     <CWF_Trait_VerticalGrip.description>垂直握把……</CWF_Trait_VerticalGrip.description>

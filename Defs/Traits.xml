@@ -72,6 +72,7 @@
     </statFactors>
   </WeaponTraitDef>
 
+  <!-- Sight -->
   <WeaponTraitDef>
     <defName>CWF_Trait_Holoscope</defName>
     <label>custom grip</label>
@@ -88,6 +89,39 @@
     </statFactors>
   </WeaponTraitDef>
 
+  <WeaponTraitDef>
+    <defName>CWF_Trait_RedDotScope</defName>
+    <label>red dot scope</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.2</AccuracyTouch>
+      <AccuracyShort>1.2</AccuracyShort>
+      <AccuracyMedium>1.2</AccuracyMedium>
+      <AccuracyLong>1.2</AccuracyLong>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_2xScope</defName>
+    <label>2x scope</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.2</AccuracyTouch>
+      <AccuracyShort>1.2</AccuracyShort>
+      <AccuracyMedium>1.2</AccuracyMedium>
+      <AccuracyLong>1.2</AccuracyLong>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!-- Magazine -->
   <WeaponTraitDef>
     <defName>CWF_Trait_RepidMagazine</defName>
     <label>repid magazine</label>
@@ -112,6 +146,7 @@
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
 
+  <!-- Underbarrel -->
   <WeaponTraitDef>
     <defName>CWF_Trait_VerticalGrip</defName>
     <label>vertical grip</label>
@@ -126,6 +161,35 @@
     </statFactors>
   </WeaponTraitDef>
 
+  <WeaponTraitDef>
+    <defName>CWF_Trait_TriangularGrip</defName>
+    <label>triangular grip</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.1</AccuracyTouch>
+      <AccuracyShort>1.1</AccuracyShort>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_AimAssistance</defName>
+    <label>triangular grip</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.1</AccuracyTouch>
+      <AccuracyShort>1.1</AccuracyShort>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!-- Ammo -->
   <WeaponTraitDef>
     <defName>CWF_Trait_HeavyRounds</defName>
     <label>vertical grip</label>
