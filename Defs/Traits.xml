@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+  <!-- Barrel -->
   <WeaponTraitDef>
     <defName>CWF_Trait_ExtendedBarrel</defName>
     <label>extended barrel</label>
@@ -23,6 +24,7 @@
     </statOffsets>
   </WeaponTraitDef>
 
+  <!-- Receiver -->
   <WeaponTraitDef>
     <defName>CWF_Trait_RapidReceiver</defName>
     <label>rapid receiver</label>
@@ -34,6 +36,7 @@
     <burstShotSpeedMultiplier>2</burstShotSpeedMultiplier>
   </WeaponTraitDef>
 
+  <!-- Trigger -->
   <WeaponTraitDef>
     <defName>CWF_Trait_RapidTrigger</defName>
     <label>rapid trigger</label>
@@ -45,6 +48,7 @@
     <burstShotSpeedMultiplier>1.5</burstShotSpeedMultiplier>
   </WeaponTraitDef>
 
+  <!-- Stock -->
   <WeaponTraitDef>
     <defName>CWF_Trait_TelescopicStock</defName>
     <label>telescopic stock</label>
@@ -58,6 +62,7 @@
     </statFactors>
   </WeaponTraitDef>
 
+  <!-- Grip -->
   <WeaponTraitDef>
     <defName>CWF_Trait_CustomGrip</defName>
     <label>custom grip</label>
@@ -73,6 +78,22 @@
   </WeaponTraitDef>
 
   <!-- Sight -->
+  <WeaponTraitDef>
+    <defName>CWF_Module_IronSight</defName>
+    <label>custom grip</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.2</AccuracyTouch>
+      <AccuracyShort>1.2</AccuracyShort>
+      <AccuracyMedium>1.2</AccuracyMedium>
+      <AccuracyLong>1.2</AccuracyLong>
+    </statFactors>
+  </WeaponTraitDef>
+
   <WeaponTraitDef>
     <defName>CWF_Trait_Holoscope</defName>
     <label>custom grip</label>

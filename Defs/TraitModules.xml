@@ -234,6 +234,37 @@
   <!-- #endregion -->
 
   <!-- #region Sight -->
+  <!-- > IronSight -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_IronSight</defName>
+    <label>iron sight</label>
+    <description>iron sight moduel.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_IronSight</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_IronSight</weaponTraitDef>
+        <part>Sight</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/IronSight/IronSight</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/IronSight/IronSight_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
   <!-- > Holoscope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_Holoscope</defName>
