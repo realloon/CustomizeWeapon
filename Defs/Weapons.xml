@@ -64,7 +64,7 @@
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Barrel</texturePath>
               <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Barrel_o</outlinePath>
             </baseTexture>
-            <offset>(0, 0)</offset>
+            <offset>(257, 145)</offset>
             <layer>20</layer>
           </li>
           <li>
