@@ -152,6 +152,9 @@
           <li>Magazine</li>
           <li>Ammo</li>
         </supportParts>
+        <defaultWeaponTraitDefs>
+          <li>CWF_Trait_8xScope</li>
+        </defaultWeaponTraitDefs>
       </li>
       <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
         <attachmentPoints>

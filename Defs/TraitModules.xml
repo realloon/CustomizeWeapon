@@ -295,7 +295,7 @@
         <offsets>
           <li>
             <weaponDef>CWF_Gun_SniperRifle</weaponDef>
-            <offset>(0, 8)</offset>
+            <offset>(0, 1)</offset>
           </li>
         </offsets>
       </li>
