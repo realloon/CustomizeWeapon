@@ -292,6 +292,12 @@
           <texturePath>CustomizeWeapon/Modules/Holoscope/Holoscope</texturePath>
           <outlinePath>CustomizeWeapon/Modules/Holoscope/Holoscope_o</outlinePath>
         </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_SniperRifle</weaponDef>
+            <offset>(0, 8)</offset>
+          </li>
+        </offsets>
       </li>
     </modExtensions>
   </ThingDef>
@@ -327,6 +333,7 @@
     </modExtensions>
   </ThingDef>
 
+  <!-- > 2xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_2xScope</defName>
     <label>2x scope module</label>
@@ -352,6 +359,37 @@
         <texture>
           <texturePath>CustomizeWeapon/Modules/2xScope/2xScope</texturePath>
           <outlinePath>CustomizeWeapon/Modules/2xScope/2xScope_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > 8xScope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_8xScope</defName>
+    <label>8x scope</label>
+    <description>8x scope module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_8xScope</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_8xScope</weaponTraitDef>
+        <part>Sight</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/8xScope/8xScope</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/8xScope/8xScope_o</outlinePath>
         </texture>
       </li>
     </modExtensions>

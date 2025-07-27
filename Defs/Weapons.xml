@@ -151,8 +151,69 @@
           <li>Sight</li>
           <li>Magazine</li>
           <li>Ammo</li>
-
         </supportParts>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
+        <attachmentPoints>
+          <li>
+            <part>Receiver</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/SniperRifle/Receiver</texturePath>
+            </baseTexture>
+            <offset>(0, 0)</offset>
+            <layer>0</layer>
+          </li>
+          <li>
+            <part>Sight</part>
+            <offset>(102, 147)</offset>
+            <layer>30</layer>
+          </li>
+          <li>
+            <part>Barrel</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/SniperRifle/Barrel</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Barrel_o</outlinePath>
+            </baseTexture>
+            <offset>(81, -4)</offset>
+            <layer>20</layer>
+          </li>
+          <!-- <li>
+            <part>Grip</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/SniperRifle/Grip</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Grip_o</outlinePath>
+            </baseTexture>
+            <offset>(31, 76)</offset>
+            <layer>20</layer>
+          </li> -->
+          <!-- <li>
+            <part>Magazine</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/SniperRifle/Magazine</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Magazine_o</outlinePath>
+            </baseTexture>
+            <offset>(0, 0)</offset>
+            <layer>20</layer>
+          </li> -->
+          <li>
+            <part>Stock</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/SniperRifle/Stock</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Stock_o</outlinePath>
+            </baseTexture>
+            <offset>(-61, 95)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Underbarrel</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/SniperRifle/Underbarrel</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Underbarrel_o</outlinePath>
+            </baseTexture>
+            <offset>(191, 102)</offset>
+            <layer>25</layer>
+          </li>
+        </attachmentPoints>
       </li>
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
