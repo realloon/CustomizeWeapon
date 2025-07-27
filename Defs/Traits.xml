@@ -79,7 +79,7 @@
 
   <!-- Sight -->
   <WeaponTraitDef>
-    <defName>CWF_Module_IronSight</defName>
+    <defName>CWF_Trait_IronSight</defName>
     <label>custom grip</label>
     <description>.</description>
     <commonality>1</commonality>
