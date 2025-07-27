@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="Gun_AssaultRifle">
+    <defName>CWF_Gun_AssaultRifle</defName>
+    <label>customized assault rifle</label>
+    <description>An assault rifle with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_AssaultRifle</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/AssaultRifle/AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Underbarrel</li>
+          <li>Ammo</li>
+        </supportParts>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
+        <attachmentPoints>
+          <li>
+            <part>Receiver</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Receiver</texturePath>
+            </baseTexture>
+            <offset>(0, 0)</offset>
+            <layer>0</layer>
+          </li>
+          <li>
+            <part>Sight</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Sight</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Sight_o</outlinePath>
+            </baseTexture>
+            <offset>(77, 175)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Barrel</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Barrel</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Barrel_o</outlinePath>
+            </baseTexture>
+            <offset>(0, 0)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Grip</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Grip</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Grip_o</outlinePath>
+            </baseTexture>
+            <offset>(31, 76)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Magazine</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Magazine</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Magazine_o</outlinePath>
+            </baseTexture>
+            <offset>(119, 66)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Stock</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Stock</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Stock_o</outlinePath>
+            </baseTexture>
+            <offset>(-35, 129)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Underbarrel</part>
+            <offset>(206, 90)</offset>
+            <layer>2</layer>
+          </li>
+        </attachmentPoints>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_SniperRifle">
+    <defName>CWF_Gun_SniperRifle</defName>
+    <label>customized sniper rifle</label>
+    <description>A sniper rifle with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_SniperRifle</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/SniperRifle/SniperRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_Revolver">
+    <defName>CWF_Gun_Revolver</defName>
+    <label>customized revolver</label>
+    <description>A revolver with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_Revolver</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/Revolver/Revolver</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_BoltActionRifle">
+    <defName>CWF_Gun_BoltActionRifle</defName>
+    <label>customized bolt-action rifle</label>
+    <description>A bolt-action rifle with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_BoltActionRifle</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/BoltActionRifle/BoltActionRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_ChainShotgun">
+    <defName>CWF_Gun_ChainShotgun</defName>
+    <label>customized chain shotgun</label>
+    <description>A chain shotgun with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_ChainShotgun</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/ChainShotgun/ChainShotgun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_HeavySMG">
+    <defName>CWF_Gun_HeavySMG</defName>
+    <label>customized heavy SMG</label>
+    <description>A heavy SMG with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_HeavySMG</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/HeavySMG/HeavySMG</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_LMG">
+    <defName>CWF_Gun_LMG</defName>
+    <label>customized LMG</label>
+    <description>A LMG with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_LMG</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/LMG/LMG</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_Minigun">
+    <defName>CWF_Gun_Minigun</defName>
+    <label>customized minigun</label>
+    <description>A minigun with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_Minigun</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/Minigun/Minigun</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Bow_Great">
+    <defName>CWF_Bow_Great</defName>
+    <label>customized greatbow</label>
+    <description>A greatbow with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Bow_Great</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/GreatBow/GreatBow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_ChargeRifle">
+    <defName>CWF_Gun_ChargeRifle</defName>
+    <label>customized charge rifle</label>
+    <description>A charge rifle with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_ChargeRifle</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/ChargeRifle/ChargeRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_ChargeLance">
+    <defName>CWF_Gun_ChargeLance</defName>
+    <label>customized charge lance</label>
+    <description>A charge lance with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_ChargeLance</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/ChargeLance/ChargeLance</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_HellcatRifle" MayRequire="Ludeon.Rimworld.Anomaly">
+    <defName>CWF_Gun_HellcatRifle</defName>
+    <label>customized hellcat rifle</label>
+    <description>A hellcat rifle with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_HellcatRifle</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/HellcatRifle/HellcatRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_BeamRepeater">
+    <defName>CWF_Gun_BeamRepeater</defName>
+    <label>customized beam repeatere</label>
+    <description>A beam repeater with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_BeamRepeater</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/BeamRepeater/BeamRepeater</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+
+        </supportParts>
+      </li>
+
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
+    <!-- <weaponTags Inherit="False" /> -->
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+</Defs>

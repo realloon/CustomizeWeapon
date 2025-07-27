@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LanguageData>
+    <CWF_Trait_ExtendedBarrel.label>长枪管</CWF_Trait_ExtendedBarrel.label>
+    <CWF_Trait_ExtendedBarrel.description>长枪管……</CWF_Trait_ExtendedBarrel.description>
+
+    <CWF_Trait_ShortenedBarrel.label>短枪管</CWF_Trait_ShortenedBarrel.label>
+    <CWF_Trait_ShortenedBarrel.description>短枪管……</CWF_Trait_ShortenedBarrel.description>
+
+    <CWF_Trait_RapidReceiver.label>快速机匣</CWF_Trait_RapidReceiver.label>
+    <CWF_Trait_RapidReceiver.description>快速机匣……</CWF_Trait_RapidReceiver.description>
+
+    <CWF_Trait_RapidTrigger.label>高速扳机</CWF_Trait_RapidTrigger.label>
+    <CWF_Trait_RapidTrigger.description>高速扳机……</CWF_Trait_RapidTrigger.description>
+
+    <CWF_Trait_ExtendedBarrel.label>拓展弹匣</CWF_Trait_ExtendedBarrel.label>
+    <CWF_Trait_ExtendedBarrel.description>拓展弹匣……</CWF_Trait_ExtendedBarrel.description>
+
+    <CWF_Trait_TelescopicStock.label>折叠枪托</CWF_Trait_TelescopicStock.label>
+    <CWF_Trait_TelescopicStock.description>折叠枪托……</CWF_Trait_TelescopicStock.description>
+
+    <CWF_Trait_CustomGrip.label>定制握把</CWF_Trait_CustomGrip.label>
+    <CWF_Trait_CustomGrip.description>定制握把……</CWF_Trait_CustomGrip.description>
+
+    <CWF_Trait_Holoscope.label>全息瞄具</CWF_Trait_Holoscope.label>
+    <CWF_Trait_Holoscope.description>全息瞄具……</CWF_Trait_Holoscope.description>
+
+    <CWF_Trait_RepidMagazine.label>快速弹匣</CWF_Trait_RepidMagazine.label>
+    <CWF_Trait_RepidMagazine.description>快速弹匣……</CWF_Trait_RepidMagazine.description>
+
+    <CWF_Trait_ExtendedMagazine.label>拓展弹匣</CWF_Trait_ExtendedMagazine.label>
+    <CWF_Trait_ExtendedMagazine.description>拓展弹匣……</CWF_Trait_ExtendedMagazine.description>
+
+    <CWF_Trait_ExtendedBarrel.label>拓展弹匣</CWF_Trait_ExtendedBarrel.label>
+    <CWF_Trait_ExtendedBarrel.description>拓展弹匣……</CWF_Trait_ExtendedBarrel.description>
+
+    <CWF_Trait_VerticalGrip.label>垂直握把</CWF_Trait_VerticalGrip.label>
+    <CWF_Trait_VerticalGrip.description>垂直握把……</CWF_Trait_VerticalGrip.description>
+
+    <CWF_Trait_HeavyRounds.label>重型子弹</CWF_Trait_HeavyRounds.label>
+    <CWF_Trait_HeavyRounds.description>重型子弹……</CWF_Trait_HeavyRounds.description>
+</LanguageData>

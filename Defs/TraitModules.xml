@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Name="CWF_TraitModule" Abstract="True">
+    <thingClass>Thing</thingClass>
+    <category>Item</category>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <selectable>true</selectable>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.7</drawSize>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Mass>0.2</Mass>
+      <Flammability>0.2</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+      <MarketValue>150</MarketValue>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <recipeUsers>
+        <li>TableMachining</li> <!-- tmp -->
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+      <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    </recipeMaker>
+    <altitudeLayer>Item</altitudeLayer>
+    <stackLimit>1</stackLimit>
+    <thingCategories>
+      <li>CWF_TraitModules</li>
+    </thingCategories>
+    <alwaysHaulable>true</alwaysHaulable>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <rotatable>false</rotatable>
+    <pathCost>14</pathCost>
+  </ThingDef>
+
+  <!-- #region Muzzle -->
+  <!-- #endregion -->
+
+  <!-- #region Barrel -->
+  <!-- > ExtendedBarrel -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ExtendedBarrel</defName>
+    <label>extended barrel module</label>
+    <description>A extended barrel.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ExtendedBarrel</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ExtendedBarrel</weaponTraitDef>
+        <part>Barrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > ShortenedBarrel -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ShortenedBarrel</defName>
+    <label>shortened barrel module</label>
+    <description>A shortened barrel.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ShortenedBarrel</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ShortenedBarrel</weaponTraitDef>
+        <part>Barrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/ShortenedBarrel/ShortenedBarrel</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/ShortenedBarrel/ShortenedBarrel_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Receiver -->
+  <!-- > RapidReceiver -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_RapidReceiver</defName>
+    <label>rapid receiver module</label>
+    <description>A rapid receiver.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_RapidReceiver</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_RapidReceiver</weaponTraitDef>
+        <part>Receiver</part>
+        <texture>
+          <!-- <texturePath>CustomizeWeapon/Modules/RapidReceiver</texturePath> -->
+          <!-- <outlinePath>CustomizeWeapon/Modules/RapidReceiver_o</outlinePath> -->
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Trigger -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_RapidTrigger</defName>
+    <label>rapid trigger module</label>
+    <description>A rapid trigger.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_RapidTrigger</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_RapidTrigger</weaponTraitDef>
+        <part>Trigger</part>
+        <texture>
+          <!-- <texturePath>CustomizeWeapon/Modules/Trigger</texturePath> -->
+          <!-- <outlinePath>CustomizeWeapon/Modules/Trigger_o</outlinePath> -->
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Stock -->
+  <!-- > TelescopicStock -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_TelescopicStock</defName>
+    <label>telescopic stock module</label>
+    <description>A telescopic stock.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_TelescopicStock</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_TelescopicStock</weaponTraitDef>
+        <part>Stock</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Grip -->
+  <!-- > CustomGrip -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_CustomGrip</defName>
+    <label>custom grip module</label>
+    <description>A custom grip.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_CustomGrip</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_CustomGrip</weaponTraitDef>
+        <part>Grip</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/CustomGrip/CustomGrip</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/CustomGrip/CustomGrip_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Sight -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_Holoscope</defName>
+    <label>holoscope module</label>
+    <description>holoscope.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
+        <part>Sight</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/ScopSight/ScopSight</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/ScopSight/ScopSight_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Magazine -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_RepidMagazine</defName>
+    <label>custom repid magazine module</label>
+    <description>A repid magazine.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_RepidMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_RepidMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ExtendedMagazine</defName>
+    <label>custom extended magazine module</label>
+    <description>A extended magazine Magazine.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ExtendedMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ExtendedMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Underbarrel -->
+  <!-- > VerticalGrip -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_VerticalGrip</defName>
+    <label>vertical grip module</label>
+    <description>A repid magazine.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_VerticalGrip</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_VerticalGrip</weaponTraitDef>
+        <part>Underbarrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  <!-- #endregion -->
+
+  <!-- #region Ammo -->
+  <!-- > HeavyRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_HeavyRounds</defName>
+    <label>heavy rounds module</label>
+    <description>use heavy rounds.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_HeavyRounds</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_HeavyRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <texture>
+          <!-- <texturePath>CustomizeWeapon/Modules/Sight</texturePath> -->
+          <!-- <outlinePath>CustomizeWeapon/Modules/Sight_o</outlinePath> -->
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > IncendiaryPellets -->
+  <!-- <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_IncendiaryPellets</defName>
+    <label>hollow point pellets module</label>
+    <description>use hollow pellets.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_IncendiaryPellets</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>  
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_IncendiaryPellets</weaponTraitDef>
+        <part>Ammo</part>
+        <texture>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef> -->
+
+  <!-- > ToxPellets -->
+  <!-- <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ToxPellets</defName>
+    <label>tox pellets module</label>
+    <description>use tox pellets.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ToxPellets</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> 
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ToxPellets</weaponTraitDef>
+        <part>Ammo</part>
+        <texture>
+
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef> -->
+  <!-- #endregion -->
+
+  <!-- #region accessories -->
+  <!-- #endregion -->
+</Defs>

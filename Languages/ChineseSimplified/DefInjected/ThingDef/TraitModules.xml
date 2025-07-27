@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LanguageData>
+    <CWF_Module_ExtendedBarrel.label>长枪管</CWF_Module_ExtendedBarrel.label>
+    <CWF_Module_ExtendedBarrel.description>长枪管模块</CWF_Module_ExtendedBarrel.description>
+
+    <CWF_Module_ShortenedBarrel.label>短枪管</CWF_Module_ShortenedBarrel.label>
+    <CWF_Module_ShortenedBarrel.description>短枪管模块</CWF_Module_ShortenedBarrel.description>
+
+    <CWF_Module_RapidReceiver.label>高速机匣</CWF_Module_RapidReceiver.label>
+    <CWF_Module_RapidReceiver.description>高速机匣模块</CWF_Module_RapidReceiver.description>
+
+    <CWF_Module_RapidTrigger.label>快速扳机</CWF_Module_RapidTrigger.label>
+    <CWF_Module_RapidTrigger.description>快速扳机模块</CWF_Module_RapidTrigger.description>
+
+    <CWF_Module_TelescopicStock.label>折叠枪托</CWF_Module_TelescopicStock.label>
+    <CWF_Module_TelescopicStock.description>折叠枪托模块</CWF_Module_TelescopicStock.description>
+
+    <CWF_Module_CustomGrip.label>定制握把</CWF_Module_CustomGrip.label>
+    <CWF_Module_CustomGrip.description>定制握把模块</CWF_Module_CustomGrip.description>
+
+    <CWF_Module_Holoscope.label>全息瞄具</CWF_Module_Holoscope.label>
+    <CWF_Module_Holoscope.description>全息瞄具模块</CWF_Module_Holoscope.description>
+
+    <CWF_Module_RepidMagazine.label>快速弹匣</CWF_Module_RepidMagazine.label>
+    <CWF_Module_RepidMagazine.description>快速弹匣模块</CWF_Module_RepidMagazine.description>
+
+    <CWF_Module_ExtendedMagazine.label>拓展弹匣</CWF_Module_ExtendedMagazine.label>
+    <CWF_Module_ExtendedMagazine.description>拓展弹匣模块</CWF_Module_ExtendedMagazine.description>
+
+    <CWF_Module_VerticalGrip.label>垂直握把</CWF_Module_VerticalGrip.label>
+    <CWF_Module_VerticalGrip.description>垂直握把模块</CWF_Module_VerticalGrip.description>
+
+    <CWF_Module_HeavyRounds.label>重型子弹</CWF_Module_HeavyRounds.label>
+    <CWF_Module_HeavyRounds.description>重型子弹</CWF_Module_HeavyRounds.description>
+
+    <!-- <CWF_Module_IncendiaryPellets.label>燃烧霰弹</CWF_Module_IncendiaryPellets.label>
+    <CWF_Module_IncendiaryPellets.description>燃烧霰弹</CWF_Module_IncendiaryPellets.description>
+
+    <CWF_Module_ToxPellets.label>涂毒霰弹</CWF_Module_ToxPellets.label>
+    <CWF_Module_ToxPellets.description>涂毒霰弹</CWF_Module_ToxPellets.description> -->
+</LanguageData>
