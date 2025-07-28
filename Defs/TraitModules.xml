@@ -177,7 +177,7 @@
       <weaponTraitDef>CWF_Trait_TelescopicStock</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
-      <texPath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock</texPath> <!-- tmp tex -->
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
@@ -397,6 +397,7 @@
   <!-- #endregion -->
 
   <!-- #region Magazine -->
+  <!-- > RepidMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_RepidMagazine</defName>
     <label>custom repid magazine module</label>
@@ -405,7 +406,7 @@
       <weaponTraitDef>CWF_Trait_RepidMagazine</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
-      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
@@ -427,6 +428,7 @@
     </modExtensions>
   </ThingDef>
 
+  <!-- > ExtendedMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ExtendedMagazine</defName>
     <label>custom extended magazine module</label>
@@ -435,7 +437,7 @@
       <weaponTraitDef>CWF_Trait_ExtendedMagazine</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
-      <texPath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine</texPath> <!-- tmp tex -->
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
@@ -468,7 +470,7 @@
       <weaponTraitDef>CWF_Trait_VerticalGrip</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
-      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
@@ -498,7 +500,7 @@
       <weaponTraitDef>CWF_Trait_TriangularGrip</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
-      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
@@ -528,7 +530,7 @@
       <weaponTraitDef>CWF_Trait_AimAssistance</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
-      <texPath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texPath> <!-- tmp tex -->
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
