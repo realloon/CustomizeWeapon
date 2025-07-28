@@ -1,4 +1,6 @@
 Assemblies/
-Textures/
+
+Textures/*
+!Textures/LICENSE-ART.txt
 
 tmp/
