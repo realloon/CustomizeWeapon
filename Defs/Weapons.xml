@@ -104,6 +104,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_AssaultRifle</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -221,6 +226,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_SniperRifle</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -275,6 +285,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_Revolver</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -329,6 +344,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_BoltActionRifle</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -382,6 +402,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_ChainShotgun</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -436,6 +461,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_HeavySMG</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -490,6 +520,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_LMG</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -544,6 +579,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_Minigun</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -590,6 +630,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Bow_Great</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -644,6 +689,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_ChargeRifle</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -698,6 +748,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_ChargeLance</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -752,6 +807,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_HellcatRifle</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>
@@ -805,6 +865,11 @@
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_BeamRepeater</baseWeaponDef>
+      </li>
+    </modExtensions>
     <thingCategories Inherit="False">
       <li>CWF_CustomizedWeapons</li>
     </thingCategories>

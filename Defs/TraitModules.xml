@@ -21,7 +21,7 @@
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
       <workSkill>Crafting</workSkill>
       <recipeUsers>
-        <li>TableMachining</li> <!-- tmp -->
+        <li>CWF_Workbench</li>
       </recipeUsers>
       <skillRequirements>
         <Crafting>5</Crafting>
