@@ -295,7 +295,7 @@
         <offsets>
           <li>
             <weaponDef>CWF_Gun_SniperRifle</weaponDef>
-            <offset>(0, 1)</offset>
+            <offset>(102, 148)</offset>
           </li>
         </offsets>
       </li>
@@ -489,6 +489,149 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+  <!-- > PanMagazine -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_PanMagazine</defName>
+    <label>pan magazine module</label>
+    <description>A pan magazine.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_PanMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_PanMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/PanMagazine/PanMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/PanMagazine/PanMagazine_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > beltMagazine -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_beltMagazine</defName>
+    <label>belt magazine module</label>
+    <description>A belt magazine.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_beltMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_beltMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/beltMagazine/beltMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/beltMagazine/beltMagazine_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_LMG</weaponDef>
+            <offset>(108, 104)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > LMGRepidMagazine -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_LMGRepidMagazine</defName>
+    <label>LMG repid magazine</label>
+    <description>A LMG repid magazine module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_LMGRepidMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_LMGRepidMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_LMG</weaponDef>
+            <offset>(69, 206)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > DrumMagazine -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_DrumMagazine</defName>
+    <label>drum magazine magazine</label>
+    <description>A drum magazine module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_DrumMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_DrumMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/DrumMagazine/DrumMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/DrumMagazine/DrumMagazine_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_LMG</weaponDef>
+            <offset>(95, 103)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
   <!-- #endregion -->
 
   <!-- #region Underbarrel -->

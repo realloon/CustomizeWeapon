@@ -533,8 +533,54 @@
           <li>Ammo</li>
 
         </supportParts>
+        <defaultWeaponTraitDefs>
+          <li>CWF_Trait_PanMagazine</li>
+        </defaultWeaponTraitDefs>
       </li>
-
+      <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
+        <attachmentPoints>
+          <li>
+            <part>Receiver</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/LMG/Receiver</texturePath>
+            </baseTexture>
+            <offset>(0, 0)</offset>
+            <layer>0</layer>
+          </li>
+          <li>
+            <part>Barrel</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/LMG/Barrel</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/LMG/Barrel_o</outlinePath>
+            </baseTexture>
+            <offset>(239, 134)</offset>
+            <layer>5</layer>
+          </li>
+          <li>
+            <part>Magazine</part>
+            <offset>(85, 167)</offset>
+            <layer>30</layer>
+          </li>
+          <li>
+            <part>Stock</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/LMG/Stock</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/LMG/Stock_o</outlinePath>
+            </baseTexture>
+            <offset>(-62, 124)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Grip</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/LMG/Grip</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/LMG/Grip_o</outlinePath>
+            </baseTexture>
+            <offset>(18, 81)</offset>
+            <layer>20</layer>
+          </li>
+        </attachmentPoints>
+      </li>
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>

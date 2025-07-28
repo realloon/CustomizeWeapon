@@ -142,7 +142,7 @@
     </statFactors>
   </WeaponTraitDef>
 
-    <WeaponTraitDef>
+  <WeaponTraitDef>
     <defName>CWF_Trait_4xScope</defName>
     <label>2x scope</label>
     <description>.</description>
@@ -191,6 +191,50 @@
   <WeaponTraitDef>
     <defName>CWF_Trait_ExtendedMagazine</defName>
     <label>extended magazine</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_PanMagazine</defName>
+    <label>pan magazine</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_beltMagazine</defName>
+    <label>belt magazine</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_LMGRepidMagazine</defName>
+    <label>LMG repid magazine</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_DrumMagazine</defName>
+    <label>LMG repid magazine</label>
     <description>.</description>
     <commonality>1</commonality>
     <statOffsets>
