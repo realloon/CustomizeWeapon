@@ -31,6 +31,9 @@
     <CWF_Module_2xScope.label>二倍光学瞄具</CWF_Module_2xScope.label>
     <CWF_Module_2xScope.description>二倍光学瞄具模块</CWF_Module_2xScope.description>
 
+    <CWF_Module_4xScope.label>四倍光学瞄具</CWF_Module_4xScope.label>
+    <CWF_Module_4xScope.description>四倍光学瞄具模块</CWF_Module_4xScope.description>
+
     <CWF_Module_8xScope.label>八倍光学瞄具</CWF_Module_8xScope.label>
     <CWF_Module_8xScope.description>八倍光学瞄具模块</CWF_Module_8xScope.description>
 

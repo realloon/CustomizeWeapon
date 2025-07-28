@@ -364,6 +364,37 @@
     </modExtensions>
   </ThingDef>
 
+  <!-- > 4xScope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_4xScope</defName>
+    <label>4x scope module</label>
+    <description>4x scope.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_4xScope</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_4xScope</weaponTraitDef>
+        <part>Sight</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Weapons/BoltActionRifle/Sight</texturePath>
+          <outlinePath>CustomizeWeapon/Weapons/BoltActionRifle/Sight_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
   <!-- > 8xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_8xScope</defName>

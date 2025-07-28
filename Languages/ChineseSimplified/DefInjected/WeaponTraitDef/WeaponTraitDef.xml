@@ -19,6 +19,21 @@
     <CWF_Trait_CustomGrip.label>定制握把</CWF_Trait_CustomGrip.label>
     <CWF_Trait_CustomGrip.description>定制握把……</CWF_Trait_CustomGrip.description>
 
+    <CWF_Trait_IronSight.label>机械瞄具</CWF_Trait_IronSight.label>
+    <CWF_Trait_IronSight.description>机械瞄具……</CWF_Trait_IronSight.description>
+
+    <CWF_Trait_RedDotScope.label>红点瞄具</CWF_Trait_RedDotScope.label>
+    <CWF_Trait_RedDotScope.description>红点瞄具……</CWF_Trait_RedDotScope.description>
+
+    <CWF_Trait_2xScope.label>二倍光学瞄具</CWF_Trait_2xScope.label>
+    <CWF_Trait_2xScope.description>二倍光学瞄具……</CWF_Trait_2xScope.description>
+
+    <CWF_Trait_4xScope.label>四倍光学瞄具</CWF_Trait_4xScope.label>
+    <CWF_Trait_4xScope.description>四倍光学瞄具……</CWF_Trait_4xScope.description>
+
+    <CWF_Trait_8xScope.label>八倍光学瞄具</CWF_Trait_8xScope.label>
+    <CWF_Trait_8xScope.description>八倍光学瞄具……</CWF_Trait_8xScope.description>
+
     <CWF_Trait_Holoscope.label>全息瞄具</CWF_Trait_Holoscope.label>
     <CWF_Trait_Holoscope.description>全息瞄具……</CWF_Trait_Holoscope.description>
 

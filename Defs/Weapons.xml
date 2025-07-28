@@ -337,10 +337,28 @@
           <li>Sight</li>
           <li>Magazine</li>
           <li>Ammo</li>
-
         </supportParts>
+        <defaultWeaponTraitDefs>
+          <li>CWF_Trait_4xScope</li>
+        </defaultWeaponTraitDefs>
       </li>
-
+      <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
+        <attachmentPoints>
+          <li>
+            <part>Receiver</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/BoltActionRifle/Receiver</texturePath>
+            </baseTexture>
+            <offset>(0, 0)</offset>
+            <layer>0</layer>
+          </li>
+          <li>
+            <part>Sight</part>
+            <offset>(88, 152)</offset>
+            <layer>30</layer>
+          </li>
+        </attachmentPoints>
+      </li>
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
