@@ -88,7 +88,6 @@
     <effectWorking>Smith</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
     <allowMixingIngredients>false</allowMixingIngredients>
-
     <ingredients>
       <li>
         <filter>
@@ -107,7 +106,6 @@
         <count>1</count>
       </li>
     </ingredients>
-
     <fixedIngredientFilter>
       <thingDefs>
         <li>Gun_AssaultRifle</li>

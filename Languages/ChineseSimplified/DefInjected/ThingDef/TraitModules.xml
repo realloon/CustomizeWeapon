@@ -19,8 +19,20 @@
     <CWF_Module_CustomGrip.label>定制握把</CWF_Module_CustomGrip.label>
     <CWF_Module_CustomGrip.description>定制握把模块</CWF_Module_CustomGrip.description>
 
+    <CWF_Module_IronSight.label>机械瞄具</CWF_Module_IronSight.label>
+    <CWF_Module_IronSight.description>机械瞄具模块</CWF_Module_IronSight.description>
+
     <CWF_Module_Holoscope.label>全息瞄具</CWF_Module_Holoscope.label>
     <CWF_Module_Holoscope.description>全息瞄具模块</CWF_Module_Holoscope.description>
+
+    <CWF_Module_RedDotScope.label>红点瞄具</CWF_Module_RedDotScope.label>
+    <CWF_Module_RedDotScope.description>红点瞄具模块</CWF_Module_RedDotScope.description>
+
+    <CWF_Module_2xScope.label>二倍光学瞄具</CWF_Module_2xScope.label>
+    <CWF_Module_2xScope.description>二倍光学瞄具模块</CWF_Module_2xScope.description>
+
+    <CWF_Module_8xScope.label>八倍光学瞄具</CWF_Module_8xScope.label>
+    <CWF_Module_8xScope.description>八倍光学瞄具模块</CWF_Module_8xScope.description>
 
     <CWF_Module_RepidMagazine.label>快速弹匣</CWF_Module_RepidMagazine.label>
     <CWF_Module_RepidMagazine.description>快速弹匣模块</CWF_Module_RepidMagazine.description>
@@ -30,6 +42,12 @@
 
     <CWF_Module_VerticalGrip.label>垂直握把</CWF_Module_VerticalGrip.label>
     <CWF_Module_VerticalGrip.description>垂直握把模块</CWF_Module_VerticalGrip.description>
+
+    <CWF_Module_TriangularGrip.label>三角握把</CWF_Module_TriangularGrip.label>
+    <CWF_Module_TriangularGrip.description>三角握把模块</CWF_Module_TriangularGrip.description>
+
+    <CWF_Module_AimAssistance.label>辅瞄器</CWF_Module_AimAssistance.label>
+    <CWF_Module_AimAssistance.description>辅瞄器模块</CWF_Module_AimAssistance.description>
 
     <CWF_Module_HeavyRounds.label>重型子弹</CWF_Module_HeavyRounds.label>
     <CWF_Module_HeavyRounds.description>重型子弹</CWF_Module_HeavyRounds.description>
