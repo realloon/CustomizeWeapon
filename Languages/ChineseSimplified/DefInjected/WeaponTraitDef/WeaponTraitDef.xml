@@ -7,6 +7,15 @@
     <CWF_Trait_ShortenedBarrel.label>短枪管</CWF_Trait_ShortenedBarrel.label>
     <CWF_Trait_ShortenedBarrel.description>短枪管……</CWF_Trait_ShortenedBarrel.description>
 
+    <CWF_Trait_LMGExtendedBarrel.label>轻机枪长枪管</CWF_Trait_LMGExtendedBarrel.label>
+    <CWF_Trait_LMGExtendedBarrel.description>轻机枪长枪管模块</CWF_Trait_LMGExtendedBarrel.description>
+
+    <CWF_Trait_LMGShortenedBarrel.label>轻机枪短枪管</CWF_Trait_LMGShortenedBarrel.label>
+    <CWF_Trait_LMGShortenedBarrel.description>轻机枪短枪管模块</CWF_Trait_LMGShortenedBarrel.description>
+
+    <CWF_Trait_LMGTacticalBarrel.label>轻机枪战术枪管</CWF_Trait_LMGTacticalBarrel.label>
+    <CWF_Trait_LMGTacticalBarrel.label>轻机枪战术枪管模块</CWF_Trait_LMGTacticalBarrel.label>
+
     <CWF_Trait_RapidReceiver.label>快速机匣</CWF_Trait_RapidReceiver.label>
     <CWF_Trait_RapidReceiver.description>快速机匣……</CWF_Trait_RapidReceiver.description>
 

@@ -7,6 +7,15 @@
     <CWF_Module_ShortenedBarrel.label>短枪管</CWF_Module_ShortenedBarrel.label>
     <CWF_Module_ShortenedBarrel.description>短枪管模块</CWF_Module_ShortenedBarrel.description>
 
+    <CWF_Module_LMGExtendedBarrel.label>轻机枪长枪管</CWF_Module_LMGExtendedBarrel.label>
+    <CWF_Module_LMGExtendedBarrel.description>轻机枪长枪管模块</CWF_Module_LMGExtendedBarrel.description>
+
+    <CWF_Module_LMGShortenedBarrel.label>轻机枪短枪管</CWF_Module_LMGShortenedBarrel.label>
+    <CWF_Module_LMGShortenedBarrel.description>轻机枪短枪管模块</CWF_Module_LMGShortenedBarrel.description>
+
+    <CWF_Module_LMGTacticalBarrel.label>轻机枪战术枪管</CWF_Module_LMGTacticalBarrel.label>
+    <CWF_Module_LMGTacticalBarrel.label>轻机枪战术枪管模块</CWF_Module_LMGTacticalBarrel.label>
+
     <CWF_Module_RapidReceiver.label>高速机匣</CWF_Module_RapidReceiver.label>
     <CWF_Module_RapidReceiver.description>高速机匣模块</CWF_Module_RapidReceiver.description>
 

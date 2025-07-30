@@ -104,6 +104,117 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+  <!-- > LMGExtendedBarrel -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_LMGExtendedBarrel</defName>
+    <label>LMG extended barrel</label>
+    <description>A LMG extended barrel module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_LMGExtendedBarrel</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_LMGExtendedBarrel</weaponTraitDef>
+        <part>Barrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/LMGExtendedBarrel/LMGExtendedBarrel</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/LMGExtendedBarrel/LMGExtendedBarrel_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_LMG</weaponDef>
+            <offset>(239, 135)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > LMGShortenedBarrel -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_LMGShortenedBarrel</defName>
+    <label>shortened barrel module</label>
+    <description>A shortened barrel.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_LMGShortenedBarrel</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ShortenedBarrel</weaponTraitDef>
+        <part>Barrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/LMGShortenedBarrel/LMGShortenedBarrel</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/LMGShortenedBarrel/LMGShortenedBarrel_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_LMG</weaponDef>
+            <offset>(231, 133)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > LMGTacticalBarrel -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_LMGTacticalBarrel</defName>
+    <label>lMGTactical barrel</label>
+    <description>lMGTactical barrel module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_LMGTacticalBarrel</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_LMGTacticalBarrel</weaponTraitDef>
+        <part>Barrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/LMGTacticalBarrel/LMGTacticalBarrel</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/LMGTacticalBarrel/LMGTacticalBarrel_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_LMG</weaponDef>
+            <offset>(223, 134)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
   <!-- #endregion -->
 
   <!-- #region Receiver -->
@@ -195,6 +306,43 @@
           <texturePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock</texturePath>
           <outlinePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock_o</outlinePath>
         </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > LMGShortenedStock -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_LMGShortenedStock</defName>
+    <label>LMG shortened stock</label>
+    <description>LMG shortened stock module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_LMGShortenedStock</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_LMGShortenedStock</weaponTraitDef>
+        <part>Stock</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/LMGShortenedStock/LMGShortenedStock</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/LMGShortenedStock/LMGShortenedStock_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_LMG</weaponDef>
+            <offset>(-62, 128)</offset>
+          </li>
+        </offsets>
       </li>
     </modExtensions>
   </ThingDef>

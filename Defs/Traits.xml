@@ -24,6 +24,39 @@
     </statOffsets>
   </WeaponTraitDef>
 
+  <WeaponTraitDef>
+    <defName>CWF_Trait_LMGExtendedBarrel</defName>
+    <label>LMG extended barrel</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_LMGShortenedBarrel</defName>
+    <label>LMG shortened barrel</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+    <WeaponTraitDef>
+    <defName>CWF_Trait_LMGTacticalBarrel</defName>
+    <label>LMG tactical barrel</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
   <!-- Receiver -->
   <WeaponTraitDef>
     <defName>CWF_Trait_RapidReceiver</defName>
@@ -51,6 +84,19 @@
   <!-- Stock -->
   <WeaponTraitDef>
     <defName>CWF_Trait_TelescopicStock</defName>
+    <label>telescopic stock</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <Mass>0.9</Mass>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_LMGShortenedStock</defName>
     <label>telescopic stock</label>
     <description>.</description>
     <commonality>1</commonality>
