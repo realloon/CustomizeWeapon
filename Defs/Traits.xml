@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- Barrel -->
+  <!-- #region Barrel -->
+  <!-- ExtendedBarrel -->
   <WeaponTraitDef>
     <defName>CWF_Trait_ExtendedBarrel</defName>
     <label>extended barrel</label>
@@ -12,6 +13,7 @@
     </statOffsets>
   </WeaponTraitDef>
 
+  <!-- ShortenedBarrel -->
   <WeaponTraitDef>
     <defName>CWF_Trait_ShortenedBarrel</defName>
     <label>shortened barrel</label>
@@ -24,30 +26,9 @@
     </statOffsets>
   </WeaponTraitDef>
 
+  <!-- TacticalBarrel -->
   <WeaponTraitDef>
-    <defName>CWF_Trait_LMGExtendedBarrel</defName>
-    <label>LMG extended barrel</label>
-    <description>.</description>
-    <commonality>1</commonality>
-    <statOffsets>
-      <MarketValue>50</MarketValue>
-    </statOffsets>
-    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
-  </WeaponTraitDef>
-
-  <WeaponTraitDef>
-    <defName>CWF_Trait_LMGShortenedBarrel</defName>
-    <label>LMG shortened barrel</label>
-    <description>.</description>
-    <commonality>1</commonality>
-    <statOffsets>
-      <MarketValue>50</MarketValue>
-    </statOffsets>
-    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
-  </WeaponTraitDef>
-
-  <WeaponTraitDef>
-    <defName>CWF_Trait_LMGTacticalBarrel</defName>
+    <defName>CWF_Trait_TacticalBarrel</defName>
     <label>LMG tactical barrel</label>
     <description>.</description>
     <commonality>1</commonality>
@@ -56,18 +37,7 @@
     </statOffsets>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
-
-  <WeaponTraitDef>
-    <defName>CWF_Trait_ChainShortenedBarrel</defName>
-    <label>shortened barrel</label>
-    <description>.</description>
-    <commonality>1</commonality>
-    <statOffsets>
-      <MarketValue>50</MarketValue>
-      <RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
-      <RangedWeapon_RangeMultiplier>-0.2</RangedWeapon_RangeMultiplier>
-    </statOffsets>
-  </WeaponTraitDef>
+  <!-- #endregion -->
 
   <!-- Receiver -->
   <WeaponTraitDef>
@@ -108,7 +78,7 @@
   </WeaponTraitDef>
 
   <WeaponTraitDef>
-    <defName>CWF_Trait_LMGShortenedStock</defName>
+    <defName>CWF_Trait_ShortenedStock</defName>
     <label>telescopic stock</label>
     <description>.</description>
     <commonality>1</commonality>
@@ -282,17 +252,6 @@
   </WeaponTraitDef>
 
   <WeaponTraitDef>
-    <defName>CWF_Trait_LMGRepidMagazine</defName>
-    <label>LMG repid magazine</label>
-    <description>.</description>
-    <commonality>1</commonality>
-    <statOffsets>
-      <MarketValue>50</MarketValue>
-    </statOffsets>
-    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
-  </WeaponTraitDef>
-
-  <WeaponTraitDef>
     <defName>CWF_Trait_DrumMagazine</defName>
     <label>LMG repid magazine</label>
     <description>.</description>
@@ -301,30 +260,6 @@
       <MarketValue>50</MarketValue>
     </statOffsets>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
-  </WeaponTraitDef>
-
-  <WeaponTraitDef>
-    <defName>CWF_Trait_ChainExtendedMagazine</defName>
-    <label>extended magazine</label>
-    <description>.</description>
-    <commonality>1</commonality>
-    <statOffsets>
-      <MarketValue>50</MarketValue>
-    </statOffsets>
-    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
-  </WeaponTraitDef>
-
-  <WeaponTraitDef>
-    <defName>CWF_Trait_ChainRepidMagazine</defName>
-    <label>repid magazine</label>
-    <description>.</description>
-    <commonality>1</commonality>
-    <statOffsets>
-      <MarketValue>50</MarketValue>
-    </statOffsets>
-    <statFactors>
-      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
-    </statFactors>
   </WeaponTraitDef>
 
   <!-- Underbarrel -->

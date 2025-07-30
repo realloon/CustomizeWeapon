@@ -7,17 +7,8 @@
     <CWF_Trait_ShortenedBarrel.label>短枪管</CWF_Trait_ShortenedBarrel.label>
     <CWF_Trait_ShortenedBarrel.description>短枪管……</CWF_Trait_ShortenedBarrel.description>
 
-    <CWF_Trait_LMGExtendedBarrel.label>轻机枪长枪管</CWF_Trait_LMGExtendedBarrel.label>
-    <CWF_Trait_LMGExtendedBarrel.description>轻机枪长枪管模块</CWF_Trait_LMGExtendedBarrel.description>
-
-    <CWF_Trait_LMGShortenedBarrel.label>轻机枪短枪管</CWF_Trait_LMGShortenedBarrel.label>
-    <CWF_Trait_LMGShortenedBarrel.description>轻机枪短枪管模块</CWF_Trait_LMGShortenedBarrel.description>
-
-    <CWF_Trait_LMGTacticalBarrel.label>轻机枪战术枪管</CWF_Trait_LMGTacticalBarrel.label>
-    <CWF_Trait_LMGTacticalBarrel.description>轻机枪战术枪管模块</CWF_Trait_LMGTacticalBarrel.description>
-
-    <CWF_Trait_ChainShortenedBarrel.label>链式霰弹枪短枪管</CWF_Trait_ChainShortenedBarrel.label>
-    <CWF_Trait_ChainShortenedBarrel.description>链式霰弹枪短枪管模块</CWF_Trait_ChainShortenedBarrel.description>
+    <CWF_Trait_LMGTacticalBarrel.label>战术枪管</CWF_Trait_LMGTacticalBarrel.label>
+    <CWF_Trait_LMGTacticalBarrel.description>战术枪管模块</CWF_Trait_LMGTacticalBarrel.description>
 
     <CWF_Trait_RapidReceiver.label>快速机匣</CWF_Trait_RapidReceiver.label>
     <CWF_Trait_RapidReceiver.description>快速机匣……</CWF_Trait_RapidReceiver.description>
@@ -58,23 +49,11 @@
     <CWF_Trait_ExtendedMagazine.label>拓展弹匣</CWF_Trait_ExtendedMagazine.label>
     <CWF_Trait_ExtendedMagazine.description>拓展弹匣……</CWF_Trait_ExtendedMagazine.description>
 
-    <CWF_Trait_ExtendedMagazine.label>拓展弹匣</CWF_Trait_ExtendedMagazine.label>
-    <CWF_Trait_ExtendedMagazine.description>拓展弹匣……</CWF_Trait_ExtendedMagazine.description>
-
     <CWF_Trait_beltMagazine.label>链式弹匣</CWF_Trait_beltMagazine.label>
     <CWF_Trait_beltMagazine.description>链式弹匣……</CWF_Trait_beltMagazine.description>
 
-    <CWF_Trait_LMGRepidMagazine.label>轻机枪快速弹匣</CWF_Trait_LMGRepidMagazine.label>
-    <CWF_Trait_LMGRepidMagazine.description>轻机枪快速弹匣……</CWF_Trait_LMGRepidMagazine.description>
-
     <CWF_Trait_DrumMagazine.label>鼓式弹匣</CWF_Trait_DrumMagazine.label>
     <CWF_Trait_DrumMagazine.description>鼓式弹匣……</CWF_Trait_DrumMagazine.description>
-
-    <CWF_Trait_ChainExtendedMagazine.label>链式霰弹枪拓展弹匣</CWF_Trait_ChainExtendedMagazine.label>
-    <CWF_Trait_ChainExtendedMagazine.description>链式霰弹枪拓展弹匣……</CWF_Trait_ChainExtendedMagazine.description>
-
-    <CWF_Trait_ChainRepidMagazine.label>链式霰弹枪快速弹匣</CWF_Trait_ChainRepidMagazine.label>
-    <CWF_Trait_ChainRepidMagazine.description>链式霰弹枪快速弹匣……</CWF_Trait_ChainRepidMagazine.description>
 
     <CWF_Trait_VerticalGrip.label>垂直握把</CWF_Trait_VerticalGrip.label>
     <CWF_Trait_VerticalGrip.description>垂直握把……</CWF_Trait_VerticalGrip.description>

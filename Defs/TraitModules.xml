@@ -66,10 +66,31 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ExtendedBarrel</weaponTraitDef>
         <part>Barrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/LMGExtendedBarrel/LMGExtendedBarrel</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/LMGExtendedBarrel/LMGExtendedBarrel_o</outlinePath>
+              <offset>(239, 135)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -97,58 +118,53 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ShortenedBarrel</weaponTraitDef>
         <part>Barrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/ShortenedBarrel/ShortenedBarrel</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/ShortenedBarrel/ShortenedBarrel_o</outlinePath>
-        </texture>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <!-- > LMGExtendedBarrel -->
-  <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_LMGExtendedBarrel</defName>
-    <label>LMG extended barrel</label>
-    <description>A LMG extended barrel module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_LMGExtendedBarrel</weaponTraitDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
-      <color>(115, 120, 87)</color>
-    </graphicData>
-    <statBases>
-      <WorkToMake>3000</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <modExtensions>
-      <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_LMGExtendedBarrel</weaponTraitDef>
-        <part>Barrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/LMGExtendedBarrel/LMGExtendedBarrel</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/LMGExtendedBarrel/LMGExtendedBarrel_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_LMG</weaponDef>
-            <offset>(239, 135)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/ShortenedBarrel/ShortenedBarrel</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/ShortenedBarrel/ShortenedBarrel_o</outlinePath>
+            </graphicData>
           </li>
-        </offsets>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/LMGShortenedBarrel/LMGShortenedBarrel</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/LMGShortenedBarrel/LMGShortenedBarrel_o</outlinePath>
+              <offset>(231, 133)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/ChainShortenedBarrel/ChainShortenedBarrel</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/ChainShortenedBarrel/ChainShortenedBarrel_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
 
-  <!-- > LMGShortenedBarrel -->
+  <!-- > TacticalBarrel -->
   <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_LMGShortenedBarrel</defName>
-    <label>shortened barrel module</label>
-    <description>A shortened barrel.</description>
+    <defName>CWF_Module_TacticalBarrel</defName>
+    <label>tactical barrel</label>
+    <description>tactical barrel module.</description>
     <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_LMGShortenedBarrel</weaponTraitDef>
+      <weaponTraitDef>CWF_Trait_TacticalBarrel</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
@@ -163,86 +179,21 @@
     </costList>
     <modExtensions>
       <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_ShortenedBarrel</weaponTraitDef>
+        <weaponTraitDef>CWF_Trait_TacticalBarrel</weaponTraitDef>
         <part>Barrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/LMGShortenedBarrel/LMGShortenedBarrel</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/LMGShortenedBarrel/LMGShortenedBarrel_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_LMG</weaponDef>
-            <offset>(231, 133)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/LMGTacticalBarrel/LMGTacticalBarrel</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/LMGTacticalBarrel/LMGTacticalBarrel_o</outlinePath>
+            </graphicData>
           </li>
-        </offsets>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <!-- > LMGTacticalBarrel -->
-  <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_LMGTacticalBarrel</defName>
-    <label>lMGTactical barrel</label>
-    <description>lMGTactical barrel module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_LMGTacticalBarrel</weaponTraitDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath>
-      <color>(115, 120, 87)</color>
-    </graphicData>
-    <statBases>
-      <WorkToMake>3000</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <modExtensions>
-      <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_LMGTacticalBarrel</weaponTraitDef>
-        <part>Barrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/LMGTacticalBarrel/LMGTacticalBarrel</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/LMGTacticalBarrel/LMGTacticalBarrel_o</outlinePath>
-        </texture>
-        <offsets>
-          <li>
-            <weaponDef>CWF_Gun_LMG</weaponDef>
-            <offset>(223, 134)</offset>
-          </li>
-        </offsets>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <!-- ChainShortenedBarrel -->
-  <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_ChainShortenedBarrel</defName>
-    <label>chain shortened barrel</label>
-    <description>chain shortened barrel module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ChainShortenedBarrel</weaponTraitDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
-      <color>(115, 120, 87)</color>
-    </graphicData>
-    <statBases>
-      <WorkToMake>3000</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <modExtensions>
-      <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_ChainShortenedBarrel</weaponTraitDef>
-        <part>Barrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/ChainShortenedBarrel/ChainShortenedBarrel</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/ChainShortenedBarrel/ChainShortenedBarrel_o</outlinePath>
-        </texture>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -300,16 +251,53 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_RapidTrigger</weaponTraitDef>
         <part>Trigger</part>
-        <texture>
-          <!-- <texturePath>CustomizeWeapon/Modules/Trigger</texturePath> -->
-          <!-- <outlinePath>CustomizeWeapon/Modules/Trigger_o</outlinePath> -->
-        </texture>
       </li>
     </modExtensions>
   </ThingDef>
   <!-- #endregion -->
 
   <!-- #region Stock -->
+  <!-- > ShortenedStock -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ShortenedStock</defName>
+    <label>LMG shortened stock</label>
+    <description>LMG shortened stock module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ShortenedStock</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ShortenedStock</weaponTraitDef>
+        <part>Stock</part>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/LMGShortenedStock/LMGShortenedStock</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/LMGShortenedStock/LMGShortenedStock_o</outlinePath>
+              <offset>(-62, 128)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
   <!-- > TelescopicStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TelescopicStock</defName>
@@ -333,47 +321,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_TelescopicStock</weaponTraitDef>
         <part>Stock</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock_o</outlinePath>
-        </texture>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <!-- > LMGShortenedStock -->
-  <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_LMGShortenedStock</defName>
-    <label>LMG shortened stock</label>
-    <description>LMG shortened stock module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_LMGShortenedStock</weaponTraitDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
-      <color>(115, 120, 87)</color>
-    </graphicData>
-    <statBases>
-      <WorkToMake>3000</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <modExtensions>
-      <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_LMGShortenedStock</weaponTraitDef>
-        <part>Stock</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/LMGShortenedStock/LMGShortenedStock</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/LMGShortenedStock/LMGShortenedStock_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_LMG</weaponDef>
-            <offset>(-62, 128)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/TelescopicStock/TelescopicStock_o</outlinePath>
+            </graphicData>
           </li>
-        </offsets>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -401,16 +361,20 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_FoldStock</weaponTraitDef>
         <part>Stock</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/FoldStock/FoldStock</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/FoldStock/FoldStock_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_ChainShotgun</weaponDef>
-            <offset>(105, 180)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/FoldStock/FoldStock</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/FoldStock/FoldStock_o</outlinePath>
+              <offset>(105, 180)</offset>
+            </graphicData>
           </li>
-        </offsets>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -440,10 +404,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_CustomGrip</weaponTraitDef>
         <part>Grip</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/CustomGrip/CustomGrip</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/CustomGrip/CustomGrip_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/CustomGrip/CustomGrip</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/CustomGrip/CustomGrip_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -473,10 +446,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_IronSight</weaponTraitDef>
         <part>Sight</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/IronSight/IronSight</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/IronSight/IronSight_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/IronSight/IronSight</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/IronSight/IronSight_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -504,16 +486,31 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
         <part>Sight</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/Holoscope/Holoscope</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/Holoscope/Holoscope_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_SniperRifle</weaponDef>
-            <offset>(102, 148)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Holoscope/Holoscope_o</outlinePath>
+            </graphicData>
           </li>
-        </offsets>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_SniperRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Holoscope/Holoscope_o</outlinePath>
+              <offset>(102, 148)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -541,10 +538,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_RedDotScope</weaponTraitDef>
         <part>Sight</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/RedDotScope/RedDotScope</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/RedDotScope/RedDotScope_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/RedDotScope/RedDotScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/RedDotScope/RedDotScope_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -572,10 +578,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_2xScope</weaponTraitDef>
         <part>Sight</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/2xScope/2xScope</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/2xScope/2xScope_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/2xScope/2xScope_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -603,10 +618,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_4xScope</weaponTraitDef>
         <part>Sight</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Weapons/BoltActionRifle/Sight</texturePath>
-          <outlinePath>CustomizeWeapon/Weapons/BoltActionRifle/Sight_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_BoltActionRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Weapons/BoltActionRifle/Sight</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/BoltActionRifle/Sight_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -634,10 +658,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_8xScope</weaponTraitDef>
         <part>Sight</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/8xScope/8xScope</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/8xScope/8xScope_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_SniperRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/8xScope/8xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/8xScope/8xScope_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -667,10 +700,42 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_RepidMagazine</weaponTraitDef>
         <part>Magazine</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine_o</outlinePath>
+              <offset>(69, 206)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -698,10 +763,31 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ExtendedMagazine</weaponTraitDef>
         <part>Magazine</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/ExtendedMagazine/ExtendedMagazine_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/ChainExtendedMagazine/ChainExtendedMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/ChainExtendedMagazine/ChainExtendedMagazine_o</outlinePath>
+              <offset>(215, 130)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -729,53 +815,20 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_beltMagazine</weaponTraitDef>
         <part>Magazine</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/beltMagazine/beltMagazine</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/beltMagazine/beltMagazine_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_LMG</weaponDef>
-            <offset>(108, 104)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/beltMagazine/beltMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/beltMagazine/beltMagazine_o</outlinePath>
+              <offset>(108, 104)</offset>
+            </graphicData>
           </li>
-        </offsets>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <!-- > LMGRepidMagazine -->
-  <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_LMGRepidMagazine</defName>
-    <label>LMG repid magazine</label>
-    <description>A LMG repid magazine module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_LMGRepidMagazine</weaponTraitDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
-      <color>(115, 120, 87)</color>
-    </graphicData>
-    <statBases>
-      <WorkToMake>3000</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <modExtensions>
-      <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_LMGRepidMagazine</weaponTraitDef>
-        <part>Magazine</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine_o</outlinePath>
-        </texture>
-        <offsets>
-          <li>
-            <weaponDef>CWF_Gun_LMG</weaponDef>
-            <offset>(69, 206)</offset>
-          </li>
-        </offsets>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -803,84 +856,20 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_DrumMagazine</weaponTraitDef>
         <part>Magazine</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/DrumMagazine/DrumMagazine</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/DrumMagazine/DrumMagazine_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_LMG</weaponDef>
-            <offset>(95, 103)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/DrumMagazine/DrumMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/DrumMagazine/DrumMagazine_o</outlinePath>
+              <offset>(95, 103)</offset>
+            </graphicData>
           </li>
-        </offsets>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <!-- ChainExtendedMagazine -->
-  <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_ChainExtendedMagazine</defName>
-    <label>chain extended magazine</label>
-    <description>chain extended magazine module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ChainExtendedMagazine</weaponTraitDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath>
-      <color>(115, 120, 87)</color>
-    </graphicData>
-    <statBases>
-      <WorkToMake>3000</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <modExtensions>
-      <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_ChainExtendedMagazine</weaponTraitDef>
-        <part>Magazine</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/ChainExtendedMagazine/ChainExtendedMagazine</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/ChainExtendedMagazine/ChainExtendedMagazine_o</outlinePath>
-        </texture>
-        <offsets>
-          <li>
-            <weaponDef>CWF_Gun_ChainShotgun</weaponDef>
-            <offset>(215, 130)</offset>
-          </li>
-        </offsets>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <!-- ChainRepidMagazine -->
-  <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_ChainRepidMagazine</defName>
-    <label>chain repid magazine</label>
-    <description>chain repid magazine module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ChainRepidMagazine</weaponTraitDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
-      <color>(115, 120, 87)</color>
-    </graphicData>
-    <statBases>
-      <WorkToMake>3000</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <modExtensions>
-      <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_ChainRepidMagazine</weaponTraitDef>
-        <part>Magazine</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine_o</outlinePath>
-        </texture>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -910,10 +899,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_VerticalGrip</weaponTraitDef>
         <part>Underbarrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/VerticalGrip/VerticalGrip_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -940,10 +938,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_TriangularGrip</weaponTraitDef>
         <part>Underbarrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/TriangularGrip/TriangularGrip</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/TriangularGrip/TriangularGrip_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/TriangularGrip/TriangularGrip</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/TriangularGrip/TriangularGrip_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -970,10 +977,19 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_AimAssistance</weaponTraitDef>
         <part>Underbarrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/AimAssistance/AimAssistance</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/AimAssistance/AimAssistance_o</outlinePath>
-        </texture>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/AimAssistance/AimAssistance</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/AimAssistance/AimAssistance_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1000,16 +1016,20 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_GrenadeLauncher</weaponTraitDef>
         <part>Underbarrel</part>
-        <texture>
-          <texturePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher</texturePath>
-          <outlinePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
-        </texture>
-        <offsets>
+        <graphicCases>
           <li>
-            <weaponDef>CWF_Gun_AssaultRifle</weaponDef>
-            <offset>(222, 97)</offset>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
           </li>
-        </offsets>
+        </graphicCases>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1039,10 +1059,6 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_HeavyRounds</weaponTraitDef>
         <part>Ammo</part>
-        <texture>
-          <!-- <texturePath>CustomizeWeapon/Modules/Sight</texturePath> -->
-          <!-- <outlinePath>CustomizeWeapon/Modules/Sight_o</outlinePath> -->
-        </texture>
       </li>
     </modExtensions>
   </ThingDef>
@@ -1070,8 +1086,6 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_IncendiaryPellets</weaponTraitDef>
         <part>Ammo</part>
-        <texture>
-        </texture>
       </li>
     </modExtensions>
   </ThingDef> -->
@@ -1099,9 +1113,6 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ToxPellets</weaponTraitDef>
         <part>Ammo</part>
-        <texture>
-
-        </texture>
       </li>
     </modExtensions>
   </ThingDef> -->

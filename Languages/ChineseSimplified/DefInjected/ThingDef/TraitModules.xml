@@ -7,17 +7,8 @@
     <CWF_Module_ShortenedBarrel.label>短枪管</CWF_Module_ShortenedBarrel.label>
     <CWF_Module_ShortenedBarrel.description>短枪管模块</CWF_Module_ShortenedBarrel.description>
 
-    <CWF_Module_LMGExtendedBarrel.label>轻机枪长枪管</CWF_Module_LMGExtendedBarrel.label>
-    <CWF_Module_LMGExtendedBarrel.description>轻机枪长枪管模块</CWF_Module_LMGExtendedBarrel.description>
-
-    <CWF_Module_LMGShortenedBarrel.label>轻机枪短枪管</CWF_Module_LMGShortenedBarrel.label>
-    <CWF_Module_LMGShortenedBarrel.description>轻机枪短枪管模块</CWF_Module_LMGShortenedBarrel.description>
-
-    <CWF_Module_LMGTacticalBarrel.label>轻机枪战术枪管</CWF_Module_LMGTacticalBarrel.label>
-    <CWF_Module_LMGTacticalBarrel.description>轻机枪战术枪管模块</CWF_Module_LMGTacticalBarrel.description>
-
-    <CWF_Module_ChainShortenedBarrel.label>链式霰弹枪短枪管</CWF_Module_ChainShortenedBarrel.label>
-    <CWF_Module_ChainShortenedBarrel.description>链式霰弹枪短枪管模块</CWF_Module_ChainShortenedBarrel.description>
+    <CWF_Module_TacticalBarrel.label>战术枪管</CWF_Module_TacticalBarrel.label>
+    <CWF_Module_TacticalBarrel.description>战术枪管模块</CWF_Module_TacticalBarrel.description>
 
     <CWF_Module_RapidReceiver.label>高速机匣</CWF_Module_RapidReceiver.label>
     <CWF_Module_RapidReceiver.description>高速机匣模块</CWF_Module_RapidReceiver.description>
@@ -64,17 +55,8 @@
     <CWF_Module_beltMagazine.label>链式弹匣</CWF_Module_beltMagazine.label>
     <CWF_Module_beltMagazine.description>链式弹匣模块</CWF_Module_beltMagazine.description>
 
-    <CWF_Module_LMGRepidMagazine.label>轻机枪快速弹匣</CWF_Module_LMGRepidMagazine.label>
-    <CWF_Module_LMGRepidMagazine.description>轻机枪快速弹匣模块</CWF_Module_LMGRepidMagazine.description>
-
     <CWF_Module_DrumMagazine.label>鼓式弹匣</CWF_Module_DrumMagazine.label>
     <CWF_Module_DrumMagazine.description>鼓式弹匣模块</CWF_Module_DrumMagazine.description>
-
-    <CWF_Module_ChainExtendedMagazine.label>链式霰弹枪拓展弹匣</CWF_Module_ChainExtendedMagazine.label>
-    <CWF_Module_ChainExtendedMagazine.description>链式霰弹枪拓展弹匣模块</CWF_Module_ChainExtendedMagazine.description>
-
-    <CWF_Module_ChainRepidMagazine.label>链式霰弹枪快速弹匣</CWF_Module_ChainRepidMagazine.label>
-    <CWF_Module_ChainRepidMagazine.description>链式霰弹枪快速弹匣模块</CWF_Module_ChainRepidMagazine.description>
 
     <CWF_Module_VerticalGrip.label>垂直握把</CWF_Module_VerticalGrip.label>
     <CWF_Module_VerticalGrip.description>垂直握把模块</CWF_Module_VerticalGrip.description>
