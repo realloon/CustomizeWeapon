@@ -73,6 +73,9 @@
     <CWF_Module_AimAssistance.label>辅瞄器</CWF_Module_AimAssistance.label>
     <CWF_Module_AimAssistance.description>辅瞄器模块</CWF_Module_AimAssistance.description>
 
+    <CWF_Module_GrenadeLauncher.description>榴弹发射器</CWF_Module_GrenadeLauncher.description>
+    <CWF_Module_GrenadeLauncher.description>榴弹发射器模块</CWF_Module_GrenadeLauncher.description>
+
     <CWF_Module_HeavyRounds.label>重型子弹</CWF_Module_HeavyRounds.label>
     <CWF_Module_HeavyRounds.description>重型子弹</CWF_Module_HeavyRounds.description>
 

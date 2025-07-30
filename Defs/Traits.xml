@@ -46,7 +46,7 @@
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
 
-    <WeaponTraitDef>
+  <WeaponTraitDef>
     <defName>CWF_Trait_LMGTacticalBarrel</defName>
     <label>LMG tactical barrel</label>
     <description>.</description>
@@ -319,6 +319,25 @@
       <AccuracyTouch>1.1</AccuracyTouch>
       <AccuracyShort>1.1</AccuracyShort>
     </statFactors>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_GrenadeLauncher</defName>
+    <label>grenade launcher</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <abilityProps>
+      <abilityDef>LaunchFragGrenade</abilityDef>
+      <maxCharges>1</maxCharges>
+      <soundReload>Standard_Reload</soundReload>
+      <chargeNoun>grenade</chargeNoun>
+      <ammoDef>Steel</ammoDef>
+      <ammoCountPerCharge>25</ammoCountPerCharge>
+      <baseReloadTicks>60</baseReloadTicks>
+    </abilityProps>
   </WeaponTraitDef>
 
   <!-- Ammo -->

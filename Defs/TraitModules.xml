@@ -842,6 +842,42 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_GrenadeLauncher</defName>
+    <label>grenade launcher</label>
+    <description>grenade launcher module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_GrenadeLauncher</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_GrenadeLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_AssaultRifle</weaponDef>
+            <offset>(222, 97)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
   <!-- #endregion -->
 
   <!-- #region Ammo -->

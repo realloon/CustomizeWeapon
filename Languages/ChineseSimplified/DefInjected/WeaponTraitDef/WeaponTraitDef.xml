@@ -67,6 +67,9 @@
     <CWF_Trait_VerticalGrip.label>垂直握把</CWF_Trait_VerticalGrip.label>
     <CWF_Trait_VerticalGrip.description>垂直握把……</CWF_Trait_VerticalGrip.description>
 
+    <CWF_Trait_GrenadeLauncher.lael>榴弹发射器</CWF_Trait_GrenadeLauncher.lael>
+    <CWF_Trait_GrenadeLauncher.description>榴弹发射器……</CWF_Trait_GrenadeLauncher.description>
+
     <CWF_Trait_HeavyRounds.label>重型子弹</CWF_Trait_HeavyRounds.label>
     <CWF_Trait_HeavyRounds.description>重型子弹……</CWF_Trait_HeavyRounds.description>
 </LanguageData>
