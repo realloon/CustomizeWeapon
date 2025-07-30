@@ -200,17 +200,6 @@
   </WeaponTraitDef>
 
   <WeaponTraitDef>
-    <defName>CWF_Trait_PanMagazine</defName>
-    <label>pan magazine</label>
-    <description>.</description>
-    <commonality>1</commonality>
-    <statOffsets>
-      <MarketValue>50</MarketValue>
-    </statOffsets>
-    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
-  </WeaponTraitDef>
-
-  <WeaponTraitDef>
     <defName>CWF_Trait_beltMagazine</defName>
     <label>belt magazine</label>
     <description>.</description>

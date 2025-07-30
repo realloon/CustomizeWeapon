@@ -533,9 +533,6 @@
           <li>Ammo</li>
 
         </supportParts>
-        <defaultWeaponTraitDefs>
-          <li>CWF_Trait_PanMagazine</li>
-        </defaultWeaponTraitDefs>
       </li>
       <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
         <attachmentPoints>
@@ -558,6 +555,10 @@
           </li>
           <li>
             <part>Magazine</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/LMG/Magazine</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/LMG/Magazine_o</outlinePath>
+            </baseTexture>
             <offset>(85, 167)</offset>
             <layer>30</layer>
           </li>
