@@ -16,14 +16,20 @@
     <CWF_Module_LMGTacticalBarrel.label>轻机枪战术枪管</CWF_Module_LMGTacticalBarrel.label>
     <CWF_Module_LMGTacticalBarrel.description>轻机枪战术枪管模块</CWF_Module_LMGTacticalBarrel.description>
 
+    <CWF_Module_ChainShortenedBarrel.label>链式霰弹枪短枪管</CWF_Module_ChainShortenedBarrel.label>
+    <CWF_Module_ChainShortenedBarrel.description>链式霰弹枪短枪管模块</CWF_Module_ChainShortenedBarrel.description>
+
     <CWF_Module_RapidReceiver.label>高速机匣</CWF_Module_RapidReceiver.label>
     <CWF_Module_RapidReceiver.description>高速机匣模块</CWF_Module_RapidReceiver.description>
 
     <CWF_Module_RapidTrigger.label>快速扳机</CWF_Module_RapidTrigger.label>
     <CWF_Module_RapidTrigger.description>快速扳机模块</CWF_Module_RapidTrigger.description>
 
-    <CWF_Module_TelescopicStock.label>折叠枪托</CWF_Module_TelescopicStock.label>
-    <CWF_Module_TelescopicStock.description>折叠枪托模块</CWF_Module_TelescopicStock.description>
+    <CWF_Module_TelescopicStock.label>伸缩枪托</CWF_Module_TelescopicStock.label>
+    <CWF_Module_TelescopicStock.description>伸缩枪托模块</CWF_Module_TelescopicStock.description>
+
+    <CWF_Module_FoldStock.label>折叠枪托</CWF_Module_FoldStock.label>
+    <CWF_Module_FoldStock.description>折叠枪托模块</CWF_Module_FoldStock.description>
 
     <CWF_Module_CustomGrip.label>定制握把</CWF_Module_CustomGrip.label>
     <CWF_Module_CustomGrip.description>定制握把模块</CWF_Module_CustomGrip.description>
@@ -63,6 +69,12 @@
 
     <CWF_Module_DrumMagazine.label>鼓式弹匣</CWF_Module_DrumMagazine.label>
     <CWF_Module_DrumMagazine.description>鼓式弹匣模块</CWF_Module_DrumMagazine.description>
+
+    <CWF_Module_ChainExtendedMagazine.label>链式霰弹枪拓展弹匣</CWF_Module_ChainExtendedMagazine.label>
+    <CWF_Module_ChainExtendedMagazine.description>链式霰弹枪拓展弹匣模块</CWF_Module_ChainExtendedMagazine.description>
+
+    <CWF_Module_ChainRepidMagazine.label>链式霰弹枪快速弹匣</CWF_Module_ChainRepidMagazine.label>
+    <CWF_Module_ChainRepidMagazine.description>链式霰弹枪快速弹匣模块</CWF_Module_ChainRepidMagazine.description>
 
     <CWF_Module_VerticalGrip.label>垂直握把</CWF_Module_VerticalGrip.label>
     <CWF_Module_VerticalGrip.description>垂直握把模块</CWF_Module_VerticalGrip.description>

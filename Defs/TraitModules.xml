@@ -215,6 +215,37 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+  <!-- ChainShortenedBarrel -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ChainShortenedBarrel</defName>
+    <label>chain shortened barrel</label>
+    <description>chain shortened barrel module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ChainShortenedBarrel</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ChainShortenedBarrel</weaponTraitDef>
+        <part>Barrel</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/ChainShortenedBarrel/ChainShortenedBarrel</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/ChainShortenedBarrel/ChainShortenedBarrel_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
   <!-- #endregion -->
 
   <!-- #region Receiver -->
@@ -341,6 +372,43 @@
           <li>
             <weaponDef>CWF_Gun_LMG</weaponDef>
             <offset>(-62, 128)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > FoldStock -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_FoldStock</defName>
+    <label>fold stock</label>
+    <description>fold stock module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_FoldStock</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_FoldStock</weaponTraitDef>
+        <part>Stock</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/FoldStock/FoldStock</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/FoldStock/FoldStock_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_ChainShotgun</weaponDef>
+            <offset>(105, 180)</offset>
           </li>
         </offsets>
       </li>
@@ -749,6 +817,73 @@
     </modExtensions>
   </ThingDef>
 
+  <!-- ChainExtendedMagazine -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ChainExtendedMagazine</defName>
+    <label>chain extended magazine</label>
+    <description>chain extended magazine module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ChainExtendedMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ChainExtendedMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/ChainExtendedMagazine/ChainExtendedMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/ChainExtendedMagazine/ChainExtendedMagazine_o</outlinePath>
+        </texture>
+        <offsets>
+          <li>
+            <weaponDef>CWF_Gun_ChainShotgun</weaponDef>
+            <offset>(215, 130)</offset>
+          </li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ChainRepidMagazine -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ChainRepidMagazine</defName>
+    <label>chain repid magazine</label>
+    <description>chain repid magazine module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_ChainRepidMagazine</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ChainRepidMagazine</weaponTraitDef>
+        <part>Magazine</part>
+        <texture>
+          <texturePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine</texturePath>
+          <outlinePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine_o</outlinePath>
+        </texture>
+      </li>
+    </modExtensions>
+  </ThingDef>
   <!-- #endregion -->
 
   <!-- #region Underbarrel -->

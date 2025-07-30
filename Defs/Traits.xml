@@ -57,6 +57,18 @@
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
 
+  <WeaponTraitDef>
+    <defName>CWF_Trait_ChainShortenedBarrel</defName>
+    <label>shortened barrel</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+      <RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
+      <RangedWeapon_RangeMultiplier>-0.2</RangedWeapon_RangeMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
   <!-- Receiver -->
   <WeaponTraitDef>
     <defName>CWF_Trait_RapidReceiver</defName>
@@ -98,6 +110,19 @@
   <WeaponTraitDef>
     <defName>CWF_Trait_LMGShortenedStock</defName>
     <label>telescopic stock</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <Mass>0.9</Mass>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_FoldStock</defName>
+    <label>fold stock</label>
     <description>.</description>
     <commonality>1</commonality>
     <statOffsets>
@@ -276,6 +301,30 @@
       <MarketValue>50</MarketValue>
     </statOffsets>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_ChainExtendedMagazine</defName>
+    <label>extended magazine</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_ChainRepidMagazine</defName>
+    <label>repid magazine</label>
+    <description>.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <statFactors>
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+    </statFactors>
   </WeaponTraitDef>
 
   <!-- Underbarrel -->

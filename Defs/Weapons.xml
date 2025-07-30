@@ -417,6 +417,59 @@
 
         </supportParts>
       </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
+        <attachmentPoints>
+          <li>
+            <part>Receiver</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Receiver</texturePath>
+            </baseTexture>
+            <offset>(0, 0)</offset>
+            <layer>0</layer>
+          </li>
+          <li>
+            <part>Sight</part>
+            <offset>(0, 0)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Barrel</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Barrel</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Barrel_o</outlinePath>
+            </baseTexture>
+            <offset>(250, 148)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Grip</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Grip</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Grip_o</outlinePath>
+            </baseTexture>
+            <offset>(36, 86)</offset>
+            <layer>20</layer>
+          </li>
+          <li>
+            <part>Magazine</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Magazine</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Magazine_o</outlinePath>
+            </baseTexture>
+            <offset>(176, 130)</offset>
+            <layer>25</layer>
+          </li>
+          <li>
+            <part>Stock</part>
+            <baseTexture>
+              <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Stock</texturePath>
+              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Stock_o</outlinePath>
+            </baseTexture>
+            <offset>(-59, 119)</offset>
+            <layer>20</layer>
+          </li>
+        </attachmentPoints>
+      </li>
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -888,7 +941,7 @@
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
 
-  <ThingDef ParentName="Gun_BeamRepeater">
+  <ThingDef ParentName="Gun_BeamRepeater" MayRequire="Ludeon.Rimworld.Odyssey">
     <defName>CWF_Gun_BeamRepeater</defName>
     <label>customized beam repeatere</label>
     <description>A beam repeater with customized parts.</description>

@@ -16,14 +16,20 @@
     <CWF_Trait_LMGTacticalBarrel.label>轻机枪战术枪管</CWF_Trait_LMGTacticalBarrel.label>
     <CWF_Trait_LMGTacticalBarrel.description>轻机枪战术枪管模块</CWF_Trait_LMGTacticalBarrel.description>
 
+    <CWF_Trait_ChainShortenedBarrel.label>链式霰弹枪短枪管</CWF_Trait_ChainShortenedBarrel.label>
+    <CWF_Trait_ChainShortenedBarrel.description>链式霰弹枪短枪管模块</CWF_Trait_ChainShortenedBarrel.description>
+
     <CWF_Trait_RapidReceiver.label>快速机匣</CWF_Trait_RapidReceiver.label>
     <CWF_Trait_RapidReceiver.description>快速机匣……</CWF_Trait_RapidReceiver.description>
 
     <CWF_Trait_RapidTrigger.label>高速扳机</CWF_Trait_RapidTrigger.label>
     <CWF_Trait_RapidTrigger.description>高速扳机……</CWF_Trait_RapidTrigger.description>
 
-    <CWF_Trait_TelescopicStock.label>折叠枪托</CWF_Trait_TelescopicStock.label>
-    <CWF_Trait_TelescopicStock.description>折叠枪托……</CWF_Trait_TelescopicStock.description>
+    <CWF_Trait_TelescopicStock.label>伸缩枪托</CWF_Trait_TelescopicStock.label>
+    <CWF_Trait_TelescopicStock.description>伸缩枪托……</CWF_Trait_TelescopicStock.description>
+
+    <CWF_Trait_FoldStock.label>折叠枪托</CWF_Trait_FoldStock.label>
+    <CWF_Trait_FoldStock.description>折叠枪托……</CWF_Trait_FoldStock.description>
 
     <CWF_Trait_CustomGrip.label>定制握把</CWF_Trait_CustomGrip.label>
     <CWF_Trait_CustomGrip.description>定制握把……</CWF_Trait_CustomGrip.description>
@@ -63,6 +69,12 @@
 
     <CWF_Trait_DrumMagazine.label>鼓式弹匣</CWF_Trait_DrumMagazine.label>
     <CWF_Trait_DrumMagazine.description>鼓式弹匣……</CWF_Trait_DrumMagazine.description>
+
+    <CWF_Trait_ChainExtendedMagazine.label>链式霰弹枪拓展弹匣</CWF_Trait_ChainExtendedMagazine.label>
+    <CWF_Trait_ChainExtendedMagazine.description>链式霰弹枪拓展弹匣……</CWF_Trait_ChainExtendedMagazine.description>
+
+    <CWF_Trait_ChainRepidMagazine.label>链式霰弹枪快速弹匣</CWF_Trait_ChainRepidMagazine.label>
+    <CWF_Trait_ChainRepidMagazine.description>链式霰弹枪快速弹匣……</CWF_Trait_ChainRepidMagazine.description>
 
     <CWF_Trait_VerticalGrip.label>垂直握把</CWF_Trait_VerticalGrip.label>
     <CWF_Trait_VerticalGrip.description>垂直握把……</CWF_Trait_VerticalGrip.description>
