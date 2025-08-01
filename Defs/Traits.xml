@@ -9,7 +9,8 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
-      <RangedWeapon_RangeMultiplier>0.2</RangedWeapon_RangeMultiplier>
+      <Mass>0.1</Mass>
+      <RangedWeapon_RangeMultiplier>0.14</RangedWeapon_RangeMultiplier>
     </statOffsets>
   </WeaponTraitDef>
 
@@ -21,6 +22,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
       <RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
       <RangedWeapon_RangeMultiplier>-0.2</RangedWeapon_RangeMultiplier>
     </statOffsets>
@@ -34,6 +36,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
@@ -47,6 +50,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <burstShotSpeedMultiplier>2</burstShotSpeedMultiplier>
   </WeaponTraitDef>
@@ -59,11 +63,13 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <burstShotSpeedMultiplier>1.5</burstShotSpeedMultiplier>
   </WeaponTraitDef>
 
-  <!-- Stock -->
+  <!-- #region Stock -->
+  <!-- > TelescopicStock -->
   <WeaponTraitDef>
     <defName>CWF_Trait_TelescopicStock</defName>
     <label>telescopic stock</label>
@@ -71,12 +77,14 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <Mass>0.9</Mass>
     </statFactors>
   </WeaponTraitDef>
 
+  <!-- > ShortenedStock -->
   <WeaponTraitDef>
     <defName>CWF_Trait_ShortenedStock</defName>
     <label>telescopic stock</label>
@@ -84,12 +92,14 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <Mass>0.9</Mass>
     </statFactors>
   </WeaponTraitDef>
 
+  <!-- > FoldStock -->
   <WeaponTraitDef>
     <defName>CWF_Trait_FoldStock</defName>
     <label>fold stock</label>
@@ -97,20 +107,41 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <Mass>0.9</Mass>
     </statFactors>
   </WeaponTraitDef>
 
+  <!-- > StabilizerBrace -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_StabilizerBrace</defName>
+    <label>fold stock</label>
+    <description>The stabilizing brace that connects to the user's arm, increasing its accuracy.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.2</AccuracyTouch>
+      <AccuracyShort>1.2</AccuracyShort>
+      <AccuracyMedium>1.1</AccuracyMedium>
+      <AccuracyLong>1.1</AccuracyLong>
+    </statFactors>
+  </WeaponTraitDef>
+  <!-- #endregion -->
+
   <!-- Grip -->
   <WeaponTraitDef>
     <defName>CWF_Trait_CustomGrip</defName>
     <label>custom grip</label>
-    <description>.</description>
+    <description>This customized grip that handles recoil better, improving accuracy at short range.</description>
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.1</AccuracyTouch>
@@ -126,6 +157,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.2</AccuracyTouch>
@@ -142,12 +174,13 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
+      <RangedWeapon_WarmupMultiplier>-0.175</RangedWeapon_WarmupMultiplier>
     </statOffsets>
     <statFactors>
-      <AccuracyTouch>1.2</AccuracyTouch>
-      <AccuracyShort>1.2</AccuracyShort>
-      <AccuracyMedium>1.2</AccuracyMedium>
-      <AccuracyLong>1.2</AccuracyLong>
+      <AccuracyTouch>1.14</AccuracyTouch>
+      <AccuracyShort>1.14</AccuracyShort>
+      <AccuracyMedium>1.14</AccuracyMedium>
     </statFactors>
   </WeaponTraitDef>
 
@@ -158,6 +191,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.2</AccuracyTouch>
@@ -174,6 +208,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.2</AccuracyTouch>
@@ -190,6 +225,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.2</AccuracyTouch>
@@ -206,6 +242,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.2</AccuracyTouch>
@@ -217,15 +254,16 @@
 
   <!-- Magazine -->
   <WeaponTraitDef>
-    <defName>CWF_Trait_RapidMagazine</defName>
-    <label>rapid magazine</label>
-    <description>.</description>
+    <defName>CWF_Trait_QuickMagazine</defName>
+    <label>quick magazine</label>
+    <description>The quick magazine accelerates reloads by enabling rapid release-and-replace.</description>
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
-      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.86</RangedWeapon_Cooldown>
     </statFactors>
   </WeaponTraitDef>
 
@@ -236,6 +274,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
@@ -247,6 +286,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
@@ -258,6 +298,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
@@ -270,6 +311,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.1</AccuracyTouch>
@@ -284,6 +326,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.1</AccuracyTouch>
@@ -292,16 +335,19 @@
   </WeaponTraitDef>
 
   <WeaponTraitDef>
-    <defName>CWF_Trait_AimAssistance</defName>
-    <label>triangular grip</label>
-    <description>.</description>
+    <defName>CWF_Trait_LaserSight</defName>
+    <label>laser sight</label>
+    <description>Laser-assisted aiming.</description>
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.1</AccuracyTouch>
       <AccuracyShort>1.1</AccuracyShort>
+      <AccuracyMedium>1.1</AccuracyMedium>
+      <AccuracyLong>1.1</AccuracyLong>
     </statFactors>
   </WeaponTraitDef>
 
@@ -312,6 +358,7 @@
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
+      <Mass>0.1</Mass>
     </statOffsets>
     <abilityProps>
       <abilityDef>LaunchFragGrenade</abilityDef>
@@ -327,13 +374,136 @@
   <!-- Ammo -->
   <WeaponTraitDef>
     <defName>CWF_Trait_HeavyRounds</defName>
-    <label>vertical grip</label>
-    <description>.</description>
+    <label>heavy rounds</label>
+    <description>These rounds are designed to deliver more stopping power.</description>
     <commonality>1</commonality>
     <statOffsets>
       <MarketValue>50</MarketValue>
       <RangedWeapon_DamageMultiplier>0.1</RangedWeapon_DamageMultiplier>
     </statOffsets>
     <additionalStoppingPower>2</additionalStoppingPower>
+  </WeaponTraitDef>
+
+  <!-- CWF_Module_HollowPointRounds -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_HollowPointRounds</defName>
+    <label>hollow point rounds</label>
+    <description>These rounds are designed to expand on impact, causing more damage.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+      <RangedWeapon_DamageMultiplier>0.2</RangedWeapon_DamageMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_ToxRounds</defName>
+    <label>tox rounds</label>
+    <description>These rounds coated with toxic chemicals, which sicken wounded targets.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <damageDefOverride>CWF_Bullet_TraitTox</damageDefOverride>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_PiercingRounds</defName>
+    <label>piercing rounds</label>
+    <description>These rounds are designed to penetrate thicker armor.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+      <RangedWeapon_ArmorPenetrationMultiplier>0.14</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef>
+    <defName>CWF_Trait_IncendiaryRounds</defName>
+    <label>incendiary rounds</label>
+    <description>It has a chance to ignite targets.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <damageDefOverride>CWF_Bullet_TraitIncendiary</damageDefOverride>
+  </WeaponTraitDef>
+
+  <!-- CWF_Trait_EMPRounds -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_EMPRounds</defName>
+    <label>EMP rounds</label>
+    <description> These rounds with embedded EMP capacitors, which will temporarily disable electronics and mechanoids.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <extraDamages>
+      <li>
+        <def>EMP</def>
+        <amount>4</amount>
+      </li>
+    </extraDamages>
+  </WeaponTraitDef>
+
+  <!-- CWF_Module_HighPowerRounds -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_HighPowerRounds</defName>
+    <label>high power rounds</label>
+    <description>These rounds more powerful than normal. The heavy recoil makes it less accurate.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+      <RangedWeapon_DamageMultiplier>0.3</RangedWeapon_DamageMultiplier>
+      <RangedWeapon_ArmorPenetrationMultiplier>0.15</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>0.9</AccuracyTouch>
+      <AccuracyShort>0.9</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.9</AccuracyLong>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!-- IncendiaryPellets -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_IncendiaryPellets</defName>
+    <label>incendiary pellets</label>
+    <description>These pellets that have a chance to ignite targets.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <damageDefOverride>CWF_Bullet_TraitIncendiary</damageDefOverride>
+  </WeaponTraitDef>
+
+  <!-- ToxPellets -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_ToxPellets</defName>
+    <label>tox pellets</label>
+    <description>These pellets coated with toxic chemicals, which sicken wounded targets.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <damageDefOverride>CWF_Bullet_TraitTox</damageDefOverride>
+  </WeaponTraitDef>
+
+  <!-- BirdshotPellets -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_BirdshotPellets</defName>
+    <label>birdshot pellets</label>
+    <description>These pellets are designed to spread out, making it easier to hit targets at close range.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+      <RangedWeapon_ArmorPenetrationMultiplier>-0.25</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.3</AccuracyTouch>
+      <AccuracyShort>1.2</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.9</AccuracyLong>
+    </statFactors>
   </WeaponTraitDef>
 </Defs>

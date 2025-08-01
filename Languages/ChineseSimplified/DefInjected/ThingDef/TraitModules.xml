@@ -22,6 +22,9 @@
     <CWF_Module_FoldStock.label>折叠枪托</CWF_Module_FoldStock.label>
     <CWF_Module_FoldStock.description>折叠枪托模块</CWF_Module_FoldStock.description>
 
+    <CWF_Module_StabilizerBrace.label>手枪枪托</CWF_Module_StabilizerBrace.label>
+    <CWF_Module_StabilizerBrace.description>手枪枪托模块</CWF_Module_StabilizerBrace.description>
+
     <CWF_Module_CustomGrip.label>定制握把</CWF_Module_CustomGrip.label>
     <CWF_Module_CustomGrip.description>定制握把模块</CWF_Module_CustomGrip.description>
 
@@ -43,8 +46,8 @@
     <CWF_Module_8xScope.label>八倍光学瞄具</CWF_Module_8xScope.label>
     <CWF_Module_8xScope.description>八倍光学瞄具模块</CWF_Module_8xScope.description>
 
-    <CWF_Module_RepidMagazine.label>快速弹匣</CWF_Module_RepidMagazine.label>
-    <CWF_Module_RepidMagazine.description>快速弹匣模块</CWF_Module_RepidMagazine.description>
+    <CWF_Module_QuickMagazine.label>快速弹匣</CWF_Module_QuickMagazine.label>
+    <CWF_Module_QuickMagazine.description>快速弹匣模块</CWF_Module_QuickMagazine.description>
 
     <CWF_Module_ExtendedMagazine.label>拓展弹匣</CWF_Module_ExtendedMagazine.label>
     <CWF_Module_ExtendedMagazine.description>拓展弹匣模块</CWF_Module_ExtendedMagazine.description>
@@ -64,18 +67,39 @@
     <CWF_Module_TriangularGrip.label>三角握把</CWF_Module_TriangularGrip.label>
     <CWF_Module_TriangularGrip.description>三角握把模块</CWF_Module_TriangularGrip.description>
 
-    <CWF_Module_AimAssistance.label>辅瞄器</CWF_Module_AimAssistance.label>
-    <CWF_Module_AimAssistance.description>辅瞄器模块</CWF_Module_AimAssistance.description>
+    <CWF_Module_LaserSight.label>激光辅瞄器</CWF_Module_LaserSight.label>
+    <CWF_Module_LaserSight.description>激光辅瞄器模块</CWF_Module_LaserSight.description>
 
     <CWF_Module_GrenadeLauncher.description>榴弹发射器</CWF_Module_GrenadeLauncher.description>
     <CWF_Module_GrenadeLauncher.description>榴弹发射器模块</CWF_Module_GrenadeLauncher.description>
 
-    <CWF_Module_HeavyRounds.label>重型子弹</CWF_Module_HeavyRounds.label>
-    <CWF_Module_HeavyRounds.description>重型子弹</CWF_Module_HeavyRounds.description>
+    <CWF_Module_HeavyRounds.label>重型弹</CWF_Module_HeavyRounds.label>
+    <CWF_Module_HeavyRounds.description>重型弹模块</CWF_Module_HeavyRounds.description>
 
-    <!-- <CWF_Module_IncendiaryPellets.label>燃烧霰弹</CWF_Module_IncendiaryPellets.label>
+    <CWF_Module_HollowPointRounds.label>空尖弹</CWF_Module_HollowPointRounds.label>
+    <CWF_Module_HollowPointRounds.description>空尖弹模块</CWF_Module_HollowPointRounds.description>
+    
+    <CWF_Module_ToxRounds.label>涂毒弹</CWF_Module_ToxRounds.label>
+    <CWF_Module_ToxRounds.description>涂毒弹模块</CWF_Module_ToxRounds.description>
+
+    <CWF_Module_PiercingRounds.label>穿甲弹</CWF_Module_PiercingRounds.label>
+    <CWF_Module_PiercingRounds.description>穿甲弹模块</CWF_Module_PiercingRounds.description>
+
+    <CWF_Module_IncendiaryRounds.label>燃烧弹</CWF_Module_IncendiaryRounds.label>
+    <CWF_Module_IncendiaryRounds.description>燃烧弹模块</CWF_Module_IncendiaryRounds.description>
+
+    <CWF_Module_EMPRounds.label>EMP 电荷弹</CWF_Module_EMPRounds.label>
+    <CWF_Module_EMPRounds.description>EMP 电荷弹模块</CWF_Module_EMPRounds.description>
+
+    <CWF_Module_HighPowerRounds.label>高威力弹</CWF_Module_HighPowerRounds.label>
+    <CWF_Module_HighPowerRounds.description>高威力弹模块</CWF_Module_HighPowerRounds.description>
+
+    <CWF_Module_IncendiaryPellets.label>燃烧霰弹</CWF_Module_IncendiaryPellets.label>
     <CWF_Module_IncendiaryPellets.description>燃烧霰弹</CWF_Module_IncendiaryPellets.description>
 
     <CWF_Module_ToxPellets.label>涂毒霰弹</CWF_Module_ToxPellets.label>
-    <CWF_Module_ToxPellets.description>涂毒霰弹</CWF_Module_ToxPellets.description> -->
+    <CWF_Module_ToxPellets.description>涂毒霰弹</CWF_Module_ToxPellets.description>
+
+    <CWF_Module_BirdshotPellets.label>鸟弹</CWF_Module_BirdshotPellets.label>
+    <CWF_Module_BirdshotPellets.description>鸟弹模块</CWF_Module_BirdshotPellets.description>
 </LanguageData>
