@@ -77,7 +77,7 @@
               <texturePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel</texturePath>
               <outlinePath>CustomizeWeapon/Modules/ExtendedBarrel/ExtendedBarrel_o</outlinePath>
             </graphicData>
-          </li>
+          </li> 
           <li>
             <matcher>
               <weaponDefs>
@@ -677,13 +677,13 @@
   <!-- #endregion -->
 
   <!-- #region Magazine -->
-  <!-- > RepidMagazine -->
+  <!-- > rapidMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_RepidMagazine</defName>
-    <label>custom repid magazine module</label>
-    <description>A repid magazine.</description>
+    <defName>CWF_Module_rapidMagazine</defName>
+    <label>custom rapid magazine module</label>
+    <description>A rapid magazine.</description>
     <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_RepidMagazine</weaponTraitDef>
+      <weaponTraitDef>CWF_Trait_rapidMagazine</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
@@ -698,7 +698,7 @@
     </costList>
     <modExtensions>
       <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_RepidMagazine</weaponTraitDef>
+        <weaponTraitDef>CWF_Trait_rapidMagazine</weaponTraitDef>
         <part>Magazine</part>
         <graphicCases>
           <li>
@@ -708,8 +708,8 @@
               </weaponDefs>
             </matcher>
             <graphicData>
-              <texturePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/RepidMagazine/RepidMagazine_o</outlinePath>
+              <texturePath>CustomizeWeapon/Modules/rapidMagazine/rapidMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/rapidMagazine/rapidMagazine_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -719,8 +719,8 @@
               </weaponDefs>
             </matcher>
             <graphicData>
-              <texturePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/LMGRepidMagazine/LMGRepidMagazine_o</outlinePath>
+              <texturePath>CustomizeWeapon/Modules/LMGrapidMagazine/LMGrapidMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/LMGrapidMagazine/LMGrapidMagazine_o</outlinePath>
               <offset>(69, 206)</offset>
             </graphicData>
           </li>
@@ -731,8 +731,8 @@
               </weaponDefs>
             </matcher>
             <graphicData>
-              <texturePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/ChainRepidMagazine/ChainRepidMagazine_o</outlinePath>
+              <texturePath>CustomizeWeapon/Modules/ChainrapidMagazine/ChainrapidMagazine</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/ChainrapidMagazine/ChainrapidMagazine_o</outlinePath>
             </graphicData>
           </li>
         </graphicCases>
@@ -880,7 +880,7 @@
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_VerticalGrip</defName>
     <label>vertical grip module</label>
-    <description>A repid magazine.</description>
+    <description>A rapid magazine.</description>
     <descriptionHyperlinks>
       <weaponTraitDef>CWF_Trait_VerticalGrip</weaponTraitDef>
     </descriptionHyperlinks>

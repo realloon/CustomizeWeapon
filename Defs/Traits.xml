@@ -217,8 +217,8 @@
 
   <!-- Magazine -->
   <WeaponTraitDef>
-    <defName>CWF_Trait_RepidMagazine</defName>
-    <label>repid magazine</label>
+    <defName>CWF_Trait_RapidMagazine</defName>
+    <label>rapid magazine</label>
     <description>.</description>
     <commonality>1</commonality>
     <statOffsets>
@@ -253,7 +253,7 @@
 
   <WeaponTraitDef>
     <defName>CWF_Trait_DrumMagazine</defName>
-    <label>LMG repid magazine</label>
+    <label>drum magazine</label>
     <description>.</description>
     <commonality>1</commonality>
     <statOffsets>
