@@ -68,10 +68,9 @@
         <part>Barrel</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
-          <li>CWF_ChargeRifle</li>
         </requiredWeaponTags>
         <graphicCases>
           <li>
@@ -410,7 +409,7 @@
         <weaponTraitDef>CWF_Trait_StabilizerBrace</weaponTraitDef>
         <part>Stock</part>
         <requiredWeaponTags>
-          <li>CWF_Revolver</li>
+          <li>CWF_Handgun</li>
         </requiredWeaponTags>
       </li>
     </modExtensions>
@@ -741,13 +740,11 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_ChainShotgun</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
           <li>CWF_Minigun</li>
-          <li>CWF_ChargeRifle</li>
           <li>CWF_ChargeLance</li>
         </requiredWeaponTags>
         <graphicCases>
@@ -1030,10 +1027,8 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_HeavySMG</li>
-          <li>CWF_ChargeRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
         </requiredWeaponTags>
         <graphicCases>
           <li>
@@ -1120,9 +1115,8 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
           <li>CWF_Minigun</li>
         </requiredWeaponTags>
@@ -1156,9 +1150,8 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
           <li>CWF_Minigun</li>
         </requiredWeaponTags>
@@ -1192,9 +1185,8 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
           <li>CWF_Minigun</li>
         </requiredWeaponTags>
@@ -1228,9 +1220,8 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
           <li>CWF_Minigun</li>
         </requiredWeaponTags>
@@ -1264,9 +1255,8 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
           <li>CWF_Minigun</li>
         </requiredWeaponTags>
@@ -1298,7 +1288,7 @@
         <weaponTraitDef>CWF_Trait_EMPRounds</weaponTraitDef>
         <part>Ammo</part>
         <requiredWeaponTags>
-          <li>CWF_ChargeRifle</li>
+          <li>CWF_Charge</li>
           <li>CWF_ChargeLance</li>
         </requiredWeaponTags>
       </li>
@@ -1331,9 +1321,8 @@
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>
-          <li>CWF_Revolver</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_HeavySMG</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
           <li>CWF_LMG</li>
           <li>CWF_Minigun</li>
         </requiredWeaponTags>
@@ -1365,7 +1354,7 @@
         <weaponTraitDef>CWF_Trait_IncendiaryPellets</weaponTraitDef>
         <part>Ammo</part>
         <requiredWeaponTags>
-          <li>CWF_ChainShotgun</li>
+          <li>CWF_Shotgun</li>
         </requiredWeaponTags>
       </li>
     </modExtensions>
@@ -1395,7 +1384,7 @@
         <weaponTraitDef>CWF_Trait_ToxPellets</weaponTraitDef>
         <part>Ammo</part>
         <requiredWeaponTags>
-          <li>CWF_ChainShotgun</li>
+          <li>CWF_Shotgun</li>
         </requiredWeaponTags>
       </li>
     </modExtensions>
@@ -1425,7 +1414,7 @@
         <weaponTraitDef>CWF_Trait_BirdshotPellets</weaponTraitDef>
         <part>Ammo</part>
         <requiredWeaponTags>
-          <li>CWF_ChainShotgun</li>
+          <li>CWF_Shotgun</li>
         </requiredWeaponTags>
       </li>
     </modExtensions>

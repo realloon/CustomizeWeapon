@@ -228,69 +228,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
 
-  <ThingDef ParentName="Gun_Revolver">
-    <defName>CWF_Gun_Revolver</defName>
-    <label>customized revolver</label>
-    <description>A revolver with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_Revolver</ThingDef>
-    </descriptionHyperlinks>
-    <graphicData>
-      <texPath>CustomizeWeapon/Weapons/Revolver/Revolver</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-    </graphicData>
-    <weaponTags>
-      <li>CWF_Revolver</li>
-    </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
-      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
-        <supportParts>
-          <li>Muzzle</li>
-          <li>Barrel</li>
-          <li>Receiver</li>
-          <li>Trigger</li>
-          <li>Stock</li>
-          <li>Grip</li>
-          <li>Sight</li>
-          <li>Magazine</li>
-          <li>Ammo</li>
-
-        </supportParts>
-      </li>
-
-      <li Class="CustomizeWeapon.CompProperties_Renamable" />
-      <li Class="CustomizeWeapon.CompProperties_Colorable" />
-    </comps>
-    <modExtensions>
-      <li Class="CustomizeWeapon.UpgradeExtension">
-        <baseWeaponDef>Gun_Revolver</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -372,7 +310,66 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
+    <possessionCount>1</possessionCount>
+    <generateAllowChance>1</generateAllowChance>
+  </ThingDef>
+
+  <ThingDef ParentName="Gun_Revolver">
+    <defName>CWF_Gun_Revolver</defName>
+    <label>customized revolver</label>
+    <description>A revolver with customized parts.</description>
+    <descriptionHyperlinks>
+      <ThingDef>Gun_Revolver</ThingDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>CustomizeWeapon/Weapons/Revolver/Revolver</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+    </graphicData>
+    <weaponTags>
+      <li>CWF_Handgun</li>
+    </weaponTags>
+    <comps Inherit="False">
+      <li Class="CompProperties_EquippableAbilityReloadable" />
+      <li Class="CompProperties_Forbiddable" />
+      <li Class="CompProperties_Styleable" />
+      <li Class="CompProperties_Biocodable" />
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
+        <supportParts>
+          <li>Muzzle</li>
+          <li>Barrel</li>
+          <li>Receiver</li>
+          <li>Trigger</li>
+          <li>Stock</li>
+          <li>Grip</li>
+          <li>Sight</li>
+          <li>Magazine</li>
+          <li>Ammo</li>
+        </supportParts>
+      </li>
+      <li Class="CustomizeWeapon.CompProperties_Renamable" />
+      <li Class="CustomizeWeapon.CompProperties_Colorable" />
+    </comps>
+    <modExtensions>
+      <li Class="CustomizeWeapon.UpgradeExtension">
+        <baseWeaponDef>Gun_Revolver</baseWeaponDef>
+      </li>
+    </modExtensions>
+    <thingCategories Inherit="False">
+      <li>CWF_CustomizedWeapons</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <thingSetMakerTags Inherit="False" />
+    <recipeMaker Inherit="False" IsNull="True" />
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -390,7 +387,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <weaponTags>
-      <li>CWF_ChainShotgun</li>
+      <li>CWF_Shotgun</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -488,7 +485,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -506,7 +503,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <weaponTags>
-      <li>CWF_HeavySMG</li>
+      <li>CWF_SMG</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -550,7 +547,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -659,7 +656,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -721,7 +718,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -739,7 +736,7 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <weaponTags>
-      <li>CWF_GreatBow</li>
+      <li>CWF_Bow</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -775,7 +772,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -793,7 +790,8 @@
       <shaderType>CutoutComplex</shaderType>
     </graphicData>
     <weaponTags>
-      <li>CWF_ChargeRifle</li>
+      <li>CWF_AssaultRifle</li>
+      <li>CWF_Charge</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -837,7 +835,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -899,7 +897,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -961,7 +959,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -1022,7 +1020,7 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-    <!-- <weaponTags Inherit="False" /> -->
+
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
