@@ -67,7 +67,7 @@
     <CWF_Trait_LaserSight.label>激光辅瞄器</CWF_Trait_LaserSight.label>
     <CWF_Trait_LaserSight.description>激光辅瞄器发射激光辅助瞄准目标，激光不能穿透雨雾。</CWF_Trait_LaserSight.description>
 
-    <CWF_Trait_GrenadeLauncher.lael>榴弹发射器</CWF_Trait_GrenadeLauncher.lael>
+    <CWF_Trait_GrenadeLauncher.label>榴弹发射器</CWF_Trait_GrenadeLauncher.label>
     <CWF_Trait_GrenadeLauncher.description>榴弹发射器……</CWF_Trait_GrenadeLauncher.description>
 
     <CWF_Trait_EMPLauncher.label>EMP弹发射器</CWF_Trait_EMPLauncher.label>
