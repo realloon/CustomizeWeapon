@@ -339,7 +339,7 @@
     <statOffsets>
       <MarketValue>50</MarketValue>
       <Mass>0.1</Mass>
-      <RangedWeapon_RangeMultiplier>0.15</RangedWeapon_RangeMultiplier>
+      <RangedWeapon_RangeMultiplier>0.05</RangedWeapon_RangeMultiplier>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.1</AccuracyTouch>
