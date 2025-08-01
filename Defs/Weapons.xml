@@ -14,6 +14,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_AssaultRifle</li>
+      <li>CWF_BurstFire</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -162,6 +163,7 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
+          <li>Underbarrel</li>
           <li>Ammo</li>
         </supportParts>
         <defaultWeaponTraitDefs>
@@ -271,11 +273,9 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
+          <li>Underbarrel</li>
           <li>Ammo</li>
         </supportParts>
-        <defaultWeaponTraitDefs>
-          <li>CWF_Trait_4xScope</li>
-        </defaultWeaponTraitDefs>
       </li>
       <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
         <attachmentPoints>
@@ -353,6 +353,7 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
+          <li>Underbarrel</li>
           <li>Ammo</li>
         </supportParts>
       </li>
@@ -388,6 +389,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_Shotgun</li>
+      <li>CWF_BurstFire</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -413,7 +415,6 @@
           <li>Sight</li>
           <li>Magazine</li>
           <li>Ammo</li>
-
         </supportParts>
       </li>
       <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
@@ -504,6 +505,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_SMG</li>
+      <li>CWF_BurstFire</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -528,11 +530,10 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
+          <li>Underbarrel</li>
           <li>Ammo</li>
-
         </supportParts>
       </li>
-
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -547,7 +548,6 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -566,6 +566,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_LMG</li>
+      <li>CWF_BurstFire</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -590,8 +591,8 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
+          <li>Underbarrel</li>
           <li>Ammo</li>
-
         </supportParts>
       </li>
       <li Class="CustomizeWeapon.CompProperties_DynamicGraphic">
@@ -656,7 +657,6 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>
@@ -675,6 +675,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_Minigun</li>
+      <li>CWF_BurstFire</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -691,7 +692,6 @@
       </li>
       <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
         <supportParts>
-          <li>Muzzle</li>
           <li>Barrel</li>
           <li>Receiver</li>
           <li>Trigger</li>
@@ -700,10 +700,8 @@
           <li>Sight</li>
           <li>Magazine</li>
           <li>Ammo</li>
-
         </supportParts>
       </li>
-
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -754,10 +752,8 @@
       <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
         <supportParts>
           <li>Ammo</li>
-
         </supportParts>
       </li>
-
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -791,6 +787,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_AssaultRifle</li>
+      <li>CWF_BurstFire</li>
       <li>CWF_Charge</li>
     </weaponTags>
     <comps Inherit="False">
@@ -816,11 +813,10 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
+          <li>Underbarrel</li>
           <li>Ammo</li>
-
         </supportParts>
       </li>
-
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -854,6 +850,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_ChargeLance</li>
+      <li>CWF_Charge</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -870,7 +867,6 @@
       </li>
       <li Class="CustomizeWeapon.CompProperties_DynamicTraits">
         <supportParts>
-          <li>Muzzle</li>
           <li>Barrel</li>
           <li>Receiver</li>
           <li>Trigger</li>
@@ -879,10 +875,8 @@
           <li>Sight</li>
           <li>Magazine</li>
           <li>Ammo</li>
-
         </supportParts>
       </li>
-
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -916,6 +910,7 @@
     </graphicData>
     <weaponTags>
       <li>CWF_AssaultRifle</li>
+      <li>CWF_BurstFire</li>
     </weaponTags>
     <comps Inherit="False">
       <li Class="CompProperties_EquippableAbilityReloadable" />
@@ -940,11 +935,10 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
+          <li>Underbarrel</li>
           <li>Ammo</li>
-
         </supportParts>
       </li>
-
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -1002,10 +996,8 @@
           <li>Grip</li>
           <li>Sight</li>
           <li>Magazine</li>
-
         </supportParts>
       </li>
-
       <li Class="CustomizeWeapon.CompProperties_Renamable" />
       <li Class="CustomizeWeapon.CompProperties_Colorable" />
     </comps>
@@ -1020,7 +1012,6 @@
     <tradeability>Sellable</tradeability>
     <thingSetMakerTags Inherit="False" />
     <recipeMaker Inherit="False" IsNull="True" />
-
     <possessionCount>1</possessionCount>
     <generateAllowChance>1</generateAllowChance>
   </ThingDef>

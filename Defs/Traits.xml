@@ -10,7 +10,7 @@
     <statOffsets>
       <MarketValue>50</MarketValue>
       <Mass>0.1</Mass>
-      <RangedWeapon_RangeMultiplier>0.14</RangedWeapon_RangeMultiplier>
+      <RangedWeapon_RangeMultiplier>0.15</RangedWeapon_RangeMultiplier>
     </statOffsets>
   </WeaponTraitDef>
 
@@ -23,15 +23,15 @@
     <statOffsets>
       <MarketValue>50</MarketValue>
       <Mass>0.1</Mass>
-      <RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
       <RangedWeapon_RangeMultiplier>-0.2</RangedWeapon_RangeMultiplier>
+      <RangedWeapon_WarmupMultiplier>-0.15</RangedWeapon_WarmupMultiplier>
     </statOffsets>
   </WeaponTraitDef>
 
   <!-- TacticalBarrel -->
   <WeaponTraitDef>
     <defName>CWF_Trait_TacticalBarrel</defName>
-    <label>LMG tactical barrel</label>
+    <label>tactical barrel</label>
     <description>.</description>
     <commonality>1</commonality>
     <statOffsets>
@@ -52,7 +52,7 @@
       <MarketValue>50</MarketValue>
       <Mass>0.1</Mass>
     </statOffsets>
-    <burstShotSpeedMultiplier>2</burstShotSpeedMultiplier>
+    <burstShotSpeedMultiplier>1.5</burstShotSpeedMultiplier>
   </WeaponTraitDef>
 
   <!-- Trigger -->
@@ -87,7 +87,7 @@
   <!-- > ShortenedStock -->
   <WeaponTraitDef>
     <defName>CWF_Trait_ShortenedStock</defName>
-    <label>telescopic stock</label>
+    <label>shortened stock</label>
     <description>.</description>
     <commonality>1</commonality>
     <statOffsets>
@@ -127,8 +127,6 @@
     <statFactors>
       <AccuracyTouch>1.2</AccuracyTouch>
       <AccuracyShort>1.2</AccuracyShort>
-      <AccuracyMedium>1.1</AccuracyMedium>
-      <AccuracyLong>1.1</AccuracyLong>
     </statFactors>
   </WeaponTraitDef>
   <!-- #endregion -->
@@ -160,10 +158,8 @@
       <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
-      <AccuracyTouch>1.2</AccuracyTouch>
-      <AccuracyShort>1.2</AccuracyShort>
-      <AccuracyMedium>1.2</AccuracyMedium>
-      <AccuracyLong>1.2</AccuracyLong>
+      <AccuracyTouch>1.1</AccuracyTouch>
+      <AccuracyShort>1.1</AccuracyShort>
     </statFactors>
   </WeaponTraitDef>
 
@@ -175,12 +171,12 @@
     <statOffsets>
       <MarketValue>50</MarketValue>
       <Mass>0.1</Mass>
-      <RangedWeapon_WarmupMultiplier>-0.175</RangedWeapon_WarmupMultiplier>
+      <RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
     </statOffsets>
     <statFactors>
-      <AccuracyTouch>1.14</AccuracyTouch>
-      <AccuracyShort>1.14</AccuracyShort>
-      <AccuracyMedium>1.14</AccuracyMedium>
+      <AccuracyTouch>1.15</AccuracyTouch>
+      <AccuracyShort>1.15</AccuracyShort>
+      <AccuracyMedium>1.15</AccuracyMedium>
     </statFactors>
   </WeaponTraitDef>
 
@@ -263,7 +259,7 @@
       <Mass>0.1</Mass>
     </statOffsets>
     <statFactors>
-      <RangedWeapon_Cooldown>0.86</RangedWeapon_Cooldown>
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
     </statFactors>
   </WeaponTraitDef>
 
@@ -276,7 +272,7 @@
       <MarketValue>50</MarketValue>
       <Mass>0.1</Mass>
     </statOffsets>
-    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+    <burstShotCountMultiplier>1.25</burstShotCountMultiplier>
   </WeaponTraitDef>
 
   <WeaponTraitDef>
@@ -334,6 +330,7 @@
     </statFactors>
   </WeaponTraitDef>
 
+  <!-- LaserSight -->
   <WeaponTraitDef>
     <defName>CWF_Trait_LaserSight</defName>
     <label>laser sight</label>
@@ -342,6 +339,7 @@
     <statOffsets>
       <MarketValue>50</MarketValue>
       <Mass>0.1</Mass>
+      <RangedWeapon_RangeMultiplier>0.15</RangedWeapon_RangeMultiplier>
     </statOffsets>
     <statFactors>
       <AccuracyTouch>1.1</AccuracyTouch>
@@ -351,6 +349,7 @@
     </statFactors>
   </WeaponTraitDef>
 
+  <!-- GrenadeLauncher -->
   <WeaponTraitDef>
     <defName>CWF_Trait_GrenadeLauncher</defName>
     <label>grenade launcher</label>
@@ -371,6 +370,66 @@
     </abilityProps>
   </WeaponTraitDef>
 
+  <!-- EMPLauncher -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_EMPLauncher</defName>
+    <label>EMP cannon</label>
+    <description>The shell emits a burst of electromagnetic energy that stuns electronic targets like turrets and mechanoids. Once fired, it must be reloaded using steel.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <abilityProps>
+      <abilityDef>LaunchEMPShell</abilityDef>
+      <maxCharges>2</maxCharges>
+      <soundReload>Standard_Reload</soundReload>
+      <chargeNoun>shell</chargeNoun>
+      <ammoDef>Steel</ammoDef>
+      <ammoCountPerCharge>15</ammoCountPerCharge>
+      <baseReloadTicks>60</baseReloadTicks>
+    </abilityProps>
+  </WeaponTraitDef>
+
+  <!-- CWF_Trait_SmokeLauncher -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_SmokeLauncher</defName>
+    <label>smoke launcher</label>
+    <description>The shell emits a cloud of smoke that obscures vision. Once fired, it must be reloaded using steel.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <abilityProps>
+      <abilityDef>LaunchSmokeShell</abilityDef>
+      <maxCharges>2</maxCharges>
+      <soundReload>Standard_Reload</soundReload>
+      <chargeNoun>shell</chargeNoun>
+      <ammoDef>Steel</ammoDef>
+      <ammoCountPerCharge>15</ammoCountPerCharge>
+      <baseReloadTicks>60</baseReloadTicks>
+    </abilityProps>
+  </WeaponTraitDef>
+
+  <!-- IncendiaryLauncher -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_IncendiaryLauncher</defName>
+    <label>incendiary launcher</label>
+    <description>The shell emits a burst of fire that ignites targets. Once fired, it must be reloaded using steel.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+    </statOffsets>
+    <abilityProps>
+      <abilityDef>LaunchIncendiaryShell</abilityDef>
+      <maxCharges>1</maxCharges>
+      <soundReload>Standard_Reload</soundReload>
+      <chargeNoun>shell</chargeNoun>
+      <ammoDef>Chemfuel</ammoDef>
+      <ammoCountPerCharge>15</ammoCountPerCharge>
+      <baseReloadTicks>60</baseReloadTicks>
+    </abilityProps>
+  </WeaponTraitDef>
+
   <!-- Ammo -->
   <WeaponTraitDef>
     <defName>CWF_Trait_HeavyRounds</defName>
@@ -381,7 +440,7 @@
       <MarketValue>50</MarketValue>
       <RangedWeapon_DamageMultiplier>0.1</RangedWeapon_DamageMultiplier>
     </statOffsets>
-    <additionalStoppingPower>2</additionalStoppingPower>
+    <additionalStoppingPower>1.5</additionalStoppingPower>
   </WeaponTraitDef>
 
   <!-- CWF_Module_HollowPointRounds -->
@@ -444,6 +503,19 @@
         <amount>4</amount>
       </li>
     </extraDamages>
+  </WeaponTraitDef>
+
+  <!-- CWF_Trait_PulseChargeRounds -->
+  <WeaponTraitDef>
+    <defName>CWF_Trait_PulseChargeRounds</defName>
+    <label>pulse charge rounds</label>
+    <description>These rounds with embedded pulse charges, which will cause a small explosion on impact.</description>
+    <commonality>1</commonality>
+    <statOffsets>
+      <MarketValue>50</MarketValue>
+      <RangedWeapon_DamageMultiplier>0.25</RangedWeapon_DamageMultiplier>
+      <RangedWeapon_ArmorPenetrationMultiplier>0.15</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
   </WeaponTraitDef>
 
   <!-- CWF_Module_HighPowerRounds -->

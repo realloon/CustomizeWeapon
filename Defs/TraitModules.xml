@@ -56,7 +56,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -68,6 +68,7 @@
         <part>Barrel</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
           <li>CWF_LMG</li>
@@ -114,7 +115,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -124,6 +125,13 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ShortenedBarrel</weaponTraitDef>
         <part>Barrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
         <graphicCases>
           <li>
             <matcher>
@@ -177,7 +185,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -219,7 +227,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -229,6 +237,14 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_RapidReceiver</weaponTraitDef>
         <part>Receiver</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
       </li>
     </modExtensions>
   </ThingDef>
@@ -247,7 +263,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -266,8 +282,8 @@
   <!-- > ShortenedStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ShortenedStock</defName>
-    <label>LMG shortened stock</label>
-    <description>LMG shortened stock module.</description>
+    <label>shortened stock</label>
+    <description>A shortened stock module.</description>
     <descriptionHyperlinks>
       <weaponTraitDef>CWF_Trait_ShortenedStock</weaponTraitDef>
     </descriptionHyperlinks>
@@ -276,7 +292,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -317,7 +333,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -357,7 +373,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -398,7 +414,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -431,7 +447,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -473,7 +489,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -483,6 +499,12 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_IronSight</weaponTraitDef>
         <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
         <graphicCases>
           <li>
             <matcher>
@@ -513,7 +535,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -523,6 +545,13 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
         <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
         <graphicCases>
           <li>
             <matcher>
@@ -565,7 +594,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -605,7 +634,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -645,7 +674,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -685,7 +714,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -727,7 +756,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -800,7 +829,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -810,6 +839,9 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ExtendedMagazine</weaponTraitDef>
         <part>Magazine</part>
+        <requiredWeaponTags>
+          <li>CWF_BurstFire</li>
+        </requiredWeaponTags>
         <graphicCases>
           <li>
             <matcher>
@@ -852,7 +884,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -893,7 +925,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -936,7 +968,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -963,6 +995,7 @@
     </modExtensions>
   </ThingDef>
 
+  <!-- > TriangularGrip -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TriangularGrip</defName>
     <label>triangular grip module</label>
@@ -975,7 +1008,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1002,6 +1035,7 @@
     </modExtensions>
   </ThingDef>
 
+  <!-- > LaserSight -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_LaserSight</defName>
     <label>laser sight</label>
@@ -1014,7 +1048,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1047,6 +1081,7 @@
     </modExtensions>
   </ThingDef>
 
+  <!-- > GrenadeLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_GrenadeLauncher</defName>
     <label>grenade launcher</label>
@@ -1059,7 +1094,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1069,6 +1104,153 @@
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_GrenadeLauncher</weaponTraitDef>
         <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- EMPLauncher -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_EMPLauncher</defName>
+    <label>EMP launcher</label>
+    <description>EMP launcher module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_EMPLauncher</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_EMPLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- SmokeLauncher -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_SmokeLauncher</defName>
+    <label>smoke launcher</label>
+    <description>Smoke launcher module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_SmokeLauncher</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_SmokeLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- IncendiaryLauncher -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_IncendiaryLauncher</defName>
+    <label>incendiary launcher</label>
+    <description>Incendiary launcher module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_IncendiaryLauncher</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_IncendiaryLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
         <graphicCases>
           <li>
             <matcher>
@@ -1102,7 +1284,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1137,7 +1319,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1172,7 +1354,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1207,7 +1389,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1242,7 +1424,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1251,6 +1433,41 @@
     <modExtensions>
       <li Class="CustomizeWeapon.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_IncendiaryRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- > HighPowerRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_HighPowerRounds</defName>
+    <label>high power rounds</label>
+    <description>A high power rounds module.</description>
+    <descriptionHyperlinks>
+      <weaponTraitDef>CWF_Trait_HighPowerRounds</weaponTraitDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
+      <color>(115, 120, 87)</color>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CustomizeWeapon.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_HighPowerRounds</weaponTraitDef>
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
@@ -1277,7 +1494,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1289,26 +1506,25 @@
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_Charge</li>
-          <li>CWF_ChargeLance</li>
         </requiredWeaponTags>
       </li>
     </modExtensions>
   </ThingDef>
 
-  <!-- > HighPowerRounds -->
+  <!-- PulseChargeRounds -->
   <ThingDef ParentName="CWF_TraitModule">
-    <defName>CWF_Module_HighPowerRounds</defName>
-    <label>high power rounds</label>
-    <description>A high power rounds module.</description>
+    <defName>CWF_Module_PulseChargeRounds</defName>
+    <label>pulse charge rounds</label>
+    <description>A pulse charge rounds module.</description>
     <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_HighPowerRounds</weaponTraitDef>
+      <weaponTraitDef>CWF_Trait_PulseChargeRounds</weaponTraitDef>
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1316,15 +1532,10 @@
     </costList>
     <modExtensions>
       <li Class="CustomizeWeapon.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_HighPowerRounds</weaponTraitDef>
+        <weaponTraitDef>CWF_Trait_PulseChargeRounds</weaponTraitDef>
         <part>Ammo</part>
         <requiredWeaponTags>
-          <li>CWF_AssaultRifle</li>
-          <li>CWF_SniperRifle</li>
-          <li>CWF_Handgun</li>
-          <li>CWF_SMG</li>
-          <li>CWF_LMG</li>
-          <li>CWF_Minigun</li>
+          <li>CWF_Charge</li>
         </requiredWeaponTags>
       </li>
     </modExtensions>
@@ -1343,7 +1554,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1373,7 +1584,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>
@@ -1403,7 +1614,7 @@
       <color>(115, 120, 87)</color>
     </graphicData>
     <statBases>
-      <WorkToMake>3000</WorkToMake>
+      <WorkToMake>1500</WorkToMake>
     </statBases>
     <costList>
       <Steel>10</Steel>

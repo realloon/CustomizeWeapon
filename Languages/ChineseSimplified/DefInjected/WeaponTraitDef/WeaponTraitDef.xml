@@ -22,6 +22,9 @@
     <CWF_Trait_FoldStock.label>折叠枪托</CWF_Trait_FoldStock.label>
     <CWF_Trait_FoldStock.description>折叠枪托……</CWF_Trait_FoldStock.description>
 
+    <CWF_Trait_ShortenedStock.label>短枪托</CWF_Trait_ShortenedStock.label>
+    <CWF_Trait_ShortenedStock.description>短枪托……</CWF_Trait_ShortenedStock.description>
+
     <CWF_Trait_StabilizerBrace.label>手枪枪托</CWF_Trait_StabilizerBrace.label>
     <CWF_Trait_StabilizerBrace.description>手枪枪托作为稳定支架，抵在使用者手臂，提高射击精度。</CWF_Trait_StabilizerBrace.description>
 
@@ -49,8 +52,8 @@
     <CWF_Trait_QuickMagazine.label>快速弹匣</CWF_Trait_QuickMagazine.label>
     <CWF_Trait_QuickMagazine.description>快速弹匣带有快拆结构，更换弹夹更加快捷。</CWF_Trait_QuickMagazine.description>
 
-    <CWF_Trait_ExtendedMagazine.label>拓展弹匣</CWF_Trait_ExtendedMagazine.label>
-    <CWF_Trait_ExtendedMagazine.description>拓展弹匣……</CWF_Trait_ExtendedMagazine.description>
+    <CWF_Trait_ExtendedMagazine.label>扩容弹匣</CWF_Trait_ExtendedMagazine.label>
+    <CWF_Trait_ExtendedMagazine.description>扩容弹匣……</CWF_Trait_ExtendedMagazine.description>
 
     <CWF_Trait_beltMagazine.label>链式弹匣</CWF_Trait_beltMagazine.label>
     <CWF_Trait_beltMagazine.description>链式弹匣……</CWF_Trait_beltMagazine.description>
@@ -67,6 +70,18 @@
     <CWF_Trait_GrenadeLauncher.lael>榴弹发射器</CWF_Trait_GrenadeLauncher.lael>
     <CWF_Trait_GrenadeLauncher.description>榴弹发射器……</CWF_Trait_GrenadeLauncher.description>
 
+    <CWF_Trait_EMPLauncher.label>EMP弹发射器</CWF_Trait_EMPLauncher.label>
+    <CWF_Trait_EMPLauncher.description>EMP弹发射器……</CWF_Trait_EMPLauncher.description>
+
+    <CWF_Trait_PulseChargeRounds.label>电荷脉冲弹</CWF_Trait_PulseChargeRounds.label>
+    <CWF_Trait_PulseChargeRounds.description>电荷脉冲弹……</CWF_Trait_PulseChargeRounds.description>
+
+    <CWF_Trait_SmokeLauncher.label>烟雾发射器</CWF_Trait_SmokeLauncher.label>
+    <CWF_Trait_SmokeLauncher.description>烟雾发射器……</CWF_Trait_SmokeLauncher.description>
+
+    <CWF_Trait_IncendiaryLauncher.label>燃烧发射器</CWF_Trait_IncendiaryLauncher.label>
+    <CWF_Trait_IncendiaryLauncher.description>燃烧发射器……</CWF_Trait_IncendiaryLauncher.description>
+
     <CWF_Trait_HeavyRounds.label>重型弹</CWF_Trait_HeavyRounds.label>
     <CWF_Trait_HeavyRounds.description>重型弹……</CWF_Trait_HeavyRounds.description>
 
@@ -82,7 +97,7 @@
     <CWF_Trait_IncendiaryRounds.label>燃烧弹</CWF_Trait_IncendiaryRounds.label>
     <CWF_Trait_IncendiaryRounds.description>燃烧弹有概率会点燃目标。</CWF_Trait_IncendiaryRounds.description>
 
-    <CWF_Trait_EMPRounds.label>EMP 电荷弹</CWF_Trait_EMPRounds.label>
+    <CWF_Trait_EMPRounds.label>EMP电荷弹</CWF_Trait_EMPRounds.label>
     <CWF_Trait_EMPRounds.description>这种子弹内嵌有 EMP 电荷，可以暂时禁用电子设备和机械体。</CWF_Trait_EMPRounds.description>
 
     <CWF_Trait_HighPowerRounds.label>高威力弹</CWF_Trait_HighPowerRounds.label>
