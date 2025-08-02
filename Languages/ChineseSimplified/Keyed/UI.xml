@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <LanguageData>
   <CWF_UI_WeaponPanel>武器面板</CWF_UI_WeaponPanel>
   <CWF_UI_WeaponPanelDesc>打开武器面板</CWF_UI_WeaponPanelDesc>
@@ -41,4 +40,7 @@
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>背包中没有合适的模块</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>地图上没有合适的模块</CWF_UI_NoCompatiblePartsOnMap>
+
+  <CWF_UI_WeaponModules>武器模块</CWF_UI_WeaponModules>
+  <CWF_UI_WeaponModules_Desc>安装在此武器上的模块。</CWF_UI_WeaponModules_Desc>
 </LanguageData>

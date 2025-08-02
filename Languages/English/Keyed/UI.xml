@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <LanguageData>
   <CWF_UI_WeaponPanel>Weapon panel</CWF_UI_WeaponPanel>
   <CWF_UI_WeaponPanelDesc>Open the weapon panel</CWF_UI_WeaponPanelDesc>
@@ -41,4 +40,7 @@
   <CWF_UI_Uninstall>Uninstall </CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>No compatible parts in inventory</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>No compatible parts on map</CWF_UI_NoCompatiblePartsOnMap>
+
+  <CWF_UI_WeaponModules>Weapon modules</CWF_UI_WeaponModules>
+  <CWF_UI_WeaponModules_Desc>Modules installed on this weapon.</CWF_UI_WeaponModules_Desc>
 </LanguageData>
