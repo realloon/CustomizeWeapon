@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <ThingDef Name="CWF_TraitModule" Abstract="True">
-    <thingClass>Thing</thingClass>
+    <thingClass>ThingWithComps</thingClass>
     <category>Item</category>
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <useHitPoints>true</useHitPoints>
@@ -37,6 +37,9 @@
     <drawGUIOverlay>true</drawGUIOverlay>
     <rotatable>false</rotatable>
     <pathCost>14</pathCost>
+    <comps>
+      <li Class="CustomizeWeapon.CompProperties_TraitModule" />
+    </comps>
   </ThingDef>
 
   <!-- #region Muzzle -->
@@ -46,11 +49,7 @@
   <!-- > ExtendedBarrel -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ExtendedBarrel</defName>
-    <label>extended barrel</label>
-    <description>An extended barrel module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ExtendedBarrel</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -108,11 +107,7 @@
   <!-- > ShortenedBarrel -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ShortenedBarrel</defName>
-    <label>shortened barrel module</label>
-    <description>A shortened barrel.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ShortenedBarrel</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -181,11 +176,7 @@
   <!-- > TacticalBarrel -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TacticalBarrel</defName>
-    <label>tactical barrel</label>
-    <description>tactical barrel module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_TacticalBarrel</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -226,11 +217,7 @@
   <!-- > RapidReceiver -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_RapidReceiver</defName>
-    <label>rapid receiver module</label>
-    <description>A rapid receiver.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_RapidReceiver</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -256,6 +243,7 @@
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
           <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
         </requiredWeaponTags>
       </li>
     </modExtensions>
@@ -265,11 +253,7 @@
   <!-- #region Trigger -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_RapidTrigger</defName>
-    <label>rapid trigger module</label>
-    <description>A rapid trigger.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_RapidTrigger</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -297,11 +281,7 @@
   <!-- > ShortenedStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ShortenedStock</defName>
-    <label>shortened stock</label>
-    <description>A shortened stock module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ShortenedStock</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -341,11 +321,7 @@
   <!-- > TelescopicStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TelescopicStock</defName>
-    <label>telescopic stock module</label>
-    <description>A telescopic stock.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_TelescopicStock</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -384,11 +360,7 @@
   <!-- > FoldStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_FoldStock</defName>
-    <label>fold stock</label>
-    <description>fold stock module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_FoldStock</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -428,11 +400,7 @@
   <!-- > StabilizerBrace -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_StabilizerBrace</defName>
-    <label>stabilizer brace</label>
-    <description>stabilizer brace module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_StabilizerBrace</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -464,11 +432,7 @@
   <!-- > CustomGrip -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_CustomGrip</defName>
-    <label>custom grip</label>
-    <description>A custom grip module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_CustomGrip</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -509,11 +473,7 @@
   <!-- > IronSight -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IronSight</defName>
-    <label>iron sight</label>
-    <description>iron sight moduel.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_IronSight</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -558,11 +518,7 @@
   <!-- > Holoscope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_Holoscope</defName>
-    <label>holoscope module</label>
-    <description>holoscope.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -620,11 +576,7 @@
   <!-- > RedDotScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_RedDotScope</defName>
-    <label>red dot scope module</label>
-    <description>red dot scope.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_RedDotScope</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -663,11 +615,7 @@
   <!-- > 2xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_2xScope</defName>
-    <label>2x scope module</label>
-    <description>2x scope.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_2xScope</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -706,11 +654,7 @@
   <!-- > 4xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_4xScope</defName>
-    <label>4x scope module</label>
-    <description>4x scope.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_4xScope</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -749,11 +693,7 @@
   <!-- > 8xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_8xScope</defName>
-    <label>8x scope</label>
-    <description>8x scope module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_8xScope</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -794,11 +734,7 @@
   <!-- > QuickMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_QuickMagazine</defName>
-    <label>quick magazine</label>
-    <description>A quick magazine module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_QuickMagazine</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -870,11 +806,7 @@
   <!-- > ExtendedMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ExtendedMagazine</defName>
-    <label>custom extended magazine module</label>
-    <description>A extended magazine Magazine.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ExtendedMagazine</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -928,11 +860,7 @@
   <!-- > beltMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_beltMagazine</defName>
-    <label>belt magazine module</label>
-    <description>A belt magazine.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_beltMagazine</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -972,11 +900,7 @@
   <!-- > DrumMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_DrumMagazine</defName>
-    <label>drum magazine magazine</label>
-    <description>A drum magazine module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_DrumMagazine</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1018,11 +942,7 @@
   <!-- > VerticalGrip -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_VerticalGrip</defName>
-    <label>vertical grip module</label>
-    <description>A rapid magazine.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_VerticalGrip</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1061,11 +981,7 @@
   <!-- > TriangularGrip -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TriangularGrip</defName>
-    <label>triangular grip module</label>
-    <description>A triangular grip.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_TriangularGrip</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1104,11 +1020,7 @@
   <!-- > LaserSight -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_LaserSight</defName>
-    <label>laser sight</label>
-    <description>A laser sight module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_LaserSight</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1153,11 +1065,7 @@
   <!-- > GrenadeLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_GrenadeLauncher</defName>
-    <label>grenade launcher</label>
-    <description>grenade launcher module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_GrenadeLauncher</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1203,11 +1111,7 @@
   <!-- EMPLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_EMPLauncher</defName>
-    <label>EMP launcher</label>
-    <description>EMP launcher module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_EMPLauncher</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1253,11 +1157,7 @@
   <!-- SmokeLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_SmokeLauncher</defName>
-    <label>smoke launcher</label>
-    <description>Smoke launcher module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_SmokeLauncher</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1303,11 +1203,7 @@
   <!-- IncendiaryLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IncendiaryLauncher</defName>
-    <label>incendiary launcher</label>
-    <description>Incendiary launcher module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_IncendiaryLauncher</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1355,11 +1251,7 @@
   <!-- > HeavyRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_HeavyRounds</defName>
-    <label>heavy module</label>
-    <description>A heavy rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_HeavyRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1390,11 +1282,7 @@
   <!-- HollowPointRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_HollowPointRounds</defName>
-    <label>hollow point rounds</label>
-    <description>A hollow point rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_HollowPointRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1425,11 +1313,7 @@
   <!-- > ToxRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ToxRounds</defName>
-    <label>tox rounds</label>
-    <description>A tox rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ToxRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1460,11 +1344,7 @@
   <!-- > PiercingRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_PiercingRounds</defName>
-    <label>piercing rounds</label>
-    <description>A piercing rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_PiercingRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1495,11 +1375,7 @@
   <!-- > IncendiaryRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IncendiaryRounds</defName>
-    <label>incendiary rounds</label>
-    <description>An incendiary rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_IncendiaryRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1530,11 +1406,7 @@
   <!-- > HighPowerRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_HighPowerRounds</defName>
-    <label>high power rounds</label>
-    <description>A high power rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_HighPowerRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1565,11 +1437,7 @@
   <!-- > EMPRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_EMPRounds</defName>
-    <label>EMP rounds</label>
-    <description>An EMP rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_EMPRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1598,11 +1466,7 @@
   <!-- PulseChargeRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_PulseChargeRounds</defName>
-    <label>pulse charge rounds</label>
-    <description>A pulse charge rounds module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_PulseChargeRounds</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1631,11 +1495,7 @@
   <!-- > IncendiaryPellets -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IncendiaryPellets</defName>
-    <label>hollow point pellets module</label>
-    <description>An incendiary pellets module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_IncendiaryPellets</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -1661,11 +1521,7 @@
   <!-- > ToxPellets -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ToxPellets</defName>
-    <label>tox pellets module</label>
-    <description>A tox pellets module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_ToxPellets</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -1691,11 +1547,7 @@
   <!-- BirdshotPellets -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_BirdshotPellets</defName>
-    <label>birdshot pellets module</label>
-    <description>A birdshot pellets module.</description>
-    <descriptionHyperlinks>
-      <weaponTraitDef>CWF_Trait_BirdshotPellets</weaponTraitDef>
-    </descriptionHyperlinks>
+    <label>_</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
