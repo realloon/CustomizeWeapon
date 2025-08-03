@@ -49,7 +49,7 @@
   <!-- > ExtendedBarrel -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ExtendedBarrel</defName>
-    <label>_</label>
+    <label>extended barrel</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -107,7 +107,7 @@
   <!-- > ShortenedBarrel -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ShortenedBarrel</defName>
-    <label>_</label>
+    <label>shortened barrel</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -176,7 +176,7 @@
   <!-- > TacticalBarrel -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TacticalBarrel</defName>
-    <label>_</label>
+    <label>tactical barrel</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -217,7 +217,7 @@
   <!-- > RapidReceiver -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_RapidReceiver</defName>
-    <label>_</label>
+    <label>rapid receiver</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -251,9 +251,10 @@
   <!-- #endregion -->
 
   <!-- #region Trigger -->
+  <!-- > RapidTrigger -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_RapidTrigger</defName>
-    <label>_</label>
+    <label>rapid trigger</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -281,7 +282,7 @@
   <!-- > ShortenedStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ShortenedStock</defName>
-    <label>_</label>
+    <label>shortened stock</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -321,7 +322,7 @@
   <!-- > TelescopicStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TelescopicStock</defName>
-    <label>_</label>
+    <label>telescopic stock</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -360,7 +361,7 @@
   <!-- > FoldStock -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_FoldStock</defName>
-    <label>_</label>
+    <label>fold stock</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -400,7 +401,7 @@
   <!-- > StabilizerBrace -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_StabilizerBrace</defName>
-    <label>_</label>
+    <label>stabilizer brace</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -432,7 +433,7 @@
   <!-- > CustomGrip -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_CustomGrip</defName>
-    <label>_</label>
+    <label>custom grip</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -473,7 +474,7 @@
   <!-- > IronSight -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IronSight</defName>
-    <label>_</label>
+    <label>iron sight</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -518,7 +519,7 @@
   <!-- > Holoscope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_Holoscope</defName>
-    <label>_</label>
+    <label>holoscope</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -576,7 +577,7 @@
   <!-- > RedDotScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_RedDotScope</defName>
-    <label>_</label>
+    <label>red dot scope</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -615,7 +616,7 @@
   <!-- > 2xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_2xScope</defName>
-    <label>_</label>
+    <label>2x Scope</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -654,7 +655,7 @@
   <!-- > 4xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_4xScope</defName>
-    <label>_</label>
+    <label>4x Scope</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -693,7 +694,7 @@
   <!-- > 8xScope -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_8xScope</defName>
-    <label>_</label>
+    <label>8x Scope</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -734,7 +735,7 @@
   <!-- > QuickMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_QuickMagazine</defName>
-    <label>_</label>
+    <label>quick magazine</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -806,7 +807,7 @@
   <!-- > ExtendedMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ExtendedMagazine</defName>
-    <label>_</label>
+    <label>extended magazine</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -860,7 +861,7 @@
   <!-- > beltMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_beltMagazine</defName>
-    <label>_</label>
+    <label>belt magazine</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -900,7 +901,7 @@
   <!-- > DrumMagazine -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_DrumMagazine</defName>
-    <label>_</label>
+    <label>drum magazine</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -942,7 +943,7 @@
   <!-- > VerticalGrip -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_VerticalGrip</defName>
-    <label>_</label>
+    <label>vertical grip</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -981,7 +982,7 @@
   <!-- > TriangularGrip -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_TriangularGrip</defName>
-    <label>_</label>
+    <label>triangular grip</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1020,7 +1021,7 @@
   <!-- > LaserSight -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_LaserSight</defName>
-    <label>_</label>
+    <label>laser sight</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1065,7 +1066,7 @@
   <!-- > GrenadeLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_GrenadeLauncher</defName>
-    <label>_</label>
+    <label>grenade launcher</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1111,7 +1112,7 @@
   <!-- EMPLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_EMPLauncher</defName>
-    <label>_</label>
+    <label>EMP launcher</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1157,7 +1158,7 @@
   <!-- SmokeLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_SmokeLauncher</defName>
-    <label>_</label>
+    <label>smoke launcher</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1203,7 +1204,7 @@
   <!-- IncendiaryLauncher -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IncendiaryLauncher</defName>
-    <label>_</label>
+    <label>incendiary launcher</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1251,7 +1252,7 @@
   <!-- > HeavyRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_HeavyRounds</defName>
-    <label>_</label>
+    <label>heavy rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1282,7 +1283,7 @@
   <!-- HollowPointRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_HollowPointRounds</defName>
-    <label>_</label>
+    <label>hollow point rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1313,7 +1314,7 @@
   <!-- > ToxRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ToxRounds</defName>
-    <label>_</label>
+    <label>tox rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1344,7 +1345,7 @@
   <!-- > PiercingRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_PiercingRounds</defName>
-    <label>_</label>
+    <label>piercing rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1375,7 +1376,7 @@
   <!-- > IncendiaryRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IncendiaryRounds</defName>
-    <label>_</label>
+    <label>incendiary rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1406,7 +1407,7 @@
   <!-- > HighPowerRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_HighPowerRounds</defName>
-    <label>_</label>
+    <label>high power rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1437,7 +1438,7 @@
   <!-- > EMPRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_EMPRounds</defName>
-    <label>_</label>
+    <label>EMP rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1466,7 +1467,7 @@
   <!-- PulseChargeRounds -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_PulseChargeRounds</defName>
-    <label>_</label>
+    <label>pulse charge rounds</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath> <!-- tmp tex -->
       <color>(115, 120, 87)</color>
@@ -1495,7 +1496,7 @@
   <!-- > IncendiaryPellets -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_IncendiaryPellets</defName>
-    <label>_</label>
+    <label>incendiary pellets</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -1521,7 +1522,7 @@
   <!-- > ToxPellets -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_ToxPellets</defName>
-    <label>_</label>
+    <label>tox pellets</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
@@ -1547,7 +1548,7 @@
   <!-- BirdshotPellets -->
   <ThingDef ParentName="CWF_TraitModule">
     <defName>CWF_Module_BirdshotPellets</defName>
-    <label>_</label>
+    <label>birdshot pellets</label>
     <graphicData>
       <texPath>Things/Item/Health/HealthItem</texPath>
       <color>(115, 120, 87)</color>
