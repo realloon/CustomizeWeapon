@@ -182,7 +182,14 @@
             <baseTexture>
               <offset>(75, 149)</offset>
             </baseTexture>
-            <layer>30</layer>
+            <layer>10</layer>
+          </li>
+          <li>
+            <part>Underbarrel</part>
+            <baseTexture>
+              <offset>(182, 73)</offset>
+            </baseTexture>
+            <layer>15</layer>
           </li>
         </attachmentPoints>
       </li>
