@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- HeavyRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_HeavyRounds</defName>
+    <label>heavy rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_HeavyRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- HollowPointRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_HollowPointRounds</defName>
+    <label>hollow point rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_HollowPointRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ToxRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ToxRounds</defName>
+    <label>tox rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ToxRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- PiercingRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_PiercingRounds</defName>
+    <label>piercing rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_PiercingRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- IncendiaryRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_IncendiaryRounds</defName>
+    <label>incendiary rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_IncendiaryRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- HighPowerRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_HighPowerRounds</defName>
+    <label>high power rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_HighPowerRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- EMPRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_EMPRounds</defName>
+    <label>EMP rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_EMPRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_Charge</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- PulseChargeRounds -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_PulseChargeRounds</defName>
+    <label>pulse charge rounds</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>ChargedShot</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_PulseChargeRounds</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_Charge</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- IncendiaryPellets -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_IncendiaryPellets</defName>
+    <label>incendiary pellets</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_IncendiaryPellets</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_Shotgun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- ToxPellets -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_ToxPellets</defName>
+    <label>tox pellets</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_ToxPellets</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_Shotgun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- BirdshotPellets -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_BirdshotPellets</defName>
+    <label>birdshot pellets</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Ammo/Ammo</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_BirdshotPellets</weaponTraitDef>
+        <part>Ammo</part>
+        <requiredWeaponTags>
+          <li>CWF_Shotgun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <CWF_UI_WeaponPanel>Weapon panel</CWF_UI_WeaponPanel>
+  <CWF_UI_WeaponPanelDesc>Open the weapon panel</CWF_UI_WeaponPanelDesc>
+
+  <CWF_UI_InputTitle>Input</CWF_UI_InputTitle>
+  <CWF_UI_Confirm>Confirm</CWF_UI_Confirm>
+  <CWF_UI_Cancel>Cancel</CWF_UI_Cancel>
+
+  <CWF_UI_NotRanged>This is not a ranged weapon.</CWF_UI_NotRanged>
+
+  <CWF_UI_Range>Range</CWF_UI_Range>
+  <CWF_UI_RangeDPS>DPS</CWF_UI_RangeDPS>
+  <CWF_UI_RangeBurstCount>Burst count</CWF_UI_RangeBurstCount>
+  <CWF_UI_RangeWarmupTime>Warmup time</CWF_UI_RangeWarmupTime>
+  <CWF_UI_RangeCooldown>Cooldown</CWF_UI_RangeCooldown>
+  <CWF_UI_Projectile>Projectile</CWF_UI_Projectile>
+  <CWF_UI_Damage>Damage</CWF_UI_Damage>
+  <CWF_UI_ArmorPenetration>Armor penetration</CWF_UI_ArmorPenetration>
+  <CWF_UI_StoppingPower>Stopping power</CWF_UI_StoppingPower>
+  <CWF_UI_Accuracy>Accuracy</CWF_UI_Accuracy>
+  <CWF_UI_Touch>Touch</CWF_UI_Touch>
+  <CWF_UI_Short>Short</CWF_UI_Short>
+  <CWF_UI_Medium>Medium</CWF_UI_Medium>
+  <CWF_UI_Long>Long</CWF_UI_Long>
+  <CWF_UI_Mass>Mass</CWF_UI_Mass>
+
+  <CWF_UI_Muzzle>Muzzle</CWF_UI_Muzzle>
+  <CWF_UI_Barrel>Barrel</CWF_UI_Barrel>
+  <CWF_UI_Receiver>Receiver</CWF_UI_Receiver>
+  <CWF_UI_Trigger>Trigger</CWF_UI_Trigger>
+  <CWF_UI_Stock>Stock</CWF_UI_Stock>
+  <CWF_UI_Grip>Grip</CWF_UI_Grip>
+  <CWF_UI_Sight>Sight</CWF_UI_Sight>
+  <CWF_UI_Magazine>Magazine</CWF_UI_Magazine>
+  <CWF_UI_Underbarrel>Underbarrel</CWF_UI_Underbarrel>
+  <CWF_UI_Ammo>Ammo</CWF_UI_Ammo>
+  <CWF_UI_Accessory>Accessory</CWF_UI_Accessory>
+
+  <CWF_UI_Uninstall>Uninstall </CWF_UI_Uninstall>
+  <CWF_UI_NoCompatiblePartsInInventory>No compatible parts in inventory</CWF_UI_NoCompatiblePartsInInventory>
+  <CWF_UI_NoCompatiblePartsOnMap>No compatible parts on map</CWF_UI_NoCompatiblePartsOnMap>
+
+  <CWF_UI_WeaponModules>Weapon modules</CWF_UI_WeaponModules>
+  <CWF_UI_WeaponModules_Desc>Modules installed on this weapon.</CWF_UI_WeaponModules_Desc>
+</LanguageData>

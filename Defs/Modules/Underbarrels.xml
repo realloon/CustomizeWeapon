@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- VerticalGrip -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_VerticalGrip</defName>
+    <label>vertical grip</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_VerticalGrip</weaponTraitDef>
+        <part>Underbarrel</part>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip_o</outlinePath>
+            </graphicData>
+          </li>
+          <!-- <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_HeavySMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/ForHeavySMG</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/ForHeavySMG_o</outlinePath>
+            </graphicData>
+          </li> -->
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- TriangularGrip -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_TriangularGrip</defName>
+    <label>triangular grip</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_TriangularGrip</weaponTraitDef>
+        <part>Underbarrel</part>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- LaserSight -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_LaserSight</defName>
+    <label>laser sight</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_LaserSight</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <!-- <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li> -->
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- GrenadeLauncher -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_GrenadeLauncher</defName>
+    <label>grenade launcher</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_GrenadeLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- EMPLauncher -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_EMPLauncher</defName>
+    <label>EMP launcher</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_EMPLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Underbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Underbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- SmokeLauncher -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_SmokeLauncher</defName>
+    <label>smoke launcher</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_SmokeLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Underbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Underbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- IncendiaryLauncher -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_IncendiaryLauncher</defName>
+    <label>incendiary launcher</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_IncendiaryLauncher</weaponTraitDef>
+        <part>Underbarrel</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Underbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Underbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
+              <offset>(222, 97)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

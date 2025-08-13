@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- RapidTrigger -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_RapidTrigger</defName>
+    <label>rapid trigger</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Trigger/Trigger</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_RapidTrigger</weaponTraitDef>
+        <part>Trigger</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Minigun</li>
+        </requiredWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

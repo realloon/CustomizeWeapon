@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <CWF_UI_WeaponPanel>武器面板</CWF_UI_WeaponPanel>
+  <CWF_UI_WeaponPanelDesc>打开武器面板</CWF_UI_WeaponPanelDesc>
+
+  <CWF_UI_InputTitle>输入</CWF_UI_InputTitle>
+  <CWF_UI_Confirm>接受</CWF_UI_Confirm>
+  <CWF_UI_Cancel>取消</CWF_UI_Cancel>
+
+  <CWF_UI_NotRanged>暂时只支持远程武器。</CWF_UI_NotRanged>
+
+  <CWF_UI_Range>射程</CWF_UI_Range>
+  <CWF_UI_RangeDPS>DPS</CWF_UI_RangeDPS>
+  <CWF_UI_RangeBurstCount>连射数</CWF_UI_RangeBurstCount>
+  <CWF_UI_RangeWarmupTime>瞄准时间</CWF_UI_RangeWarmupTime>
+  <CWF_UI_RangeCooldown>冷却时间</CWF_UI_RangeCooldown>
+  <CWF_UI_Projectile>子弹</CWF_UI_Projectile>
+  <CWF_UI_Damage>单发伤害</CWF_UI_Damage>
+  <CWF_UI_ArmorPenetration>护甲穿透</CWF_UI_ArmorPenetration>
+  <CWF_UI_StoppingPower>抑制力</CWF_UI_StoppingPower>
+  <CWF_UI_Accuracy>射击精度</CWF_UI_Accuracy>
+  <CWF_UI_Touch>贴近</CWF_UI_Touch>
+  <CWF_UI_Short>近</CWF_UI_Short>
+  <CWF_UI_Medium>中</CWF_UI_Medium>
+  <CWF_UI_Long>远</CWF_UI_Long>
+  <CWF_UI_Mass>质量</CWF_UI_Mass>
+
+  <CWF_UI_Muzzle>枪口</CWF_UI_Muzzle>
+  <CWF_UI_Barrel>枪管</CWF_UI_Barrel>
+  <CWF_UI_Receiver>机匣</CWF_UI_Receiver>
+  <CWF_UI_Trigger>扳机</CWF_UI_Trigger>
+  <CWF_UI_Stock>枪托</CWF_UI_Stock>
+  <CWF_UI_Grip>握把</CWF_UI_Grip>
+  <CWF_UI_Sight>瞄具</CWF_UI_Sight>
+  <CWF_UI_Magazine>弹匣</CWF_UI_Magazine>
+  <CWF_UI_Underbarrel>下挂</CWF_UI_Underbarrel>
+  <CWF_UI_Ammo>子弹</CWF_UI_Ammo>
+  <CWF_UI_Accessory>配件</CWF_UI_Accessory>
+
+  <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
+  <CWF_UI_NoCompatiblePartsInInventory>背包中没有合适的模块</CWF_UI_NoCompatiblePartsInInventory>
+  <CWF_UI_NoCompatiblePartsOnMap>地图上没有合适的模块</CWF_UI_NoCompatiblePartsOnMap>
+
+  <CWF_UI_WeaponModules>武器模块</CWF_UI_WeaponModules>
+  <CWF_UI_WeaponModules_Desc>安装在此武器上的模块。</CWF_UI_WeaponModules_Desc>
+</LanguageData>

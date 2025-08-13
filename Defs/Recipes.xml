@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <ThingDef ParentName="BenchBase">
+    <defName>CWF_Workbench</defName>
+    <label>weapon module table</label>
+    <description>weapon module table.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/TableMachining</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3, 1.25)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>3000</WorkToBuild>
+      <MaxHitPoints>180</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <Cleanliness>-2</Cleanliness>
+    </statBases>
+    <size>(3, 1)</size>
+    <designationCategory>Production</designationCategory>
+    <uiOrder>2520</uiOrder>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0, 0, -1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>350</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>5</glowRadius>
+        <glowColor>(73,123,138,0)</glowColor>
+      </li>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+      <li Class="CompProperties_Breakdownable" />
+    </comps>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <workTableRoomRole>Workshop</workTableRoomRole>
+      <workTableNotInRoomRoleFactor>0.8</workTableNotInRoomRoleFactor>
+    </building>
+    <constructEffect>ConstructMetal</constructEffect>
+    <researchPrerequisites>
+      <li>Machining</li>
+    </researchPrerequisites>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+  </ThingDef>
+
+  <RecipeDef>
+    <defName>CWF_UpgradeWeapon</defName>
+    <label>upgrade customize weapon</label>
+    <description>Upgrade a standard weapon into a customizable frame.</description>
+    <jobString>Customizing weapon.</jobString>
+    <workerClass>CWF.Recipe_UpgradeWeapon</workerClass>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workAmount>600</workAmount>
+    <workSkill>Crafting</workSkill>
+    <effectWorking>Smith</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>Weapons</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Gun_AssaultRifle</li>
+        <li>Gun_SniperRifle</li>
+        <li>Gun_Revolver</li>
+        <li>Gun_BoltActionRifle</li>
+        <li>Gun_ChainShotgun</li>
+        <li>Gun_HeavySMG</li>
+        <li>Gun_LMG</li>
+        <li>Gun_Minigun</li>
+        <li>Bow_Great</li>
+        <li>Gun_ChargeRifle</li>
+        <li>Gun_ChargeLance</li>
+        <li MayRequire="Ludeon.Rimworld.Anomaly">Gun_HellcatRifle</li>
+        <li MayRequire="Ludeon.Rimworld.Odyssey">Gun_BeamRepeater</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <forceHiddenSpecialFilters>
+      <li>AllowSmeltable</li>
+      <li>AllowNonSmeltableWeapons</li>
+      <li>AllowBurnableWeapons</li>
+      <li>AllowNonBurnableWeapons</li>
+      <li>AllowBiocodedWeapons</li>
+      <li>AllowNonBiocodedWeapons</li>
+    </forceHiddenSpecialFilters>
+    <products />
+    <recipeUsers>
+      <li>CWF_Workbench</li>
+    </recipeUsers>
+    <!-- <researchPrerequisite>Gunsmithing</researchPrerequisite> -->
+  </RecipeDef>
+</Defs>

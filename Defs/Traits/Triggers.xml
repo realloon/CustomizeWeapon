@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- RapidTrigger -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_RapidTrigger</defName>
+    <label>rapid trigger</label>
+    <description>This trigger assembly is designed with a shorter, crisper pull and a faster reset. This allows the firing mechanism to be actuated more quickly between shots, resulting in a more rapid and tightly-grouped burst.</description>
+    <burstShotSpeedMultiplier>1.25</burstShotSpeedMultiplier>
+  </WeaponTraitDef>
+</Defs>

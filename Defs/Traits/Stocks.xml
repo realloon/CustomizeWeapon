@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ShortenedStock -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_ShortenedStock</defName>
+    <label>shortened stock</label>
+    <description>This stock has been cut down to reduce the weapon's overall mass. The result is a lighter, more compact weapon that is easier to carry and maneuver in tight spaces.</description>
+    <statFactors>
+      <Mass>0.9</Mass>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!-- TelescopicStock -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_TelescopicStock</defName>
+    <label>telescopic stock</label>
+    <description>.</description>
+    <statOffsets>
+      <AccuracyTouch>1.1</AccuracyTouch>
+      <AccuracyShort>1.1</AccuracyShort>
+    </statOffsets>
+    <statFactors>
+      <Mass>0.95</Mass>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!-- FoldStock -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_FoldStock</defName>
+    <label>fold stock</label>
+    <description>Featuring a robust locking mechanism, this folding stock provides an exceptionally stable shoulder rest when deployed. This solid foundation is crucial for maintaining a steady sight picture for accurate shots at medium to long ranges, while its design also slightly reduces the weapon's overall mass.</description>
+    <statOffsets>
+      <AccuracyMedium>1.1</AccuracyMedium>
+      <AccuracyLong>1.1</AccuracyLong>
+    </statOffsets>
+    <statFactors>
+      <Mass>0.95</Mass>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!-- StabilizerBrace -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_StabilizerBrace</defName>
+    <label>stabilizer brace</label>
+    <description>The stabilizing brace that connects to the user's arm, increasing its accuracy.</description>
+    <statOffsets>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.2</AccuracyTouch>
+      <AccuracyShort>1.2</AccuracyShort>
+    </statFactors>
+  </WeaponTraitDef>
+</Defs>

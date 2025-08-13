@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- IronSight -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_IronSight</defName>
+    <label>iron sight</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_IronSight</weaponTraitDef>
+        <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Handgun</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+                <li>CWF_Gun_BoltActionRifle</li>
+                <li>CWF_Gun_ChainShotgun</li>
+                <li>CWF_Gun_HeavySMG</li>
+                <li>CWF_Gun_LMG</li>
+                <li>CWF_Gun_Revolver</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_SniperRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight_o</outlinePath>
+              <offset>(85, 150)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- Holoscope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_Holoscope</defName>
+    <label>holoscope</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
+        <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Handgun</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_BoltActionRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
+              <offset>(72, 147)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_SniperRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
+              <offset>(102, 148)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
+              <offset>(84, 181)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_HeavySMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
+              <offset>(95, 205)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
+              <offset>(64, 163)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_Revolver</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
+              <offset>(128, 187)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- RedDotScope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_RedDotScope</defName>
+    <label>red dot scope</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_RedDotScope</weaponTraitDef>
+        <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Handgun</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope_o</outlinePath>
+            </graphicData>
+          </li>
+          <!-- <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_BoltActionRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope_o</outlinePath>
+              <offset>(0, 0)</offset>
+            </graphicData>
+          </li> -->
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- 2xScope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_2xScope</defName>
+    <label>2x Scope</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_2xScope</weaponTraitDef>
+        <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Handgun</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
+              <offset>(77, 174)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_BoltActionRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
+              <offset>(77, 174)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_SniperRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
+              <offset>(69, 152)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
+              <offset>(83, 191)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_HeavySMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
+              <offset>(153, 216)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
+              <offset>(64, 167)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_Revolver</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
+              <offset>(116, 192)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- 4xScope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_4xScope</defName>
+    <label>4x Scope</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_4xScope</weaponTraitDef>
+        <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Handgun</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+              <offset>(77, 170)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_BoltActionRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+              <offset>(88, 152)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_SniperRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+              <offset>(88, 187)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_HeavySMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+              <offset>(108, 204)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+              <offset>(62, 162)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_Revolver</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+              <offset>(116, 186)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- 8xScope -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_8xScope</defName>
+    <label>8x Scope</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_8xScope</weaponTraitDef>
+        <part>Sight</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Shotgun</li>
+          <li>CWF_SMG</li>
+          <li>CWF_LMG</li>
+          <li>CWF_Handgun</li>
+        </requiredWeaponTags>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
+              <offset>(77, 170)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_BoltActionRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
+              <offset>(112, 154)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_SniperRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChainShotgun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
+              <offset>(102, 186)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_HeavySMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
+              <offset>(128, 204)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
+              <offset>(102, 161)</offset>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_Revolver</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
+              <offset>(147, 186)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

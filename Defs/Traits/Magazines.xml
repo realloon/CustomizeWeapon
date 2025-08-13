@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!--  -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_QuickMagazine</defName>
+    <label>quick magazine</label>
+    <description>Designed with an improved release mechanism, this magazine makes the reloading process quicker, helping to reduce downtime during a firefight.</description>
+    <statFactors>
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!--  -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_ExtendedMagazine</defName>
+    <label>extended magazine</label>
+    <description>This magazine holds more ammunition than the standard version, allowing the weapon to fire more shots in a single burst.</description>
+    <burstShotCountMultiplier>1.25</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <!--  -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_beltMagazine</defName>
+    <label>belt magazine</label>
+    <description>This belt-feeding mechanism provides a continuous stream of ammunition, enabling the weapon to unleash a significantly longer and more suppressive burst of fire.</description>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+
+  <!--  -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_DrumMagazine</defName>
+    <label>drum magazine</label>
+    <description>This high-capacity drum magazine holds a substantial number of rounds, enabling the weapon to deliver a prolonged and overwhelming burst of fire.</description>
+    <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
+  </WeaponTraitDef>
+</Defs>

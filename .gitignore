@@ -1,0 +1,6 @@
+Assemblies/
+
+Textures/*
+!Textures/LICENSE
+
+tmp/

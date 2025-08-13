@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <JobDef>
+    <defName>CWF_ModifyWeaponSelf</defName>
+    <driverClass>CWF.JobDriver_ModifyWeaponSelf</driverClass>
+    <reportString>modifying TargetA.</reportString>
+    <description>Modifying a weapon with a part.</description>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <JobDef>
+    <defName>CWF_ModifyWeaponHaul</defName>
+    <driverClass>CWF.JobDriver_ModifyWeaponHaul</driverClass>
+    <reportString>modifying TargetA.</reportString>
+    <description>Modifying a weapon with a part.</description>
+  </JobDef>
+</Defs>

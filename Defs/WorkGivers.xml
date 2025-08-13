@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Defs>
+  <WorkGiverDef>
+    <defName>CWF_DoBillsWeaponModules</defName>
+    <label>craft weapon modules</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Crafting</workType>
+    <verb>crafting module at</verb>
+    <gerund>crafting module at</gerund>
+    <priorityInType>110</priorityInType>
+    <fixedBillGiverDefs>
+      <li>CWF_Workbench</li>
+    </fixedBillGiverDefs>
+  </WorkGiverDef>
+</Defs>

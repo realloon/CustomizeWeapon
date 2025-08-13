@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_HeavyRounds</defName>
+    <label>heavy rounds</label>
+    <description>These specialized rounds are loaded with heavier projectiles. Their immense kinetic energy delivers a powerful impact, making them exceptionally effective at staggering targets and halting an enemy's advance, along with a slight increase in overall damage.</description>
+    <statOffsets>
+      <RangedWeapon_DamageMultiplier>0.1</RangedWeapon_DamageMultiplier>
+    </statOffsets>
+    <additionalStoppingPower>1.5</additionalStoppingPower>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_HollowPointRounds</defName>
+    <label>hollow point rounds</label>
+    <description>These are hollow point rounds. The bullets are designed to expand upon impact, causing more severe wounds and significantly increasing overall damage.</description>
+    <statOffsets>
+      <RangedWeapon_DamageMultiplier>0.2</RangedWeapon_DamageMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_ToxRounds</defName>
+    <label>tox rounds</label>
+    <description>These rounds are tipped with a potent toxin. They are designed not just to injure, but to poison, inflicting a debilitating toxic buildup on anyone they hit.</description>
+    <damageDefOverride>CWF_Bullet_TraitTox</damageDefOverride>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_PiercingRounds</defName>
+    <label>piercing rounds</label>
+    <description>These rounds feature a dense, hardened core, engineered to punch through armor and damage the target underneath.</description>
+    <statOffsets>
+      <RangedWeapon_ArmorPenetrationMultiplier>0.14</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_IncendiaryRounds</defName>
+    <label>incendiary rounds</label>
+    <description>These rounds are loaded with an incendiary compound. Upon impact, they burst into flames, inflicting burns and potentially igniting targets and their surroundings.</description>
+    <damageDefOverride>CWF_Bullet_TraitIncendiary</damageDefOverride>
+  </WeaponTraitDef>
+
+  <!-- EMPRounds -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_EMPRounds</defName>
+    <label>EMP rounds</label>
+    <description>These rounds are embedded with micro-capacitors that release a small electromagnetic pulse on impact, capable of disrupting electronics and temporarily stunning mechanoids.</description>
+    <extraDamages>
+      <li>
+        <def>EMP</def>
+        <amount>4</amount>
+      </li>
+    </extraDamages>
+  </WeaponTraitDef>
+
+  <!-- HighPowerRounds -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_HighPowerRounds</defName>
+    <label>high power rounds</label>
+    <description>Packed with a potent propellant charge, these rounds deliver devastating impact and enhanced armor penetration. This raw power comes at a price, however, as the severe recoil makes the weapon more difficult to aim accurately.</description>
+    <statOffsets>
+      <RangedWeapon_DamageMultiplier>0.3</RangedWeapon_DamageMultiplier>
+      <RangedWeapon_ArmorPenetrationMultiplier>0.15</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>0.9</AccuracyTouch>
+      <AccuracyShort>0.9</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.9</AccuracyLong>
+    </statFactors>
+  </WeaponTraitDef>
+
+  <!-- PulseChargeRounds -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_PulseChargeRounds</defName>
+    <label>pulse charge rounds</label>
+    <description>Each of these advanced rounds contains a highly unstable energy cell. Upon impact, it discharges a powerful energy pulse, delivering exceptional damage and allowing it to punch through hardened armor.</description>
+    <statOffsets>
+      <RangedWeapon_DamageMultiplier>0.25</RangedWeapon_DamageMultiplier>
+      <RangedWeapon_ArmorPenetrationMultiplier>0.15</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
+  <!-- IncendiaryPellets -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_IncendiaryPellets</defName>
+    <label>incendiary pellets</label>
+    <description>This round is packed with an incendiary substance that fragments upon impact, creating multiple hot particles that make ignition highly likely.</description>
+    <damageDefOverride>CWF_Bullet_TraitIncendiary</damageDefOverride>
+  </WeaponTraitDef>
+
+  <!-- ToxPellets -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_ToxPellets</defName>
+    <label>tox pellets</label>
+    <description>This round shatters upon impact, releasing a spray of toxic shards. This ensures the target is thoroughly contaminated, leading to a debilitating toxic buildup.</description>
+    <damageDefOverride>CWF_Bullet_TraitTox</damageDefOverride>
+  </WeaponTraitDef>
+
+  <!-- BirdshotPellets -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_BirdshotPellets</defName>
+    <label>birdshot pellets</label>
+    <description>This round is engineered to shatter into a cone of fragments upon firing. This pattern is highly effective at close quarters, but the fragments lose energy quickly, making them unable to penetrate armor or maintain accuracy at a distance.</description>
+    <statOffsets>
+      <RangedWeapon_ArmorPenetrationMultiplier>-0.25</RangedWeapon_ArmorPenetrationMultiplier>
+    </statOffsets>
+    <statFactors>
+      <AccuracyTouch>1.3</AccuracyTouch>
+      <AccuracyShort>1.2</AccuracyShort>
+      <AccuracyMedium>0.9</AccuracyMedium>
+      <AccuracyLong>0.9</AccuracyLong>
+    </statFactors>
+  </WeaponTraitDef>
+</Defs>

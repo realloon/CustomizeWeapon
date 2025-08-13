@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- RapidReceiver -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_RapidReceiver</defName>
+    <label>rapid receiver</label>
+    <description>The internal mechanisms of this receiver have been finely tuned and its action lightened. This allows the weapon to cycle significantly faster, unleashing all shots in a burst as a blistering, rapid volley.</description>
+    <burstShotSpeedMultiplier>1.5</burstShotSpeedMultiplier>
+  </WeaponTraitDef>
+</Defs>

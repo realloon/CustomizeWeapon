@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingCategoryDef>
+    <defName>CWF_CustomizedWeapons</defName>
+    <label>customized weapon</label>
+    <parent>Weapons</parent>
+  </ThingCategoryDef>
+
+  <ThingCategoryDef>
+    <defName>CWF_TraitModules</defName>
+    <label>weapon module</label>
+    <parent>Manufactured</parent>
+  </ThingCategoryDef>
+</Defs>

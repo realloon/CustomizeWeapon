@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- > CustomGrip -->
+  <ThingDef ParentName="CWF_TraitModule">
+    <defName>CWF_Module_CustomGrip</defName>
+    <label>custom grip</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Grip/Grip</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_CustomGrip</weaponTraitDef>
+        <part>Grip</part>
+        <graphicCases>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForAssaultRifle</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForAssaultRifle_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_ChargeRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForChargeRifle</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForChargeRifle_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_HeavySMG</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForHeavySMG</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForHeavySMG_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_Minigun</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForMinigun</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForMinigun_o</outlinePath>
+              <offset>(-14, 65)</offset>
+            </graphicData>
+          </li>
+        </graphicCases>
+      </li>
+    </modExtensions>
+  </ThingDef>
+</Defs>

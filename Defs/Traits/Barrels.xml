@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- ExtendedBarrel -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_ExtendedBarrel</defName>
+    <label>extended barrel</label>
+    <description>A carefully crafted extended barrel. It effectively increases the projectile's muzzle velocity, allowing it to travel further and thus significantly increasing the weapon's effective range.</description>
+    <statOffsets>
+      <RangedWeapon_RangeMultiplier>0.15</RangedWeapon_RangeMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
+  <!-- ShortenedBarrel -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_ShortenedBarrel</defName>
+    <label>shortened barrel</label>
+    <description>A deliberately shortened barrel. This sacrifices projectile velocity, leading to a significant reduction in effective range, but the lighter weight and improved balance allow the operator to aim down sights much faster.</description>
+    <statOffsets>
+      <Mass>-0.05</Mass>
+      <RangedWeapon_RangeMultiplier>-0.2</RangedWeapon_RangeMultiplier>
+      <RangedWeapon_WarmupMultiplier>-0.15</RangedWeapon_WarmupMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+
+  <!-- TacticalBarrel -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_TacticalBarrel</defName>
+    <label>tactical barrel</label>
+    <description>This barrel has been re-engineered with a focus on ergonomics and balance. Its structurally optimized profile reduces overall mass, making the weapon quicker to handle and easier to bring to a steady aim.</description>
+    <statOffsets>
+      <Mass>-0.05</Mass>
+      <RangedWeapon_WarmupMultiplier>-0.1</RangedWeapon_WarmupMultiplier>
+    </statOffsets>
+  </WeaponTraitDef>
+</Defs>

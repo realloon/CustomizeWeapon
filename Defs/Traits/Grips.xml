@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- CustomGrip -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_CustomGrip</defName>
+    <label>custom grip</label>
+    <description>This customized grip that handles recoil better, improving accuracy at short range.</description>
+    <statFactors>
+      <AccuracyTouch>1.1</AccuracyTouch>
+      <AccuracyShort>1.1</AccuracyShort>
+    </statFactors>
+  </WeaponTraitDef>
+</Defs>
