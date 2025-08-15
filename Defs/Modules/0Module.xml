@@ -29,7 +29,7 @@
       <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
     </recipeMaker>
     <altitudeLayer>Item</altitudeLayer>
-    <stackLimit>1</stackLimit>
+    <stackLimit>6</stackLimit>
     <thingCategories>
       <li>CWF_TraitModules</li>
     </thingCategories>
