@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- ShortenedStock -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_ShortenedStock</defName>
     <label>shortened stock</label>
     <graphicData>
@@ -63,7 +63,7 @@
   </ThingDef>
 
   <!-- TelescopicStock -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_TelescopicStock</defName>
     <label>telescopic stock</label>
     <graphicData>
@@ -113,7 +113,7 @@
   </ThingDef>
 
   <!-- FoldStock -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_FoldStock</defName>
     <label>fold stock</label>
     <graphicData>
@@ -152,7 +152,7 @@
   </ThingDef>
 
   <!-- StabilizerBrace -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_StabilizerBrace</defName>
     <label>stabilizer brace</label>
     <graphicData>

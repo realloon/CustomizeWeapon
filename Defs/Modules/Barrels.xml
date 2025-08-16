@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- ExtendedBarrel -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_ExtendedBarrel</defName>
     <label>extended barrel</label>
     <graphicData>
@@ -94,7 +94,7 @@
   </ThingDef>
 
   <!-- ShortenedBarrel -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_ShortenedBarrel</defName>
     <label>shortened barrel</label>
     <graphicData>
@@ -195,7 +195,7 @@
   </ThingDef>
 
   <!-- TacticalBarrel -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_TacticalBarrel</defName>
     <label>tactical barrel</label>
     <graphicData>

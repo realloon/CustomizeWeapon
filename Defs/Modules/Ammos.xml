@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- HeavyRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_HeavyRounds</defName>
     <label>heavy rounds</label>
     <graphicData>
@@ -31,7 +31,7 @@
   </ThingDef>
 
   <!-- HollowPointRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_HollowPointRounds</defName>
     <label>hollow point rounds</label>
     <graphicData>
@@ -61,7 +61,7 @@
   </ThingDef>
 
   <!-- ToxRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_ToxRounds</defName>
     <label>tox rounds</label>
     <graphicData>
@@ -91,7 +91,7 @@
   </ThingDef>
 
   <!-- PiercingRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_PiercingRounds</defName>
     <label>piercing rounds</label>
     <graphicData>
@@ -121,7 +121,7 @@
   </ThingDef>
 
   <!-- IncendiaryRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_IncendiaryRounds</defName>
     <label>incendiary rounds</label>
     <graphicData>
@@ -151,7 +151,7 @@
   </ThingDef>
 
   <!-- HighPowerRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_HighPowerRounds</defName>
     <label>high power rounds</label>
     <graphicData>
@@ -181,7 +181,7 @@
   </ThingDef>
 
   <!-- EMPRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_EMPRounds</defName>
     <label>EMP rounds</label>
     <graphicData>
@@ -209,7 +209,7 @@
   </ThingDef>
 
   <!-- PulseChargeRounds -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_PulseChargeRounds</defName>
     <label>pulse charge rounds</label>
     <graphicData>
@@ -237,7 +237,7 @@
   </ThingDef>
 
   <!-- IncendiaryPellets -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_IncendiaryPellets</defName>
     <label>incendiary pellets</label>
     <graphicData>
@@ -262,7 +262,7 @@
   </ThingDef>
 
   <!-- ToxPellets -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_ToxPellets</defName>
     <label>tox pellets</label>
     <graphicData>
@@ -287,7 +287,7 @@
   </ThingDef>
 
   <!-- BirdshotPellets -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_BirdshotPellets</defName>
     <label>birdshot pellets</label>
     <graphicData>

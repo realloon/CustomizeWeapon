@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- QuickMagazine -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_QuickMagazine</defName>
     <label>quick magazine</label>
     <graphicData>
@@ -94,7 +94,7 @@
   </ThingDef>
 
   <!-- ExtendedMagazine -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_ExtendedMagazine</defName>
     <label>extended magazine</label>
     <graphicData>
@@ -202,7 +202,7 @@
   </ThingDef>
 
   <!-- BeltMagazine -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_BeltMagazine</defName>
     <label>belt magazine</label>
     <graphicData>
@@ -246,7 +246,7 @@
   </ThingDef>
 
   <!-- DrumMagazine -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_DrumMagazine</defName>
     <label>drum magazine</label>
     <graphicData>

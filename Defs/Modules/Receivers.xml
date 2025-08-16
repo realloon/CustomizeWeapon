@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- RapidReceiver -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_RapidReceiver</defName>
     <label>rapid receiver</label>
     <graphicData>

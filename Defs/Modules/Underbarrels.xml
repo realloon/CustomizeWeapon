@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- VerticalGrip -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_VerticalGrip</defName>
     <label>vertical grip</label>
     <graphicData>
@@ -119,7 +119,7 @@
   </ThingDef>
 
   <!-- TriangularGrip -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_TriangularGrip</defName>
     <label>triangular grip</label>
     <graphicData>
@@ -238,7 +238,7 @@
   </ThingDef>
 
   <!-- LaserSight -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_LaserSight</defName>
     <label>laser sight</label>
     <graphicData>
@@ -357,7 +357,7 @@
   </ThingDef>
 
   <!-- GrenadeLauncher -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_GrenadeLauncher</defName>
     <label>grenade launcher</label>
     <graphicData>
@@ -451,7 +451,7 @@
   </ThingDef>
 
   <!-- EMPLauncher -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_EMPLauncher</defName>
     <label>EMP launcher</label>
     <graphicData>
@@ -545,7 +545,7 @@
   </ThingDef>
 
   <!-- SmokeLauncher -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_SmokeLauncher</defName>
     <label>smoke launcher</label>
     <graphicData>
@@ -639,7 +639,7 @@
   </ThingDef>
 
   <!-- IncendiaryLauncher -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_IncendiaryLauncher</defName>
     <label>incendiary launcher</label>
     <graphicData>

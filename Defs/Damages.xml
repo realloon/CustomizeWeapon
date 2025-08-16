@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Defs>
   <DamageDef ParentName="Bullet">
     <defName>CWF_Bullet_TraitTox</defName>

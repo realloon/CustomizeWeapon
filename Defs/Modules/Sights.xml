@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!-- IronSight -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_IronSight</defName>
     <label>iron sight</label>
     <graphicData>
@@ -65,7 +65,7 @@
   </ThingDef>
 
   <!-- Holoscope -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_Holoscope</defName>
     <label>holoscope</label>
     <graphicData>
@@ -184,7 +184,7 @@
   </ThingDef>
 
   <!-- RedDotScope -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_RedDotScope</defName>
     <label>red dot scope</label>
     <graphicData>
@@ -243,7 +243,7 @@
   </ThingDef>
 
   <!-- 2xScope -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_2xScope</defName>
     <label>2x Scope</label>
     <graphicData>
@@ -363,7 +363,7 @@
   </ThingDef>
 
   <!-- 4xScope -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_4xScope</defName>
     <label>4x Scope</label>
     <graphicData>
@@ -482,7 +482,7 @@
   </ThingDef>
 
   <!-- 8xScope -->
-  <ThingDef ParentName="CWF_TraitModule">
+  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_8xScope</defName>
     <label>8x Scope</label>
     <graphicData>
