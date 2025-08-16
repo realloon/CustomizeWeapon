@@ -34,7 +34,6 @@
           <li>
             <matcher>
               <weaponDefs>
-                <li>CWF_Gun_AssaultRifle</li>
                 <li>CWF_Gun_BoltActionRifle</li>
                 <li>CWF_Gun_ChainShotgun</li>
                 <li>CWF_Gun_HeavySMG</li>
@@ -45,6 +44,18 @@
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight</texturePath>
               <outlinePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight_o</outlinePath>
+            </graphicData>
+          </li>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_AssaultRifle</li>
+              </weaponDefs>
+            </matcher>
+            <graphicData>
+              <texturePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight</texturePath>
+              <outlinePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight_o</outlinePath>
+              <offset>(67, 173)</offset>
             </graphicData>
           </li>
           <li>
