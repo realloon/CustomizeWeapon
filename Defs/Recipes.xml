@@ -135,6 +135,6 @@
     <recipeUsers>
       <li>CWF_Workbench</li>
     </recipeUsers>
-    <!-- <researchPrerequisite>Gunsmithing</researchPrerequisite> -->
+    <researchPrerequisite>Gunsmithing</researchPrerequisite>
   </RecipeDef>
 </Defs>

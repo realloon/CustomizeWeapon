@@ -2,16 +2,16 @@
 <Defs>
   <JobDef>
     <defName>CWF_ModifyWeaponSelf</defName>
+    <description>Modifying a weapon with a part.</description>
     <driverClass>CWF.JobDriver_ModifyWeaponSelf</driverClass>
     <reportString>modifying TargetA.</reportString>
-    <description>Modifying a weapon with a part.</description>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
 
   <JobDef>
     <defName>CWF_ModifyWeaponHaul</defName>
+    <description>Modifying a weapon with a part.</description>
     <driverClass>CWF.JobDriver_ModifyWeaponHaul</driverClass>
     <reportString>modifying TargetA.</reportString>
-    <description>Modifying a weapon with a part.</description>
   </JobDef>
 </Defs>
