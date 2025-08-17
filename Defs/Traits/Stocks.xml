@@ -14,13 +14,11 @@
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_TelescopicStock</defName>
     <label>telescopic stock</label>
-    <description>.</description>
-    <statOffsets>
-      <AccuracyTouch>1.1</AccuracyTouch>
-      <AccuracyShort>1.1</AccuracyShort>
-    </statOffsets>
+    <description>Adjustable retractable stock for improved ergonomics. A better fit allows for a more stable shooting stance and greater precision.</description>
     <statFactors>
       <Mass>0.95</Mass>
+      <AccuracyTouch>1.1</AccuracyTouch>
+      <AccuracyShort>1.1</AccuracyShort>
     </statFactors>
   </WeaponTraitDef>
 
@@ -29,12 +27,10 @@
     <defName>CWF_Trait_FoldStock</defName>
     <label>fold stock</label>
     <description>Featuring a robust locking mechanism, this folding stock provides an exceptionally stable shoulder rest when deployed. This solid foundation is crucial for maintaining a steady sight picture for accurate shots at medium to long ranges, while its design also slightly reduces the weapon's overall mass.</description>
-    <statOffsets>
-      <AccuracyMedium>1.1</AccuracyMedium>
-      <AccuracyLong>1.1</AccuracyLong>
-    </statOffsets>
     <statFactors>
       <Mass>0.95</Mass>
+      <AccuracyMedium>1.1</AccuracyMedium>
+      <AccuracyLong>1.1</AccuracyLong>
     </statFactors>
   </WeaponTraitDef>
 

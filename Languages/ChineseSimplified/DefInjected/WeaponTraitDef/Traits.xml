@@ -8,7 +8,7 @@
     <CWF_Trait_ShortenedBarrel.description>被特意截短的枪管。这牺牲了弹丸的枪口初速，导致武器的有效射程缩短，但更轻的重量和更好的平衡性也让射手能更快完成瞄准。</CWF_Trait_ShortenedBarrel.description>
 
     <CWF_Trait_TacticalBarrel.label>战术枪管</CWF_Trait_TacticalBarrel.label>
-    <CWF_Trait_TacticalBarrel.description>经过重新设计的枪管。着重优化人机工学与拓展性，结构上的轻量化减轻了重量，操控性更佳，更容易进入稳定姿态。</CWF_Trait_TacticalBarrel.description>
+    <CWF_Trait_TacticalBarrel.description>经过重新设计的枪管。着重优化人机工效与拓展性，结构上的轻量化减轻了重量，操控性更佳，更容易进入稳定姿态。</CWF_Trait_TacticalBarrel.description>
 
     <CWF_Trait_RapidReceiver.label>快速机匣</CWF_Trait_RapidReceiver.label>
     <CWF_Trait_RapidReceiver.description>该机匣的内部机构经过精密调校。通过减轻活动部件质量，缩短周期，射速更快。</CWF_Trait_RapidReceiver.description>
@@ -20,7 +20,7 @@
     <CWF_Trait_ShortenedStock.description>特意被截短的枪托，减轻了武器的重量。武器更轻、更紧凑，便于携带，也更适合在狭窄空间内行动。</CWF_Trait_ShortenedStock.description>
 
     <CWF_Trait_TelescopicStock.label>伸缩枪托</CWF_Trait_TelescopicStock.label>
-    <CWF_Trait_TelescopicStock.description>伸缩枪托可调节长度，提升人机工学性。更佳的贴合度让射手以更稳定的姿态射击，获得更出色的射击精度。</CWF_Trait_TelescopicStock.description>
+    <CWF_Trait_TelescopicStock.description>伸缩枪托可调节长度，提升人机工效。更佳的贴合度让射手以更稳定的姿态射击，获得更出色的射击精度。</CWF_Trait_TelescopicStock.description>
 
     <CWF_Trait_FoldStock.label>折叠枪托</CWF_Trait_FoldStock.label>
     <CWF_Trait_FoldStock.description>配备锁定机制的折叠枪托，展开时作为稳固的抵肩平台。不仅保证精确射击，同时也减轻了武器的重量。</CWF_Trait_FoldStock.description>
