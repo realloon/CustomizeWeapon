@@ -10,7 +10,7 @@
     <CWF_Trait_TacticalBarrel.label>战术枪管</CWF_Trait_TacticalBarrel.label>
     <CWF_Trait_TacticalBarrel.description>经过重新设计的枪管。着重优化人机工效与拓展性，结构上的轻量化减轻了重量，操控性更佳，更容易进入稳定姿态。</CWF_Trait_TacticalBarrel.description>
 
-    <CWF_Trait_RapidReceiver.label>快速机匣</CWF_Trait_RapidReceiver.label>
+    <CWF_Trait_RapidReceiver.label>高速机匣</CWF_Trait_RapidReceiver.label>
     <CWF_Trait_RapidReceiver.description>该机匣的内部机构经过精密调校。通过减轻活动部件质量，缩短周期，射速更快。</CWF_Trait_RapidReceiver.description>
 
     <CWF_Trait_RapidTrigger.label>高速扳机</CWF_Trait_RapidTrigger.label>
