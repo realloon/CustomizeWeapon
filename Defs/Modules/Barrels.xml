@@ -85,7 +85,7 @@
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForRevolver</texturePath>
               <outlinePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForRevolver_o</outlinePath>
-              <offset>(271, 59)</offset>
+              <offset>(227, 145)</offset>
             </graphicData>
           </li>
         </graphicCases>
