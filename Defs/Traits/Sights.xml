@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!--  -->
+  <!-- IronSight -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_IronSight</defName>
     <label>iron sight</label>
@@ -11,7 +11,7 @@
     </statFactors>
   </WeaponTraitDef>
 
-  <!--  -->
+  <!-- Holoscope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_Holoscope</defName>
     <label>holoscope</label>
@@ -26,7 +26,7 @@
     </statFactors>
   </WeaponTraitDef>
 
-  <!--  -->
+  <!-- RedDotScope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_RedDotScope</defName>
     <label>red dot scope</label>
