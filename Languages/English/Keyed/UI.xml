@@ -46,4 +46,5 @@
   <CWF_UI_WeaponModules_Desc>Modules installed on this weapon.</CWF_UI_WeaponModules_Desc>
 
   <CWF_UI_ModuleEffects>Module Effects</CWF_UI_ModuleEffects>
+  <CWF_UI_ModuleEffectsDesc>Installing {MODULE_label} will grant the weapon the following effects:</CWF_UI_ModuleEffectsDesc>
 </LanguageData>

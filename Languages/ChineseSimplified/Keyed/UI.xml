@@ -46,4 +46,5 @@
   <CWF_UI_WeaponModules_Desc>安装在此武器上的模块。</CWF_UI_WeaponModules_Desc>
 
   <CWF_UI_ModuleEffects>模块效果</CWF_UI_ModuleEffects>
+  <CWF_UI_ModuleEffectsDesc>安装{MODULE_label}将为武器提供以下效果：</CWF_UI_ModuleEffectsDesc>
 </LanguageData>
