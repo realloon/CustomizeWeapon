@@ -44,4 +44,6 @@
 
   <CWF_UI_WeaponModules>武器模块</CWF_UI_WeaponModules>
   <CWF_UI_WeaponModules_Desc>安装在此武器上的模块。</CWF_UI_WeaponModules_Desc>
+
+  <CWF_UI_ModuleEffects>模块效果</CWF_UI_ModuleEffects>
 </LanguageData>

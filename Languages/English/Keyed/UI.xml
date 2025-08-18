@@ -44,4 +44,6 @@
 
   <CWF_UI_WeaponModules>Weapon modules</CWF_UI_WeaponModules>
   <CWF_UI_WeaponModules_Desc>Modules installed on this weapon.</CWF_UI_WeaponModules_Desc>
+
+  <CWF_UI_ModuleEffects>Module Effects</CWF_UI_ModuleEffects>
 </LanguageData>
