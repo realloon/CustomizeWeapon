@@ -54,7 +54,7 @@
   <!-- 4xScope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_4xScope</defName>
-    <label>2x scope</label>
+    <label>4x scope</label>
     <description>Offering 4x magnification, this optical scope is designed for effective engagement at medium to long distances. It allows the user to clearly identify and precisely aim at distant targets, slightly extending the weapon's maximum effective range.</description>
     <statFactors>
       <AccuracyTouch>1.3</AccuracyTouch>

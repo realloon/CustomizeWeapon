@@ -6,9 +6,9 @@
     <description>weapon module table.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>Things/Building/Production/TableMachining</texPath>
+      <texPath>CustomizeWeapon/workbench/WeaponModuleWorkbench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3, 1.25)</drawSize>
+      <drawSize>(3.5, 1.5)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
