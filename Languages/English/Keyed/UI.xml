@@ -47,4 +47,6 @@
 
   <CWF_UI_ModuleEffects>Module Effects</CWF_UI_ModuleEffects>
   <CWF_UI_ModuleEffectsDesc>Installing {MODULE_label} will grant the weapon the following effects</CWF_UI_ModuleEffectsDesc>
+
+  <CWF_UI_PickUp>Pick up {MODULE_label}</CWF_UI_PickUp>
 </LanguageData>

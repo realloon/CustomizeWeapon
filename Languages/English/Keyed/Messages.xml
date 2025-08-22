@@ -2,7 +2,7 @@
 
 <LanguageData>
     <CWF_Message_NoColonistToModifyWeapon>No suitable colonist to modify weapon</CWF_Message_NoColonistToModifyWeapon>
-    <CWF_Message_CannotFindModuleForModification>Cannot find weapon module for modification</CWF_Message_CannotFindModuleForModification>
+    <CWF_Message_CannotFindModuleForModification>Cannot find {MODULE_label} for modification</CWF_Message_CannotFindModuleForModification>
     <CWF_Message_ModificationJobDispatched></CWF_Message_ModificationJobDispatched>
     <CWF_Message_ModificationJobDispatched>{PAWN_label} will modify {WEAPON_label}</CWF_Message_ModificationJobDispatched>
     <CWF_Message_ModificationComplete>{WEAPON_label} has been modified by {PAWN_label}</CWF_Message_ModificationComplete>
