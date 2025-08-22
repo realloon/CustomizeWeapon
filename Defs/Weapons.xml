@@ -1195,7 +1195,7 @@
 
   <ThingDef ParentName="Gun_BeamRepeater" MayRequire="Ludeon.Rimworld.Odyssey">
     <defName>CWF_Gun_BeamRepeater</defName>
-    <label>customized beam repeatere</label>
+    <label>customized beam repeater</label>
     <description>A beam repeater with customized parts.</description>
     <descriptionHyperlinks>
       <ThingDef>Gun_BeamRepeater</ThingDef>
