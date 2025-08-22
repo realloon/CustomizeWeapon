@@ -39,7 +39,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -50,7 +49,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -61,7 +59,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip_o</outlinePath>
               <offset>(150, 72)</offset>
             </graphicData>
           </li>
@@ -73,7 +70,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip_o</outlinePath>
               <offset>(248, 77)</offset>
             </graphicData>
           </li>
@@ -85,7 +81,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGripLong</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGripLong_o</outlinePath>
               <offset>(273, 114)</offset>
             </graphicData>
           </li>
@@ -97,7 +92,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGrip_o</outlinePath>
               <offset>(171, 68)</offset>
             </graphicData>
           </li>
@@ -109,7 +103,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGripLong</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/VerticalGrip/VerticalGripLong_o</outlinePath>
               <offset>(225, 109)</offset>
             </graphicData>
           </li>
@@ -157,7 +150,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -168,7 +160,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
               <offset>(213, 77)</offset>
             </graphicData>
           </li>
@@ -180,7 +171,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
               <offset>(160, 73)</offset>
             </graphicData>
           </li>
@@ -192,7 +182,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
               <offset>(264, 74)</offset>
             </graphicData>
           </li>
@@ -204,7 +193,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
               <offset>(268, 111)</offset>
             </graphicData>
           </li>
@@ -216,7 +204,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
               <offset>(195, 66)</offset>
             </graphicData>
           </li>
@@ -228,7 +215,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/TriangularGrip/TriangularGrip_o</outlinePath>
               <offset>(239, 106)</offset>
             </graphicData>
           </li>
@@ -276,7 +262,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -287,7 +272,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
               <offset>(166, 75)</offset>
             </graphicData>
           </li>
@@ -299,7 +283,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
               <offset>(188, 74)</offset>
             </graphicData>
           </li>
@@ -311,7 +294,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
               <offset>(238, 76)</offset>
             </graphicData>
           </li>
@@ -323,7 +305,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
               <offset>(239, 113)</offset>
             </graphicData>
           </li>
@@ -335,7 +316,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
               <offset>(182, 68)</offset>
             </graphicData>
           </li>
@@ -347,7 +327,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</outlinePath>
               <offset>(230, 110)</offset>
             </graphicData>
           </li>
@@ -393,7 +372,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(222, 97)</offset>
             </graphicData>
           </li>
@@ -405,7 +383,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(272, 86)</offset>
             </graphicData>
           </li>
@@ -417,7 +394,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(274, 122)</offset>
             </graphicData>
           </li>
@@ -429,7 +405,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(210, 77)</offset>
             </graphicData>
           </li>
@@ -441,7 +416,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(256, 119)</offset>
             </graphicData>
           </li>
@@ -487,7 +461,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(222, 97)</offset>
             </graphicData>
           </li>
@@ -499,7 +472,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(272, 86)</offset>
             </graphicData>
           </li>
@@ -511,7 +483,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(274, 122)</offset>
             </graphicData>
           </li>
@@ -523,7 +494,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(210, 77)</offset>
             </graphicData>
           </li>
@@ -535,7 +505,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(256, 119)</offset>
             </graphicData>
           </li>
@@ -581,7 +550,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(222, 97)</offset>
             </graphicData>
           </li>
@@ -593,7 +561,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(272, 86)</offset>
             </graphicData>
           </li>
@@ -605,7 +572,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(274, 122)</offset>
             </graphicData>
           </li>
@@ -617,7 +583,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(210, 77)</offset>
             </graphicData>
           </li>
@@ -629,7 +594,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(256, 119)</offset>
             </graphicData>
           </li>
@@ -675,7 +639,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(222, 97)</offset>
             </graphicData>
           </li>
@@ -687,7 +650,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(272, 86)</offset>
             </graphicData>
           </li>
@@ -699,7 +661,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(274, 122)</offset>
             </graphicData>
           </li>
@@ -711,7 +672,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(210, 77)</offset>
             </graphicData>
           </li>
@@ -723,7 +683,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Unberbarrel/GrenadeLauncher/GrenadeLauncher_o</outlinePath>
               <offset>(256, 119)</offset>
             </graphicData>
           </li>

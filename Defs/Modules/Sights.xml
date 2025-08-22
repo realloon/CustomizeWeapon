@@ -43,7 +43,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -54,7 +53,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight_o</outlinePath>
               <offset>(67, 173)</offset>
             </graphicData>
           </li>
@@ -66,7 +64,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/IronSight/IronSight_o</outlinePath>
               <offset>(85, 150)</offset>
             </graphicData>
           </li>
@@ -114,7 +111,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -125,7 +121,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
               <offset>(72, 147)</offset>
             </graphicData>
           </li>
@@ -137,7 +132,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
               <offset>(102, 148)</offset>
             </graphicData>
           </li>
@@ -149,7 +143,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
               <offset>(84, 181)</offset>
             </graphicData>
           </li>
@@ -161,7 +154,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
               <offset>(95, 205)</offset>
             </graphicData>
           </li>
@@ -173,7 +165,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
               <offset>(64, 163)</offset>
             </graphicData>
           </li>
@@ -185,7 +176,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope_o</outlinePath>
               <offset>(128, 187)</offset>
             </graphicData>
           </li>
@@ -233,7 +223,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope_o</outlinePath>
             </graphicData>
           </li>
           <!-- <li>
@@ -244,7 +233,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope_o</outlinePath>
               <offset>(0, 0)</offset>
             </graphicData>
           </li> -->
@@ -292,7 +280,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
               <offset>(77, 174)</offset>
             </graphicData>
           </li>
@@ -304,7 +291,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
               <offset>(77, 174)</offset>
             </graphicData>
           </li>
@@ -316,7 +302,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
               <offset>(69, 152)</offset>
             </graphicData>
           </li>
@@ -328,7 +313,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
               <offset>(83, 191)</offset>
             </graphicData>
           </li>
@@ -340,7 +324,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
               <offset>(153, 216)</offset>
             </graphicData>
           </li>
@@ -352,7 +335,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
               <offset>(64, 167)</offset>
             </graphicData>
           </li>
@@ -364,7 +346,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope_o</outlinePath>
               <offset>(116, 192)</offset>
             </graphicData>
           </li>
@@ -412,7 +393,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
               <offset>(77, 170)</offset>
             </graphicData>
           </li>
@@ -424,7 +404,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
               <offset>(88, 152)</offset>
             </graphicData>
           </li>
@@ -436,7 +415,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -447,7 +425,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
               <offset>(88, 187)</offset>
             </graphicData>
           </li>
@@ -459,7 +436,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
               <offset>(108, 204)</offset>
             </graphicData>
           </li>
@@ -471,7 +447,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
               <offset>(62, 162)</offset>
             </graphicData>
           </li>
@@ -483,7 +458,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
               <offset>(116, 186)</offset>
             </graphicData>
           </li>
@@ -531,7 +505,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
               <offset>(77, 170)</offset>
             </graphicData>
           </li>
@@ -543,7 +516,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</outlinePath>
               <offset>(112, 154)</offset>
             </graphicData>
           </li>
@@ -555,7 +527,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -566,7 +537,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
               <offset>(102, 186)</offset>
             </graphicData>
           </li>
@@ -578,7 +548,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
               <offset>(128, 204)</offset>
             </graphicData>
           </li>
@@ -590,7 +559,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
               <offset>(102, 161)</offset>
             </graphicData>
           </li>
@@ -602,7 +570,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Sight/8xScope/8xScope_o</outlinePath>
               <offset>(147, 186)</offset>
             </graphicData>
           </li>

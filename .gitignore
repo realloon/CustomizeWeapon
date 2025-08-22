@@ -4,3 +4,5 @@ Textures/*
 !Textures/LICENSE
 
 tmp/
+
+.DS_Store

@@ -30,7 +30,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Stock/ShortenedStock/ForLMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Stock/ShortenedStock/ForLMG_o</outlinePath>
               <offset>(-62, 128)</offset>
             </graphicData>
           </li>
@@ -42,7 +41,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Stock/ShortenedStock/ForHeavySMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Stock/ShortenedStock/ForHeavySMG_o</outlinePath>
               <offset>(-9, 145)</offset>
             </graphicData>
           </li>
@@ -54,7 +52,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Stock/ShortenedStock/ForSniperRifle</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Stock/ShortenedStock/ForSniperRifle_o</outlinePath>
             </graphicData>
           </li>
         </graphicCases>
@@ -92,7 +89,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Stock/TelescopicStock/ForAssaultRifle</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Stock/TelescopicStock/ForAssaultRifle_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -103,7 +99,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Stock/TelescopicStock/ForHeavySMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Stock/TelescopicStock/ForHeavySMG_o</outlinePath>
               <offset>(-9, 145)</offset>
             </graphicData>
           </li>
@@ -142,7 +137,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Stock/FoldStock/FoldStock</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Stock/FoldStock/FoldStock_o</outlinePath>
               <offset>(105, 180)</offset>
             </graphicData>
           </li>

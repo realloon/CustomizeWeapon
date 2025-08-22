@@ -30,7 +30,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForAssaultRifle</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForAssaultRifle_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -41,7 +40,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForChargeRifle</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForChargeRifle_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -52,7 +50,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForHeavySMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForHeavySMG_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -63,7 +60,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForMinigun</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForMinigun_o</outlinePath>
               <offset>(-14, 65)</offset>
             </graphicData>
           </li>

@@ -38,7 +38,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForAssaultRifle</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForAssaultRifle_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -49,7 +48,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForLMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForLMG_o</outlinePath>
               <offset>(239, 135)</offset>
             </graphicData>
           </li>
@@ -61,7 +59,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForHeavySMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForHeavySMG_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -72,7 +69,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForMinigun</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForMinigun_o</outlinePath>
               <offset>(271, 59)</offset>
             </graphicData>
           </li>
@@ -84,7 +80,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForRevolver</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ExtendedBarrel/ForRevolver_o</outlinePath>
               <offset>(227, 145)</offset>
             </graphicData>
           </li>
@@ -130,7 +125,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForAssaultRifle</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForAssaultRifle_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -141,7 +135,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForLMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForLMG_o</outlinePath>
               <offset>(231, 133)</offset>
             </graphicData>
           </li>
@@ -153,7 +146,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForChainShotgun</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForChainShotgun_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -164,7 +156,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForHeavySMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForHeavySMG_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -175,7 +166,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForChargeRifle</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForChargeRifle_o</outlinePath>
             </graphicData>
           </li>
           <li>
@@ -186,7 +176,6 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForRevolver</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForRevolver_o</outlinePath>
             </graphicData>
           </li>
         </graphicCases>
@@ -224,7 +213,7 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/TacticalBarrel/ForLMG</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/TacticalBarrel/ForLMG_o</outlinePath>
+
             </graphicData>
           </li>
           <li>
@@ -235,7 +224,7 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/TacticalBarrel/ForMinigun</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/TacticalBarrel/ForMinigun_o</outlinePath>
+
             </graphicData>
           </li>
           <li>
@@ -246,7 +235,7 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/TacticalBarrel/ForRevolver</texturePath>
-              <outlinePath>CustomizeWeapon/Modules/Barrel/TacticalBarrel/ForRevolver_o</outlinePath>
+
             </graphicData>
           </li>
         </graphicCases>

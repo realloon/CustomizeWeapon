@@ -57,7 +57,6 @@
             <part>Sight</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Sight</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Sight_o</outlinePath>
               <offset>(77, 175)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -66,7 +65,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Barrel_o</outlinePath>
               <offset>(257, 146)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -75,7 +73,6 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Grip_o</outlinePath>
               <offset>(31, 76)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -84,7 +81,6 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Magazine</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Magazine_o</outlinePath>
               <offset>(119, 66)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -93,7 +89,6 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Stock</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/AssaultRifle/Stock_o</outlinePath>
               <offset>(-35, 129)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -277,7 +272,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/SniperRifle/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Barrel_o</outlinePath>
               <offset>(81, -4)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -286,7 +280,6 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/SniperRifle/Stock</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Stock_o</outlinePath>
               <offset>(-61, 95)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -295,7 +288,6 @@
             <part>Underbarrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/SniperRifle/Underbarrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/SniperRifle/Underbarrel_o</outlinePath>
               <offset>(191, 102)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -376,7 +368,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Revolver/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/Revolver/Barrel_o</outlinePath>
               <offset>(227, 144)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -392,7 +383,6 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Revolver/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/Revolver/Grip_o</outlinePath>
               <offset>(10, 92)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -480,7 +470,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Barrel_o</outlinePath>
               <offset>(250, 148)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -489,7 +478,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Grip_o</outlinePath>
+              
               <offset>(36, 86)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -498,7 +487,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Magazine</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Magazine_o</outlinePath>
+              
               <offset>(176, 130)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -507,7 +496,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Stock</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChainShotgun/Stock_o</outlinePath>
+              
               <offset>(-59, 119)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -596,7 +585,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HeavySMG/Barrel_o</outlinePath>
+              
               <offset>(275, 181)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -605,7 +594,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Magazine</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HeavySMG/Magazine_o</outlinePath>
+              
               <offset>(179, 75)</offset>
             </baseTexture>
             <layer>-1</layer>
@@ -614,7 +603,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Stock</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HeavySMG/Stock_o</outlinePath>
+              
               <offset>(-45, 145)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -623,7 +612,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HeavySMG/Grip_o</outlinePath>
+              
               <offset>(47, 90)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -704,7 +693,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/LMG/Barrel_o</outlinePath>
+              
               <offset>(239, 134)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -720,7 +709,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Magazine</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/LMG/Magazine_o</outlinePath>
+              
               <offset>(85, 167)</offset>
             </baseTexture>
             <layer>30</layer>
@@ -729,7 +718,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Stock</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/LMG/Stock_o</outlinePath>
+              
               <offset>(-62, 124)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -738,7 +727,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/LMG/Grip_o</outlinePath>
+              
               <offset>(18, 81)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -817,7 +806,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/Minigun/Barrel_o</outlinePath>
+              
               <offset>(274, 54)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -826,7 +815,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Magazine</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/Minigun/Magazine_o</outlinePath>
+              
               <offset>(18, 3)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -835,7 +824,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/Minigun/Grip_o</outlinePath>
+              
               <offset>(-67, 67)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -968,7 +957,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Barrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChargeRifle/Barrel_o</outlinePath>
+              
               <offset>(243, 135)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -977,7 +966,7 @@
             <part>Sight</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Sight</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChargeRifle/Sight_o</outlinePath>
+              
               <offset>(36, 187)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -986,7 +975,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChargeRifle/Grip_o</outlinePath>
+              
               <offset>(136, 95)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -995,7 +984,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Magazine</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/ChargeRifle/Magazine_o</outlinePath>
+              
               <offset>(0, 107)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -1143,7 +1132,7 @@
             <part>Sight</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Sight</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HellcatRifle/Sight_o</outlinePath>
+              
               <offset>(194, 176)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -1152,7 +1141,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Grip</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HellcatRifle/Grip_o</outlinePath>
+              
               <offset>(25, 87)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -1161,7 +1150,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Magazine</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HellcatRifle/Magazine_o</outlinePath>
+              
               <offset>(133, 78)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -1170,7 +1159,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Stock</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HellcatRifle/Stock_o</outlinePath>
+              
               <offset>(-46, 119)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -1179,7 +1168,7 @@
             <part>Underbarrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Underbarrel</texturePath>
-              <outlinePath>CustomizeWeapon/Weapons/HellcatRifle/Underbarrel_o</outlinePath>
+              
               <offset>(226, 85)</offset>
             </baseTexture>
             <layer>20</layer>
