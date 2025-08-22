@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <!-- LaunchFragGrenade -->
+  <AbilityDef>
+    <defName>CWF_Ability_LaunchFragGrenade</defName>
+    <label>launch frag grenade</label>
+    <description>Launch a grenade. Can be reloaded using steel.</description>
+    <iconPath>CustomizeWeapon/Gizmos/LaunchFragGrenade</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>12.9</range>
+      <warmupTime>1.5</warmupTime>
+      <soundCast>Shot_IncendiaryLauncher</soundCast>
+      <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+      <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Proj_GrenadeFrag</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- LaunchEMPShell -->
+  <AbilityDef>
+    <defName>CWF_Ability_LaunchEMPShell</defName>
+    <label>launch EMP shell</label>
+    <description>Launch a shell that releases a burst of electromagnetic energy, stunning mechanical targets. Can be reloaded using steel.</description>
+    <iconPath>CustomizeWeapon/Gizmos/LaunchEMPShell</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>23.9</range>
+      <warmupTime>3.5</warmupTime>
+      <forcedMissRadius>1.9</forcedMissRadius>
+      <soundCast>Shot_IncendiaryLauncher</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Bullet_EMPLauncher</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- LaunchSmokeShell -->
+  <AbilityDef>
+    <defName>CWF_Ability_LaunchSmokeShell</defName>
+    <label>launch smoke shell</label>
+    <description>Launch a smoke shell that obscures incoming shots and prevents turrets from locking on. Can be reloaded using steel.</description>
+    <iconPath>CustomizeWeapon/Gizmos/LaunchSmokeShell</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>23.9</range>
+      <warmupTime>3.5</warmupTime>
+      <forcedMissRadius>1.9</forcedMissRadius>
+      <soundCast>Shot_IncendiaryLauncher</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Bullet_SmokeLauncher</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <!-- LaunchIncendiaryShell -->
+  <AbilityDef>
+    <defName>CWF_Ability_LaunchIncendiaryShell</defName>
+    <label>launch incendiary shell</label>
+    <description>Launch a shell that creates an explosion on impact, igniting everything nearby. Can be reloaded using chemfuel.</description>
+    <iconPath>CustomizeWeapon/Gizmos/LaunchIncendiaryShell</iconPath>
+    <aiCanUse>true</aiCanUse>
+    <ai_IsIncendiary>true</ai_IsIncendiary>
+    <verbProperties>
+      <verbClass>Verb_CastAbility</verbClass>
+      <range>23.9</range>
+      <warmupTime>3.5</warmupTime>
+      <forcedMissRadius>1.9</forcedMissRadius>
+      <soundCast>Shot_IncendiaryLauncher</soundCast>
+      <soundCastTail>GunTail_Medium</soundCastTail>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="CompProperties_AbilityLaunchProjectile">
+        <projectileDef>Bullet_IncendiaryLauncher</projectileDef>
+      </li>
+    </comps>
+  </AbilityDef>
+</Defs>

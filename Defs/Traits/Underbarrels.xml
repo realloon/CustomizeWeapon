@@ -45,7 +45,7 @@
     <label>grenade launcher</label>
     <description>This underbarrel attachment allows the weapon to fire a single high-explosive fragmentation grenade, providing a powerful area-of-effect option. It must be reloaded after each use.</description>
     <abilityProps>
-      <abilityDef>LaunchFragGrenade</abilityDef>
+      <abilityDef>CWF_Ability_LaunchFragGrenade</abilityDef>
       <maxCharges>1</maxCharges>
       <soundReload>Standard_Reload</soundReload>
       <chargeNoun>grenade</chargeNoun>
@@ -61,7 +61,7 @@
     <label>EMP cannon</label>
     <description>This underbarrel launcher fires specialized EMP shells. Upon impact, they release a powerful electromagnetic pulse capable of stunning mechanoids and disabling electronics. It can be fired twice before requiring a reload.</description>
     <abilityProps>
-      <abilityDef>LaunchEMPShell</abilityDef>
+      <abilityDef>CWF_Ability_LaunchEMPShell</abilityDef>
       <maxCharges>2</maxCharges>
       <soundReload>Standard_Reload</soundReload>
       <chargeNoun>shell</chargeNoun>
@@ -77,7 +77,7 @@
     <label>smoke launcher</label>
     <description>This underbarrel launcher fires shells that release a dense cloud of smoke upon impact. It's perfect for obscuring sightlines and creating cover. It holds two shells and must be reloaded after they are used.</description>
     <abilityProps>
-      <abilityDef>LaunchSmokeShell</abilityDef>
+      <abilityDef>CWF_Ability_LaunchSmokeShell</abilityDef>
       <maxCharges>2</maxCharges>
       <soundReload>Standard_Reload</soundReload>
       <chargeNoun>shell</chargeNoun>
@@ -93,7 +93,7 @@
     <label>incendiary launcher</label>
     <description>This underbarrel attachment fires a single incendiary shell. Upon impact, it bursts and splashes a wide area with burning chemfuel, creating a field of fire. It must be reloaded after each shot.</description>
     <abilityProps>
-      <abilityDef>LaunchIncendiaryShell</abilityDef>
+      <abilityDef>CWF_Ability_LaunchIncendiaryShell</abilityDef>
       <maxCharges>1</maxCharges>
       <soundReload>Standard_Reload</soundReload>
       <chargeNoun>shell</chargeNoun>
