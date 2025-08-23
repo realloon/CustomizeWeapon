@@ -6,7 +6,7 @@
     <description>weapon module table.</description>
     <thingClass>Building_WorkTable</thingClass>
     <graphicData>
-      <texPath>CustomizeWeapon/Workbench/WeaponModuleWorkbench</texPath>
+      <texPath>CustomizeWeapon/Workbench0/WeaponModuleWorkbench</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3.5, 1.5)</drawSize>
       <damageData>
