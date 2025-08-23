@@ -38,6 +38,10 @@
   <CWF_UI_Ammo>子弹</CWF_UI_Ammo>
   <CWF_UI_Accessory>配件</CWF_UI_Accessory>
 
+  <CWF_UI_BurstShotCountMultiplier>连射倍率</CWF_UI_BurstShotCountMultiplier>
+  <CWF_UI_BurstShotSpeedMultiplier>射速倍率</CWF_UI_BurstShotSpeedMultiplier>
+  <CWF_UI_AdditionalStoppingPower>抑止能力偏移</CWF_UI_AdditionalStoppingPower>
+
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>背包中没有合适的模块</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>地图上没有合适的模块</CWF_UI_NoCompatiblePartsOnMap>

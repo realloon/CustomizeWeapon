@@ -38,7 +38,11 @@
   <CWF_UI_Ammo>Ammo</CWF_UI_Ammo>
   <CWF_UI_Accessory>Accessory</CWF_UI_Accessory>
 
-  <CWF_UI_Uninstall>Uninstall </CWF_UI_Uninstall>
+  <CWF_UI_BurstShotCountMultiplier>Burst shot count multiplier</CWF_UI_BurstShotCountMultiplier>
+  <CWF_UI_BurstShotSpeedMultiplier>Fire rate multiplier</CWF_UI_BurstShotSpeedMultiplier>
+  <CWF_UI_AdditionalStoppingPower>Stopping power offset</CWF_UI_AdditionalStoppingPower>
+
+  <CWF_UI_Uninstall>Uninstall</CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>No compatible parts in inventory</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>No compatible parts on map</CWF_UI_NoCompatiblePartsOnMap>
 
