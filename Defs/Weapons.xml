@@ -956,7 +956,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Barrel</texturePath>
-              
               <offset>(243, 135)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -965,7 +964,6 @@
             <part>Sight</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Sight</texturePath>
-              
               <offset>(36, 187)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -974,7 +972,6 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Grip</texturePath>
-              
               <offset>(136, 95)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -983,7 +980,6 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChargeRifle/Magazine</texturePath>
-              
               <offset>(0, 107)</offset>
             </baseTexture>
             <layer>25</layer>
