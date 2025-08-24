@@ -53,4 +53,10 @@
   <CWF_UI_ModuleEffectsDesc>Installing {MODULE_label} will grant the weapon the following effects</CWF_UI_ModuleEffectsDesc>
 
   <CWF_UI_PickUp>Pick up {MODULE_label}</CWF_UI_PickUp>
+
+  <CWF_UI_ConfirmInstallTitle>Confirm Install</CWF_UI_ConfirmInstallTitle>
+  <CWF_UI_ConfirmInstallBody>Installing {MODULE} will force the removal of the following conflicting modules:\n\n{CONFLICTS}\n\nDo you want to continue?</CWF_UI_ConfirmInstallBody>
+
+  <CWF_UI_ConfirmUninstallTitle>Confirm Uninstall</CWF_UI_ConfirmUninstallTitle>
+  <CWF_UI_ConfirmUninstallBody>Uninstalling {MODULE} will also remove the following dependent modules:\n\n{DEPENDENCIES}\n\nDo you want to continue?</CWF_UI_ConfirmUninstallBody>
 </LanguageData>

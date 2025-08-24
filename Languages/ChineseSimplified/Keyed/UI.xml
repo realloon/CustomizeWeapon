@@ -53,4 +53,10 @@
   <CWF_UI_ModuleEffectsDesc>安装{MODULE_label}将为武器提供以下效果</CWF_UI_ModuleEffectsDesc>
 
   <CWF_UI_PickUp>拾取{MODULE_label}</CWF_UI_PickUp>
+
+  <CWF_UI_ConfirmInstallTitle>确认安装</CWF_UI_ConfirmInstallTitle>
+  <CWF_UI_ConfirmInstallBody>安装{MODULE}将会同时卸下以下模块:\n\n{CONFLICTS}\n\n确认安装吗？</CWF_UI_ConfirmInstallBody>
+
+  <CWF_UI_ConfirmUninstallTitle>确认移除</CWF_UI_ConfirmUninstallTitle>
+  <CWF_UI_ConfirmUninstallBody>移除{MODULE}将会同时卸下以下模块:\n\n{DEPENDENCIES}\n\n确认移除吗？</CWF_UI_ConfirmUninstallBody>
 </LanguageData>

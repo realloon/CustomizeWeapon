@@ -210,6 +210,18 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_beltMagazine</weaponTraitDef>
         <part>Magazine</part>
+        <conditionalPartModifiers>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <enablesParts>
+              <li>Sight</li>
+            </enablesParts>
+          </li>
+        </conditionalPartModifiers>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SMG</li>
@@ -253,6 +265,18 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_DrumMagazine</weaponTraitDef>
         <part>Magazine</part>
+        <conditionalPartModifiers>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>CWF_Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <enablesParts>
+              <li>Sight</li>
+            </enablesParts>
+          </li>
+        </conditionalPartModifiers>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SMG</li>
