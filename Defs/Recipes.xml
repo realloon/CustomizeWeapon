@@ -44,16 +44,6 @@
       <li>ITab_Bills</li>
     </inspectorTabs>
     <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <shortCircuitInRain>true</shortCircuitInRain>
-        <basePowerConsumption>350</basePowerConsumption>
-      </li>
-      <li Class="CompProperties_Flickable" />
-      <li Class="CompProperties_Glower">
-        <glowRadius>5</glowRadius>
-        <glowColor>(73,123,138,0)</glowColor>
-      </li>
       <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
           <li>ToolCabinet</li>
