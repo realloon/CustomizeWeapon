@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<LanguageData>
-    <CWF_Message_NoColonistToModifyWeapon>没有合适的殖民者可以改装武器</CWF_Message_NoColonistToModifyWeapon>
-    <CWF_Message_CannotFindModuleForModification>找不到用于修改的{MODULE_label}</CWF_Message_CannotFindModuleForModification>
-    <CWF_Message_ModificationJobDispatched>{PAWN_label}将改造{WEAPON_label}</CWF_Message_ModificationJobDispatched>
-    <CWF_Message_ModificationComplete>{PAWN_label}完成对{WEAPON_label}的改造</CWF_Message_ModificationComplete>
-</LanguageData>

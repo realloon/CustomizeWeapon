@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- #region Part -->
+  <CWF_UI_PartOf>Part of</CWF_UI_PartOf>
+  <CWF_UI_Muzzle>Muzzle</CWF_UI_Muzzle>
+  <CWF_UI_Barrel>Barrel</CWF_UI_Barrel>
+  <CWF_UI_Receiver>Receiver</CWF_UI_Receiver>
+  <CWF_UI_Trigger>Trigger</CWF_UI_Trigger>
+  <CWF_UI_Stock>Stock</CWF_UI_Stock>
+  <CWF_UI_Grip>Grip</CWF_UI_Grip>
+  <CWF_UI_Sight>Sight</CWF_UI_Sight>
+  <CWF_UI_Magazine>Magazine</CWF_UI_Magazine>
+  <CWF_UI_Underbarrel>Underbarrel</CWF_UI_Underbarrel>
+  <CWF_UI_Ammo>Ammo</CWF_UI_Ammo>
+  <CWF_UI_Accessory>Accessory</CWF_UI_Accessory>
+  <!-- #endregion -->
+
+  <!-- #region Stat -->
+  <CWF_UI_Range>Range</CWF_UI_Range>
+  <CWF_UI_RangeDPS>DPS</CWF_UI_RangeDPS>
+  <CWF_UI_RangeBurstCount>Burst count</CWF_UI_RangeBurstCount>
+  <CWF_UI_RangeWarmupTime>Warmup time</CWF_UI_RangeWarmupTime>
+  <CWF_UI_RangeCooldown>Cooldown</CWF_UI_RangeCooldown>
+  <CWF_UI_Projectile>Projectile</CWF_UI_Projectile>
+  <CWF_UI_Damage>Damage</CWF_UI_Damage>
+  <CWF_UI_ArmorPenetration>Armor penetration</CWF_UI_ArmorPenetration>
+  <CWF_UI_StoppingPower>Stopping power</CWF_UI_StoppingPower>
+  <CWF_UI_Accuracy>Accuracy</CWF_UI_Accuracy>
+  <CWF_UI_Touch>Touch</CWF_UI_Touch>
+  <CWF_UI_Short>Short</CWF_UI_Short>
+  <CWF_UI_Medium>Medium</CWF_UI_Medium>
+  <CWF_UI_Long>Long</CWF_UI_Long>
+  <CWF_UI_Mass>Mass</CWF_UI_Mass>
+  <CWF_UI_BurstShotCountMultiplier>Burst shot count multiplier</CWF_UI_BurstShotCountMultiplier>
+  <CWF_UI_BurstShotSpeedMultiplier>Fire rate multiplier</CWF_UI_BurstShotSpeedMultiplier>
+  <CWF_UI_AdditionalStoppingPower>Stopping power offset</CWF_UI_AdditionalStoppingPower>
+  <!-- #endregion -->
+
+  <!-- #region Gizmo -->
+  <CWF_UI_WeaponPanel>Weapon panel</CWF_UI_WeaponPanel>
+  <CWF_UI_WeaponPanelDesc>Open the weapon panel</CWF_UI_WeaponPanelDesc>
+  <!-- #endregion -->
+
+  <!-- #region Menu -->
+  <CWF_UI_PickUp>Pick up {MODULE_label}</CWF_UI_PickUp>
+  <!-- #endregion -->
+
+  <!-- #region Message -->
+  <CWF_Message_NoColonistToModifyWeapon>No suitable colonist to modify weapon</CWF_Message_NoColonistToModifyWeapon>
+  <CWF_Message_CannotFindModuleForModification>Cannot find {MODULE_label} for modification</CWF_Message_CannotFindModuleForModification>
+  <CWF_Message_ModificationJobDispatched>{PAWN_label} will modify {WEAPON_label}</CWF_Message_ModificationJobDispatched>
+  <CWF_Message_ModificationComplete>{WEAPON_label} has been modified by {PAWN_label}</CWF_Message_ModificationComplete>
+  <!-- #endregion -->
+
+  <!-- #region UI -->
+  <CWF_UI_Uninstall>Uninstall</CWF_UI_Uninstall>
+  <CWF_UI_NoCompatiblePartsInInventory>No compatible parts in inventory</CWF_UI_NoCompatiblePartsInInventory>
+  <CWF_UI_NoCompatiblePartsOnMap>No compatible parts on map</CWF_UI_NoCompatiblePartsOnMap>
+  <CWF_UI_WeaponModules>Weapon modules</CWF_UI_WeaponModules>
+  <CWF_UI_WeaponModules_Desc>Modules installed on this weapon.</CWF_UI_WeaponModules_Desc>
+  <CWF_UI_ModuleEffects>Module Effects</CWF_UI_ModuleEffects>
+  <CWF_UI_ModuleEffectsDesc>Installing {MODULE_label} will grant the weapon the following effects</CWF_UI_ModuleEffectsDesc>
+  <CWF_UI_InputTitle>Input</CWF_UI_InputTitle>
+  <CWF_UI_Confirm>Confirm</CWF_UI_Confirm>
+  <CWF_UI_Cancel>Cancel</CWF_UI_Cancel>
+  <CWF_UI_NotRanged>This is not a ranged weapon.</CWF_UI_NotRanged>
+  <CWF_UI_ConfirmInstallTitle>Confirm Install</CWF_UI_ConfirmInstallTitle>
+  <CWF_UI_ConfirmInstallBody>Installing {MODULE} will force the removal of the following conflicting modules:\n\n{CONFLICTS}\n\nDo you want to continue?</CWF_UI_ConfirmInstallBody>
+  <CWF_UI_ConfirmUninstallTitle>Confirm Uninstall</CWF_UI_ConfirmUninstallTitle>
+  <CWF_UI_ConfirmUninstallBody>Uninstalling {MODULE} will also remove the following dependent modules:\n\n{DEPENDENCIES}\n\nDo you want to continue?</CWF_UI_ConfirmUninstallBody>
+  <!-- #endregion -->
+</LanguageData>
