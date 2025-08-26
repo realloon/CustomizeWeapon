@@ -12,17 +12,17 @@
   <CWF_Trait_RapidReceiver.label>高速機匣</CWF_Trait_RapidReceiver.label>
   <CWF_Trait_RapidReceiver.description>該機匣的內部機構經過精密調校。透過減輕活動部件的重量，縮短運作週期，射速更快。</CWF_Trait_RapidReceiver.description>
 
-  <CWF_Trait_RapidTrigger.label>高速扳機</CWF_Trait_RapidTrigger.label>
+  <CWF_Trait_RapidTrigger.label>快速扳機</CWF_Trait_RapidTrigger.label>
   <CWF_Trait_RapidTrigger.description>該扳機行程更短、更乾脆，復位更迅速。擊發機構在扣下扳機時反應更靈敏，從而能更快速地開火。</CWF_Trait_RapidTrigger.description>
-
-  <CWF_Trait_ShortenedStock.label>短槍托</CWF_Trait_ShortenedStock.label>
-  <CWF_Trait_ShortenedStock.description>特意被截短的槍托，減輕了武器的重量。武器更輕、更緊湊，便於攜帶，也更適合在狹窄空間內行動。</CWF_Trait_ShortenedStock.description>
 
   <CWF_Trait_TelescopicStock.label>伸縮槍托</CWF_Trait_TelescopicStock.label>
   <CWF_Trait_TelescopicStock.description>伸縮槍托可調節長度，提升人體工學。更佳的貼合度讓射手以更穩定的姿態射擊，獲得更出色的射擊精度。</CWF_Trait_TelescopicStock.description>
 
   <CWF_Trait_FoldStock.label>摺疊槍托</CWF_Trait_FoldStock.label>
   <CWF_Trait_FoldStock.description>配備鎖定機制的摺疊槍托，展開時可作為穩固的抵肩平台。不僅能確保精確射擊，同時也減輕了武器的重量。</CWF_Trait_FoldStock.description>
+
+  <CWF_Trait_ShortenedStock.label>短槍托</CWF_Trait_ShortenedStock.label>
+  <CWF_Trait_ShortenedStock.description>特意被截短的槍托，減輕了武器的重量。武器更輕、更緊湊，便於攜帶，也更適合在狹窄空間內行動。</CWF_Trait_ShortenedStock.description>
 
   <CWF_Trait_StabilizerBrace.label>手槍槍托</CWF_Trait_StabilizerBrace.label>
   <CWF_Trait_StabilizerBrace.description>手槍槍托可作為支架，抵在使用者的手臂上，大幅提升穩定性，進而提高射擊精度。</CWF_Trait_StabilizerBrace.description>
@@ -54,8 +54,8 @@
   <CWF_Trait_ExtendedMagazine.label>擴充彈匣</CWF_Trait_ExtendedMagazine.label>
   <CWF_Trait_ExtendedMagazine.description>這款彈匣的載彈量比標準型號更高，允許武器在連續射擊中射出更多子彈。</CWF_Trait_ExtendedMagazine.description>
 
-  <CWF_Trait_beltMagazine.label>彈鏈供彈</CWF_Trait_beltMagazine.label>
-  <CWF_Trait_beltMagazine.description>該彈鏈供彈機構能提供持續不斷的彈藥流，使武器能夠進行更長、更具壓制力的連續射擊。</CWF_Trait_beltMagazine.description>
+  <CWF_Trait_beltMagazine.label>鏈式彈匣</CWF_Trait_beltMagazine.label>
+  <CWF_Trait_beltMagazine.description>這款鏈式彈匣能提供持續不斷的彈藥流，使武器能夠進行更長、更具壓制力的連續射擊。</CWF_Trait_beltMagazine.description>
 
   <CWF_Trait_DrumMagazine.label>鼓式彈匣</CWF_Trait_DrumMagazine.label>
   <CWF_Trait_DrumMagazine.description>這款大容量彈鼓裝有遠超常規數量的彈藥，使武器能進行持續而猛烈的連續射擊。</CWF_Trait_DrumMagazine.description>
@@ -72,10 +72,10 @@
   <CWF_Trait_GrenadeLauncher.label>榴彈發射器</CWF_Trait_GrenadeLauncher.label>
   <CWF_Trait_GrenadeLauncher.description>該發射器可發射一枚高爆破片榴彈，造成大範圍的高爆傷害。每次使用後都需重新裝填。</CWF_Trait_GrenadeLauncher.description>
 
-  <CWF_Trait_EMPLauncher.label>EMP彈發射器</CWF_Trait_EMPLauncher.label>
+  <CWF_Trait_EMPLauncher.label>電磁脈衝彈發射器</CWF_Trait_EMPLauncher.label>
   <CWF_Trait_EMPLauncher.description>該發射器可發射特製的 EMP 彈頭，命中時釋放的電磁脈衝能擊暈機械體並癱瘓電子設備。重新裝填前可發射兩次。</CWF_Trait_EMPLauncher.description>
 
-  <CWF_Trait_SmokeLauncher.label>煙霧發射器</CWF_Trait_SmokeLauncher.label>
+  <CWF_Trait_SmokeLauncher.label>煙霧彈發射器</CWF_Trait_SmokeLauncher.label>
   <CWF_Trait_SmokeLauncher.description>該發射器可發射煙霧彈，撞擊時會釋放濃密煙霧，非常適合用於遮蔽視線、製造掩護。重新裝填前可發射兩次。</CWF_Trait_SmokeLauncher.description>
 
   <CWF_Trait_IncendiaryLauncher.label>燃燒彈發射器</CWF_Trait_IncendiaryLauncher.label>
@@ -84,11 +84,11 @@
   <CWF_Trait_HeavyRounds.label>重型彈</CWF_Trait_HeavyRounds.label>
   <CWF_Trait_HeavyRounds.description>具有重型彈頭的特種彈藥。其具有強大動能，制止力顯著增強，同時也略微提升傷害。</CWF_Trait_HeavyRounds.description>
 
-  <CWF_Trait_HollowPointRounds.label>空尖彈</CWF_Trait_HollowPointRounds.label>
-  <CWF_Trait_HollowPointRounds.description>命中目標時會擴張變形的空尖彈。它會造成嚴重創傷，顯著提升傷害。</CWF_Trait_HollowPointRounds.description>
-
   <CWF_Trait_ToxRounds.label>塗毒彈</CWF_Trait_ToxRounds.label>
   <CWF_Trait_ToxRounds.description>塗有毒素的子彈。它不僅直接創傷目標，還會散播毒素，命中目標會累積中毒效果。</CWF_Trait_ToxRounds.description>
+
+  <CWF_Trait_HollowPointRounds.label>空尖彈</CWF_Trait_HollowPointRounds.label>
+  <CWF_Trait_HollowPointRounds.description>命中目標時會擴張變形的空尖彈。它會造成嚴重創傷，顯著提升傷害。</CWF_Trait_HollowPointRounds.description>
 
   <CWF_Trait_PiercingRounds.label>穿甲彈</CWF_Trait_PiercingRounds.label>
   <CWF_Trait_PiercingRounds.description>採用高密度硬質核心的子彈，專為擊穿厚重裝甲而設計，能有效提升穿甲力。</CWF_Trait_PiercingRounds.description>
@@ -96,14 +96,14 @@
   <CWF_Trait_IncendiaryRounds.label>燃燒彈</CWF_Trait_IncendiaryRounds.label>
   <CWF_Trait_IncendiaryRounds.description>裝填了燃燒劑的子彈。命中目標後會爆發火焰，造成燒傷，並可能引燃周圍環境。</CWF_Trait_IncendiaryRounds.description>
 
-  <CWF_Trait_EMPRounds.label>EMP電荷彈</CWF_Trait_EMPRounds.label>
+  <CWF_Trait_EMPRounds.label>電磁脈衝彈</CWF_Trait_EMPRounds.label>
   <CWF_Trait_EMPRounds.description>內建了微型電容的子彈，命中時會釋放一股電磁脈衝，能干擾電子設備與機械體。</CWF_Trait_EMPRounds.description>
+
+  <CWF_Trait_PulseChargeRounds.label>脈衝電荷彈</CWF_Trait_PulseChargeRounds.label>
+  <CWF_Trait_PulseChargeRounds.description>這種先進子彈內建了不穩定的能量單元，提供澎湃動能。提升傷害的同時，也能有效擊穿裝甲。</CWF_Trait_PulseChargeRounds.description>
 
   <CWF_Trait_HighPowerRounds.label>高威力彈</CWF_Trait_HighPowerRounds.label>
   <CWF_Trait_HighPowerRounds.description>這種子彈採用高能發射藥，傷害更高、制止力更強，還提升了穿甲力。然而，劇烈的後座力使武器更難掌控。</CWF_Trait_HighPowerRounds.description>
-
-  <CWF_Trait_PulseChargeRounds.label>電荷脈衝彈</CWF_Trait_PulseChargeRounds.label>
-  <CWF_Trait_PulseChargeRounds.description>這種先進子彈內建了不穩定的能量單元，提供澎湃動能。提升傷害的同時，也能有效擊穿裝甲。</CWF_Trait_PulseChargeRounds.description>
 
   <CWF_Trait_IncendiaryPellets.label>燃燒霰彈</CWF_Trait_IncendiaryPellets.label>
   <CWF_Trait_IncendiaryPellets.description>內部填充了燃燒物質的霰彈。命中目標時會碎裂，四散的熾熱顆粒容易點燃目標。</CWF_Trait_IncendiaryPellets.description>
