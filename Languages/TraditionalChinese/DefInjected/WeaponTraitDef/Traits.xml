@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LanguageData>
+    <CWF_Trait_ExtendedBarrel.label>长枪管</CWF_Trait_ExtendedBarrel.label>
+    <CWF_Trait_ExtendedBarrel.description>精心打造的加长枪管。它提高了弹丸的枪口初速，使其飞得更远，从而增加武器的有效射程。</CWF_Trait_ExtendedBarrel.description>
+
+    <CWF_Trait_ShortenedBarrel.label>短枪管</CWF_Trait_ShortenedBarrel.label>
+    <CWF_Trait_ShortenedBarrel.description>被特意截短的枪管。这牺牲了弹丸的枪口初速，导致武器的有效射程缩短，但更轻的重量和更好的平衡性也让射手能更快完成瞄准。</CWF_Trait_ShortenedBarrel.description>
+
+    <CWF_Trait_TacticalBarrel.label>战术枪管</CWF_Trait_TacticalBarrel.label>
+    <CWF_Trait_TacticalBarrel.description>经过重新设计的枪管。着重优化人机工效与拓展性，结构上的轻量化减轻了重量，操控性更佳，更容易进入稳定姿态。</CWF_Trait_TacticalBarrel.description>
+
+    <CWF_Trait_RapidReceiver.label>高速机匣</CWF_Trait_RapidReceiver.label>
+    <CWF_Trait_RapidReceiver.description>该机匣的内部机构经过精密调校。通过减轻活动部件质量，缩短周期，射速更快。</CWF_Trait_RapidReceiver.description>
+
+    <CWF_Trait_RapidTrigger.label>高速扳机</CWF_Trait_RapidTrigger.label>
+    <CWF_Trait_RapidTrigger.description>该扳机行程更短、更干脆，复位更迅速。击发机构在扣发板机时更快响应，从而开火更迅速。</CWF_Trait_RapidTrigger.description>
+
+    <CWF_Trait_ShortenedStock.label>短枪托</CWF_Trait_ShortenedStock.label>
+    <CWF_Trait_ShortenedStock.description>特意被截短的枪托，减轻了武器的重量。武器更轻、更紧凑，便于携带，也更适合在狭窄空间内行动。</CWF_Trait_ShortenedStock.description>
+
+    <CWF_Trait_TelescopicStock.label>伸缩枪托</CWF_Trait_TelescopicStock.label>
+    <CWF_Trait_TelescopicStock.description>伸缩枪托可调节长度，提升人机工效。更佳的贴合度让射手以更稳定的姿态射击，获得更出色的射击精度。</CWF_Trait_TelescopicStock.description>
+
+    <CWF_Trait_FoldStock.label>折叠枪托</CWF_Trait_FoldStock.label>
+    <CWF_Trait_FoldStock.description>配备锁定机制的折叠枪托，展开时作为稳固的抵肩平台。不仅保证精确射击，同时也减轻了武器的重量。</CWF_Trait_FoldStock.description>
+
+    <CWF_Trait_StabilizerBrace.label>手枪枪托</CWF_Trait_StabilizerBrace.label>
+    <CWF_Trait_StabilizerBrace.description>手枪枪托作为支架，抵在使用者手臂，大幅提升稳定性，提高射击精度。</CWF_Trait_StabilizerBrace.description>
+
+    <CWF_Trait_CustomGrip.label>定制握把</CWF_Trait_CustomGrip.label>
+    <CWF_Trait_CustomGrip.description>符合人体工学的定制握把。射手能更好掌控武器，提高短距离内的射击精度。</CWF_Trait_CustomGrip.description>
+
+    <CWF_Trait_IronSight.label>机械瞄具</CWF_Trait_IronSight.label>
+    <CWF_Trait_IronSight.description>简单可靠的机械瞄具。它提供一个基础但有效的瞄准点，非常适合在近距离交战中快速捕获目标。</CWF_Trait_IronSight.description>
+
+    <CWF_Trait_Holoscope.label>全息瞄具</CWF_Trait_Holoscope.label>
+    <CWF_Trait_Holoscope.description>先进的全息瞄准镜。它呈现清晰的瞄准标线，以便双眼快速瞄准，显著减少锁定目标所需的时间，并提升中近距离内的射击精度。</CWF_Trait_Holoscope.description>
+
+    <CWF_Trait_RedDotScope.label>红点瞄具</CWF_Trait_RedDotScope.label>
+    <CWF_Trait_RedDotScope.description>红点瞄具提供单一、明亮的红点来瞄准。它无需对齐照门和流程，并全面提升了武器的射击精度。</CWF_Trait_RedDotScope.description>
+
+    <CWF_Trait_2xScope.label>二倍光学瞄具</CWF_Trait_2xScope.label>
+    <CWF_Trait_2xScope.description>这款光学瞄准镜提供 2 倍放大效果。能让目标看起来更大、更清晰，为中距离内的精确射击提供便利。</CWF_Trait_2xScope.description>
+
+    <CWF_Trait_4xScope.label>四倍光学瞄具</CWF_Trait_4xScope.label>
+    <CWF_Trait_4xScope.description>这款光学瞄准镜提供 4 倍放大效果，专为中远程交战设计。它让使用者清晰地识别并精确瞄准远距离目标，从而小幅提升了武器的最大有效射程。</CWF_Trait_4xScope.description>
+
+    <CWF_Trait_8xScope.label>八倍光学瞄具</CWF_Trait_8xScope.label>
+    <CWF_Trait_8xScope.description>这款光学瞄准镜提供 8 倍放大效果，为远距离射击准备。其高倍率放大效果能将远距离目标清晰地置于视野中心，让射手能精确打击位于射程极限处的目标。</CWF_Trait_8xScope.description>
+
+    <CWF_Trait_QuickMagazine.label>快速弹匣</CWF_Trait_QuickMagazine.label>
+    <CWF_Trait_QuickMagazine.description>这款弹匣采用了经过改良的释放机构，换弹更快捷，缩短火力中断时间。</CWF_Trait_QuickMagazine.description>
+
+    <CWF_Trait_ExtendedMagazine.label>扩容弹匣</CWF_Trait_ExtendedMagazine.label>
+    <CWF_Trait_ExtendedMagazine.description>这款弹匣的载弹量比标准型号更高，允许武器在连发中射出更多子弹。</CWF_Trait_ExtendedMagazine.description>
+
+    <CWF_Trait_beltMagazine.label>链式弹匣</CWF_Trait_beltMagazine.label>
+    <CWF_Trait_beltMagazine.description>该弹链供弹机构能提供持续不断的弹药流，使武器能够进行更长、更具压制力的连发射击。</CWF_Trait_beltMagazine.description>
+
+    <CWF_Trait_DrumMagazine.label>鼓式弹匣</CWF_Trait_DrumMagazine.label>
+    <CWF_Trait_DrumMagazine.description>这款大容量弹鼓装有远超常规装量的弹药，使武器能持续而猛烈的连发射击。</CWF_Trait_DrumMagazine.description>
+
+    <CWF_Trait_VerticalGrip.label>垂直握把</CWF_Trait_VerticalGrip.label>
+    <CWF_Trait_VerticalGrip.description>垂直握把提供稳定的抓握点，射手能更好地控制武器。增强的稳定性在近距离作战中提升了射击精度。</CWF_Trait_VerticalGrip.description>
+
+    <CWF_Trait_TriangularGrip.label>三角握把</CWF_Trait_TriangularGrip.label>
+    <CWF_Trait_TriangularGrip.description>符合人体工学的三角握把，便于射手自然舒适的握持。改善的操控性缩短了射击所需的时间。</CWF_Trait_TriangularGrip.description>
+
+    <CWF_Trait_LaserSight.label>激光辅瞄器</CWF_Trait_LaserSight.label>
+    <CWF_Trait_LaserSight.description>激光辅瞄器直接在目标身上投射出明亮的激光点。射手可以快速、直观的射击，显著减少瞄准耗时，并提升中近距离的射击精度。</CWF_Trait_LaserSight.description>
+
+    <CWF_Trait_GrenadeLauncher.label>榴弹发射器</CWF_Trait_GrenadeLauncher.label>
+    <CWF_Trait_GrenadeLauncher.description>该发射器发射一枚高爆破片榴弹，造成大范围的高爆伤害。每次使用后都需重新装填。</CWF_Trait_GrenadeLauncher.description>
+
+    <CWF_Trait_EMPLauncher.label>EMP弹发射器</CWF_Trait_EMPLauncher.label>
+    <CWF_Trait_EMPLauncher.description>该发射器发射特制的 EMP 弹头，命中时释放的电磁脉冲能击晕机械体并瘫痪电子设备。重新装填前可发射两次。</CWF_Trait_EMPLauncher.description>
+
+    <CWF_Trait_SmokeLauncher.label>烟雾发射器</CWF_Trait_SmokeLauncher.label>
+    <CWF_Trait_SmokeLauncher.description>该发射器发射烟雾弹，撞击时释放浓密烟雾，非常适合用于遮蔽视线、创造掩护。重新装填前可发射两次。</CWF_Trait_SmokeLauncher.description>
+
+    <CWF_Trait_IncendiaryLauncher.label>燃烧发射器</CWF_Trait_IncendiaryLauncher.label>
+    <CWF_Trait_IncendiaryLauncher.description>该发射器发射燃烧弹，撞击时释放一片火海，会点燃目标。每次使用后都需重新装填。</CWF_Trait_IncendiaryLauncher.description>
+
+    <CWF_Trait_HeavyRounds.label>重型弹</CWF_Trait_HeavyRounds.label>
+    <CWF_Trait_HeavyRounds.description>具有重型弹头的特种弹药。其具有强大动能，抑制力显著增强，同时也略微提升伤害。</CWF_Trait_HeavyRounds.description>
+
+    <CWF_Trait_HollowPointRounds.label>空尖弹</CWF_Trait_HollowPointRounds.label>
+    <CWF_Trait_HollowPointRounds.description>命中目标时会扩张变形的空尖弹。它会造成严重创伤，显著提升伤害。</CWF_Trait_HollowPointRounds.description>
+
+    <CWF_Trait_ToxRounds.label>涂毒弹</CWF_Trait_ToxRounds.label>
+    <CWF_Trait_ToxRounds.description>涂有毒素的子弹。它不仅直接创伤目标，还散播毒素，命中目标会累积中毒效果。</CWF_Trait_ToxRounds.description>
+
+    <CWF_Trait_PiercingRounds.label>穿甲弹</CWF_Trait_PiercingRounds.label>
+    <CWF_Trait_PiercingRounds.description>采用高密度硬质核心的子弹，专为击穿厚重装甲而设计，有效提升穿甲力。</CWF_Trait_PiercingRounds.description>
+
+    <CWF_Trait_IncendiaryRounds.label>燃烧弹</CWF_Trait_IncendiaryRounds.label>
+    <CWF_Trait_IncendiaryRounds.description>装填了燃烧剂的子弹。命中目标后会爆发火焰，造成烧伤，并可能引燃周围环境。</CWF_Trait_IncendiaryRounds.description>
+
+    <CWF_Trait_EMPRounds.label>EMP电荷弹</CWF_Trait_EMPRounds.label>
+    <CWF_Trait_EMPRounds.description>内置了微型电容的子弹，命中时释放一股电磁脉冲，能干扰电子设备与机械体。</CWF_Trait_EMPRounds.description>
+
+    <CWF_Trait_HighPowerRounds.label>高威力弹</CWF_Trait_HighPowerRounds.label>
+    <CWF_Trait_HighPowerRounds.description>这种子弹采用高能发射药，伤害更高、抑制力更强，还提升了穿甲力。然而，剧烈的后坐力使武器更难掌控。</CWF_Trait_HighPowerRounds.description>
+
+    <CWF_Trait_PulseChargeRounds.label>电荷脉冲弹</CWF_Trait_PulseChargeRounds.label>
+    <CWF_Trait_PulseChargeRounds.description>这种先进子弹内置了不稳定的能量单元，提供澎拜动能。提升伤害的同时，也能有效击穿装甲。</CWF_Trait_PulseChargeRounds.description>
+
+    <CWF_Trait_IncendiaryPellets.label>燃烧霰弹</CWF_Trait_IncendiaryPellets.label>
+    <CWF_Trait_IncendiaryPellets.description>内部填充了燃烧物质的霰弹。命中目标时碎裂，四散的炽热颗粒容易点燃目标。</CWF_Trait_IncendiaryPellets.description>
+
+    <CWF_Trait_ToxPellets.label>涂毒霰弹</CWF_Trait_ToxPellets.label>
+    <CWF_Trait_ToxPellets.description>内部填充了毒素的霰弹。能释放出大量淬毒碎片，让目标迅速积累毒素。</CWF_Trait_ToxPellets.description>
+
+    <CWF_Trait_BirdshotPellets.label>鸟弹</CWF_Trait_BirdshotPellets.label>
+    <CWF_Trait_BirdshotPellets.description>更小、更轻，会碎裂成锥形破片的霰弹。在近距离下杀伤力极其有效，但射程有限，且难以应对装甲目标。</CWF_Trait_BirdshotPellets.description>
+</LanguageData>
