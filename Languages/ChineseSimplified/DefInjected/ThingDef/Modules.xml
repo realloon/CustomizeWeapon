@@ -26,8 +26,8 @@
   <CWF_Module_LaserSight.label>激光辅瞄器</CWF_Module_LaserSight.label>
   <CWF_Module_GrenadeLauncher.label>榴弹发射器</CWF_Module_GrenadeLauncher.label>
   <CWF_Module_EMPLauncher.label>EMP弹发射器</CWF_Module_EMPLauncher.label>
-  <CWF_Module_SmokeLauncher.label>烟雾发射器</CWF_Module_SmokeLauncher.label>
-  <CWF_Module_IncendiaryLauncher.label>燃烧发射器</CWF_Module_IncendiaryLauncher.label>
+  <CWF_Module_SmokeLauncher.label>烟雾弹发射器</CWF_Module_SmokeLauncher.label>
+  <CWF_Module_IncendiaryLauncher.label>燃烧弹发射器</CWF_Module_IncendiaryLauncher.label>
   <CWF_Module_HeavyRounds.label>重型弹</CWF_Module_HeavyRounds.label>
   <CWF_Module_HollowPointRounds.label>空尖弹</CWF_Module_HollowPointRounds.label>
   <CWF_Module_ToxRounds.label>涂毒弹</CWF_Module_ToxRounds.label>

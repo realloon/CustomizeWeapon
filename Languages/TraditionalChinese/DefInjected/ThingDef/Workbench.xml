@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-    <CWF_Workbench.label>模块工作台</CWF_Workbench.label>
-    <CWF_Workbench.description>一个武器模块工作台，用于制作标准武器模块，或模块化升级原始枪械。</CWF_Workbench.description>
+  <CWF_Workbench.label>模組工作臺</CWF_Workbench.label>
+  <CWF_Workbench.description>一個武器模組工作臺，用於製作標準武器模組，或模組化升級原始槍械。</CWF_Workbench.description>
 </LanguageData>
