@@ -208,7 +208,7 @@
     </recipeMaker>
     <modExtensions>
       <li Class="CWF.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_beltMagazine</weaponTraitDef>
+        <weaponTraitDef>CWF_Trait_BeltMagazine</weaponTraitDef>
         <part>Magazine</part>
         <conditionalPartModifiers>
           <li>

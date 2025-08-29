@@ -55,8 +55,8 @@
   <CWF_Trait_ExtendedMagazine.label>扩容弹匣</CWF_Trait_ExtendedMagazine.label>
   <CWF_Trait_ExtendedMagazine.description>这款弹匣的载弹量比标准型号更高，允许武器在连发中射出更多子弹。</CWF_Trait_ExtendedMagazine.description>
 
-  <CWF_Trait_beltMagazine.label>链式弹匣</CWF_Trait_beltMagazine.label>
-  <CWF_Trait_beltMagazine.description>该弹链供弹机构能提供持续不断的弹药流，使武器能够进行更长、更具压制力的连发射击。</CWF_Trait_beltMagazine.description>
+  <CWF_Trait_BeltMagazine.label>链式弹匣</CWF_Trait_BeltMagazine.label>
+  <CWF_Trait_BeltMagazine.description>该弹链供弹机构能提供持续不断的弹药流，使武器能够进行更长、更具压制力的连发射击。</CWF_Trait_BeltMagazine.description>
 
   <CWF_Trait_DrumMagazine.label>鼓式弹匣</CWF_Trait_DrumMagazine.label>
   <CWF_Trait_DrumMagazine.description>这款大容量弹鼓装有远超常规装量的弹药，使武器能持续而猛烈的连发射击。</CWF_Trait_DrumMagazine.description>

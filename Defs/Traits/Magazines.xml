@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!--  -->
+  <!-- QuickMagazine -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_QuickMagazine</defName>
     <label>quick magazine</label>
@@ -10,7 +10,7 @@
     </statFactors>
   </WeaponTraitDef>
 
-  <!--  -->
+  <!-- ExtendedMagazine -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_ExtendedMagazine</defName>
     <label>extended magazine</label>
@@ -18,15 +18,15 @@
     <burstShotCountMultiplier>1.25</burstShotCountMultiplier>
   </WeaponTraitDef>
 
-  <!--  -->
+  <!-- BeltMagazine -->
   <WeaponTraitDef ParentName="CWF_Trait">
-    <defName>CWF_Trait_beltMagazine</defName>
+    <defName>CWF_Trait_BeltMagazine</defName>
     <label>belt magazine</label>
     <description>This belt-feeding mechanism provides a continuous stream of ammunition, enabling the weapon to unleash a significantly longer and more suppressive burst of fire.</description>
     <burstShotCountMultiplier>1.5</burstShotCountMultiplier>
   </WeaponTraitDef>
 
-  <!--  -->
+  <!-- DrumMagazine -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_DrumMagazine</defName>
     <label>drum magazine</label>

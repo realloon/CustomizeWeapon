@@ -16,19 +16,8 @@
       <li>CWF_AssaultRifle</li>
       <li>CWF_BurstFire</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -135,19 +124,8 @@
     <weaponTags>
       <li>CWF_BoltActionRifle</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -221,19 +199,8 @@
     <weaponTags>
       <li>CWF_SniperRifle</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -327,19 +294,8 @@
     <weaponTags>
       <li>CWF_Handgun</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -423,19 +379,8 @@
       <li>CWF_Shotgun</li>
       <li>CWF_BurstFire</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -478,7 +423,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Grip</texturePath>
-              
+
               <offset>(36, 86)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -487,7 +432,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Magazine</texturePath>
-              
+
               <offset>(176, 130)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -496,7 +441,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Stock</texturePath>
-              
+
               <offset>(-59, 119)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -537,19 +482,8 @@
       <li>CWF_SMG</li>
       <li>CWF_BurstFire</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -585,7 +519,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Barrel</texturePath>
-              
+
               <offset>(275, 181)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -594,7 +528,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Magazine</texturePath>
-              
+
               <offset>(179, 75)</offset>
             </baseTexture>
             <layer>-1</layer>
@@ -603,7 +537,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Stock</texturePath>
-              
+
               <offset>(-45, 145)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -612,7 +546,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Grip</texturePath>
-              
+
               <offset>(47, 90)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -653,19 +587,8 @@
       <li>CWF_LMG</li>
       <li>CWF_BurstFire</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -692,7 +615,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Barrel</texturePath>
-              
+
               <offset>(239, 134)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -708,7 +631,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Magazine</texturePath>
-              
+
               <offset>(85, 167)</offset>
             </baseTexture>
             <layer>30</layer>
@@ -717,7 +640,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Stock</texturePath>
-              
+
               <offset>(-62, 124)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -726,7 +649,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Grip</texturePath>
-              
+
               <offset>(18, 81)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -767,19 +690,8 @@
       <li>CWF_Minigun</li>
       <li>CWF_BurstFire</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -805,7 +717,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Barrel</texturePath>
-              
+
               <offset>(274, 54)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -814,7 +726,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Magazine</texturePath>
-              
+
               <offset>(18, 3)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -823,7 +735,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Grip</texturePath>
-              
+
               <offset>(-67, 67)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -863,19 +775,8 @@
     <weaponTags>
       <li>CWF_Bow</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Ammo</li>
@@ -916,19 +817,8 @@
       <li>CWF_BurstFire</li>
       <li>CWF_Charge</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Barrel</li>
@@ -1026,19 +916,8 @@
       <li>CWF_ChargeLance</li>
       <li>CWF_Charge</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Barrel</li>
@@ -1085,19 +964,8 @@
       <li>CWF_AssaultRifle</li>
       <li>CWF_BurstFire</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -1126,7 +994,7 @@
             <part>Sight</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Sight</texturePath>
-              
+
               <offset>(194, 176)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -1135,7 +1003,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Grip</texturePath>
-              
+
               <offset>(25, 87)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -1144,7 +1012,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Magazine</texturePath>
-              
+
               <offset>(133, 78)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -1153,7 +1021,7 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Stock</texturePath>
-              
+
               <offset>(-46, 119)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -1162,7 +1030,7 @@
             <part>Underbarrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Underbarrel</texturePath>
-              
+
               <offset>(226, 85)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -1202,19 +1070,8 @@
     <weaponTags>
       <li>CWF_BeamRepeater</li>
     </weaponTags>
-    <comps Inherit="False">
-      <li Class="CompProperties_EquippableAbilityReloadable" />
-      <li Class="CompProperties_Forbiddable" />
-      <li Class="CompProperties_Styleable" />
-      <li Class="CompProperties_Biocodable" />
-      <li>
-        <compClass>CompQuality</compClass>
-      </li>
-      <li Class="CompProperties_Art">
-        <nameMaker>NamerArtWeaponGun</nameMaker>
-        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
-        <minQualityForArtistic>Excellent</minQualityForArtistic>
-      </li>
+    <comps>
+      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Stock</li>
