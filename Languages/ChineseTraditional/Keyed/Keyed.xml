@@ -30,7 +30,6 @@
   <CWF_UI_Short>近</CWF_UI_Short>
   <CWF_UI_Medium>中</CWF_UI_Medium>
   <CWF_UI_Long>远</CWF_UI_Long>
-  <CWF_UI_Mass>质量</CWF_UI_Mass>
   <CWF_UI_BurstShotCountMultiplier>连射倍率</CWF_UI_BurstShotCountMultiplier>
   <CWF_UI_BurstShotSpeedMultiplier>射速倍率</CWF_UI_BurstShotSpeedMultiplier>
   <CWF_UI_AdditionalStoppingPower>抑止能力偏移</CWF_UI_AdditionalStoppingPower>

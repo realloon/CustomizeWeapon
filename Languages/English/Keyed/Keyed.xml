@@ -30,7 +30,6 @@
   <CWF_UI_Short>Short</CWF_UI_Short>
   <CWF_UI_Medium>Medium</CWF_UI_Medium>
   <CWF_UI_Long>Long</CWF_UI_Long>
-  <CWF_UI_Mass>Mass</CWF_UI_Mass>
   <CWF_UI_BurstShotCountMultiplier>Burst shot count multiplier</CWF_UI_BurstShotCountMultiplier>
   <CWF_UI_BurstShotSpeedMultiplier>Fire rate multiplier</CWF_UI_BurstShotSpeedMultiplier>
   <CWF_UI_AdditionalStoppingPower>Stopping power offset</CWF_UI_AdditionalStoppingPower>
