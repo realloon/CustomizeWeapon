@@ -20,6 +20,7 @@
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
           <li>CWF_SniperRifle</li>
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
@@ -50,6 +51,7 @@
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
           <li>CWF_SniperRifle</li>
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
@@ -80,6 +82,7 @@
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
           <li>CWF_SniperRifle</li>
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
@@ -110,6 +113,7 @@
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
           <li>CWF_SniperRifle</li>
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
@@ -140,6 +144,7 @@
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
           <li>CWF_SniperRifle</li>
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
@@ -170,6 +175,7 @@
         <part>Ammo</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
           <li>CWF_SniperRifle</li>
           <li>CWF_Handgun</li>
           <li>CWF_SMG</li>
