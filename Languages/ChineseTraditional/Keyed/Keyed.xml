@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <!-- #region Part -->
-  <CWF_UI_PartOf>所属部件</CWF_UI_PartOf>
-  <CWF_UI_Muzzle>枪口</CWF_UI_Muzzle>
-  <CWF_UI_Barrel>枪管</CWF_UI_Barrel>
-  <CWF_UI_Receiver>机匣</CWF_UI_Receiver>
-  <CWF_UI_Trigger>扳机</CWF_UI_Trigger>
-  <CWF_UI_Stock>枪托</CWF_UI_Stock>
+  <CWF_UI_PartOf>所屬部件</CWF_UI_PartOf>
+  <CWF_UI_Muzzle>槍口</CWF_UI_Muzzle>
+  <CWF_UI_Barrel>槍管</CWF_UI_Barrel>
+  <CWF_UI_Receiver>機匣</CWF_UI_Receiver>
+  <CWF_UI_Trigger>扳機</CWF_UI_Trigger>
+  <CWF_UI_Stock>槍托</CWF_UI_Stock>
   <CWF_UI_Grip>握把</CWF_UI_Grip>
   <CWF_UI_Sight>瞄具</CWF_UI_Sight>
-  <CWF_UI_Magazine>弹匣</CWF_UI_Magazine>
-  <CWF_UI_Underbarrel>下挂</CWF_UI_Underbarrel>
-  <CWF_UI_Ammo>子弹</CWF_UI_Ammo>
+  <CWF_UI_Magazine>彈匣</CWF_UI_Magazine>
+  <CWF_UI_Underbarrel>下掛</CWF_UI_Underbarrel>
+  <CWF_UI_Ammo>子彈</CWF_UI_Ammo>
   <CWF_UI_Accessory>配件</CWF_UI_Accessory>
   <!-- #endregion -->
 
   <!-- #region Stat -->
   <CWF_UI_Range>射程</CWF_UI_Range>
   <CWF_UI_RangeDPS>DPS</CWF_UI_RangeDPS>
-  <CWF_UI_RangeBurstCount>连射数</CWF_UI_RangeBurstCount>
-  <CWF_UI_RangeWarmupTime>瞄准时间</CWF_UI_RangeWarmupTime>
-  <CWF_UI_RangeCooldown>冷却时间</CWF_UI_RangeCooldown>
+  <CWF_UI_RangeBurstCount>連發數</CWF_UI_RangeBurstCount>
+  <CWF_UI_RangeWarmupTime>瞄準時間</CWF_UI_RangeWarmupTime>
+  <CWF_UI_RangeCooldown>冷卻時間</CWF_UI_RangeCooldown>
   <CWF_UI_Projectile>子弹</CWF_UI_Projectile>
-  <CWF_UI_Damage>单发伤害</CWF_UI_Damage>
-  <CWF_UI_ArmorPenetration>护甲穿透</CWF_UI_ArmorPenetration>
+  <CWF_UI_Damage>單發傷害</CWF_UI_Damage>
+  <CWF_UI_ArmorPenetration>護甲穿透</CWF_UI_ArmorPenetration>
   <CWF_UI_StoppingPower>抑制力</CWF_UI_StoppingPower>
-  <CWF_UI_Accuracy>射击精度</CWF_UI_Accuracy>
-  <CWF_UI_Touch>贴近</CWF_UI_Touch>
+  <CWF_UI_Accuracy>射擊精度</CWF_UI_Accuracy>
+  <CWF_UI_Touch>貼近</CWF_UI_Touch>
   <CWF_UI_Short>近</CWF_UI_Short>
   <CWF_UI_Medium>中</CWF_UI_Medium>
-  <CWF_UI_Long>远</CWF_UI_Long>
-  <CWF_UI_BurstShotCountMultiplier>连射倍率</CWF_UI_BurstShotCountMultiplier>
+  <CWF_UI_Long>遠</CWF_UI_Long>
+  <CWF_UI_BurstShotCountMultiplier>連發倍率</CWF_UI_BurstShotCountMultiplier>
   <CWF_UI_BurstShotSpeedMultiplier>射速倍率</CWF_UI_BurstShotSpeedMultiplier>
-  <CWF_UI_AdditionalStoppingPower>抑止能力偏移</CWF_UI_AdditionalStoppingPower>
+  <CWF_UI_AdditionalStoppingPower>抑制能力偏移</CWF_UI_AdditionalStoppingPower>
   <!-- #endregion -->
 
   <!-- #region Gizmo -->
   <CWF_UI_WeaponPanel>武器面板</CWF_UI_WeaponPanel>
-  <CWF_UI_WeaponPanelDesc>打开武器面板</CWF_UI_WeaponPanelDesc>
+  <CWF_UI_WeaponPanelDesc>開啟武器面板</CWF_UI_WeaponPanelDesc>
   <!-- #endregion -->
 
   <!-- #region Menu -->
@@ -45,27 +45,27 @@
   <!-- #endregion -->
 
   <!-- #region Message -->
-  <CWF_Message_NoColonistToModifyWeapon>没有合适的殖民者可以改装武器</CWF_Message_NoColonistToModifyWeapon>
-  <CWF_Message_CannotFindModuleForModification>找不到用于修改的{MODULE_label}</CWF_Message_CannotFindModuleForModification>
-  <CWF_Message_ModificationJobDispatched>{PAWN_label}将改造{WEAPON_label}</CWF_Message_ModificationJobDispatched>
-  <CWF_Message_ModificationComplete>{PAWN_label}完成了对{WEAPON_label}的改造</CWF_Message_ModificationComplete>
+  <CWF_Message_NoColonistToModifyWeapon>沒有合適的殖民者能夠改造武器</CWF_Message_NoColonistToModifyWeapon>
+  <CWF_Message_CannotFindModuleForModification>找不到用於改造的{MODULE_label}</CWF_Message_CannotFindModuleForModification>
+  <CWF_Message_ModificationJobDispatched>{PAWN_label}將改造{WEAPON_label}</CWF_Message_ModificationJobDispatched>
+  <CWF_Message_ModificationComplete>{PAWN_label}完成了對{WEAPON_label}的改造</CWF_Message_ModificationComplete>
   <!-- #endregion -->
 
   <!-- #region UI -->
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
-  <CWF_UI_NoCompatiblePartsInInventory>背包中没有合适的模块</CWF_UI_NoCompatiblePartsInInventory>
-  <CWF_UI_NoCompatiblePartsOnMap>地图上没有合适的模块</CWF_UI_NoCompatiblePartsOnMap>
-  <CWF_UI_WeaponModules>武器模块</CWF_UI_WeaponModules>
-  <CWF_UI_WeaponModules_Desc>安装在此武器上的模块。</CWF_UI_WeaponModules_Desc>
-  <CWF_UI_ModuleEffects>模块效果</CWF_UI_ModuleEffects>
-  <CWF_UI_ModuleEffectsDesc>安装{MODULE_label}将为武器提供以下效果</CWF_UI_ModuleEffectsDesc>
-  <CWF_UI_InputTitle>输入</CWF_UI_InputTitle>
+  <CWF_UI_NoCompatiblePartsInInventory>背包中沒有合適的模組</CWF_UI_NoCompatiblePartsInInventory>
+  <CWF_UI_NoCompatiblePartsOnMap>地圖上沒有合適的模組</CWF_UI_NoCompatiblePartsOnMap>
+  <CWF_UI_WeaponModules>武器模組</CWF_UI_WeaponModules>
+  <CWF_UI_WeaponModules_Desc>安裝在此武器上的模組。</CWF_UI_WeaponModules_Desc>
+  <CWF_UI_ModuleEffects>模組效果</CWF_UI_ModuleEffects>
+  <CWF_UI_ModuleEffectsDesc>安裝{MODULE_label}將賦予武器下列效果</CWF_UI_ModuleEffectsDesc>
+  <CWF_UI_InputTitle>取消</CWF_UI_InputTitle>
   <CWF_UI_Confirm>接受</CWF_UI_Confirm>
   <CWF_UI_Cancel>取消</CWF_UI_Cancel>
-  <CWF_UI_NotRanged>暂时只支持远程武器。</CWF_UI_NotRanged>
-  <CWF_UI_ConfirmInstallTitle>确认安装</CWF_UI_ConfirmInstallTitle>
-  <CWF_UI_ConfirmInstallBody>安装{MODULE}将会同时卸下以下模块:\n\n{CONFLICTS}\n\n确认安装吗？</CWF_UI_ConfirmInstallBody>
-  <CWF_UI_ConfirmUninstallTitle>确认移除</CWF_UI_ConfirmUninstallTitle>
-  <CWF_UI_ConfirmUninstallBody>移除{MODULE}将会同时卸下以下模块:\n\n{DEPENDENCIES}\n\n确认移除吗？</CWF_UI_ConfirmUninstallBody>
+  <CWF_UI_NotRanged>暫時僅支援遠程武器。</CWF_UI_NotRanged>
+  <CWF_UI_ConfirmInstallTitle>確認安裝</CWF_UI_ConfirmInstallTitle>
+  <CWF_UI_ConfirmInstallBody>安裝{MODULE}將同時卸下以下模組:\n\n{CONFLICTS}\n\n確認安裝嗎？</CWF_UI_ConfirmInstallBody>
+  <CWF_UI_ConfirmUninstallTitle>確認移除</CWF_UI_ConfirmUninstallTitle>
+  <CWF_UI_ConfirmUninstallBody>移除{MODULE}將會同時卸下以下模組:\n\n{DEPENDENCIES}\n\n確認移除嗎？</CWF_UI_ConfirmUninstallBody>
   <!-- #endregion -->
 </LanguageData>
