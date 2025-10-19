@@ -38,6 +38,7 @@
     <rotatable>false</rotatable>
     <pathCost>14</pathCost>
     <comps>
+      <li Class="CompProperties_Forbiddable"/>
       <li Class="CWF.CompProperties_TraitModule" />
     </comps>
   </ThingDef>
