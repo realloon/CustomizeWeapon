@@ -51,7 +51,7 @@
   <CWF_Message_ModificationComplete>{WEAPON_label} has been modified by {PAWN_label}</CWF_Message_ModificationComplete>
   <!-- #endregion -->
 
-  <!-- #region UI -->
+  <!-- #region Window -->
   <CWF_UI_Uninstall>Uninstall</CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>No compatible parts in inventory</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>No compatible parts on map</CWF_UI_NoCompatiblePartsOnMap>
@@ -68,4 +68,8 @@
   <CWF_UI_ConfirmUninstallTitle>Confirm Uninstall</CWF_UI_ConfirmUninstallTitle>
   <CWF_UI_ConfirmUninstallBody>Uninstalling {MODULE} will also remove the following dependent modules:\n\n{DEPENDENCIES}\n\nDo you want to continue?</CWF_UI_ConfirmUninstallBody>
   <!-- #endregion -->
+
+  <!-- #region Stat -->
+  <CWF_UI_FromEquipped>From weapon modules</CWF_UI_FromEquipped>
+  <!-- endregion -->
 </LanguageData>

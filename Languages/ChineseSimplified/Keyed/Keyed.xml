@@ -51,7 +51,7 @@
   <CWF_Message_ModificationComplete>{PAWN_label}完成了对{WEAPON_label}的改造</CWF_Message_ModificationComplete>
   <!-- #endregion -->
 
-  <!-- #region UI -->
+  <!-- #region Window -->
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>背包中没有合适的模块</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>地图上没有合适的模块</CWF_UI_NoCompatiblePartsOnMap>
@@ -68,4 +68,8 @@
   <CWF_UI_ConfirmUninstallTitle>确认移除</CWF_UI_ConfirmUninstallTitle>
   <CWF_UI_ConfirmUninstallBody>移除{MODULE}将会同时卸下以下模块:\n\n{DEPENDENCIES}\n\n确认移除吗？</CWF_UI_ConfirmUninstallBody>
   <!-- #endregion -->
+
+  <!-- #region Stat -->
+  <CWF_UI_FromEquipped>源于武器模块</CWF_UI_FromEquipped>
+  <!-- endregion -->
 </LanguageData>
