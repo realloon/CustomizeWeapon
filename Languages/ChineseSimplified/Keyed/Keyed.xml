@@ -69,6 +69,6 @@
   <CWF_UI_ConfirmUninstallBody>移除{MODULE}将会同时卸下以下模块:\n\n{DEPENDENCIES}\n\n确认移除吗？</CWF_UI_ConfirmUninstallBody>
   <CWF_UI_FromEquipped>源于武器模块</CWF_UI_FromEquipped>
   <CWF_UI_RandomModuleGeneration>随机生成模块</CWF_UI_RandomModuleGeneration>
-  <CWF_UI_RandomModuleGenerationDesc>启用后，非玩家制造的武器会随机生成武器模块</CWF_UI_RandomModuleGenerationDesc>
+  <CWF_UI_RandomModuleGenerationDesc>启用后，非玩家制造的武器会随机生成模块</CWF_UI_RandomModuleGenerationDesc>
   <!-- #endregion -->
 </LanguageData>
