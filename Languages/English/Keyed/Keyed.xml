@@ -67,9 +67,8 @@
   <CWF_UI_ConfirmInstallBody>Installing {MODULE} will force the removal of the following conflicting modules:\n\n{CONFLICTS}\n\nDo you want to continue?</CWF_UI_ConfirmInstallBody>
   <CWF_UI_ConfirmUninstallTitle>Confirm Uninstall</CWF_UI_ConfirmUninstallTitle>
   <CWF_UI_ConfirmUninstallBody>Uninstalling {MODULE} will also remove the following dependent modules:\n\n{DEPENDENCIES}\n\nDo you want to continue?</CWF_UI_ConfirmUninstallBody>
-  <!-- #endregion -->
-
-  <!-- #region Stat -->
   <CWF_UI_FromEquipped>From weapon modules</CWF_UI_FromEquipped>
-  <!-- endregion -->
+  <CWF_UI_RandomModuleGeneration>Random Module Generation</CWF_UI_RandomModuleGeneration>
+  <CWF_UI_RandomModuleGenerationDesc>If enabled, non-player-crafted weapons will spawn with random modules</CWF_UI_RandomModuleGenerationDesc>
+  <!-- #endregion -->
 </LanguageData>

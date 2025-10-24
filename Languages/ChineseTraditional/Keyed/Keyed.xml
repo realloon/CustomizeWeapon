@@ -67,9 +67,8 @@
   <CWF_UI_ConfirmInstallBody>安裝{MODULE}將同時卸下以下模組:\n\n{CONFLICTS}\n\n確認安裝嗎？</CWF_UI_ConfirmInstallBody>
   <CWF_UI_ConfirmUninstallTitle>確認移除</CWF_UI_ConfirmUninstallTitle>
   <CWF_UI_ConfirmUninstallBody>移除{MODULE}將會同時卸下以下模組:\n\n{DEPENDENCIES}\n\n確認移除嗎？</CWF_UI_ConfirmUninstallBody>
-  <!-- #endregion -->
-
-  <!-- #region Stat -->
   <CWF_UI_FromEquipped>源於武器模組</CWF_UI_FromEquipped>
-  <!-- endregion -->
+  <CWF_UI_RandomModuleGeneration>隨機生成模組</CWF_UI_RandomModuleGeneration>
+  <CWF_UI_RandomModuleGenerationDesc>啓用後，非玩家製造的武器會隨機生成武器模組</CWF_UI_RandomModuleGenerationDesc>
+  <!-- #endregion -->
 </LanguageData>
