@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <ThingDef ParentName="Gun_AssaultRifle">
-    <defName>CWF_Gun_AssaultRifle</defName>
-    <label>customized assault rifle</label>
-    <description>An assault rifle with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_AssaultRifle</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_AssaultRifle</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/AssaultRifle/AssaultRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -17,7 +12,6 @@
       <li>CWF_BurstFire</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -91,31 +85,11 @@
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_AssaultRifle</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_BoltActionRifle">
-    <defName>CWF_Gun_BoltActionRifle</defName>
-    <label>customized bolt-action rifle</label>
-    <description>A bolt-action rifle with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_BoltActionRifle</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_BoltActionRifle</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/BoltActionRifle/BoltActionRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -125,7 +99,6 @@
       <li>CWF_BoltActionRifle</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -166,31 +139,11 @@
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_BoltActionRifle</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_SniperRifle">
-    <defName>CWF_Gun_SniperRifle</defName>
-    <label>customized sniper rifle</label>
-    <description>A sniper rifle with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_SniperRifle</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_SniperRifle</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/SniperRifle/SniperRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -200,7 +153,6 @@
       <li>CWF_SniperRifle</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -261,31 +213,11 @@
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_SniperRifle</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_Revolver">
-    <defName>CWF_Gun_Revolver</defName>
-    <label>customized revolver</label>
-    <description>A revolver with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_Revolver</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_Revolver</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/Revolver/Revolver</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -295,7 +227,6 @@
       <li>CWF_Handgun</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -345,31 +276,11 @@
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_Revolver</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_ChainShotgun">
-    <defName>CWF_Gun_ChainShotgun</defName>
-    <label>customized chain shotgun</label>
-    <description>A chain shotgun with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_ChainShotgun</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_ChainShotgun</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/ChainShotgun/ChainShotgun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -380,7 +291,6 @@
       <li>CWF_BurstFire</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -423,7 +333,6 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Grip</texturePath>
-
               <offset>(36, 86)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -432,7 +341,6 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Magazine</texturePath>
-
               <offset>(176, 130)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -441,38 +349,17 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/ChainShotgun/Stock</texturePath>
-
               <offset>(-59, 119)</offset>
             </baseTexture>
             <layer>25</layer>
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_ChainShotgun</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_HeavySMG">
-    <defName>CWF_Gun_HeavySMG</defName>
-    <label>customized heavy SMG</label>
-    <description>A heavy SMG with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_HeavySMG</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_HeavySMG</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/HeavySMG/HeavySMG</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -483,7 +370,6 @@
       <li>CWF_BurstFire</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -519,7 +405,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Barrel</texturePath>
-
               <offset>(275, 181)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -528,7 +413,6 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Magazine</texturePath>
-
               <offset>(179, 75)</offset>
             </baseTexture>
             <layer>-1</layer>
@@ -537,7 +421,6 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Stock</texturePath>
-
               <offset>(-45, 145)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -546,38 +429,17 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HeavySMG/Grip</texturePath>
-
               <offset>(47, 90)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_HeavySMG</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_LMG">
-    <defName>CWF_Gun_LMG</defName>
-    <label>customized LMG</label>
-    <description>A LMG with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_LMG</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_LMG</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/LMG/LMG</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -588,7 +450,6 @@
       <li>CWF_BurstFire</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -615,7 +476,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Barrel</texturePath>
-
               <offset>(239, 134)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -631,7 +491,6 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Magazine</texturePath>
-
               <offset>(85, 167)</offset>
             </baseTexture>
             <layer>30</layer>
@@ -640,7 +499,6 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Stock</texturePath>
-
               <offset>(-62, 124)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -649,38 +507,17 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/LMG/Grip</texturePath>
-
               <offset>(18, 81)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_LMG</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_Minigun">
-    <defName>CWF_Gun_Minigun</defName>
-    <label>customized minigun</label>
-    <description>A minigun with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_Minigun</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_Minigun</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/Minigun/Minigun</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -691,7 +528,6 @@
       <li>CWF_BurstFire</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -717,7 +553,6 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Barrel</texturePath>
-
               <offset>(274, 54)</offset>
             </baseTexture>
             <layer>5</layer>
@@ -726,7 +561,6 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Magazine</texturePath>
-
               <offset>(18, 3)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -735,38 +569,17 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/Minigun/Grip</texturePath>
-
               <offset>(-67, 67)</offset>
             </baseTexture>
             <layer>10</layer>
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_Minigun</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Bow_Great">
-    <defName>CWF_Bow_Great</defName>
-    <label>customized greatbow</label>
-    <description>A greatbow with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Bow_Great</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Bow_Great</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/GreatBow/GreatBow</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -776,37 +589,16 @@
       <li>CWF_Bow</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Ammo</li>
         </supportParts>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Bow_Great</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_ChargeRifle">
-    <defName>CWF_Gun_ChargeRifle</defName>
-    <label>customized charge rifle</label>
-    <description>A charge rifle with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_ChargeRifle</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_ChargeRifle</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/ChargeRifle/ChargeRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -818,7 +610,6 @@
       <li>CWF_Charge</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Barrel</li>
@@ -882,31 +673,11 @@
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_ChargeRifle</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_ChargeLance">
-    <defName>CWF_Gun_ChargeLance</defName>
-    <label>customized charge lance</label>
-    <description>A charge lance with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_ChargeLance</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef>
+    <defName>Gun_ChargeLance</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/ChargeLance/ChargeLance</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -917,7 +688,6 @@
       <li>CWF_Charge</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Barrel</li>
@@ -930,31 +700,11 @@
           <li>Ammo</li>
         </supportParts>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_ChargeLance</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_HellcatRifle" MayRequire="Ludeon.Rimworld.Anomaly">
-    <defName>CWF_Gun_HellcatRifle</defName>
-    <label>customized hellcat rifle</label>
-    <description>A hellcat rifle with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_HellcatRifle</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef MayRequire="Ludeon.Rimworld.Anomaly">
+    <defName>Gun_HellcatRifle</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/HellcatRifle/HellcatRifle</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -965,7 +715,6 @@
       <li>CWF_BurstFire</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Muzzle</li>
@@ -994,7 +743,6 @@
             <part>Sight</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Sight</texturePath>
-
               <offset>(194, 176)</offset>
             </baseTexture>
             <layer>10</layer>
@@ -1003,7 +751,6 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Grip</texturePath>
-
               <offset>(25, 87)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -1012,7 +759,6 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Magazine</texturePath>
-
               <offset>(133, 78)</offset>
             </baseTexture>
             <layer>25</layer>
@@ -1021,7 +767,6 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Stock</texturePath>
-
               <offset>(-46, 119)</offset>
             </baseTexture>
             <layer>20</layer>
@@ -1030,38 +775,17 @@
             <part>Underbarrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/HellcatRifle/Underbarrel</texturePath>
-
               <offset>(226, 85)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
         </attachmentPoints>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_HellcatRifle</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 
-  <ThingDef ParentName="Gun_BeamRepeater" MayRequire="Ludeon.Rimworld.Odyssey">
-    <defName>CWF_Gun_BeamRepeater</defName>
-    <label>customized beam repeater</label>
-    <description>A beam repeater with customized parts.</description>
-    <descriptionHyperlinks>
-      <ThingDef>Gun_BeamRepeater</ThingDef>
-    </descriptionHyperlinks>
+  <CWF.AdapterDef MayRequire="Ludeon.Rimworld.Anomaly">
+    <defName>Gun_BeamRepeater</defName>
     <graphicData>
       <texPath>CustomizeWeapon/Weapons/BeamRepeater/BeamRepeater</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -1079,21 +803,6 @@
           <li>Sight</li>
         </supportParts>
       </li>
-      <li Class="CWF.CompProperties_Renamable" />
-      <li Class="CWF.CompProperties_Colorable" />
     </comps>
-    <modExtensions>
-      <li Class="CWF.UpgradeExtension">
-        <baseWeaponDef>Gun_BeamRepeater</baseWeaponDef>
-      </li>
-    </modExtensions>
-    <thingCategories Inherit="False">
-      <li>CWF_CustomizedWeapons</li>
-    </thingCategories>
-    <tradeability>Sellable</tradeability>
-    <thingSetMakerTags Inherit="False" />
-    <recipeMaker Inherit="False" IsNull="True" />
-    <possessionCount>1</possessionCount>
-    <generateAllowChance>1</generateAllowChance>
-  </ThingDef>
+  </CWF.AdapterDef>
 </Defs>

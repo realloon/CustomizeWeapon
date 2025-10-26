@@ -25,6 +25,7 @@
           <li>
             <matcher>
               <weaponDefs>
+                <li>Gun_AssaultRifle</li>
                 <li>CWF_Gun_AssaultRifle</li>
               </weaponDefs>
             </matcher>
@@ -35,6 +36,7 @@
           <li>
             <matcher>
               <weaponDefs>
+                <li>Gun_ChargeRifle</li>
                 <li>CWF_Gun_ChargeRifle</li>
               </weaponDefs>
             </matcher>
@@ -45,6 +47,7 @@
           <li>
             <matcher>
               <weaponDefs>
+                <li>Gun_HeavySMG</li>
                 <li>CWF_Gun_HeavySMG</li>
               </weaponDefs>
             </matcher>
@@ -55,6 +58,7 @@
           <li>
             <matcher>
               <weaponDefs>
+                <li>Gun_Minigun</li>
                 <li>CWF_Gun_Minigun</li>
               </weaponDefs>
             </matcher>
