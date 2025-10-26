@@ -26,7 +26,6 @@
             <matcher>
               <weaponDefs>
                 <li>Gun_LMG</li>
-                <li>CWF_Gun_LMG</li>
               </weaponDefs>
             </matcher>
             <graphicData>
@@ -38,7 +37,6 @@
             <matcher>
               <weaponDefs>
                 <li>Gun_HeavySMG</li>
-                <li>CWF_Gun_HeavySMG</li>
               </weaponDefs>
             </matcher>
             <graphicData>
@@ -87,7 +85,6 @@
             <matcher>
               <weaponDefs>
                 <li>Gun_AssaultRifle</li>
-                <li>CWF_Gun_AssaultRifle</li>
               </weaponDefs>
             </matcher>
             <graphicData>
@@ -98,7 +95,6 @@
             <matcher>
               <weaponDefs>
                 <li>Gun_HeavySMG</li>
-                <li>CWF_Gun_HeavySMG</li>
               </weaponDefs>
             </matcher>
             <graphicData>
@@ -137,7 +133,6 @@
             <matcher>
               <weaponDefs>
                 <li>Gun_ChainShotgun</li>
-                <li>CWF_Gun_ChainShotgun</li>
               </weaponDefs>
             </matcher>
             <graphicData>
