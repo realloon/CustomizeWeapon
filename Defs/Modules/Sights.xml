@@ -3,7 +3,7 @@
   <!-- IronSight -->
   <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_IronSight</defName>
-    <label>[Obsolete]iron sight</label>
+    <label>Obsolete | iron sight</label>
     <graphicData>
       <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
     </graphicData>
