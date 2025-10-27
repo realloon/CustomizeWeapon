@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- IronSight -->
-  <WeaponTraitDef ParentName="CWF_Trait">
-    <defName>CWF_Trait_IronSight</defName>
-    <label>iron sight</label>
-    <description>A simple and reliable set of iron sights. They provide a basic but effective aiming point, ideal for rapid target acquisition in close-range engagements.</description>
-    <statFactors>
-      <AccuracyTouch>1.1</AccuracyTouch>
-      <AccuracyShort>1.1</AccuracyShort>
-    </statFactors>
-  </WeaponTraitDef>
-
   <!-- Holoscope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_Holoscope</defName>
