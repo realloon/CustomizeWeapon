@@ -68,8 +68,8 @@
 
   <RecipeDef>
     <defName>CWF_UpgradeWeapon</defName>
-    <label>upgrade customize weapon</label>
-    <description>Upgrade a standard weapon into a customizable frame.</description>
+    <label>DEPRECATED</label>
+    <description>DEPRECATED.</description>
     <jobString>Customizing weapon.</jobString>
     <workerClass>CWF.Recipe_UpgradeWeapon</workerClass>
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
