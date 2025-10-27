@@ -30,9 +30,6 @@
   <CWF_Trait_CustomGrip.label>訂製握把</CWF_Trait_CustomGrip.label>
   <CWF_Trait_CustomGrip.description>符合人體工學的訂製握把。射手能更好地掌控武器，提高短距離內的射擊精度。</CWF_Trait_CustomGrip.description>
 
-  <CWF_Trait_IronSight.label>機械瞄具</CWF_Trait_IronSight.label>
-  <CWF_Trait_IronSight.description>簡單可靠的機械瞄具。它提供一個基礎但有效的瞄準點，非常適合在近距離交戰中快速捕捉目標。</CWF_Trait_IronSight.description>
-
   <CWF_Trait_Holoscope.label>全像瞄準鏡</CWF_Trait_Holoscope.label>
   <CWF_Trait_Holoscope.description>先進的全像瞄準鏡。它呈現清晰的瞄準標線，以便雙眼快速瞄準，顯著減少鎖定目標所需的時間，並提升中近距離內的射擊精度。</CWF_Trait_Holoscope.description>
 
