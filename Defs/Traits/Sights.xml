@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+  <!-- IronSight -->
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_IronSight</defName>
+    <label>[Obsolete]iron sight</label>
+    <description>This module has been abandoned. Please do not keep it in the archive. It will be removed in future versions.</description>
+  </WeaponTraitDef>
+
   <!-- Holoscope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_Holoscope</defName>
