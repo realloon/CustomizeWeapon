@@ -69,6 +69,6 @@
   <CWF_UI_ConfirmUninstallBody>移除{MODULE}將會同時卸下以下模組:\n\n{DEPENDENCIES}\n\n確認移除嗎？</CWF_UI_ConfirmUninstallBody>
   <CWF_UI_FromEquipped>源於武器模組</CWF_UI_FromEquipped>
   <CWF_UI_RandomModuleGeneration>隨機生成模組</CWF_UI_RandomModuleGeneration>
-  <CWF_UI_RandomModuleGenerationDesc>啓用後，非玩家製造的武器會隨機生成模組</CWF_UI_RandomModuleGenerationDesc>
+  <CWF_UI_RandomModuleGenerationDesc>啟用後，產生其他派系的角色（如商隊、盟友和襲擊者）時，其武器會隨機附帶武器模組</CWF_UI_RandomModuleGenerationDesc>
   <!-- #endregion -->
 </LanguageData>

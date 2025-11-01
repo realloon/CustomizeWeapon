@@ -69,6 +69,6 @@
   <CWF_UI_ConfirmUninstallBody>Uninstalling {MODULE} will also remove the following dependent modules:\n\n{DEPENDENCIES}\n\nDo you want to continue?</CWF_UI_ConfirmUninstallBody>
   <CWF_UI_FromEquipped>From weapon modules</CWF_UI_FromEquipped>
   <CWF_UI_RandomModuleGeneration>Random Module Generation</CWF_UI_RandomModuleGeneration>
-  <CWF_UI_RandomModuleGenerationDesc>If enabled, non-player-crafted weapons will spawn with random modules</CWF_UI_RandomModuleGenerationDesc>
+  <CWF_UI_RandomModuleGenerationDesc>If enabled, characters from other factions (like raiders, allies, and traders) will spawn with weapons that have random modules</CWF_UI_RandomModuleGenerationDesc>
   <!-- #endregion -->
 </LanguageData>
