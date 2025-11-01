@@ -176,6 +176,7 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForRevolver</texturePath>
+              <offset>(139, 144)</offset>
             </graphicData>
           </li>
         </graphicCases>
