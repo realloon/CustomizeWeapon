@@ -8,6 +8,9 @@
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
