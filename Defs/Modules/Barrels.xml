@@ -205,6 +205,18 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_TacticalBarrel</weaponTraitDef>
         <part>Barrel</part>
+        <conditionalPartModifiers>
+          <li>
+            <matcher>
+              <weaponDefs>
+                <li>Gun_LMG</li>
+              </weaponDefs>
+            </matcher>
+            <enablesParts>
+              <li>Underbarrel</li>
+            </enablesParts>
+          </li>
+        </conditionalPartModifiers>
         <graphicCases>
           <li>
             <matcher>
