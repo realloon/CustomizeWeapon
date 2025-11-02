@@ -1,0 +1,89 @@
+<Defs>
+  <!-- #region Top -->
+  <!-- Receiver -->
+  <CWF.PartDef>
+    <defName>Receiver</defName>
+    <label>receiver</label>
+    <group>Right</group>
+    <order>0</order>
+  </CWF.PartDef>
+
+  <!-- Sight -->
+  <CWF.PartDef>
+    <defName>Sight</defName>
+    <label>sight</label>
+    <group>Right</group>
+    <order>10</order>
+  </CWF.PartDef>
+
+  <!-- Barrel -->
+  <CWF.PartDef>
+    <defName>Barrel</defName>
+    <label>barrel</label>
+    <group>Right</group>
+    <order>30</order>
+  </CWF.PartDef>
+  <!-- #endregion -->
+
+  <!-- #region Left -->
+  <!-- Stock -->
+  <CWF.PartDef>
+    <defName>Stock</defName>
+    <label>stock</label>
+    <group>Right</group>
+    <order>0</order>
+  </CWF.PartDef>
+  <!-- #endregion -->
+
+  <!-- #region Right -->
+  <!-- Muzzle -->
+  <CWF.PartDef>
+    <defName>Muzzle</defName>
+    <label>muzzle</label>
+    <group>Right</group>
+    <order>0</order>
+  </CWF.PartDef>
+
+  <!-- Ammo -->
+  <CWF.PartDef>
+    <defName>Ammo</defName>
+    <label>ammo</label>
+    <group>Right</group>
+    <order>10</order>
+  </CWF.PartDef>
+  <!-- #endregion -->
+
+  <!-- #region Bottom -->
+  <!-- Grip -->
+  <CWF.PartDef>
+    <defName>Grip</defName>
+    <label>grip</label>
+    <group>Right</group>
+    <order>0</order>
+  </CWF.PartDef>
+
+  <!-- Trigger -->
+  <CWF.PartDef>
+    <defName>Trigger</defName>
+    <label>trigger</label>
+    <group>Right</group>
+    <order>10</order>
+  </CWF.PartDef>
+
+  <!-- Magazine -->
+  <CWF.PartDef>
+    <defName>Magazine</defName>
+    <label>magazine</label>
+    <group>Right</group>
+    <order>20</order>
+  </CWF.PartDef>
+
+  <!-- Underbarrel -->
+  <CWF.PartDef>
+    <defName>Underbarrel</defName>
+    <label>underbarrel</label>
+    <group>Right</group>
+    <order>30</order>
+  </CWF.PartDef>
+  <!-- #endregion -->
+</Defs>
