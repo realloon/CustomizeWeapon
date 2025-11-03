@@ -4,7 +4,7 @@
   <CWF.PartDef>
     <defName>Receiver</defName>
     <label>receiver</label>
-    <group>Right</group>
+    <group>Top</group>
     <order>0</order>
   </CWF.PartDef>
 
@@ -12,7 +12,7 @@
   <CWF.PartDef>
     <defName>Sight</defName>
     <label>sight</label>
-    <group>Right</group>
+    <group>Top</group>
     <order>10</order>
   </CWF.PartDef>
 
@@ -20,7 +20,7 @@
   <CWF.PartDef>
     <defName>Barrel</defName>
     <label>barrel</label>
-    <group>Right</group>
+    <group>Top</group>
     <order>30</order>
   </CWF.PartDef>
   <!-- #endregion -->
@@ -30,7 +30,7 @@
   <CWF.PartDef>
     <defName>Stock</defName>
     <label>stock</label>
-    <group>Right</group>
+    <group>Left</group>
     <order>0</order>
   </CWF.PartDef>
   <!-- #endregion -->
@@ -58,7 +58,7 @@
   <CWF.PartDef>
     <defName>Grip</defName>
     <label>grip</label>
-    <group>Right</group>
+    <group>Bottom</group>
     <order>0</order>
   </CWF.PartDef>
 
@@ -66,7 +66,7 @@
   <CWF.PartDef>
     <defName>Trigger</defName>
     <label>trigger</label>
-    <group>Right</group>
+    <group>Bottom</group>
     <order>10</order>
   </CWF.PartDef>
 
@@ -74,7 +74,7 @@
   <CWF.PartDef>
     <defName>Magazine</defName>
     <label>magazine</label>
-    <group>Right</group>
+    <group>Bottom</group>
     <order>20</order>
   </CWF.PartDef>
 
@@ -82,7 +82,7 @@
   <CWF.PartDef>
     <defName>Underbarrel</defName>
     <label>underbarrel</label>
-    <group>Right</group>
+    <group>Bottom</group>
     <order>30</order>
   </CWF.PartDef>
   <!-- #endregion -->
