@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Receiver.label>機匣</Receiver.label>
+  <Sight.label>瞄具</Sight.label>
+  <Barrel.label>槍管</Barrel.label>
+  <Stock.label>槍托</Stock.label>
+  <Muzzle.label>槍口</Muzzle.label>
+  <Ammo.label>子彈</Ammo.label>
+  <Grip.label>握把</Grip.label>
+  <Trigger.label>扳機</Trigger.label>
+  <Magazine.label>彈匣</Magazine.label>
+  <Underbarrel.label>下掛</Underbarrel.label>
+</LanguageData>
