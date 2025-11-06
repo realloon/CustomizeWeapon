@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-  <!-- #region Part -->
-  <CWF_UI_PartOf>Part of</CWF_UI_PartOf>
-  <CWF_UI_Muzzle>Muzzle</CWF_UI_Muzzle>
-  <CWF_UI_Barrel>Barrel</CWF_UI_Barrel>
-  <CWF_UI_Receiver>Receiver</CWF_UI_Receiver>
-  <CWF_UI_Trigger>Trigger</CWF_UI_Trigger>
-  <CWF_UI_Stock>Stock</CWF_UI_Stock>
-  <CWF_UI_Grip>Grip</CWF_UI_Grip>
-  <CWF_UI_Sight>Sight</CWF_UI_Sight>
-  <CWF_UI_Magazine>Magazine</CWF_UI_Magazine>
-  <CWF_UI_Underbarrel>Underbarrel</CWF_UI_Underbarrel>
-  <CWF_UI_Ammo>Ammo</CWF_UI_Ammo>
-  <CWF_UI_Accessory>Accessory</CWF_UI_Accessory>
-  <!-- #endregion -->
-
   <!-- #region Stat -->
   <CWF_UI_Range>Range</CWF_UI_Range>
   <CWF_UI_RangeDPS>DPS</CWF_UI_RangeDPS>
@@ -52,6 +37,7 @@
   <!-- #endregion -->
 
   <!-- #region Window -->
+  <CWF_UI_PartOf>Part of</CWF_UI_PartOf>
   <CWF_UI_Uninstall>Uninstall</CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>No compatible parts in inventory</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>No compatible parts on map</CWF_UI_NoCompatiblePartsOnMap>

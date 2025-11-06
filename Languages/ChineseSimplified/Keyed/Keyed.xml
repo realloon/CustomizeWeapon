@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-  <!-- #region Part -->
-  <CWF_UI_PartOf>所属部件</CWF_UI_PartOf>
-  <CWF_UI_Muzzle>枪口</CWF_UI_Muzzle>
-  <CWF_UI_Barrel>枪管</CWF_UI_Barrel>
-  <CWF_UI_Receiver>机匣</CWF_UI_Receiver>
-  <CWF_UI_Trigger>扳机</CWF_UI_Trigger>
-  <CWF_UI_Stock>枪托</CWF_UI_Stock>
-  <CWF_UI_Grip>握把</CWF_UI_Grip>
-  <CWF_UI_Sight>瞄具</CWF_UI_Sight>
-  <CWF_UI_Magazine>弹匣</CWF_UI_Magazine>
-  <CWF_UI_Underbarrel>下挂</CWF_UI_Underbarrel>
-  <CWF_UI_Ammo>子弹</CWF_UI_Ammo>
-  <CWF_UI_Accessory>配件</CWF_UI_Accessory>
-  <!-- #endregion -->
-
   <!-- #region Stat -->
   <CWF_UI_Range>射程</CWF_UI_Range>
   <CWF_UI_RangeDPS>DPS</CWF_UI_RangeDPS>
@@ -52,6 +37,7 @@
   <!-- #endregion -->
 
   <!-- #region Panel -->
+  <CWF_UI_PartOf>所属部件</CWF_UI_PartOf>
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
   <CWF_UI_NoCompatiblePartsInInventory>背包中没有合适的模块</CWF_UI_NoCompatiblePartsInInventory>
   <CWF_UI_NoCompatiblePartsOnMap>地图上没有合适的模块</CWF_UI_NoCompatiblePartsOnMap>
