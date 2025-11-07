@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+  <!-- Gun_AssaultRifle -->
   <CWF.AdapterDef>
     <defName>Gun_AssaultRifle</defName>
     <graphicData>
@@ -88,6 +89,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_BoltActionRifle -->
   <CWF.AdapterDef>
     <defName>Gun_BoltActionRifle</defName>
     <graphicData>
@@ -142,6 +144,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_SniperRifle -->
   <CWF.AdapterDef>
     <defName>Gun_SniperRifle</defName>
     <graphicData>
@@ -216,6 +219,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_Revolver -->
   <CWF.AdapterDef>
     <defName>Gun_Revolver</defName>
     <graphicData>
@@ -279,6 +283,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_ChainShotgun -->
   <CWF.AdapterDef>
     <defName>Gun_ChainShotgun</defName>
     <graphicData>
@@ -358,6 +363,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_HeavySMG -->
   <CWF.AdapterDef>
     <defName>Gun_HeavySMG</defName>
     <graphicData>
@@ -438,6 +444,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_LMG -->
   <CWF.AdapterDef>
     <defName>Gun_LMG</defName>
     <graphicData>
@@ -516,6 +523,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_Minigun -->
   <CWF.AdapterDef>
     <defName>Gun_Minigun</defName>
     <graphicData>
@@ -578,6 +586,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Bow_Great -->
   <CWF.AdapterDef>
     <defName>Bow_Great</defName>
     <graphicData>
@@ -597,6 +606,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_ChargeRifle -->
   <CWF.AdapterDef>
     <defName>Gun_ChargeRifle</defName>
     <graphicData>
@@ -676,6 +686,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_ChargeLance -->
   <CWF.AdapterDef>
     <defName>Gun_ChargeLance</defName>
     <graphicData>
@@ -703,6 +714,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_HellcatRifle -->
   <CWF.AdapterDef MayRequire="Ludeon.Rimworld.Anomaly">
     <defName>Gun_HellcatRifle</defName>
     <graphicData>
@@ -784,6 +796,7 @@
     </comps>
   </CWF.AdapterDef>
 
+  <!-- Gun_BeamRepeater -->
   <CWF.AdapterDef MayRequire="Ludeon.Rimworld.Anomaly">
     <defName>Gun_BeamRepeater</defName>
     <graphicData>

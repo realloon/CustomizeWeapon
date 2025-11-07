@@ -236,7 +236,8 @@
             </matcher>
             <graphicData>
               <texturePath>CustomizeWeapon/Modules/Magazine/BeltMagazine/BeltMagazine</texturePath>
-              <offset>(108, 104)</offset>
+              <offset>(129, 150)</offset>
+              <scale>0.62</scale>
             </graphicData>
           </li>
         </graphicCases>
