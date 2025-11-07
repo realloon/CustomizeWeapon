@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
+  <!-- Tox -->
   <DamageDef ParentName="Bullet">
     <defName>CWF_Bullet_TraitTox</defName>
     <label>bullet</label>
@@ -16,6 +17,7 @@
     <damageEffecter>Impact_Toxic</damageEffecter>
   </DamageDef>
 
+  <!-- Incendiary -->
   <DamageDef ParentName="Bullet">
     <defName>CWF_Bullet_TraitIncendiary</defName>
     <label>bullet</label>
