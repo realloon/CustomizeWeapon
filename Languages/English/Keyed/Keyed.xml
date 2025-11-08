@@ -37,6 +37,7 @@
   <!-- #endregion -->
 
   <!-- #region Window -->
+  <CWF_UI_Parts>Parts</CWF_UI_Parts>
   <CWF_UI_PartOf>Part of</CWF_UI_PartOf>
   <CWF_UI_Uninstall>Uninstall</CWF_UI_Uninstall>
   <CWF_UI_NoCompatibleModulesInInventory>No compatible modules in inventory</CWF_UI_NoCompatibleModulesInInventory>

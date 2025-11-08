@@ -37,6 +37,7 @@
   <!-- #endregion -->
 
   <!-- #region Panel -->
+  <CWF_UI_Parts>部件</CWF_UI_Parts>
   <CWF_UI_PartOf>所属部件</CWF_UI_PartOf>
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
   <CWF_UI_NoCompatibleModulesInInventory>背包中没有合适的模块</CWF_UI_NoCompatibleModulesInInventory>
