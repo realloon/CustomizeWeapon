@@ -56,5 +56,6 @@
   <CWF_UI_FromEquipped>源于武器模块</CWF_UI_FromEquipped>
   <CWF_UI_RandomModuleGeneration>随机生成模块</CWF_UI_RandomModuleGeneration>
   <CWF_UI_RandomModuleGenerationDesc>启用后，生成其他派系的角色（如商队、盟友和袭击者）时，其武器会随机附带武器模块</CWF_UI_RandomModuleGenerationDesc>
+  <CWF_UI_All>全部</CWF_UI_All>
   <!-- #endregion -->
 </LanguageData>
