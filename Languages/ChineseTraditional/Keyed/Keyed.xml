@@ -38,8 +38,11 @@
 
   <!-- #region Window -->
   <CWF_UI_Parts>部件</CWF_UI_Parts>
+  <CWF_UI_CompatibleModules>可用模組</CWF_UI_CompatibleModules>
+  <CWF_UI_BrowseCompatibleModules>瀏覽兼容的模組</CWF_UI_BrowseCompatibleModules>
   <CWF_UI_PartOf>所屬部件</CWF_UI_PartOf>
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
+  <CWF_UI_NoCompatibleModules>沒有合適的模組</CWF_UI_NoCompatibleModules>
   <CWF_UI_NoCompatibleModulesInInventory>背包中沒有合適的模組</CWF_UI_NoCompatibleModulesInInventory>
   <CWF_UI_NoCompatibleModulesOnMap>地圖上沒有合適的模組</CWF_UI_NoCompatibleModulesOnMap>
   <CWF_UI_WeaponModules>武器模組</CWF_UI_WeaponModules>
