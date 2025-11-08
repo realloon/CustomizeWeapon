@@ -39,8 +39,8 @@
   <!-- #region Window -->
   <CWF_UI_PartOf>所屬部件</CWF_UI_PartOf>
   <CWF_UI_Uninstall>拆卸</CWF_UI_Uninstall>
-  <CWF_UI_NoCompatiblePartsInInventory>背包中沒有合適的模組</CWF_UI_NoCompatiblePartsInInventory>
-  <CWF_UI_NoCompatiblePartsOnMap>地圖上沒有合適的模組</CWF_UI_NoCompatiblePartsOnMap>
+  <CWF_UI_NoCompatibleModulesInInventory>背包中沒有合適的模組</CWF_UI_NoCompatibleModulesInInventory>
+  <CWF_UI_NoCompatibleModulesOnMap>地圖上沒有合適的模組</CWF_UI_NoCompatibleModulesOnMap>
   <CWF_UI_WeaponModules>武器模組</CWF_UI_WeaponModules>
   <CWF_UI_WeaponModules_Desc>安裝在此武器上的模組。</CWF_UI_WeaponModules_Desc>
   <CWF_UI_ModuleEffects>模組效果</CWF_UI_ModuleEffects>

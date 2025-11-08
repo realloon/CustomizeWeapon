@@ -39,8 +39,8 @@
   <!-- #region Window -->
   <CWF_UI_PartOf>Part of</CWF_UI_PartOf>
   <CWF_UI_Uninstall>Uninstall</CWF_UI_Uninstall>
-  <CWF_UI_NoCompatiblePartsInInventory>No compatible parts in inventory</CWF_UI_NoCompatiblePartsInInventory>
-  <CWF_UI_NoCompatiblePartsOnMap>No compatible parts on map</CWF_UI_NoCompatiblePartsOnMap>
+  <CWF_UI_NoCompatibleModulesInInventory>No compatible modules in inventory</CWF_UI_NoCompatibleModulesInInventory>
+  <CWF_UI_NoCompatibleModulesOnMap>No compatible modules on map</CWF_UI_NoCompatibleModulesOnMap>
   <CWF_UI_WeaponModules>Weapon modules</CWF_UI_WeaponModules>
   <CWF_UI_WeaponModules_Desc>Modules installed on this weapon.</CWF_UI_WeaponModules_Desc>
   <CWF_UI_ModuleEffects>Module effects</CWF_UI_ModuleEffects>
