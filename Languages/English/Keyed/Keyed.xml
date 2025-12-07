@@ -63,5 +63,6 @@
   <CWF_UI_RandomModuleGeneration>Random Module Generation</CWF_UI_RandomModuleGeneration>
   <CWF_UI_RandomModuleGenerationDesc>If enabled, characters from other factions (like raiders, allies, and traders) will spawn with weapons that have random modules</CWF_UI_RandomModuleGenerationDesc>
   <CWF_UI_All>All</CWF_UI_All>
+  <CWF_UI_Craft>Craft</CWF_UI_Craft>
   <!-- #endregion -->
 </LanguageData>
