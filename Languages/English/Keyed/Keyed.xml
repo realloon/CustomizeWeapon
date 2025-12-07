@@ -34,6 +34,8 @@
   <CWF_Message_CannotFindModuleForModification>Cannot find {MODULE_label} for modification</CWF_Message_CannotFindModuleForModification>
   <CWF_Message_ModificationJobDispatched>{PAWN_label} will modify {WEAPON_label}</CWF_Message_ModificationJobDispatched>
   <CWF_Message_ModificationComplete>{WEAPON_label} has been modified by {PAWN_label}</CWF_Message_ModificationComplete>
+  <CWF_Message_NoWorkbenchToCraftModule>No workbench available to craft {MODULE_label}</CWF_Message_NoWorkbenchToCraftModule>
+  <CWF_Message_BillAdded>Bill added: {MODULE_label} ({BENCH_label})</CWF_Message_BillAdded>
   <!-- #endregion -->
 
   <!-- #region Window -->

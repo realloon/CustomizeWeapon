@@ -34,6 +34,8 @@
   <CWF_Message_CannotFindModuleForModification>找不到用于修改的{MODULE_label}</CWF_Message_CannotFindModuleForModification>
   <CWF_Message_ModificationJobDispatched>{PAWN_label}将改造{WEAPON_label}</CWF_Message_ModificationJobDispatched>
   <CWF_Message_ModificationComplete>{PAWN_label}完成了对{WEAPON_label}的改造</CWF_Message_ModificationComplete>
+  <CWF_Message_NoWorkbenchToCraftModule>没有合适的工作台来制造{MODULE_label}</CWF_Message_NoWorkbenchToCraftModule>
+  <CWF_Message_BillAdded>添加清单: {MODULE_label} ({BENCH_label})</CWF_Message_BillAdded>
   <!-- #endregion -->
 
   <!-- #region Panel -->
