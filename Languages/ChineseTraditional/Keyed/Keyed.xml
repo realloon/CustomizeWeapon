@@ -64,6 +64,7 @@
   <CWF_UI_RandomModuleGenerationDesc>啟用後，產生其他派系的角色（如商隊、盟友和襲擊者）時，其武器會隨機附帶武器模組</CWF_UI_RandomModuleGenerationDesc>
   <CWF_UI_All>全部</CWF_UI_All>
   <CWF_UI_Craft>製作</CWF_UI_Craft>
+  <CWF_UI_CannotCraft>無法製作</CWF_UI_CannotCraft>
   <CWF_UI_ClearAllModules>拆卸全部模組</CWF_UI_ClearAllModules>
   <!-- #endregion -->
 </LanguageData>
