@@ -1,6 +1,6 @@
 Assemblies/
 
-Textures/*
+Textures/
 !Textures/LICENSE
 
 tmp/
