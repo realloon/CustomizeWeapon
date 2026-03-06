@@ -66,5 +66,16 @@
   <CWF_UI_Craft>制作</CWF_UI_Craft>
   <CWF_UI_CannotCraft>无法制作</CWF_UI_CannotCraft>
   <CWF_UI_ClearAllModules>拆卸全部模块</CWF_UI_ClearAllModules>
+  <CWF_UI_SaveCurrentPreset>保存当前方案...</CWF_UI_SaveCurrentPreset>
+  <CWF_UI_SaveCurrentPresetTitle>保存当前装配方案</CWF_UI_SaveCurrentPresetTitle>
+  <CWF_UI_ApplyPreset>应用装配方案...</CWF_UI_ApplyPreset>
+  <CWF_UI_DeletePreset>删除装配方案...</CWF_UI_DeletePreset>
+  <CWF_Message_PresetNameEmpty>方案名不能为空。</CWF_Message_PresetNameEmpty>
+  <CWF_Message_PresetManagerUnavailable>当前存档未能初始化方案库。</CWF_Message_PresetManagerUnavailable>
+  <CWF_Message_PresetSaved>已保存方案：{NAME}</CWF_Message_PresetSaved>
+  <CWF_Message_PresetDeleted>已删除方案：{NAME}</CWF_Message_PresetDeleted>
+  <CWF_Message_PresetDeleteFailed>删除方案失败：{NAME}</CWF_Message_PresetDeleteFailed>
+  <CWF_Message_PresetApplied>已应用方案：{NAME}</CWF_Message_PresetApplied>
+  <CWF_Message_PresetAppliedWithSkipped>已应用方案：{NAME}（跳过 {COUNT} 个失效或不兼容模块）</CWF_Message_PresetAppliedWithSkipped>
   <!-- #endregion -->
 </LanguageData>

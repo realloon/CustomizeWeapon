@@ -66,5 +66,16 @@
   <CWF_UI_Craft>Craft</CWF_UI_Craft>
   <CWF_UI_CannotCraft>Can't craft</CWF_UI_CannotCraft>
   <CWF_UI_ClearAllModules>Uninstall all modules</CWF_UI_ClearAllModules>
+  <CWF_UI_SaveCurrentPreset>Save current preset...</CWF_UI_SaveCurrentPreset>
+  <CWF_UI_SaveCurrentPresetTitle>Save current assembly preset</CWF_UI_SaveCurrentPresetTitle>
+  <CWF_UI_ApplyPreset>Apply assembly preset...</CWF_UI_ApplyPreset>
+  <CWF_UI_DeletePreset>Delete assembly preset...</CWF_UI_DeletePreset>
+  <CWF_Message_PresetNameEmpty>Preset name cannot be empty.</CWF_Message_PresetNameEmpty>
+  <CWF_Message_PresetManagerUnavailable>Preset storage is unavailable in the current save.</CWF_Message_PresetManagerUnavailable>
+  <CWF_Message_PresetSaved>Saved preset: {NAME}</CWF_Message_PresetSaved>
+  <CWF_Message_PresetDeleted>Deleted preset: {NAME}</CWF_Message_PresetDeleted>
+  <CWF_Message_PresetDeleteFailed>Failed to delete preset: {NAME}</CWF_Message_PresetDeleteFailed>
+  <CWF_Message_PresetApplied>Applied preset: {NAME}</CWF_Message_PresetApplied>
+  <CWF_Message_PresetAppliedWithSkipped>Applied preset: {NAME} (skipped {COUNT} missing or incompatible modules)</CWF_Message_PresetAppliedWithSkipped>
   <!-- #endregion -->
 </LanguageData>

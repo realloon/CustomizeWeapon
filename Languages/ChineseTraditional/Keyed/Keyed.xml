@@ -66,5 +66,16 @@
   <CWF_UI_Craft>製作</CWF_UI_Craft>
   <CWF_UI_CannotCraft>無法製作</CWF_UI_CannotCraft>
   <CWF_UI_ClearAllModules>拆卸全部模組</CWF_UI_ClearAllModules>
+  <CWF_UI_SaveCurrentPreset>保存目前方案...</CWF_UI_SaveCurrentPreset>
+  <CWF_UI_SaveCurrentPresetTitle>保存目前裝配方案</CWF_UI_SaveCurrentPresetTitle>
+  <CWF_UI_ApplyPreset>套用裝配方案...</CWF_UI_ApplyPreset>
+  <CWF_UI_DeletePreset>刪除裝配方案...</CWF_UI_DeletePreset>
+  <CWF_Message_PresetNameEmpty>方案名稱不能為空。</CWF_Message_PresetNameEmpty>
+  <CWF_Message_PresetManagerUnavailable>目前存檔未能初始化方案庫。</CWF_Message_PresetManagerUnavailable>
+  <CWF_Message_PresetSaved>已保存方案：{NAME}</CWF_Message_PresetSaved>
+  <CWF_Message_PresetDeleted>已刪除方案：{NAME}</CWF_Message_PresetDeleted>
+  <CWF_Message_PresetDeleteFailed>刪除方案失敗：{NAME}</CWF_Message_PresetDeleteFailed>
+  <CWF_Message_PresetApplied>已套用方案：{NAME}</CWF_Message_PresetApplied>
+  <CWF_Message_PresetAppliedWithSkipped>已套用方案：{NAME}（跳過 {COUNT} 個失效或不相容模組）</CWF_Message_PresetAppliedWithSkipped>
   <!-- #endregion -->
 </LanguageData>
