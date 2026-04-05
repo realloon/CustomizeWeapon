@@ -7,7 +7,7 @@ using Verse;
 namespace CWF;
 
 /// <summary>
-/// A DefModExtension that serves as the primary data container for a weapon module item (ThingDef). It links the module item to a specific `weaponTraitDef` and a `part` slot. It also defines all compatibility rules (e.g., `requiredWeaponTags`, `excludeWeaponDefs`) and conditional visual appearances (`graphicCases`).
+/// A DefModExtension that serves as the primary data container for a weapon module item (ThingDef). It links the module item to a specific `weaponTraitDef` and a `part` slot. It also defines compatibility rules such as `requiredWeaponTags` and `excludeWeaponDefs`.
 /// </summary>
 [UsedImplicitly]
 public class TraitModuleExtension : DefModExtension {
@@ -53,12 +53,6 @@ public class TraitModuleExtension : DefModExtension {
     [UsedImplicitly]
     public List<string>? excludeWeaponTags;
 
-    /// <summary>
-    /// Defines different visual appearances for this module based on which weapon it is attached to.
-    /// </summary>
-    [UsedImplicitly]
-    public List<GraphicCase>? graphicCases;
-
     // public Rarity rarity; // enum
 
     public override IEnumerable<string> ConfigErrors() {
@@ -70,28 +64,4 @@ public class TraitModuleExtension : DefModExtension {
             yield return "Required field 'part' is missing in XML.";
         }
     }
-}
-
-/// <summary>
-/// A rule set class used within `TraitModuleExtension`. It defines a specific visual appearance (`graphicData`) for a module that should only apply when the weapon matches the criteria in the `WeaponMatcher`. The `priority` field resolves conflicts if multiple cases match.
-/// </summary>
-[UsedImplicitly]
-public class GraphicCase {
-    /// <summary>
-    /// The condition for applying this graphic. The graphic only applies if the weapon matches these criteria.
-    /// </summary>
-    [UsedImplicitly]
-    public readonly WeaponMatcher? matcher;
-
-    /// <summary>
-    /// The module graphic data to use when the matcher condition is met.
-    /// </summary>
-    [UsedImplicitly]
-    public readonly ModuleGraphicData? graphicData;
-
-    /// <summary>
-    /// If multiple GraphicCases match, the one with the highest priority is chosen.
-    /// </summary>
-    [UsedImplicitly]
-    public readonly int priority;
 }

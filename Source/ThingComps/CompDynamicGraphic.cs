@@ -63,8 +63,7 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     /// <summary>
-    /// Finds the most suitable graphic data for a given module trait when applied to a specific weapon.
-    /// It resolves the graphic based on the matching rules and priority defined in the module's TraitModuleExtension.
+    /// Finds a weapon-specific graphic override for a given module trait.
     /// </summary>
     public ModuleGraphicData? GetGraphicDataFor(WeaponTraitDef traitDef) {
         if (!traitDef.TryGetModuleDef(out var moduleDef)) return null;
@@ -73,17 +72,7 @@ public class CompDynamicGraphic : ThingComp {
             return adapterGraphicData;
         }
 
-        var ext = moduleDef.GetModExtension<TraitModuleExtension>();
-        if (ext?.graphicCases.IsNullOrEmpty() ?? true) return null;
-
-        var matchingCases = ext.graphicCases
-            .Where(c => c.matcher != null && c.graphicData != null && c.matcher.IsMatch(parent.def))
-            .ToList();
-
-        if (matchingCases.Empty()) return null;
-
-        var bestCase = matchingCases.MaxBy(c => c.priority);
-        return bestCase.graphicData;
+        return null;
     }
 
     // === Helper ===
