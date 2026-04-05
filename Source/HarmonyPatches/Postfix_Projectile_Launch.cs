@@ -14,13 +14,21 @@ namespace CWF.HarmonyPatches;
         typeof(ProjectileHitFlags), typeof(bool), typeof(Thing), typeof(ThingDef)
     }
 )]
-public static class Postfix_Projectile_Launch_StoppingPower {
+public static class Postfix_Projectile_Launch {
     [UsedImplicitly]
     public static void Postfix(Projectile __instance, Thing? equipment) {
-        if (equipment == null || !equipment.TryGetComp<CompDynamicTraits>(out var comp)) return;
+        if (equipment == null || !equipment.TryGetComp<CompDynamicTraits>(out var compDynamicTraits)) return;
 
-        foreach (var trait in comp.Traits) {
-            if (!Mathf.Approximately(trait.additionalStoppingPower, 0.0f)) {
+        foreach (var trait in compDynamicTraits.Traits) {
+            if (trait.damageDefOverride != null) {
+                __instance.damageDefOverride = trait.damageDefOverride;
+            }
+
+            if (!trait.extraDamages.NullOrEmpty()) {
+                __instance.extraDamages.AddRange(trait.extraDamages);
+            }
+
+            if (!Mathf.Approximately(trait.additionalStoppingPower, 0f)) {
                 __instance.stoppingPower += trait.additionalStoppingPower;
             }
         }
