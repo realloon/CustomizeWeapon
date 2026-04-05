@@ -15,28 +15,34 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
     public static IEnumerable<StatDrawEntry> Postfix(IEnumerable<StatDrawEntry> __result, ThingDef __instance,
         StatRequest req) {
         var resultList = __result.ToList();
+        var customEntries = GetDynamicWeaponStats(__instance, req, resultList);
 
-        if (!req.HasThing) {
-            foreach (var entry in resultList) yield return entry;
-            yield break;
+        foreach (var entry in customEntries) {
+            yield return entry;
         }
 
-        var comp = req.Thing.TryGetComp<CompDynamicTraits>();
-        if (comp == null || comp.Traits.Count == 0) {
-            foreach (var entry in resultList) yield return entry;
-            yield break;
+        foreach (var entry in resultList) {
+            yield return entry;
         }
 
-        var verb = __instance.Verbs?.FirstOrDefault(v => v.isPrimary);
-        if (verb == null) {
-            foreach (var entry in resultList) yield return entry;
-            yield break;
+        foreach (var entry in GetModuleDisplayStats(__instance)) {
+            yield return entry;
+        }
+    }
+
+    private static List<StatDrawEntry> GetDynamicWeaponStats(ThingDef thingDef, StatRequest req,
+        List<StatDrawEntry> resultList) {
+        if (!req.HasThing || req.Thing.TryGetComp<CompDynamicTraits>() is not { Traits.Count: > 0 } comp) {
+            return [];
         }
 
-        var statCat = __instance.IsMeleeWeapon ? StatCategoryDefOf.Weapon_Melee : StatCategoryDefOf.Weapon_Ranged;
+        var verb = thingDef.Verbs?.FirstOrDefault(v => v.isPrimary);
+        if (verb == null) return [];
+
+        var statCat = thingDef.IsMeleeWeapon ? StatCategoryDefOf.Weapon_Melee : StatCategoryDefOf.Weapon_Ranged;
+        var customEntries = new List<StatDrawEntry>();
 
         if (verb is { showBurstShotStats: true, burstShotCount: > 1 }) {
-            // === BurstShotCount ===
             resultList.RemoveAll(entry => entry.DisplayPriorityWithinCategory == 5391);
             var baseBurstCount = (float)verb.burstShotCount;
             var burstCountMultiplier =
@@ -51,17 +57,14 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
             burstCountSb.AppendLine()
                 .AppendLine("StatsReport_FinalValue".Translate() + ": " + Mathf.CeilToInt(finalBurstCount));
 
-            yield return new StatDrawEntry(statCat, "BurstShotCount".Translate(),
-                Mathf.CeilToInt(finalBurstCount).ToString(), burstCountSb.ToString(), 5391);
+            customEntries.Add(new StatDrawEntry(statCat, "BurstShotCount".Translate(),
+                Mathf.CeilToInt(finalBurstCount).ToString(), burstCountSb.ToString(), 5391));
 
-            // === TicksBetweenBurstShots ===
             resultList.RemoveAll(entry => entry.DisplayPriorityWithinCategory == 5395);
             var baseTicksBetweenShots = (float)verb.ticksBetweenBurstShots;
             var burstSpeedMultiplier =
                 comp.Traits.Aggregate(1f, (current, trait) => current * trait.burstShotSpeedMultiplier);
             var finalTicksBetweenShots = baseTicksBetweenShots / burstSpeedMultiplier;
-
-            // === RPM ===
             var finalFireRate = 60f / (finalTicksBetweenShots / 60f);
 
             var fireRateSb = new StringBuilder("Stat_Thing_Weapon_BurstShotFireRate_Desc".Translate());
@@ -73,37 +76,66 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
             fireRateSb.AppendLine().AppendLine("StatsReport_FinalValue".Translate() + ": " +
                                                finalFireRate.ToString("0.##") + " rpm");
 
-            yield return new StatDrawEntry(statCat, "BurstShotFireRate".Translate(),
-                finalFireRate.ToString("0.##") + " rpm", fireRateSb.ToString(), 5395);
+            customEntries.Add(new StatDrawEntry(statCat, "BurstShotFireRate".Translate(),
+                finalFireRate.ToString("0.##") + " rpm", fireRateSb.ToString(), 5395));
         }
 
-        // === StoppingPower ===
         var stoppingPowerStat = verb.defaultProjectile?.projectile?.stoppingPower;
-        if (stoppingPowerStat is > 0f) {
-            resultList.RemoveAll(entry => entry.DisplayPriorityWithinCategory == 5402);
-            var baseStoppingPower = stoppingPowerStat.Value;
-            var additionalStoppingPower = comp.Traits.Sum(t => t.additionalStoppingPower);
-            var finalStoppingPower = baseStoppingPower + additionalStoppingPower;
+        if (stoppingPowerStat is not > 0f) return customEntries;
 
-            var stoppingPowerSb = new StringBuilder("StoppingPowerExplanation".Translate());
-            stoppingPowerSb.AppendLine().AppendLine();
-            stoppingPowerSb.AppendLine(
-                "StatsReport_BaseValue".Translate() + ": " + baseStoppingPower.ToString("F1"));
-            comp.GetStatsExplanation(stoppingPowerSb, "    ", t => t.additionalStoppingPower, 0f,
-                ToStringNumberSense.Offset, ToStringStyle.FloatOne);
-            stoppingPowerSb.AppendLine()
-                .AppendLine("StatsReport_FinalValue".Translate() + ": " + finalStoppingPower.ToString("F1"));
+        resultList.RemoveAll(entry => entry.DisplayPriorityWithinCategory == 5402);
+        var baseStoppingPower = stoppingPowerStat.Value;
+        var additionalStoppingPower = comp.Traits.Sum(t => t.additionalStoppingPower);
+        var finalStoppingPower = baseStoppingPower + additionalStoppingPower;
 
-            yield return new StatDrawEntry(statCat, "StoppingPower".Translate(), finalStoppingPower.ToString("F1"),
-                stoppingPowerSb.ToString(), 5402);
-        }
+        var stoppingPowerSb = new StringBuilder("StoppingPowerExplanation".Translate());
+        stoppingPowerSb.AppendLine().AppendLine();
+        stoppingPowerSb.AppendLine(
+            "StatsReport_BaseValue".Translate() + ": " + baseStoppingPower.ToString("F1"));
+        comp.GetStatsExplanation(stoppingPowerSb, "    ", t => t.additionalStoppingPower, 0f,
+            ToStringNumberSense.Offset, ToStringStyle.FloatOne);
+        stoppingPowerSb.AppendLine()
+            .AppendLine("StatsReport_FinalValue".Translate() + ": " + finalStoppingPower.ToString("F1"));
 
-        foreach (var entry in resultList) {
-            yield return entry;
-        }
+        customEntries.Add(new StatDrawEntry(statCat, "StoppingPower".Translate(),
+            finalStoppingPower.ToString("F1"), stoppingPowerSb.ToString(), 5402));
+
+        return customEntries;
     }
 
-    // Helper
+    private static IEnumerable<StatDrawEntry> GetModuleDisplayStats(ThingDef thingDef) {
+        var ext = thingDef.GetModExtension<TraitModuleExtension>();
+        if (ext?.weaponTraitDef == null) yield break;
+
+        var traitDef = ext.weaponTraitDef;
+        var part = ext.part;
+
+        var sb = new StringBuilder();
+        var effect = traitDef.GetTraitEffect();
+
+        if (effect.Any()) {
+            sb.AppendLine("CWF_ModuleEffectsDesc".Translate(traitDef.Named("MODULE")) + ":");
+            sb.AppendLine();
+            sb.AppendLine(effect);
+        }
+
+        yield return new StatDrawEntry(
+            CWF_DefOf.CWF_WeaponModule,
+            "CWF_ModuleEffects".Translate(),
+            traitDef.LabelCap,
+            sb.ToString().TrimEndNewlines(),
+            1000
+        );
+
+        yield return new StatDrawEntry(
+            CWF_DefOf.CWF_WeaponModule,
+            "CWF_PartOf".Translate(),
+            part.LabelCap,
+            "CWF_PartOf".Translate() + ": " + part.LabelCap,
+            999
+        );
+    }
+
     private static void GetStatsExplanation(
         this CompDynamicTraits comp,
         StringBuilder sb,
