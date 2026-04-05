@@ -5,34 +5,19 @@ using Verse;
 
 namespace CWF;
 
-/// <summary>
-/// A special Def used to adapt existing vanilla or modded weapons to the CWF system without direct patching. An AdapterDef targets a weapon by its defName and injects necessary components (`comps`), tags (`weaponTags`), and a new base graphic (`graphicData`), making it fully compatible with the framework.
-/// </summary>
 public class AdapterDef : Def {
     private static readonly Dictionary<ThingDef, Dictionary<ThingDef, ModuleGraphicData>>
         ModuleOverridesByWeapon = new();
 
-    /// <summary>
-    /// The new base graphic data to apply to the adapted weapon.
-    /// </summary>
     [UsedImplicitly]
     public readonly GraphicData? graphicData;
 
-    /// <summary>
-    /// Additional weaponTags to add to the adapted weapon.
-    /// </summary>
     [UsedImplicitly]
     public readonly List<string> weaponTags = [];
 
-    /// <summary>
-    /// A list of CompProperties to inject into the adapted weapon, such as `CompProperties_DynamicTraits`.
-    /// </summary>
     [UsedImplicitly]
     public readonly List<CompProperties> comps = [];
 
-    /// <summary>
-    /// Per-weapon graphic overrides for specific CWF module ThingDefs.
-    /// </summary>
     [UsedImplicitly]
     public readonly List<AdapterModuleGraphicOverride> moduleGraphicOverrides = [];
 
@@ -155,20 +140,11 @@ public class AdapterDef : Def {
     #endregion
 }
 
-/// <summary>
-/// Defines a weapon-specific graphic override for a single CWF module ThingDef.
-/// </summary>
 [UsedImplicitly]
 public class AdapterModuleGraphicOverride {
-    /// <summary>
-    /// The CWF module ThingDef to override the appearance of on the adapted weapon.
-    /// </summary>
     [UsedImplicitly]
     public ThingDef? moduleDef;
 
-    /// <summary>
-    /// The graphic data to use when this module is installed on the adapted weapon.
-    /// </summary>
     [UsedImplicitly]
     public ModuleGraphicData? graphicData;
 }
