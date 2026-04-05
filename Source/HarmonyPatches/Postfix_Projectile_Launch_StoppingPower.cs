@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using HarmonyLib;
 using UnityEngine;
 using Verse;
@@ -14,6 +15,7 @@ namespace CWF.HarmonyPatches;
     }
 )]
 public static class Postfix_Projectile_Launch_StoppingPower {
+    [UsedImplicitly]
     public static void Postfix(Projectile __instance, Thing? equipment) {
         if (equipment == null || !equipment.TryGetComp<CompDynamicTraits>(out var comp)) return;
 

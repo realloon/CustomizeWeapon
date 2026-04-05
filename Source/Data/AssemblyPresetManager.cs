@@ -8,8 +8,7 @@ namespace CWF;
 public class AssemblyPresetManager : GameComponent {
     private List<AssemblyPresetData> _presets = [];
 
-    public AssemblyPresetManager(Game game) {
-    }
+    public AssemblyPresetManager(Game game) { }
 
     public IEnumerable<AssemblyPresetData> GetPresetsFor(ThingDef weaponDef) {
         return _presets

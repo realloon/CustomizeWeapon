@@ -4,25 +4,11 @@ using Verse.AI;
 
 namespace CWF.Controllers;
 
-public class JobDispatcher {
-    private readonly Thing _weapon;
-    private readonly CompDynamicTraits _compDynamicTraits;
-    private readonly Dictionary<PartDef, WeaponTraitDef> _initialTraitsState;
-
-    public JobDispatcher(Thing weapon) {
-        _weapon = weapon;
-        _compDynamicTraits = weapon.TryGetComp<CompDynamicTraits>();
-        _initialTraitsState = _compDynamicTraits.InstalledTraits;
-    }
-
-    public void CommitChangesAndDispatchJobs() {
-        var finalTraitsState = _compDynamicTraits.InstalledTraits;
-        _compDynamicTraits.InstalledTraits = _initialTraitsState; // revert traits state, before commit
-
-        var netChanges = CalculateNetChanges(_initialTraitsState, finalTraitsState);
+public class JobDispatcher(Thing weapon) {
+    public void Dispatch(List<ModificationData> netChanges) {
         if (!Enumerable.Any(netChanges)) return;
 
-        var ownerPawn = _weapon.ParentHolder switch {
+        var ownerPawn = weapon.ParentHolder switch {
             Pawn_EquipmentTracker equipment => equipment.pawn,
             Pawn_InventoryTracker inventory => inventory.pawn,
             _ => null
@@ -39,19 +25,15 @@ public class JobDispatcher {
 
     // === Helper ===
     private void DispatchFieldModificationJobs(Pawn ownerPawn, List<ModificationData> netChanges) {
-        foreach (var change in netChanges) {
-            var job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("CWF_ModifyWeaponSelf"), _weapon);
-            job.source = new JobGiver_ModifyWeapon { ModDataList = [change] };
-            ownerPawn.jobs.jobQueue.EnqueueLast(job, JobTag.Misc);
-        }
-
-        if (ownerPawn.CurJob == null) return;
-
-        ownerPawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
+        var job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("CWF_ModifyWeaponSelf"), weapon);
+        job.source = new ModificationJobSource { ModDataList = netChanges };
+        job.playerForced = true;
+        ownerPawn.jobs.ClearQueuedJobs();
+        ownerPawn.jobs.StartJob(job, JobCondition.InterruptForced, tag: JobTag.Misc);
     }
 
     private void DispatchHaulModificationJob(List<ModificationData> netChanges) {
-        var bestPawn = FindBestPawnForJob(_weapon.Position, _weapon.Map);
+        var bestPawn = FindBestPawnForJob(weapon.Position, weapon.Map);
         if (bestPawn == null) {
             Messages.Message("CWF_NoColonistToModifyWeapon".Translate(), MessageTypeDefOf.NeutralEvent, false);
             return;
@@ -75,66 +57,29 @@ public class JobDispatcher {
         }
 
         // create a big job merged all modification
-        var job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("CWF_ModifyWeaponHaul"), _weapon);
+        var job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("CWF_ModifyWeaponHaul"), weapon);
 
         // fill queue only when it needs haul
         if (Enumerable.Any(modulesToHaul)) {
             job.targetQueueB = modulesToHaul.Select(t => new LocalTargetInfo(t)).ToList();
         }
 
-        // Package all modification data into the job source
-        job.source = new JobGiver_ModifyWeapon { ModDataList = netChanges };
-
-        bestPawn.jobs.jobQueue.EnqueueLast(job, JobTag.Misc);
-
-        // gracefully end the current job.
-        if (bestPawn.CurJob != null && bestPawn.CurJob.def != JobDefOf.Wait_Wander) {
-            bestPawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
-        }
+        job.source = new ModificationJobSource { ModDataList = netChanges };
+        job.playerForced = true;
+        bestPawn.jobs.ClearQueuedJobs();
+        bestPawn.jobs.StartJob(job, JobCondition.InterruptForced, tag: JobTag.Misc);
 
         Messages.Message("CWF_ModificationJobDispatched"
-                .Translate(bestPawn.Named("PAWN"), _weapon.Named("WEAPON")),
-            new LookTargets(bestPawn, _weapon), MessageTypeDefOf.PositiveEvent);
-    }
-
-    private static List<ModificationData> CalculateNetChanges(Dictionary<PartDef, WeaponTraitDef> initial,
-        Dictionary<PartDef, WeaponTraitDef> final) {
-        var changes = new List<ModificationData>();
-        var allParts = DefDatabase<PartDef>.AllDefs;
-        
-        foreach (var part in allParts) {
-            initial.TryGetValue(part, out var initialTrait);
-            final.TryGetValue(part, out var finalTrait);
-            if (initialTrait == finalTrait) continue;
-
-            if (initialTrait != null && initialTrait.TryGetModuleDef(out var uninstallModule)) {
-                changes.Add(new ModificationData {
-                    Type = ModificationType.Uninstall,
-                    Part = part,
-                    Trait = initialTrait,
-                    ModuleDef = uninstallModule
-                });
-            }
-
-            if (finalTrait != null && finalTrait.TryGetModuleDef(out var installModule)) {
-                changes.Add(new ModificationData {
-                    Type = ModificationType.Install,
-                    Part = part,
-                    Trait = finalTrait,
-                    ModuleDef = installModule
-                });
-            }
-        }
-
-        return changes.OrderBy(c => c.Type).ToList();
+                .Translate(bestPawn.Named("PAWN"), weapon.Named("WEAPON")),
+            new LookTargets(bestPawn, weapon), MessageTypeDefOf.PositiveEvent);
     }
 
     private Thing? FindBestAvailableModuleFor(ModificationData change, Pawn pawn) {
         if (change.Type != ModificationType.Install) return null;
 
         return GenClosest.ClosestThingReachable(
-            _weapon.Position,
-            _weapon.Map,
+            weapon.Position,
+            weapon.Map,
             ThingRequest.ForDef(change.ModuleDef),
             PathEndMode.ClosestTouch,
             TraverseParms.For(pawn),

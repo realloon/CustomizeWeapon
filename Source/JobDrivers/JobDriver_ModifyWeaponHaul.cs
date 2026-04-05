@@ -1,19 +1,21 @@
-using RimWorld;
+using JetBrains.Annotations;
 using Verse;
 using Verse.AI;
 using Verse.Sound;
+using RimWorld;
 using CWF.Extensions;
 
 namespace CWF;
 
 // ReSharper disable once InconsistentNaming
+[UsedImplicitly]
 public class JobDriver_ModifyWeaponHaul : JobDriver {
     private const TargetIndex WeaponInd = TargetIndex.A;
     private const TargetIndex ModuleToHaulInd = TargetIndex.B;
     private const int TicksPerModification = 60;
 
     private Thing Weapon => job.GetTarget(WeaponInd).Thing;
-    private List<ModificationData>? ModDataList => (job.source as JobGiver_ModifyWeapon)?.ModDataList;
+    private List<ModificationData>? _modDataList;
 
     public override bool TryMakePreToilReservations(bool errorOnFailed) {
         // reserve weapon
@@ -36,6 +38,18 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
             : null;
 
         return true; // always succeed while holding a weapon.
+    }
+
+    public override void Notify_Starting() {
+        base.Notify_Starting();
+
+        _modDataList = (job.source as ModificationJobSource)?.ModDataList;
+        job.source = null;
+    }
+
+    public override void ExposeData() {
+        base.ExposeData();
+        Scribe_Collections.Look(ref _modDataList, "modDataList", LookMode.Deep);
     }
 
     protected override IEnumerable<Toil> MakeNewToils() {
@@ -87,13 +101,14 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
         yield return startModificationPhase;
         yield return Toils_Goto.GotoThing(WeaponInd, PathEndMode.Touch);
 
-        var finalToil = Toils_General.WaitWith(WeaponInd, TicksPerModification * (ModDataList?.Count ?? 1), true, true);
+        var finalToil =
+            Toils_General.WaitWith(WeaponInd, TicksPerModification * (_modDataList?.Count ?? 1), true, true);
         finalToil.FailOnCannotTouch(WeaponInd, PathEndMode.Touch);
 
         finalToil.AddEndCondition(() => {
-            if (ModDataList.IsNullOrEmpty()) return JobCondition.Ongoing;
+            if (_modDataList.IsNullOrEmpty()) return JobCondition.Ongoing;
 
-            return ModDataList
+            return _modDataList
                 .Where(modData => modData.Type == ModificationType.Install)
                 .Any(modData => pawn.inventory.innerContainer
                     .All(t => t.def != modData.ModuleDef))
@@ -105,9 +120,9 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
             if (ended) return;
 
             var comp = Weapon.TryGetComp<CompDynamicTraits>();
-            if (comp == null || ModDataList == null) return;
+            if (comp == null || _modDataList == null) return;
 
-            PerformModifications(comp, ModDataList);
+            PerformModifications(comp, _modDataList);
 
             Messages.Message("CWF_ModificationComplete"
                     .Translate(pawn.Named("PAWN"), Weapon.Named("WEAPON")),

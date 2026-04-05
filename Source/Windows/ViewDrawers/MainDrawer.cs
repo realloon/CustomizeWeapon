@@ -6,10 +6,7 @@ using CWF.Extensions;
 
 namespace CWF.ViewDrawers;
 
-public class MainDrawer(Thing weapon, Action<PartDef, WeaponTraitDef?> onSlotClick) {
-    // Data source
-    private readonly CompDynamicTraits? _compDynamicTraits = weapon.TryGetComp<CompDynamicTraits>();
-
+public class MainDrawer(WeaponModificationSession session, Action<PartDef, WeaponTraitDef?> onSlotClick) {
     // private readonly Thing _weapon = weapon;
     private const float SlotSize = 56f;
     private const float SlotPadding = 12f;
@@ -20,8 +17,6 @@ public class MainDrawer(Thing weapon, Action<PartDef, WeaponTraitDef?> onSlotCli
     }
 
     public void Draw(in Rect rect) {
-        if (_compDynamicTraits == null) return;
-
         // define gird row Height
         const float topRowHeight = SlotSize + SlotPadding;
         const float bottomRowHeight = SlotSize + SlotPadding;
@@ -44,9 +39,9 @@ public class MainDrawer(Thing weapon, Action<PartDef, WeaponTraitDef?> onSlotCli
         var bottomCenterRect = new Rect(rect.x + leftColWidth, rect.y + topRowHeight + middleRowHeight,
             middleColWidth, bottomRowHeight);
 
-        WeaponPreviewDrawer.Draw(in middleCenterRect, weapon);
+        WeaponPreviewDrawer.Draw(in middleCenterRect, session.PreviewWeapon);
 
-        var availableParts = _compDynamicTraits.AvailableParts;
+        var availableParts = session.AvailableParts;
 
         var topParts = availableParts.Where(p => p.group == PartGroup.Top).OrderBy(p => p.order).ToList();
         var bottomParts = availableParts.Where(p => p.group == PartGroup.Bottom).OrderBy(p => p.order).ToList();
@@ -90,15 +85,16 @@ public class MainDrawer(Thing weapon, Action<PartDef, WeaponTraitDef?> onSlotCli
     }
 
     private void TryDrawSlot(PartDef part, in Rect rect) {
-        if (_compDynamicTraits == null || !_compDynamicTraits.AvailableParts.Contains(part)) return;
+        if (!session.AvailableParts.Contains(part)) return;
 
-        var installedTrait = _compDynamicTraits.GetInstalledTraitFor(part);
+        var installedTrait = session.GetInstalledTraitFor(part);
         bool clicked;
 
         if (installedTrait != null) {
             Widgets.DrawOptionBackground(rect, Mouse.IsOver(rect));
 
-            var moduleGraphicData = weapon.TryGetComp<CompDynamicGraphic>()?.GetGraphicDataFor(installedTrait);
+            var moduleGraphicData = session.PreviewWeapon.TryGetComp<CompDynamicGraphic>()
+                ?.GetGraphicDataFor(installedTrait);
 
             if (moduleGraphicData != null && !moduleGraphicData.texturePath.IsNullOrEmpty()) {
                 DrawModuleTexture(in rect, moduleGraphicData);

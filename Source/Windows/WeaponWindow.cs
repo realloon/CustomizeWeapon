@@ -11,6 +11,7 @@ public class WeaponWindow : Window {
     private readonly MainDrawer _mainDrawer;
     private readonly SpecDatabase _specDatabase;
     private readonly InteractionController _interactionController;
+    private readonly WeaponModificationSession _session;
     private readonly JobDispatcher _jobDispatcher;
 
     public override Vector2 InitialSize => new(800f, 550f);
@@ -24,18 +25,17 @@ public class WeaponWindow : Window {
         absorbInputAroundWindow = true;
         forcePause = true;
 
-        // Data
-        _specDatabase = new SpecDatabase(weapon);
-
         // Controllers
         _interactionController = new InteractionController(weapon);
+        _session = _interactionController.Session;
+        _specDatabase = new SpecDatabase(_session);
         _interactionController.OnDataChanged += _specDatabase.Recalculate;
         _jobDispatcher = new JobDispatcher(weapon);
 
         // Drawers
-        _headerDrawer = new HeaderDrawer(weapon, _interactionController);
+        _headerDrawer = new HeaderDrawer(weapon, _session, _interactionController);
         _asideDrawer = new AsideDrawer(_specDatabase);
-        _mainDrawer = new MainDrawer(weapon, _interactionController.HandleSlotClick);
+        _mainDrawer = new MainDrawer(_session, _interactionController.HandleSlotClick);
     }
 
     public override void DoWindowContents(Rect inRect) {
@@ -67,6 +67,7 @@ public class WeaponWindow : Window {
     public override void PostClose() {
         base.PostClose();
         _interactionController.OnDataChanged -= _specDatabase.Recalculate;
-        _jobDispatcher.CommitChangesAndDispatchJobs();
+        _jobDispatcher.Dispatch(_session.CalculateNetChanges());
+        _session.DisposePreview();
     }
 }

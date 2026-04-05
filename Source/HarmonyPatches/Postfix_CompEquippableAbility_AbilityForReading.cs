@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
@@ -10,6 +11,7 @@ namespace CWF.HarmonyPatches;
 public static class Postfix_CompEquippableAbility_AbilityForReading {
     private static readonly FieldInfo? AbilityField = AccessTools.Field(typeof(CompEquippableAbility), "ability");
 
+    [UsedImplicitly]
     [HarmonyPostfix]
     public static void Postfix(CompEquippableAbility __instance, ref Ability? __result) {
         var props = __instance.props as CompProperties_EquippableAbility;

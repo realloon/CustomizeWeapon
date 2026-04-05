@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
@@ -7,6 +8,7 @@ namespace CWF.HarmonyPatches;
 
 [HarmonyPatch(typeof(Verb), "get_TicksBetweenBurstShots")]
 public static class Transpiler_Verb_TicksBetweenBurstShots {
+    [UsedImplicitly]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
         var codes = new List<CodeInstruction>(instructions);
 
@@ -34,8 +36,7 @@ public static class Transpiler_Verb_TicksBetweenBurstShots {
             };
 
             codes.InsertRange(loopStartIndex, newInstructions);
-        }
-        else {
+        } else {
             Log.Error(
                 "[CWF] Transpiler for Verb.get_TicksBetweenBurstShots failed. The mod may not function correctly with this version of RimWorld.");
         }

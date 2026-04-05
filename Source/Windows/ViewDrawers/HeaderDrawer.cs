@@ -6,7 +6,7 @@ using CWF.Extensions;
 
 namespace CWF.ViewDrawers;
 
-public class HeaderDrawer(Thing weapon, InteractionController controller) {
+public class HeaderDrawer(Thing weapon, WeaponModificationSession session, InteractionController controller) {
     private readonly CompRenamable? _compRenamable = weapon.TryGetComp<CompRenamable>();
 
     public void Draw(in Rect rect) {
@@ -16,7 +16,7 @@ public class HeaderDrawer(Thing weapon, InteractionController controller) {
 
         // Render weapon icon
         var iconRect = new Rect(rect.x, rect.y + (rect.height - iconSize) / 2f, iconSize, iconSize);
-        WeaponPreviewDrawer.Draw(in iconRect, weapon);
+        WeaponPreviewDrawer.Draw(in iconRect, session.PreviewWeapon);
 
         // Render search button
         var searchButtonRect = new Rect(rect.xMax - buttonSize, rect.y + (rect.height - buttonSize) / 2f,

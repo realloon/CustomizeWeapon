@@ -1,7 +1,8 @@
+using JetBrains.Annotations;
 using System.Text;
 using HarmonyLib;
-using RimWorld;
 using UnityEngine;
+using RimWorld;
 using Verse;
 
 // ReSharper disable InconsistentNaming
@@ -10,6 +11,7 @@ namespace CWF.HarmonyPatches;
 
 [HarmonyPatch(typeof(ThingDef), nameof(ThingDef.SpecialDisplayStats))]
 public static class Postfix_ThingDef_SpecialDisplayStats {
+    [UsedImplicitly]
     public static IEnumerable<StatDrawEntry> Postfix(IEnumerable<StatDrawEntry> __result, ThingDef __instance,
         StatRequest req) {
         var resultList = __result.ToList();

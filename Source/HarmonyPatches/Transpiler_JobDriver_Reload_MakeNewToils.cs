@@ -1,14 +1,17 @@
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
+using JetBrains.Annotations;
 using RimWorld;
 using RimWorld.Utility;
 using Verse;
 
 namespace CWF.HarmonyPatches;
 
+// ReSharper disable once InconsistentNaming
 [HarmonyPatch]
 public static class Transpiler_JobDriver_Reload_MakeNewToils {
+    [UsedImplicitly]
     [HarmonyTargetMethod]
     public static MethodBase? TargetMethod() {
         var stateMachineType = AccessTools

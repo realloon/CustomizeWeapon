@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
@@ -5,8 +6,10 @@ using Verse;
 
 namespace CWF.HarmonyPatches;
 
+// ReSharper disable once InconsistentNaming
 [HarmonyPatch(typeof(Verb), nameof(Verb.BurstShotCount), MethodType.Getter)]
 public static class Transpiler_Verb_BurstShotCount {
+    [UsedImplicitly]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
         var codes = new List<CodeInstruction>(instructions);
 
@@ -33,8 +36,7 @@ public static class Transpiler_Verb_BurstShotCount {
             };
 
             codes.InsertRange(loopStartIndex, newInstructions);
-        }
-        else {
+        } else {
             Log.Error(
                 "[CWF] Transpiler for Verb.get_BurstShotCount failed. The mod may not function correctly with this version of RimWorld.");
         }

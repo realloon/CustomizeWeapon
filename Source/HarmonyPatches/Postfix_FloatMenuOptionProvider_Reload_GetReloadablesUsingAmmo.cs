@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using HarmonyLib;
 using RimWorld;
 using RimWorld.Utility;
@@ -9,6 +10,7 @@ namespace CWF.HarmonyPatches;
 
 [HarmonyPatch(typeof(FloatMenuOptionProvider_Reload), "GetReloadablesUsingAmmo")]
 public static class Postfix_FloatMenuOptionProvider_Reload_GetReloadablesUsingAmmo {
+    [UsedImplicitly]
     public static IEnumerable<IReloadableComp> Postfix(IEnumerable<IReloadableComp> __result, Pawn pawn,
         Thing clickedThing) {
         foreach (var originalResult in __result) {

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using HarmonyLib;
 using Verse;
 
@@ -7,6 +8,7 @@ namespace CWF.HarmonyPatches;
 
 [HarmonyPatch(typeof(Pawn_EquipmentTracker), nameof(Pawn_EquipmentTracker.GetGizmos))]
 public static class Postfix_Pawn_EquipmentTracker_GetGizmos {
+    [UsedImplicitly]
     public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> __result, Pawn_EquipmentTracker __instance) {
         foreach (var gizmo in __result) {
             yield return gizmo;

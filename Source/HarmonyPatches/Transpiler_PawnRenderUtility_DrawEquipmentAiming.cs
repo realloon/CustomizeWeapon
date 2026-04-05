@@ -5,6 +5,7 @@ using Verse;
 
 namespace CWF.HarmonyPatches;
 
+// ReSharper disable once InconsistentNaming
 [HarmonyPatch(typeof(PawnRenderUtility), nameof(PawnRenderUtility.DrawEquipmentAiming))]
 public static class Transpiler_PawnRenderUtility_DrawEquipmentAiming {
     [UsedImplicitly]
