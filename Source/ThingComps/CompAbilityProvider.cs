@@ -23,15 +23,15 @@ public class CompAbilityProvider : ThingComp, IReloadableComp {
         }
     }
 
-    public void OnEquipped(Pawn? pawn) {
-        if (pawn == null) return;
-
+    public override void Notify_Equipped(Pawn pawn) {
+        base.Notify_Equipped(pawn);
         _holder = pawn;
         _managedAbilities = new Dictionary<Ability, CompProperties_EquippableAbility>();
         ApplyAbilityChanges(false);
     }
 
-    public void OnUnequipped(Pawn _) {
+    public override void Notify_Unequipped(Pawn pawn) {
+        base.Notify_Unequipped(pawn);
         if (_holder == null) return;
 
         foreach (var ability in _managedAbilities.Keys) {
