@@ -29,7 +29,11 @@ public class CompColorable : ThingComp {
 
     // Override default color if defined.
     public override Color? ForceColor() {
-        return ColorDef?.color;
+        if (ColorDef == null) return null;
+
+        return parent.TryGetComp<CompDynamicGraphic>() != null
+            ? Color.white
+            : ColorDef.color;
     }
 
     public override void PostPostMake() {
