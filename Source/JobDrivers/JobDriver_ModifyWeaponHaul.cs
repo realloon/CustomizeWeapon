@@ -53,52 +53,22 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
     }
 
     protected override IEnumerable<Toil> MakeNewToils() {
-        // === Phase 1: Preparation ===
-        var startModificationPhase = Toils_General.Label();
-        yield return Toils_Jump.JumpIf(startModificationPhase, () => job.targetQueueB.NullOrEmpty());
+        if (!job.targetQueueB.NullOrEmpty()) {
+            var haulLoop = Toils_General.Label();
+            yield return haulLoop;
 
-        // === Phase 2: Loop-Carry all required modules ===
-        var haulLoop = Toils_General.Label();
-        yield return haulLoop;
+            yield return Toils_JobTransforms.ExtractNextTargetFromQueue(ModuleToHaulInd);
 
-        yield return Toils_JobTransforms.ExtractNextTargetFromQueue(ModuleToHaulInd);
+            yield return Toils_Goto
+                .GotoThing(ModuleToHaulInd, PathEndMode.ClosestTouch)
+                .FailOnDespawnedNullOrForbidden(ModuleToHaulInd);
 
-        yield return Toils_Goto
-            .GotoThing(ModuleToHaulInd, PathEndMode.ClosestTouch)
-            .FailOnDespawnedNullOrForbidden(ModuleToHaulInd);
+            yield return Toils_General.Do(TryCarryCurrentModule);
+            yield return Toils_General.Do(MoveCarriedModuleToInventory);
 
-        var customCarryToil = new Toil {
-            initAction = () => {
-                var actor = pawn;
-                var thingToCarry = job.GetTarget(ModuleToHaulInd).Thing;
+            yield return Toils_Jump.JumpIfHaveTargetInQueue(ModuleToHaulInd, haulLoop);
+        }
 
-                if (thingToCarry == null || thingToCarry.Destroyed || thingToCarry.stackCount <= 0) {
-                    // skip uncatchable modules.
-                    actor.jobs.curDriver.ReadyForNextToil();
-                    return;
-                }
-
-                actor.carryTracker.TryStartCarry(thingToCarry, 1);
-            },
-            defaultCompleteMode = ToilCompleteMode.Instant
-        };
-        yield return customCarryToil;
-
-        var moveToInventory = new Toil {
-            initAction = () => {
-                var carriedThing = pawn.carryTracker.CarriedThing;
-                if (carriedThing != null) {
-                    pawn.inventory.innerContainer.TryAddOrTransfer(carriedThing);
-                }
-            },
-            defaultCompleteMode = ToilCompleteMode.Instant
-        };
-        yield return moveToInventory;
-
-        yield return Toils_Jump.JumpIfHaveTargetInQueue(ModuleToHaulInd, haulLoop);
-
-        // === Phase 3: Perform Modification ===
-        yield return startModificationPhase;
         yield return Toils_Goto.GotoThing(WeaponInd, PathEndMode.Touch);
 
         var finalToil =
@@ -132,6 +102,22 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
         });
 
         yield return finalToil;
+    }
+
+    private void TryCarryCurrentModule() {
+        var thingToCarry = job.GetTarget(ModuleToHaulInd).Thing;
+        if (thingToCarry == null || thingToCarry.Destroyed || thingToCarry.stackCount <= 0) {
+            return;
+        }
+
+        pawn.carryTracker.TryStartCarry(thingToCarry, 1);
+    }
+
+    private void MoveCarriedModuleToInventory() {
+        var carriedThing = pawn.carryTracker.CarriedThing;
+        if (carriedThing != null) {
+            pawn.inventory.innerContainer.TryAddOrTransfer(carriedThing);
+        }
     }
 
     // helper
