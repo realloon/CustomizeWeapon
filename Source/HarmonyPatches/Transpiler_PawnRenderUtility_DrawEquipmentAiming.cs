@@ -12,8 +12,8 @@ public static class Transpiler_PawnRenderUtility_DrawEquipmentAiming {
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
         var thingGraphicGetter = AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.Graphic));
-        var replacementMethod = AccessTools.Method(typeof(DynamicGraphicPatchUtility),
-            nameof(DynamicGraphicPatchUtility.GetDynamicGraphicOrOriginal));
+        var replacementMethod = AccessTools.Method(typeof(Transpiler_PawnRenderUtility_DrawEquipmentAiming),
+            nameof(GetDynamicGraphicOrOriginal));
 
         foreach (var instruction in instructions) {
             if (instruction.Calls(thingGraphicGetter)) {
@@ -23,5 +23,11 @@ public static class Transpiler_PawnRenderUtility_DrawEquipmentAiming {
 
             yield return instruction;
         }
+    }
+
+    private static Graphic GetDynamicGraphicOrOriginal(Thing thing) {
+        return thing.TryGetComp<CompDynamicGraphic>(out var compDynamicGraphic)
+            ? compDynamicGraphic.GetDynamicGraphic()
+            : thing.Graphic;
     }
 }
