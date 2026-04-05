@@ -129,8 +129,8 @@ public class CompDynamicGraphic : ThingComp {
 
         layersToDraw.Sort((left, right) => left.sortOrder.CompareTo(right.sortOrder));
 
-        float minX = 0f;
-        float minY = 0f;
+        var minX = 0f;
+        var minY = 0f;
         float maxX = fallbackWidth;
         float maxY = fallbackHeight;
 

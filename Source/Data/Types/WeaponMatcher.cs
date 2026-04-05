@@ -1,6 +1,5 @@
-using Verse;
-using CWF.Extensions;
 using JetBrains.Annotations;
+using Verse;
 
 // ReSharper disable InconsistentNaming
 
