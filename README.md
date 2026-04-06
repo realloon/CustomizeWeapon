@@ -7,7 +7,7 @@ CWF aims to be an extensible platform, enabling other Mod authors to easily intr
 ## Development Environment
 
 1. **Clone**: Run `git clone https://github.com/realloon/CustomizeWeapon.git` in your local RimWorld mod directory.
-2. **Link**: This repository does not include textures, so symlink the `Textures` folder from the Steam Workshop version of *Customize Weapon* into this repository.
+2. **Link**: This repository does not include textures, so symlink the `Textures` folder from the Steam Workshop version of [Customize Weapon](https://steamcommunity.com/sharedfiles/filedetails/?id=3550585103) into this repository.
 3. **Build**: Run `dotnet build ./Source/CWF.slnx`. NuGet dependencies will be restored automatically.
 
 Example symlink command:
