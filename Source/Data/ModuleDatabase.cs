@@ -108,16 +108,16 @@ public static class ModuleDatabase {
     }
 
     private static void InjectRewardTag(ThingDef moduleDef) {
-        var rewardStandard = moduleDef.GetRarity() switch {
+        var rewardTag = moduleDef.GetRarity() switch {
             Rarity.Rare => "RewardStandardMidFreq",
             Rarity.Legendary => "RewardStandardLowFreq",
             _ => null
         };
 
-        if (rewardStandard == null) return;
+        if (rewardTag == null) return;
 
         moduleDef.thingSetMakerTags ??= [];
-        moduleDef.thingSetMakerTags.Add(rewardStandard);
+        moduleDef.thingSetMakerTags.Add(rewardTag);
     }
 
     #endregion
