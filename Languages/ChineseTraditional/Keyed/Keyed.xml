@@ -51,6 +51,11 @@
   <CWF_WeaponModules_Desc>安裝在此武器上的模組。</CWF_WeaponModules_Desc>
   <CWF_ModuleEffects>模組效果</CWF_ModuleEffects>
   <CWF_ModuleEffectsDesc>安裝{MODULE_label}將賦予武器下列效果</CWF_ModuleEffectsDesc>
+  <CWF_Rarity>稀有度</CWF_Rarity>
+  <CWF_RarityDesc>該武器模組的稀有度。</CWF_RarityDesc>
+  <CWF_Rarity_Standard>標準</CWF_Rarity_Standard>
+  <CWF_Rarity_Rare>稀有</CWF_Rarity_Rare>
+  <CWF_Rarity_Legendary>傳奇</CWF_Rarity_Legendary>
   <CWF_InputTitle>取消</CWF_InputTitle>
   <CWF_Confirm>接受</CWF_Confirm>
   <CWF_Cancel>取消</CWF_Cancel>

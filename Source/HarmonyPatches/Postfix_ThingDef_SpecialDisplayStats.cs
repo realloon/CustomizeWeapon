@@ -1,10 +1,10 @@
 using JetBrains.Annotations;
 using System.Text;
-using CWF.Extensions;
 using HarmonyLib;
 using UnityEngine;
 using RimWorld;
 using Verse;
+using CWF.Extensions;
 
 // ReSharper disable InconsistentNaming
 
@@ -134,6 +134,14 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
             part.LabelCap,
             "CWF_PartOf".Translate() + ": " + part.LabelCap,
             999
+        );
+
+        yield return new StatDrawEntry(
+            CWF_DefOf.CWF_WeaponModule,
+            "CWF_Rarity".Translate(),
+            thingDef.GetRarityLabel(),
+            "CWF_RarityDesc".Translate(),
+            998
         );
     }
 

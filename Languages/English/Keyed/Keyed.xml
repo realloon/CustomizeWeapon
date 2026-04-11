@@ -51,6 +51,11 @@
   <CWF_WeaponModules_Desc>Modules installed on this weapon.</CWF_WeaponModules_Desc>
   <CWF_ModuleEffects>Module effects</CWF_ModuleEffects>
   <CWF_ModuleEffectsDesc>Installing {MODULE_label} gives the weapon these effects</CWF_ModuleEffectsDesc>
+  <CWF_Rarity>Rarity</CWF_Rarity>
+  <CWF_RarityDesc>The rarity of this weapon module.</CWF_RarityDesc>
+  <CWF_Rarity_Standard>Standard</CWF_Rarity_Standard>
+  <CWF_Rarity_Rare>Rare</CWF_Rarity_Rare>
+  <CWF_Rarity_Legendary>Legendary</CWF_Rarity_Legendary>
   <CWF_InputTitle>Input</CWF_InputTitle>
   <CWF_Confirm>Confirm</CWF_Confirm>
   <CWF_Cancel>Cancel</CWF_Cancel>

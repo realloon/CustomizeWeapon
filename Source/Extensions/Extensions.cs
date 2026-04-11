@@ -45,7 +45,7 @@ internal static class Extensions {
             return Settings.Current.GetRarityWeight(moduleDef.GetRarity());
         }
 
-        private Rarity GetRarity() {
+        internal Rarity GetRarity() {
             var ext = moduleDef.GetModExtension<TraitModuleExtension>();
             if (ext == null) {
                 throw new InvalidOperationException(
@@ -53,6 +53,15 @@ internal static class Extensions {
             }
 
             return ext.rarity;
+        }
+
+        internal string GetRarityLabel() {
+            return moduleDef.GetRarity() switch {
+                Rarity.Standard => "CWF_Rarity_Standard".Translate(),
+                Rarity.Rare => "CWF_Rarity_Rare".Translate(),
+                Rarity.Legendary => "CWF_Rarity_Legendary".Translate(),
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
     }
 

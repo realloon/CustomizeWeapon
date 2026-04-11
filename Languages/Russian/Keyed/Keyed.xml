@@ -42,6 +42,11 @@
   <CWF_WeaponModules_Desc>Модули, установленные на это оружие.</CWF_WeaponModules_Desc>
   <CWF_ModuleEffects>Эффекты модуля</CWF_ModuleEffects>
   <CWF_ModuleEffectsDesc>Установка {MODULE_label} дает оружию следующие эффекты</CWF_ModuleEffectsDesc>
+  <CWF_Rarity>Редкость</CWF_Rarity>
+  <CWF_RarityDesc>Редкость этого оружейного модуля.</CWF_RarityDesc>
+  <CWF_Rarity_Standard>Обычная</CWF_Rarity_Standard>
+  <CWF_Rarity_Rare>Редкая</CWF_Rarity_Rare>
+  <CWF_Rarity_Legendary>Легендарная</CWF_Rarity_Legendary>
   <CWF_InputTitle>Ввод</CWF_InputTitle>
   <CWF_Confirm>Подтвердить</CWF_Confirm>
   <CWF_Cancel>Отмена</CWF_Cancel>
