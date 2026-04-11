@@ -63,7 +63,7 @@
   <CWF_RandomModuleGeneration>Random Module Generation</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>If enabled, pawns from other factions, like raiders, allies, and traders, can spawn with weapons that have random modules</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>Rarity Weights</CWF_RarityWeights>
-  <CWF_RarityWeightsDesc>Controls the relative chance of each rarity when random modules are generated on non-player weapons. Higher weight means more common.</CWF_RarityWeightsDesc>
+  <CWF_RarityWeightsDesc>Determines how often each rarity is assigned when random modules are generated. Higher weight means more common.</CWF_RarityWeightsDesc>
   <CWF_RarityWeight_Standard>Standard</CWF_RarityWeight_Standard>
   <CWF_RarityWeight_Rare>Rare</CWF_RarityWeight_Rare>
   <CWF_RarityWeight_Legendary>Legendary</CWF_RarityWeight_Legendary>

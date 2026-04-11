@@ -54,7 +54,7 @@
   <CWF_RandomModuleGeneration>Случайная генерация модулей</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>Если включено, пешки других фракций, включая рейдеров, союзников и торговцев, могут появляться с оружием со случайными модулями</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>Вес редкости</CWF_RarityWeights>
-  <CWF_RarityWeightsDesc>Управляет относительным шансом каждой редкости при случайной генерации модулей на оружии не игрока. Чем выше вес, тем чаще встречается редкость.</CWF_RarityWeightsDesc>
+  <CWF_RarityWeightsDesc>Определяет вес распределения для каждой редкости при случайной генерации модулей. Чем выше вес, тем чаще встречается редкость.</CWF_RarityWeightsDesc>
   <CWF_RarityWeight_Standard>Обычная</CWF_RarityWeight_Standard>
   <CWF_RarityWeight_Rare>Редкая</CWF_RarityWeight_Rare>
   <CWF_RarityWeight_Legendary>Легендарная</CWF_RarityWeight_Legendary>
