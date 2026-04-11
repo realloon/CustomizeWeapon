@@ -1,4 +1,3 @@
-using HarmonyLib;
 using RimWorld;
 using Verse;
 using CWF.Extensions;
@@ -6,15 +5,6 @@ using CWF.Extensions;
 namespace CWF;
 
 public class ModificationSession {
-    private static readonly AccessTools.FieldRef<CompColorable, ColorDef?> ColorableColorRef =
-        AccessTools.FieldRefAccess<CompColorable, ColorDef?>("_colorDef");
-
-    private static readonly AccessTools.FieldRef<CompUniqueWeapon, ColorDef> UniqueWeaponColorRef =
-        AccessTools.FieldRefAccess<CompUniqueWeapon, ColorDef>("color");
-
-    private static readonly AccessTools.FieldRef<CompUniqueWeapon, string> UniqueWeaponNameRef =
-        AccessTools.FieldRefAccess<CompUniqueWeapon, string>("name");
-
     private readonly Thing _weapon;
     private Dictionary<PartDef, WeaponTraitDef> _desiredTraits;
 
@@ -148,8 +138,7 @@ public class ModificationSession {
         if (!source.TryGetComp<CompColorable>(out var sourceColorable) ||
             !preview.TryGetComp<CompColorable>(out var previewColorable)) return;
 
-        ColorableColorRef(previewColorable) = sourceColorable.ColorDef;
-        preview.Notify_ColorChanged();
+        previewColorable.ColorDef = sourceColorable.ColorDef;
     }
 
     private static void CopyUniqueWeapon(Thing source, Thing preview) {
@@ -160,8 +149,6 @@ public class ModificationSession {
 
         previewUniqueWeapon.TraitsListForReading.Clear();
         previewUniqueWeapon.TraitsListForReading.AddRange(sourceUniqueWeapon.TraitsListForReading);
-        UniqueWeaponColorRef(previewUniqueWeapon) = UniqueWeaponColorRef(sourceUniqueWeapon);
-        UniqueWeaponNameRef(previewUniqueWeapon) = UniqueWeaponNameRef(sourceUniqueWeapon);
         previewUniqueWeapon.Setup(true);
     }
 }

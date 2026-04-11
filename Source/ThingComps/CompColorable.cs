@@ -9,7 +9,7 @@ public class CompColorable : ThingComp {
 
     public ColorDef? ColorDef {
         get => _colorDef;
-        private set {
+        set {
             if (_colorDef == value) return;
 
             _colorDef = value;
