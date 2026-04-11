@@ -12,6 +12,10 @@ public class PartDef : Def {
     [UsedImplicitly]
     public readonly int order;
 
+    [NoTranslate]
+    [UsedImplicitly]
+    public string? fallbackTexturePath;
+
     public override IEnumerable<string> ConfigErrors() {
         foreach (var item in base.ConfigErrors()) {
             yield return item;
@@ -25,12 +29,8 @@ public class PartDef : Def {
 
 public enum PartGroup {
     None = 0,
-
     Top,
-
     Bottom,
-
     Left,
-
     Right
 }

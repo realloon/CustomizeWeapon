@@ -93,10 +93,8 @@ public class MainDrawer(WeaponModificationSession session, Action<PartDef, Weapo
         if (installedTrait != null) {
             Widgets.DrawOptionBackground(rect, Mouse.IsOver(rect));
 
-            var moduleGraphicData = session.PreviewWeapon.TryGetComp<CompDynamicGraphic>()
-                ?.GetGraphicDataFor(installedTrait);
-
-            if (moduleGraphicData != null && !moduleGraphicData.texturePath.IsNullOrEmpty()) {
+            var moduleGraphicData = GetSlotGraphicData(part, installedTrait);
+            if (moduleGraphicData != null) {
                 DrawModuleTexture(in rect, moduleGraphicData);
             } else {
                 var inRect = rect;
@@ -117,6 +115,21 @@ public class MainDrawer(WeaponModificationSession session, Action<PartDef, Weapo
         }
 
         if (clicked) onSlotClick.Invoke(part, installedTrait);
+    }
+
+    private ModuleGraphicData? GetSlotGraphicData(PartDef part, WeaponTraitDef installedTrait) {
+        var moduleGraphicData = session.PreviewWeapon.TryGetComp<CompDynamicGraphic>()
+            ?.GetGraphicDataFor(installedTrait);
+
+        if (moduleGraphicData != null && !moduleGraphicData.texturePath.IsNullOrEmpty()) {
+            return moduleGraphicData;
+        }
+
+        if (part.fallbackTexturePath.IsNullOrEmpty()) return null;
+
+        return new ModuleGraphicData {
+            texturePath = part.fallbackTexturePath
+        };
     }
 
     private static void DrawModuleTexture(in Rect rect, ModuleGraphicData moduleGraphicData) {
