@@ -40,12 +40,6 @@ public static class ModuleDatabase {
         }
 
         foreach (var moduleDef in TraitToModule.Values) {
-            // inject description
-            var traitDef = moduleDef.GetModExtension<TraitModuleExtension>()?.weaponTraitDef;
-            if (traitDef?.description != null) {
-                moduleDef.description = traitDef.description;
-            }
-
             // inject hyperlinks
             var weaponDefs = GetCompatibleWeaponDefsFor(moduleDef).ToList();
             if (weaponDefs.Empty()) continue;
@@ -56,8 +50,6 @@ public static class ModuleDatabase {
 
                 moduleDef.descriptionHyperlinks.Add(new DefHyperlink(weaponDef));
             }
-
-            InjectRewardTag(moduleDef);
         }
     }
 
@@ -106,19 +98,5 @@ public static class ModuleDatabase {
             yield return weaponDef;
         }
     }
-
-    private static void InjectRewardTag(ThingDef moduleDef) {
-        var rewardTag = moduleDef.GetRarity() switch {
-            Rarity.Rare => "RewardStandardMidFreq",
-            Rarity.Legendary => "RewardStandardLowFreq",
-            _ => null
-        };
-
-        if (rewardTag == null) return;
-
-        moduleDef.thingSetMakerTags ??= [];
-        moduleDef.thingSetMakerTags.Add(rewardTag);
-    }
-
     #endregion
 }

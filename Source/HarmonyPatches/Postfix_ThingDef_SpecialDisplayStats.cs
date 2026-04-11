@@ -4,7 +4,6 @@ using HarmonyLib;
 using UnityEngine;
 using RimWorld;
 using Verse;
-using CWF.Extensions;
 
 // ReSharper disable InconsistentNaming
 
@@ -23,10 +22,6 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
         }
 
         foreach (var entry in resultList) {
-            yield return entry;
-        }
-
-        foreach (var entry in GetModuleDisplayStats(__instance)) {
             yield return entry;
         }
     }
@@ -102,47 +97,6 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
             finalStoppingPower.ToString("F1"), stoppingPowerSb.ToString(), 5402));
 
         return customEntries;
-    }
-
-    private static IEnumerable<StatDrawEntry> GetModuleDisplayStats(ThingDef thingDef) {
-        var ext = thingDef.GetModExtension<TraitModuleExtension>();
-        if (ext?.weaponTraitDef == null) yield break;
-
-        var traitDef = ext.weaponTraitDef;
-        var part = ext.part;
-
-        var sb = new StringBuilder();
-        var effect = traitDef.GetTraitEffect();
-
-        if (effect.Any()) {
-            sb.AppendLine("CWF_ModuleEffectsDesc".Translate(traitDef.Named("MODULE")) + ":");
-            sb.AppendLine();
-            sb.AppendLine(effect);
-        }
-
-        yield return new StatDrawEntry(
-            CWF_DefOf.CWF_WeaponModule,
-            "CWF_ModuleEffects".Translate(),
-            traitDef.LabelCap,
-            sb.ToString().TrimEndNewlines(),
-            1000
-        );
-
-        yield return new StatDrawEntry(
-            CWF_DefOf.CWF_WeaponModule,
-            "CWF_PartOf".Translate(),
-            part.LabelCap,
-            "CWF_PartOf".Translate() + ": " + part.LabelCap,
-            999
-        );
-
-        yield return new StatDrawEntry(
-            CWF_DefOf.CWF_WeaponModule,
-            "CWF_Rarity".Translate(),
-            thingDef.GetRarityLabel(),
-            "CWF_RarityDesc".Translate(),
-            998
-        );
     }
 
     private static void GetStatsExplanation(
