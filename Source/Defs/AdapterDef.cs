@@ -6,9 +6,6 @@ using Verse;
 namespace CWF;
 
 public class AdapterDef : Def {
-    private static readonly Dictionary<ThingDef, Dictionary<ThingDef, ModuleGraphicData>>
-        ModuleOverridesByWeapon = new();
-
     [UsedImplicitly]
     public readonly GraphicData? graphicData;
 
@@ -20,6 +17,9 @@ public class AdapterDef : Def {
 
     [UsedImplicitly]
     public readonly List<AdapterModuleGraphicOverride> moduleGraphicOverrides = [];
+
+    private static readonly Dictionary<ThingDef, Dictionary<ThingDef, ModuleGraphicData>>
+        ModuleOverridesByWeapon = new();
 
     public override IEnumerable<string> ConfigErrors() {
         foreach (var item in base.ConfigErrors()) {

@@ -1,6 +1,7 @@
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using CWF.Extensions;
 
 namespace CWF;
 
@@ -16,7 +17,6 @@ public class WeaponModificationSession {
 
     private readonly Thing _weapon;
     private Dictionary<PartDef, WeaponTraitDef> _desiredTraits;
-    private IReadOnlyCollection<PartDef> _availableParts = [];
 
     public WeaponModificationSession(Thing weapon) {
         _weapon = weapon;
@@ -36,7 +36,7 @@ public class WeaponModificationSession {
 
     public IReadOnlyCollection<WeaponTraitDef> Traits => _desiredTraits.Values;
 
-    public IReadOnlyCollection<PartDef> AvailableParts => _availableParts;
+    public IReadOnlyCollection<PartDef> AvailableParts { get; private set; } = [];
 
     public Dictionary<PartDef, WeaponTraitDef> InstalledTraits {
         get => new(_desiredTraits);
@@ -123,7 +123,7 @@ public class WeaponModificationSession {
     }
 
     private void RefreshPreview() {
-        _availableParts = PartAvailabilityAnalyzer.Analyze(_weapon, _desiredTraits).AvailableParts;
+        AvailableParts = PartAvailabilityAnalyzer.Analyze(_weapon, _desiredTraits).AvailableParts;
 
         if (PreviewWeapon.TryGetComp<CompDynamicTraits>(out var previewDynamicTraits)) {
             previewDynamicTraits.InstalledTraits = _desiredTraits;
