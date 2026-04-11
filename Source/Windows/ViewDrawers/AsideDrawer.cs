@@ -4,13 +4,24 @@ using Verse;
 namespace CWF.ViewDrawers;
 
 public class AsideDrawer(SpecDatabase specDatabase) {
+    private Vector2 _scrollPosition = Vector2.zero;
+
+    private const float StatRowHeight = 22f;
+    private const float SectionGapHeight = 12f;
+    private const float SectionHeaderHeight = 24f;
+    private const float MeleeLabelHeight = 24f;
+
     public void Draw(in Rect rect) {
+        var contentRect = new Rect(0f, 0f, rect.width, Mathf.Max(rect.height, EstimateContentHeight()));
+        Widgets.BeginScrollView(rect, ref _scrollPosition, contentRect, showScrollbars: false);
+
         var listing = new Listing_Standard();
-        listing.Begin(rect);
+        listing.Begin(contentRect);
 
         if (specDatabase.IsMeleeWeapon) {
             listing.Label("CWF_NotRanged".Translate());
             listing.End();
+            Widgets.EndScrollView();
             return;
         }
 
@@ -42,9 +53,24 @@ public class AsideDrawer(SpecDatabase specDatabase) {
         DrawStatRow(listing, "MarketValueTip".Translate(), specDatabase.MarketValue);
 
         listing.End();
+        Widgets.EndScrollView();
     }
 
     // helper
+    private float EstimateContentHeight() {
+        if (specDatabase.IsMeleeWeapon) {
+            return MeleeLabelHeight;
+        }
+
+        const int totalStatRowCount = 14;
+        const int sectionGapCount = 3;
+        const int sectionHeaderCount = 2;
+
+        return totalStatRowCount * StatRowHeight
+               + sectionGapCount * SectionGapHeight
+               + sectionHeaderCount * SectionHeaderHeight;
+    }
+
     private static void DrawStatRow(
         Listing_Standard listing, string label, Spec spec,
         string format = "N0", string unit = "") {
