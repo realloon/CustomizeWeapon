@@ -86,6 +86,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_LaserSight</weaponTraitDef>
         <part>Underbarrel</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -119,6 +120,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_GrenadeLauncher</weaponTraitDef>
         <part>Underbarrel</part>
+        <rarity>Legendary</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_Shotgun</li>
@@ -150,6 +152,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_EMPLauncher</weaponTraitDef>
         <part>Underbarrel</part>
+        <rarity>Legendary</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_Shotgun</li>
@@ -181,6 +184,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_SmokeLauncher</weaponTraitDef>
         <part>Underbarrel</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_Shotgun</li>
@@ -212,6 +216,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_IncendiaryLauncher</weaponTraitDef>
         <part>Underbarrel</part>
+        <rarity>Legendary</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_Shotgun</li>

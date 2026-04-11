@@ -20,6 +20,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_Holoscope</weaponTraitDef>
         <part>Sight</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -119,6 +120,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_4xScope</weaponTraitDef>
         <part>Sight</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -152,6 +154,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_8xScope</weaponTraitDef>
         <part>Sight</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>

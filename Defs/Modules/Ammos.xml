@@ -18,6 +18,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_HeavyRounds</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -49,6 +50,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_HollowPointRounds</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -80,6 +82,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ToxRounds</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -142,6 +145,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_IncendiaryRounds</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -173,6 +177,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_HighPowerRounds</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_BoltActionRifle</li>
@@ -207,6 +212,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_EMPRounds</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Legendary</rarity>
         <requiredWeaponTags>
           <li>CWF_Charge</li>
         </requiredWeaponTags>
@@ -235,6 +241,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_PulseChargeRounds</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Legendary</rarity>
         <requiredWeaponTags>
           <li>CWF_Charge</li>
         </requiredWeaponTags>
@@ -260,6 +267,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_IncendiaryPellets</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_Shotgun</li>
         </requiredWeaponTags>
@@ -285,6 +293,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_ToxPellets</weaponTraitDef>
         <part>Ammo</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_Shotgun</li>
         </requiredWeaponTags>

@@ -82,6 +82,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_BeltMagazine</weaponTraitDef>
         <part>Magazine</part>
+        <rarity>Rare</rarity>
         <conditionalPartModifiers>
           <li>
             <matcher>
@@ -123,6 +124,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_DrumMagazine</weaponTraitDef>
         <part>Magazine</part>
+        <rarity>Rare</rarity>
         <conditionalPartModifiers>
           <li>
             <matcher>

@@ -85,6 +85,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_TacticalBarrel</weaponTraitDef>
         <part>Barrel</part>
+        <rarity>Rare</rarity>
         <conditionalPartModifiers>
           <li>
             <matcher>

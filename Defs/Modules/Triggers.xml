@@ -21,6 +21,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_RapidTrigger</weaponTraitDef>
         <part>Trigger</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
           <li>CWF_SniperRifle</li>

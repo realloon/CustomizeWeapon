@@ -92,6 +92,7 @@
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_StabilizerBrace</weaponTraitDef>
         <part>Stock</part>
+        <rarity>Rare</rarity>
         <requiredWeaponTags>
           <li>CWF_Handgun</li>
         </requiredWeaponTags>
