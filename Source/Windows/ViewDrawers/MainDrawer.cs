@@ -6,7 +6,7 @@ using CWF.Extensions;
 
 namespace CWF.ViewDrawers;
 
-public class MainDrawer(WeaponModificationSession session, Action<PartDef, WeaponTraitDef?> onSlotClick) {
+public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTraitDef?> onSlotClick) {
     // private readonly Thing _weapon = weapon;
     private const float SlotSize = 56f;
     private const float SlotPadding = 12f;

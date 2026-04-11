@@ -1,23 +1,23 @@
 using RimWorld;
 using Verse;
 using Verse.Sound;
+using CWF.Extensions;
 
 namespace CWF.Controllers;
 
 public class InteractionController(Thing weapon) {
-    private readonly WeaponModificationSession _session = new(weapon);
     private readonly AssemblyPresetManager? _presetManager = Current.Game?.GetComponent<AssemblyPresetManager>();
 
     public event Action OnDataChanged = delegate { };
 
-    public WeaponModificationSession Session => _session;
+    public ModificationSession Session { get; } = new(weapon);
 
-    public bool HasInstalledModules => _session.Traits.Any();
+    public bool HasInstalledModules => Session.Traits.Any();
 
     public bool HasApplicablePresets => _presetManager?.GetPresetsFor(weapon.def).Any() == true;
 
     public IEnumerable<AssemblyPresetData> GetApplicablePresets() {
-        return _presetManager?.GetPresetsFor(weapon.def) ?? Enumerable.Empty<AssemblyPresetData>();
+        return _presetManager?.GetPresetsFor(weapon.def) ?? [];
     }
 
     private string FailureReason => weapon.ParentHolder is Pawn_EquipmentTracker
@@ -71,7 +71,7 @@ public class InteractionController(Thing weapon) {
         }
 
         // from stack
-        var stagedCompatibleTraits = _session.GetReinstallableTraitsFor(part);
+        var stagedCompatibleTraits = Session.GetReinstallableTraitsFor(part);
         foreach (var trait in stagedCompatibleTraits) {
             if (trait.TryGetModuleDef(out var moduleDef)) {
                 installCandidates.TryAdd(trait, moduleDef);
@@ -118,20 +118,20 @@ public class InteractionController(Thing weapon) {
     }
 
     private void DoInstall(PartDef part, WeaponTraitDef traitToInstall) {
-        _session.InstallTrait(part, traitToInstall);
+        Session.InstallTrait(part, traitToInstall);
 
         SoundDefOf.Tick_High.PlayOneShotOnCamera();
         OnDataChanged();
     }
 
     private void DoUninstall(PartDef part) {
-        _session.UninstallTrait(part);
+        Session.UninstallTrait(part);
         SoundDefOf.Tick_High.PlayOneShotOnCamera();
         OnDataChanged();
     }
 
     public void ClearAllModules() {
-        _session.ClearTraits();
+        Session.ClearTraits();
 
         SoundDefOf.Click.PlayOneShotOnCamera();
         OnDataChanged();
@@ -149,7 +149,7 @@ public class InteractionController(Thing weapon) {
             return;
         }
 
-        _presetManager.SavePreset(weapon, normalizedName, _session.InstalledTraits);
+        _presetManager.SavePreset(weapon, normalizedName, Session.InstalledTraits);
         Messages.Message(
             "CWF_PresetSaved".Translate(normalizedName.Named("NAME")),
             MessageTypeDefOf.PositiveEvent,
@@ -192,7 +192,7 @@ public class InteractionController(Thing weapon) {
 
         var analysis = PartAvailabilityAnalyzer.Analyze(weapon, desiredTraits);
         var nextTraits = new Dictionary<PartDef, WeaponTraitDef>(analysis.ActiveTraits);
-        _session.InstalledTraits = nextTraits;
+        Session.InstalledTraits = nextTraits;
 
         SoundDefOf.Tick_High.PlayOneShotOnCamera();
         OnDataChanged();
@@ -243,7 +243,7 @@ public class InteractionController(Thing weapon) {
     }
 
     private ConflictAnalysisResult AnalyzeInstallConflict(PartDef partToInstall, WeaponTraitDef traitToInstall) {
-        var currentTraits = _session.InstalledTraits;
+        var currentTraits = Session.InstalledTraits;
         currentTraits[partToInstall] = traitToInstall;
 
         var analysis = PartAvailabilityAnalyzer.Analyze(weapon, currentTraits);
@@ -251,7 +251,7 @@ public class InteractionController(Thing weapon) {
     }
 
     private ConflictAnalysisResult AnalyzeUninstallConflict(PartDef partToUninstall) {
-        var currentTraits = _session.InstalledTraits;
+        var currentTraits = Session.InstalledTraits;
 
         if (!currentTraits.Remove(partToUninstall)) return new ConflictAnalysisResult();
 

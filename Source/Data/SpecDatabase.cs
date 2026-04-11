@@ -30,7 +30,7 @@ public class SpecDatabase {
 
     public bool IsMeleeWeapon => _previewWeapon.def.IsMeleeWeapon;
 
-    public SpecDatabase(WeaponModificationSession session) {
+    public SpecDatabase(ModificationSession session) {
         _previewWeapon = session.PreviewWeapon;
         _previewDynamicTraits = _previewWeapon.TryGetComp<CompDynamicTraits>();
 

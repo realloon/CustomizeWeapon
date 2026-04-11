@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System.Text;
+using CWF.Extensions;
 using HarmonyLib;
 using UnityEngine;
 using RimWorld;

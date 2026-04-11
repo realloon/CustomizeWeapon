@@ -1,6 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
-using UnityEngine;
 using RimWorld;
 using Verse;
 using CWF.Extensions;
@@ -13,55 +10,6 @@ public static class ModuleDatabase {
     private static readonly Dictionary<string, List<ThingDef>> WeaponsByTag = new();
 
     public static IEnumerable<ThingDef> AllModuleDefs => TraitToModule.Values;
-
-    internal static string GetTraitEffect(this WeaponTraitDef traitDef) {
-        var sb = new StringBuilder();
-
-        // offset
-        if (!traitDef.statOffsets.IsNullOrEmpty()) {
-            foreach (var modifier in traitDef.statOffsets) {
-                if (modifier.stat == StatDefOf.MarketValue || modifier.stat == StatDefOf.Mass) continue;
-
-                sb.AppendLine($" - {modifier.stat.LabelCap}: " +
-                              modifier.stat.Worker.ValueToString(modifier.value, false, ToStringNumberSense.Offset));
-            }
-        }
-
-        // factor
-        if (!traitDef.statFactors.IsNullOrEmpty()) {
-            foreach (var modifier in traitDef.statFactors) {
-                sb.AppendLine($" - {modifier.stat.LabelCap}: " +
-                              modifier.stat.Worker.ValueToString(modifier.value, false, ToStringNumberSense.Factor));
-            }
-        }
-
-        if (!Mathf.Approximately(traitDef.burstShotCountMultiplier, 1f)) {
-            sb.AppendLine($" - {"CWF_BurstShotCountMultiplier".Translate()}: " +
-                          traitDef.burstShotCountMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
-                              ToStringNumberSense.Factor));
-        }
-
-        if (!Mathf.Approximately(traitDef.burstShotSpeedMultiplier, 1f)) {
-            sb.AppendLine($" - {"CWF_BurstShotSpeedMultiplier".Translate()}: " +
-                          traitDef.burstShotSpeedMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
-                              ToStringNumberSense.Factor));
-        }
-
-        if (!Mathf.Approximately(traitDef.additionalStoppingPower, 0.0f)) {
-            sb.AppendLine($" - {"CWF_AdditionalStoppingPower".Translate()}: " +
-                          traitDef.additionalStoppingPower.ToStringByStyle(ToStringStyle.FloatOne,
-                              ToStringNumberSense.Offset));
-        }
-
-        // equippedStat
-        if (!traitDef.equippedStatOffsets.IsNullOrEmpty()) {
-            foreach (var modifier in traitDef.equippedStatOffsets) {
-                sb.AppendLine($" - {modifier.stat.LabelCap}: {modifier.stat.ValueToString(modifier.value)}");
-            }
-        }
-
-        return sb.ToString();
-    }
 
     internal static void BuildCacheAndInject() {
         foreach (var thingDef in DefDatabase<ThingDef>.AllDefs) {
@@ -111,40 +59,13 @@ public static class ModuleDatabase {
         }
     }
 
-    internal static bool TryGetPart(this WeaponTraitDef traitDef, out PartDef part) {
+
+    internal static bool TryGetPart(WeaponTraitDef traitDef, out PartDef part) {
         return TraitToPart.TryGetValue(traitDef, out part);
     }
 
-    internal static bool TryGetModuleDef(this WeaponTraitDef traitDef, [NotNullWhen(true)] out ThingDef? moduleDef) {
+    internal static bool TryGetModuleDef(WeaponTraitDef traitDef, out ThingDef? moduleDef) {
         return TraitToModule.TryGetValue(traitDef, out moduleDef);
-    }
-
-    internal static bool IsCompatibleWith(this ThingDef moduleDef, ThingDef weaponDef) {
-        var ext = moduleDef.GetModExtension<TraitModuleExtension>();
-        if (ext == null) return false;
-
-        // exclude first 
-        if (ext.excludeWeaponDefs != null && ext.excludeWeaponDefs.Contains(weaponDef)) {
-            return false;
-        }
-
-        if (!ext.excludeWeaponTags.IsNullOrEmpty() && !weaponDef.weaponTags.IsNullOrEmpty() &&
-            ext.excludeWeaponTags.Any(t => weaponDef.weaponTags.Contains(t))) {
-            return false;
-        }
-
-        // defs
-        if (!ext.requiredWeaponDefs.IsNullOrEmpty() && ext.requiredWeaponDefs.Contains(weaponDef)) {
-            return true;
-        }
-
-        // tags
-        if (!ext.requiredWeaponTags.IsNullOrEmpty() && !weaponDef.weaponTags.IsNullOrEmpty() &&
-            ext.requiredWeaponTags.Any(tag => weaponDef.weaponTags.Contains(tag))) {
-            return true;
-        }
-
-        return ext.requiredWeaponDefs.IsNullOrEmpty() && ext.requiredWeaponTags.IsNullOrEmpty();
     }
 
     #region Helpers

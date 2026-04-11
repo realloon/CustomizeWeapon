@@ -1,5 +1,6 @@
 using RimWorld;
 using Verse;
+using CWF.Extensions;
 
 namespace CWF;
 

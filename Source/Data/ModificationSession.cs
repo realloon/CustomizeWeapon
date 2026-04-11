@@ -5,7 +5,7 @@ using CWF.Extensions;
 
 namespace CWF;
 
-public class WeaponModificationSession {
+public class ModificationSession {
     private static readonly AccessTools.FieldRef<CompColorable, ColorDef?> ColorableColorRef =
         AccessTools.FieldRefAccess<CompColorable, ColorDef?>("_colorDef");
 
@@ -18,7 +18,7 @@ public class WeaponModificationSession {
     private readonly Thing _weapon;
     private Dictionary<PartDef, WeaponTraitDef> _desiredTraits;
 
-    public WeaponModificationSession(Thing weapon) {
+    public ModificationSession(Thing weapon) {
         _weapon = weapon;
 
         InitialTraits = weapon.TryGetComp<CompDynamicTraits>(out var compDynamicTraits)
@@ -145,11 +145,11 @@ public class WeaponModificationSession {
     }
 
     private static void CopyColorable(Thing source, Thing preview) {
-        if (source.TryGetComp<CompColorable>(out var sourceColorable) &&
-            preview.TryGetComp<CompColorable>(out var previewColorable)) {
-            ColorableColorRef(previewColorable) = sourceColorable.ColorDef;
-            preview.Notify_ColorChanged();
-        }
+        if (!source.TryGetComp<CompColorable>(out var sourceColorable) ||
+            !preview.TryGetComp<CompColorable>(out var previewColorable)) return;
+
+        ColorableColorRef(previewColorable) = sourceColorable.ColorDef;
+        preview.Notify_ColorChanged();
     }
 
     private static void CopyUniqueWeapon(Thing source, Thing preview) {

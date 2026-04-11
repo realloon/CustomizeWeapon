@@ -6,7 +6,7 @@ using CWF.Extensions;
 
 namespace CWF.ViewDrawers;
 
-public class HeaderDrawer(Thing weapon, WeaponModificationSession session, InteractionController controller) {
+public class HeaderDrawer(Thing weapon, ModificationSession session, InteractionController controller) {
     private readonly CompRenamable? _compRenamable = weapon.TryGetComp<CompRenamable>();
 
     public void Draw(in Rect rect) {

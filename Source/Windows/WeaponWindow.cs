@@ -11,7 +11,7 @@ public class WeaponWindow : Window {
     private readonly MainDrawer _mainDrawer;
     private readonly SpecDatabase _specDatabase;
     private readonly InteractionController _interactionController;
-    private readonly WeaponModificationSession _session;
+    private readonly ModificationSession _session;
     private readonly JobDispatcher _jobDispatcher;
 
     public override Vector2 InitialSize => new(800f, 550f);
