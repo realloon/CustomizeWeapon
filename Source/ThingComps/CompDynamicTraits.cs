@@ -76,18 +76,27 @@ public class CompDynamicTraits : ThingComp {
             var randomPart = availableEmptyParts.RandomElement();
             availableEmptyParts.Remove(randomPart);
 
-            var compatibleTraits = DefDatabase<WeaponTraitDef>.AllDefs
-                .Where(traitDef => {
-                    if (!traitDef.TryGetPart(out var part) || part != randomPart) return false;
-
-                    return traitDef.TryGetModuleDef(out var moduleDef) &&
-                           moduleDef.IsCompatibleWith(parent.def);
-                })
+            var compatibleModules = ModuleDatabase.AllModuleDefs
+                .Where(moduleDef => moduleDef.GetModExtension<TraitModuleExtension>()?.part == randomPart)
+                .Where(moduleDef => moduleDef.IsCompatibleWith(parent.def))
                 .ToList();
 
-            if (compatibleTraits.Empty()) continue;
+            if (compatibleModules.Empty()) continue;
 
-            var traitToInstall = compatibleTraits.RandomElement();
+            if (!compatibleModules.TryRandomElementByWeight(moduleDef => moduleDef.GetRarityWeight(),
+                    out var moduleToInstall)) {
+                Log.Error(
+                    $"[CWF] Failed to pick a random trait for part '{randomPart.defName}' on weapon '{parent.def.defName}'. " +
+                    "Please ensure at least one rarity weight is greater than 0 in mod settings.");
+                continue;
+            }
+
+            var traitToInstall = moduleToInstall.GetModExtension<TraitModuleExtension>()?.weaponTraitDef;
+            if (traitToInstall == null) {
+                Log.Error($"[CWF] Module '{moduleToInstall.defName}' is missing its weapon trait definition.");
+                continue;
+            }
+
             InstallTrait(randomPart, traitToInstall);
         }
     }

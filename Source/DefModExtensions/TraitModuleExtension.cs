@@ -29,7 +29,8 @@ public class TraitModuleExtension : DefModExtension {
     [UsedImplicitly]
     public List<string>? excludeWeaponTags;
 
-    // public Rarity rarity; // enum
+    [UsedImplicitly]
+    public Rarity rarity = Rarity.Standard;
 
     public override IEnumerable<string> ConfigErrors() {
         if (weaponTraitDef.defName == Def.DefaultDefName) {
