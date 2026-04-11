@@ -56,6 +56,8 @@ public static class ModuleDatabase {
 
                 moduleDef.descriptionHyperlinks.Add(new DefHyperlink(weaponDef));
             }
+
+            InjectRewardTag(moduleDef);
         }
     }
 
@@ -103,6 +105,19 @@ public static class ModuleDatabase {
         foreach (var weaponDef in results) {
             yield return weaponDef;
         }
+    }
+
+    private static void InjectRewardTag(ThingDef moduleDef) {
+        var rewardStandard = moduleDef.GetRarity() switch {
+            Rarity.Rare => "RewardStandardMidFreq",
+            Rarity.Legendary => "RewardStandardLowFreq",
+            _ => null
+        };
+
+        if (rewardStandard == null) return;
+
+        moduleDef.thingSetMakerTags ??= [];
+        moduleDef.thingSetMakerTags.Add(rewardStandard);
     }
 
     #endregion
