@@ -10,7 +10,12 @@ public class ModuleBrowserWindow : Window {
     private readonly Dictionary<PartDef, List<ThingDef>> _groupedModules = new();
     private readonly Dictionary<ThingDef, RecipeDef> _recipeCache = new();
     private PartDef? _selectedPart;
+    private Vector2 _leftColumnScrollPosition = Vector2.zero;
     private Vector2 _rightColumnScrollPosition = Vector2.zero;
+
+    private const float FilterRowHeight = 30f;
+    private const float FilterRowPadding = 8f;
+    private const float TitleContentGap = 6f;
 
     public override Vector2 InitialSize => new(550f, 420f);
 
@@ -64,34 +69,41 @@ public class ModuleBrowserWindow : Window {
     }
 
     private void DrawLeftColumn(in Rect rect) {
-        const float itemGap = 8f;
         var listing = new Listing_Standard();
 
         listing.Begin(rect);
 
         UIKit.WithStyle(() => listing.Label("CWF_Parts".Translate()), GameFont.Medium);
-
-        listing.Gap(itemGap);
-
-        if (listing.RadioButton("CWF_All".Translate(), _selectedPart == null)) {
-            _selectedPart = null;
-        }
-
-        listing.Gap(itemGap);
+        listing.Gap(TitleContentGap);
 
         if (_groupedModules.NullOrEmpty()) {
             listing.End();
             return;
         }
 
-        foreach (var part in _groupedModules.Keys) {
-            if (listing.RadioButton(part.LabelCap, _selectedPart == part)) {
-                _selectedPart = part;
-            }
+        var filters = new List<(PartDef? Part, string Label, int Count)> {
+            (null, "CWF_All".Translate(), _groupedModules.Values.Sum(modules => modules.Count))
+        };
 
-            listing.Gap(itemGap);
+        filters.AddRange(
+            _groupedModules.Select(kvp => ((PartDef?)kvp.Key, kvp.Key.LabelCap.ToString(), kvp.Value.Count)));
+
+        var viewHeight = rect.height - listing.CurHeight;
+        var viewRect = new Rect(0f, listing.CurHeight, rect.width, viewHeight);
+        var contentHeight = Mathf.Max(viewRect.height, filters.Count * FilterRowHeight);
+        var contentRect = new Rect(0f, 0f, viewRect.width, contentHeight);
+
+        Widgets.BeginScrollView(viewRect, ref _leftColumnScrollPosition, contentRect, showScrollbars: false);
+
+        var currentY = 0f;
+        foreach (var filter in filters) {
+            var rowRect = new Rect(0f, currentY, contentRect.width, FilterRowHeight);
+            DrawFilterRow(rowRect, filter.Label, filter.Count, _selectedPart == filter.Part,
+                () => { _selectedPart = filter.Part; });
+            currentY += FilterRowHeight;
         }
 
+        Widgets.EndScrollView();
         listing.End();
     }
 
@@ -105,6 +117,7 @@ public class ModuleBrowserWindow : Window {
         var paddedTitleRect = new Rect(titleRect.x + padding, titleRect.y, titleRect.width - padding, titleRect.height);
 
         UIKit.WithStyle(() => Widgets.Label(paddedTitleRect, "CWF_CompatibleModules".Translate()), GameFont.Medium);
+        listing.Gap(TitleContentGap);
 
         var modulesToShow = _selectedPart switch {
             null => _groupedModules.Values.SelectMany(list => list).ToList(),
@@ -207,5 +220,32 @@ public class ModuleBrowserWindow : Window {
         SoundDefOf.Click.PlayOneShotOnCamera();
         Messages.Message("CWF_BillAdded".Translate(moduleDef.Named("MODULE"), bench.Named("BENCH")),
             new LookTargets((Thing)bench), MessageTypeDefOf.PositiveEvent);
+    }
+
+    private static void DrawFilterRow(in Rect rect, string label, int count, bool selected, Action onClick) {
+        var backgroundColor = selected
+            ? new Color(1f, 1f, 1f, 0.14f)
+            : new Color(1f, 1f, 1f, 0.04f);
+
+        Widgets.DrawBoxSolid(rect, backgroundColor);
+        Widgets.DrawHighlightIfMouseover(rect);
+
+        if (selected) {
+            var accentRect = new Rect(rect.x, rect.y + 4f, 3f, rect.height - 8f);
+            Widgets.DrawBoxSolid(accentRect, new Color(0.35f, 0.8f, 1f));
+        }
+
+        var labelRect = new Rect(rect.x + FilterRowPadding, rect.y, rect.width - 44f, rect.height);
+        var countRect = new Rect(rect.xMax - 32f, rect.y, 24f, rect.height);
+        var labelColor = selected ? Color.white : new Color(0.85f, 0.85f, 0.85f);
+        var countColor = selected ? Color.white : Color.gray;
+
+        UIKit.WithStyle(() => Widgets.Label(labelRect, label), color: labelColor, anchor: TextAnchor.MiddleLeft);
+        UIKit.WithStyle(() => Widgets.Label(countRect, count.ToString()), GameFont.Tiny, countColor,
+            TextAnchor.MiddleRight);
+
+        if (Widgets.ButtonInvisible(rect)) {
+            onClick();
+        }
     }
 }
