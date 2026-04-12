@@ -7,6 +7,7 @@ using Verse;
 namespace CWF.HarmonyPatches;
 
 [HarmonyPatch(typeof(Verb), "get_TicksBetweenBurstShots")]
+// ReSharper disable once InconsistentNaming
 public static class Transpiler_Verb_TicksBetweenBurstShots {
     [UsedImplicitly]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
