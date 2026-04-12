@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
@@ -510,6 +511,7 @@ public class AbilityState : IExposable {
     public int cooldownTicksRemaining;
     public int cooldownTicksTotal;
 
+    [UsedImplicitly]
     public AbilityState() { }
 
     public AbilityState(Ability ability) {

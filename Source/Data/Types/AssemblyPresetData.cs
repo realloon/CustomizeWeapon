@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using RimWorld;
 using Verse;
 
@@ -15,7 +16,7 @@ public class AssemblyPresetData : IExposable {
         Scribe_Defs.Look(ref WeaponDef, "weaponDef");
         Scribe_Collections.Look(ref Entries, "entries", LookMode.Deep);
 
-        Entries ??= new List<AssemblyPresetEntryData>();
+        Entries ??= [];
     }
 }
 
@@ -23,6 +24,7 @@ public class AssemblyPresetEntryData : IExposable {
     public PartDef? Part;
     public WeaponTraitDef? Trait;
 
+    [UsedImplicitly]
     public AssemblyPresetEntryData() { }
 
     public AssemblyPresetEntryData(PartDef part, WeaponTraitDef trait) {
