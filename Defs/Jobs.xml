@@ -14,4 +14,11 @@
     <driverClass>CWF.JobDriver_ModifyWeaponHaul</driverClass>
     <reportString>modifying TargetA.</reportString>
   </JobDef>
+
+  <JobDef>
+    <defName>CWF_ReloadAbility</defName>
+    <description>Reloading a weapon ability.</description>
+    <driverClass>CWF.JobDriver_ReloadAbility</driverClass>
+    <reportString>reloading TargetA.</reportString>
+  </JobDef>
 </Defs>

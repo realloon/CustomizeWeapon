@@ -1,3 +1,4 @@
+using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
 using RimWorld;
@@ -7,252 +8,504 @@ using Verse.Sound;
 
 namespace CWF;
 
-public class CompAbilityProvider : ThingComp, IReloadableComp {
-    private Pawn? _holder;
-    private List<CompProperties_EquippableAbility> _abilityPropsToManage = [];
-    private Dictionary<Ability, CompProperties_EquippableAbility> _managedAbilities = new();
-    private List<AbilityState>? _savedAbilityStates = [];
+public class CompAbilityProvider : ThingComp {
+    private static readonly FieldInfo InCooldownField = AccessTools.Field(typeof(Ability), "inCooldown");
+    private static readonly FieldInfo CooldownEndTickField = AccessTools.Field(typeof(Ability), "cooldownEndTick");
+    private static readonly FieldInfo CooldownDurationField = AccessTools.Field(typeof(Ability), "cooldownDuration");
+
+    private readonly HashSet<AbilityDef> _managedAbilityDefs = [];
+    private List<CompProperties_EquippableAbilityReloadable> _abilityPropsToManage = [];
+    private List<AbilityState> _abilityStates = [];
+
+    private Pawn? CurrentHolder => parent.ParentHolder is Pawn_EquipmentTracker { pawn: not null } equipmentTracker
+        ? equipmentTracker.pawn
+        : null;
+
+    private static Pawn_AbilityTracker AbilityTrackerFor(Pawn pawn) {
+        return pawn.abilities ?? throw new InvalidOperationException(
+            $"[CWF] Pawn '{pawn.LabelShortCap}' is missing Pawn_AbilityTracker.");
+    }
+
+    public IEnumerable<ReloadableAbility> Reloadables {
+        get {
+            foreach (var abilityProps in _abilityPropsToManage) {
+                if (TryGetManagedAbility(abilityProps.abilityDef, out _, out _)) {
+                    yield return new ReloadableAbility(this, abilityProps.abilityDef);
+                }
+            }
+        }
+    }
 
     public void SetOrUpdateAbilities(List<CompProperties_EquippableAbilityReloadable> newPropsList, bool isPostLoad) {
-        _abilityPropsToManage = newPropsList
-            .Cast<CompProperties_EquippableAbility>()
-            .ToList();
+        _abilityPropsToManage = SanitizeAbilityProps(newPropsList);
+        PruneStoredStates();
 
-        if (_holder != null) {
-            ApplyAbilityChanges(isPostLoad);
+        var holder = CurrentHolder;
+        if (holder != null) {
+            SyncAbilities(holder, isPostLoad);
         }
     }
 
     public override void Notify_Equipped(Pawn pawn) {
         base.Notify_Equipped(pawn);
-        _holder = pawn;
-        _managedAbilities = new Dictionary<Ability, CompProperties_EquippableAbility>();
-        ApplyAbilityChanges(false);
+        SyncAbilities(pawn, false);
     }
 
     public override void Notify_Unequipped(Pawn pawn) {
         base.Notify_Unequipped(pawn);
-        if (_holder == null) return;
+        CaptureManagedAbilityStates(pawn);
 
-        foreach (var ability in _managedAbilities.Keys) {
-            _holder.abilities?.RemoveAbility(ability.def);
+        var abilityTracker = AbilityTrackerFor(pawn);
+        foreach (var abilityDef in _managedAbilityDefs) {
+            abilityTracker.RemoveAbility(abilityDef);
         }
 
-        _holder.abilities?.Notify_TemporaryAbilitiesChanged();
-
-        _managedAbilities.Clear();
-        _holder = null;
-    }
-
-    private void ApplyAbilityChanges(bool isPostLoad) {
-        if (_holder == null) return;
-
-        var propsToAdd = new List<CompProperties_EquippableAbility>(_abilityPropsToManage);
-        var abilitiesToRemove = new List<Ability>();
-
-        foreach (var kvp in _managedAbilities) {
-            if (!_abilityPropsToManage.Contains(kvp.Value)) {
-                abilitiesToRemove.Add(kvp.Key);
-            } else {
-                propsToAdd.Remove(kvp.Value);
-            }
-        }
-
-        foreach (var ability in abilitiesToRemove) {
-            _holder.abilities.RemoveAbility(ability.def);
-            _managedAbilities.Remove(ability);
-        }
-
-        foreach (var abilityProps in propsToAdd) {
-            _holder.abilities.GainAbility(abilityProps.abilityDef);
-            var newAbility = _holder.abilities.GetAbility(abilityProps.abilityDef);
-            if (newAbility == null) continue;
-
-            _managedAbilities.Add(newAbility, abilityProps);
-
-            if (abilityProps is not CompProperties_EquippableAbilityReloadable reloadableProps) continue;
-
-            newAbility.maxCharges = reloadableProps.maxCharges;
-            var savedState = _savedAbilityStates?
-                .FirstOrFallback(s => s?.defName == newAbility.def.defName);
-
-            if (savedState != null) {
-                newAbility.RemainingCharges = savedState.remainingCharges;
-
-                if (savedState.cooldownTicksRemaining > 0) {
-                    var inCooldownField = AccessTools.Field(typeof(Ability), "inCooldown");
-                    var cooldownEndTickField = AccessTools.Field(typeof(Ability), "cooldownEndTick");
-                    var cooldownDurationField = AccessTools.Field(typeof(Ability), "cooldownDuration");
-
-                    inCooldownField.SetValue(newAbility, true);
-                    cooldownEndTickField.SetValue(newAbility, GenTicks.TicksGame + savedState.cooldownTicksRemaining);
-                    cooldownDurationField.SetValue(newAbility, savedState.cooldownTicksTotal);
-                }
-
-                _savedAbilityStates?.Remove(savedState);
-            } else if (!isPostLoad) {
-                newAbility.RemainingCharges = newAbility.maxCharges;
-            }
-        }
-
-        if (abilitiesToRemove.Any() || propsToAdd.Any()) {
-            _holder.abilities.Notify_TemporaryAbilitiesChanged();
-        }
-
-        if (isPostLoad) {
-            _savedAbilityStates = null;
-        }
+        _managedAbilityDefs.Clear();
     }
 
     public override void PostExposeData() {
         base.PostExposeData();
-        Scribe_References.Look(ref _holder, "holder");
 
-        if (Scribe.mode is LoadSaveMode.Saving) {
-            var defNameList = _abilityPropsToManage
-                .Select(p => p.abilityDef.defName).ToList();
-            Scribe_Collections.Look(ref defNameList, "abilityPropsToManageDefNames", LookMode.Value);
-        }
-
-        if (Scribe.mode is LoadSaveMode.LoadingVars) {
-            List<string>? defNameList = null;
-            Scribe_Collections.Look(ref defNameList, "abilityPropsToManageDefNames", LookMode.Value);
-            if (defNameList != null) {
-                _abilityPropsToManage = [];
-                foreach (var defName in defNameList) {
-                    var trait = DefDatabase<WeaponTraitDef>.AllDefs
-                        .FirstOrFallback(t => t?.abilityProps?.abilityDef.defName == defName);
-                    if (trait != null) {
-                        _abilityPropsToManage.Add(trait.abilityProps);
-                    }
-                }
+        if (Scribe.mode == LoadSaveMode.Saving) {
+            var holder = CurrentHolder;
+            if (holder != null) {
+                CaptureManagedAbilityStates(holder);
             }
         }
 
-        if (Scribe.mode is LoadSaveMode.Saving) {
-            var abilityStates = _managedAbilities.Keys.Select(ability => new AbilityState(ability)).ToList();
-            Scribe_Collections.Look(ref abilityStates, "abilityStates", LookMode.Deep);
-        }
+        Scribe_Collections.Look(ref _abilityStates, "abilityStates", LookMode.Deep);
 
-        if (Scribe.mode is LoadSaveMode.LoadingVars) {
-            Scribe_Collections.Look(ref _savedAbilityStates, "abilityStates", LookMode.Deep);
+        if (Scribe.mode == LoadSaveMode.PostLoadInit) {
+            _abilityStates ??= [];
+            _managedAbilityDefs.Clear();
         }
     }
 
-    #region impl IReloadableComp
+    public bool IsEquippedBy(Pawn pawn) => CurrentHolder == pawn;
 
-    private Ability? FirstReloadableAbility =>
-        _managedAbilities.Keys.FirstOrDefault(a =>
-            a.UsesCharges && _managedAbilities[a] is CompProperties_EquippableAbilityReloadable);
+    public IEnumerable<ReloadableAbility> GetReloadablesUsingResource(ThingDef resourceDef, bool allowForcedReload) {
+        foreach (var reloadable in Reloadables) {
+            if (reloadable.AmmoDef == resourceDef && reloadable.NeedsReload(allowForcedReload)) {
+                yield return reloadable;
+            }
+        }
+    }
 
-    private CompProperties_EquippableAbilityReloadable? ReloadableProps =>
-        _managedAbilities.Values.OfType<CompProperties_EquippableAbilityReloadable>().FirstOrFallback();
+    public ReloadableAbility? FirstReloadableNeedingReload(bool allowForcedReload) {
+        foreach (var reloadable in Reloadables) {
+            if (reloadable.NeedsReload(allowForcedReload)) {
+                return reloadable;
+            }
+        }
 
-    public Thing ReloadableThing => parent;
-    public ThingDef? AmmoDef => ReloadableProps?.ammoDef;
-    public int BaseReloadTicks => ReloadableProps?.baseReloadTicks ?? 60;
-    public int RemainingCharges => FirstReloadableAbility?.RemainingCharges ?? 0;
-    public int MaxCharges => FirstReloadableAbility?.maxCharges ?? 0;
-    public string LabelRemaining => $"{RemainingCharges} / {MaxCharges}";
+        return null;
+    }
 
-    public bool CanBeUsed(out string? reason) {
-        reason = null;
-        var ability = FirstReloadableAbility;
-        if (ability == null || ability.RemainingCharges > 0) return true;
-        reason = DisabledReason(MinAmmoNeeded(false), MaxAmmoNeeded(false));
+    public bool TryGetReloadable(AbilityDef abilityDef, out ReloadableAbility reloadable) {
+        if (TryGetManagedAbility(abilityDef, out _, out _)) {
+            reloadable = new ReloadableAbility(this, abilityDef);
+            return true;
+        }
+
+        reloadable = null!;
         return false;
     }
 
-    public bool NeedsReload(bool allowForcedReload) {
-        return _managedAbilities.Keys.Any(a => {
-            if (_managedAbilities[a] is not CompProperties_EquippableAbilityReloadable) return false;
-            return allowForcedReload
-                ? a.RemainingCharges < a.maxCharges
-                : a.RemainingCharges <= 0;
-        });
+    private bool TryGetReloadableData(AbilityDef abilityDef, out Ability ability,
+        out CompProperties_EquippableAbilityReloadable abilityProps) {
+        return TryGetManagedAbility(abilityDef, out ability, out abilityProps) && ability.UsesCharges;
     }
 
-    public void ReloadFrom(Thing ammo) {
-        var abilityToReload = _managedAbilities.Keys.FirstOrDefault(a => {
-            var targetProps = _managedAbilities[a] as CompProperties_EquippableAbilityReloadable;
-            return targetProps?.ammoDef == ammo.def && a.RemainingCharges < a.maxCharges;
-        });
+    internal bool CanBeUsed(AbilityDef abilityDef, out string? reason) {
+        reason = null;
+        if (!TryGetReloadableData(abilityDef, out var ability, out _)) {
+            return false;
+        }
 
-        if (abilityToReload == null) return;
-        if (_managedAbilities[abilityToReload] is not CompProperties_EquippableAbilityReloadable abilityProps) return;
+        if (ability.RemainingCharges > 0) {
+            return true;
+        }
 
-        var chargesToRefill = abilityToReload.maxCharges - abilityToReload.RemainingCharges;
-        var ammoPerCharge = abilityProps.ammoCountPerCharge;
-        if (ammoPerCharge <= 0) return;
+        reason = DisabledReason(abilityDef, MinReloadResourceNeeded(abilityDef, false),
+            MaxReloadResourceNeeded(abilityDef, false));
+        return false;
+    }
 
-        var ammoNeeded = chargesToRefill * ammoPerCharge;
-        var ammoToConsume = Mathf.Min(ammo.stackCount, ammoNeeded);
+    internal bool NeedsReload(AbilityDef abilityDef, bool allowForcedReload) {
+        if (!TryGetReloadableData(abilityDef, out var ability, out _)) {
+            return false;
+        }
 
-        var chargesGained = ammoToConsume / ammoPerCharge;
-        if (chargesGained <= 0) return;
+        return allowForcedReload
+            ? ability.RemainingCharges < ability.maxCharges
+            : ability.RemainingCharges <= 0;
+    }
 
-        ammo.SplitOff(chargesGained * ammoPerCharge).Destroy();
-        abilityToReload.RemainingCharges += chargesGained;
-        abilityProps.soundReload?.PlayOneShot(new TargetInfo(parent.Position, parent.Map));
+    internal ThingDef? ReloadResourceDefFor(AbilityDef abilityDef) {
+        return TryGetReloadableData(abilityDef, out _, out var abilityProps)
+            ? abilityProps.ammoDef
+            : null;
+    }
+
+    internal int BaseReloadTicksFor(AbilityDef abilityDef) {
+        return TryGetReloadableData(abilityDef, out _, out var abilityProps)
+            ? abilityProps.baseReloadTicks
+            : 60;
+    }
+
+    internal int RemainingChargesFor(AbilityDef abilityDef) {
+        return TryGetReloadableData(abilityDef, out var ability, out _)
+            ? ability.RemainingCharges
+            : 0;
+    }
+
+    internal int MaxChargesFor(AbilityDef abilityDef) {
+        return TryGetReloadableData(abilityDef, out var ability, out _)
+            ? ability.maxCharges
+            : 0;
+    }
+
+    internal string LabelRemainingFor(AbilityDef abilityDef) {
+        return $"{RemainingChargesFor(abilityDef)} / {MaxChargesFor(abilityDef)}";
+    }
+
+    internal int MinReloadResourceNeeded(AbilityDef abilityDef, bool allowForcedReload) {
+        if (!NeedsReload(abilityDef, allowForcedReload)) {
+            return 0;
+        }
+
+        return TryGetReloadableData(abilityDef, out _, out var abilityProps)
+            ? abilityProps.ammoCountPerCharge
+            : 0;
+    }
+
+    internal int MaxReloadResourceNeeded(AbilityDef abilityDef, bool allowForcedReload) {
+        if (!TryGetReloadableData(abilityDef, out var ability, out var abilityProps) ||
+            !NeedsReload(abilityDef, allowForcedReload)) {
+            return 0;
+        }
+
+        return (ability.maxCharges - ability.RemainingCharges) * abilityProps.ammoCountPerCharge;
+    }
+
+    internal int MaxReloadResourceAmount(AbilityDef abilityDef) {
+        if (!TryGetReloadableData(abilityDef, out var ability, out var abilityProps)) {
+            return 0;
+        }
+
+        return ability.maxCharges * abilityProps.ammoCountPerCharge;
+    }
+
+    internal string DisabledReason(AbilityDef abilityDef, int minNeeded, int maxNeeded) {
+        if (!TryGetReloadableData(abilityDef, out _, out var abilityProps)) {
+            return "CommandReload_NoCharges".Translate();
+        }
+
+        var resourceDef = abilityProps.ammoDef;
+        if (resourceDef == null) {
+            return "CommandReload_NoCharges".Translate(abilityProps.ChargeNounArgument);
+        }
+
+        var countLabel = minNeeded == maxNeeded ? minNeeded.ToString() : $"{minNeeded}-{maxNeeded}";
+        return "CommandReload_NoAmmo".Translate(abilityProps.ChargeNounArgument, resourceDef.Named("AMMO"),
+            countLabel.Named("COUNT"));
+    }
+
+    internal string ReloadLabelFor(AbilityDef abilityDef) {
+        return TryGetReloadableData(abilityDef, out var ability, out _)
+            ? ability.def.LabelCap
+            : abilityDef.label.CapitalizeFirst();
+    }
+
+    internal void ReloadFrom(Thing reloadResource, AbilityDef abilityDef) {
+        if (!TryGetReloadableData(abilityDef, out var ability, out var abilityProps)) {
+            return;
+        }
+
+        if (abilityProps.ammoDef != reloadResource.def || ability.RemainingCharges >= ability.maxCharges) {
+            return;
+        }
+
+        var resourceCountPerCharge = abilityProps.ammoCountPerCharge;
+        if (resourceCountPerCharge <= 0) {
+            return;
+        }
+
+        var chargesToRefill = ability.maxCharges - ability.RemainingCharges;
+        var resourceNeeded = chargesToRefill * resourceCountPerCharge;
+        var resourceToConsume = Mathf.Min(reloadResource.stackCount, resourceNeeded);
+        var chargesGained = resourceToConsume / resourceCountPerCharge;
+        if (chargesGained <= 0) {
+            return;
+        }
+
+        reloadResource.SplitOff(chargesGained * resourceCountPerCharge).Destroy();
+        ability.RemainingCharges += chargesGained;
+        abilityProps.soundReload?.PlayOneShot(new TargetInfo(parent.PositionHeld, parent.MapHeld));
+        StoreState(new AbilityState(ability));
+    }
+
+    private List<CompProperties_EquippableAbilityReloadable> SanitizeAbilityProps(
+        IEnumerable<CompProperties_EquippableAbilityReloadable> propsList) {
+        var sanitized = new List<CompProperties_EquippableAbilityReloadable>();
+        var seenAbilityDefs = new HashSet<AbilityDef>();
+
+        foreach (var abilityProps in propsList) {
+            if (abilityProps.abilityDef == null) {
+                Log.Error($"[CWF] {parent.def.defName} has an ability provider entry without an AbilityDef.");
+                continue;
+            }
+
+            if (!seenAbilityDefs.Add(abilityProps.abilityDef)) {
+                Log.Error(
+                    $"[CWF] {parent.def.defName} tries to manage ability '{abilityProps.abilityDef.defName}' more than once.");
+                continue;
+            }
+
+            if (abilityProps.ammoCountToRefill != 0) {
+                Log.Error(
+                    $"[CWF] {parent.def.defName} uses unsupported ammoCountToRefill on '{abilityProps.abilityDef.defName}'. " +
+                    "CompAbilityProvider only supports ammoCountPerCharge.");
+                continue;
+            }
+
+            if (abilityProps.replenishAfterCooldown) {
+                Log.Error(
+                    $"[CWF] {parent.def.defName} uses unsupported replenishAfterCooldown on '{abilityProps.abilityDef.defName}'.");
+                continue;
+            }
+
+            sanitized.Add(abilityProps);
+        }
+
+        return sanitized;
+    }
+
+    private void SyncAbilities(Pawn holder, bool isPostLoad) {
+        var abilityTracker = AbilityTrackerFor(holder);
+
+        CaptureManagedAbilityStates(holder);
+
+        var desiredAbilityDefs = _abilityPropsToManage
+            .Select(abilityProps => abilityProps.abilityDef)
+            .ToHashSet();
+
+        foreach (var managedAbilityDef in
+                 _managedAbilityDefs.Where(def => !desiredAbilityDefs.Contains(def)).ToList()) {
+            abilityTracker.RemoveAbility(managedAbilityDef);
+            _managedAbilityDefs.Remove(managedAbilityDef);
+            RemoveStoredState(managedAbilityDef);
+        }
+
+        foreach (var abilityProps in _abilityPropsToManage) {
+            if (_managedAbilityDefs.Contains(abilityProps.abilityDef)) {
+                EnsureManagedAbilityExists(holder, abilityProps, isPostLoad);
+                continue;
+            }
+
+            TryAcquireAbility(holder, abilityProps, isPostLoad);
+        }
+    }
+
+    private void EnsureManagedAbilityExists(Pawn holder, CompProperties_EquippableAbilityReloadable abilityProps,
+        bool isPostLoad) {
+        var abilityTracker = AbilityTrackerFor(holder);
+        var ability = abilityTracker.GetAbility(abilityProps.abilityDef);
+        if (ability == null) {
+            abilityTracker.GainAbility(abilityProps.abilityDef);
+            ability = abilityTracker.GetAbility(abilityProps.abilityDef);
+            if (ability == null) {
+                Log.Error(
+                    $"[CWF] Failed to recreate managed ability '{abilityProps.abilityDef.defName}' for {holder.LabelShortCap}.");
+                _managedAbilityDefs.Remove(abilityProps.abilityDef);
+                return;
+            }
+
+            ApplyInitialState(ability, abilityProps, isPostLoad);
+            return;
+        }
+
+        ApplyProps(ability, abilityProps);
+    }
+
+    private void TryAcquireAbility(Pawn holder, CompProperties_EquippableAbilityReloadable abilityProps,
+        bool isPostLoad) {
+        var abilityTracker = AbilityTrackerFor(holder);
+        var existingAbility = abilityTracker.GetAbility(abilityProps.abilityDef);
+        if (existingAbility != null) {
+            if (isPostLoad && TryGetStoredState(abilityProps.abilityDef, out var storedState)) {
+                _managedAbilityDefs.Add(abilityProps.abilityDef);
+                ApplyProps(existingAbility, abilityProps);
+                ApplyStoredState(existingAbility, storedState);
+                return;
+            }
+
+            Log.Error(
+                $"[CWF] {parent.def.defName} cannot manage ability '{abilityProps.abilityDef.defName}' on {holder.LabelShortCap} " +
+                "because the pawn already has the same AbilityDef from another source.");
+            return;
+        }
+
+        abilityTracker.GainAbility(abilityProps.abilityDef);
+        var newAbility = abilityTracker.GetAbility(abilityProps.abilityDef);
+        if (newAbility == null) {
+            Log.Error($"[CWF] Failed to add ability '{abilityProps.abilityDef.defName}' for {holder.LabelShortCap}.");
+            return;
+        }
+
+        _managedAbilityDefs.Add(abilityProps.abilityDef);
+        ApplyInitialState(newAbility, abilityProps, isPostLoad);
+    }
+
+    private void ApplyInitialState(Ability ability, CompProperties_EquippableAbilityReloadable abilityProps,
+        bool isPostLoad) {
+        ApplyProps(ability, abilityProps);
+
+        if (TryGetStoredState(ability.def, out var storedState)) {
+            ApplyStoredState(ability, storedState);
+            return;
+        }
+
+        if (!isPostLoad) {
+            ability.RemainingCharges = ability.maxCharges;
+        }
+    }
+
+    private static void ApplyProps(Ability ability, CompProperties_EquippableAbilityReloadable abilityProps) {
+        ability.maxCharges = abilityProps.maxCharges;
+        if (ability.RemainingCharges > ability.maxCharges) {
+            ability.RemainingCharges = ability.maxCharges;
+        }
+    }
+
+    private static void ApplyStoredState(Ability ability, AbilityState storedState) {
+        ability.RemainingCharges = Mathf.Clamp(storedState.remainingCharges, 0, ability.maxCharges);
+
+        if (storedState.cooldownTicksRemaining > 0) {
+            InCooldownField.SetValue(ability, true);
+            CooldownEndTickField.SetValue(ability, GenTicks.TicksGame + storedState.cooldownTicksRemaining);
+            CooldownDurationField.SetValue(ability, storedState.cooldownTicksTotal);
+            return;
+        }
+
+        InCooldownField.SetValue(ability, false);
+        CooldownEndTickField.SetValue(ability, 0);
+        CooldownDurationField.SetValue(ability, 0);
+    }
+
+    private void CaptureManagedAbilityStates(Pawn holder) {
+        var abilityTracker = AbilityTrackerFor(holder);
+
+        foreach (var abilityDef in _managedAbilityDefs.ToList()) {
+            var ability = abilityTracker.GetAbility(abilityDef);
+            if (ability == null) {
+                _managedAbilityDefs.Remove(abilityDef);
+                continue;
+            }
+
+            StoreState(new AbilityState(ability));
+        }
+    }
+
+    private void PruneStoredStates() {
+        var desiredAbilityDefs = _abilityPropsToManage
+            .Select(abilityProps => abilityProps.abilityDef)
+            .ToHashSet();
+
+        _abilityStates.RemoveAll(state => state.abilityDef == null || !desiredAbilityDefs.Contains(state.abilityDef));
+    }
+
+    private bool TryGetStoredState(AbilityDef abilityDef, out AbilityState storedState) {
+        var matchedState = _abilityStates.FirstOrDefault(state => state.abilityDef == abilityDef);
+        if (matchedState == null) {
+            storedState = null!;
+            return false;
+        }
+
+        storedState = matchedState;
+        return true;
+    }
+
+    private void StoreState(AbilityState newState) {
+        RemoveStoredState(newState.abilityDef);
+        _abilityStates.Add(newState);
+    }
+
+    private void RemoveStoredState(AbilityDef? abilityDef) {
+        if (abilityDef == null) {
+            return;
+        }
+
+        _abilityStates.RemoveAll(state => state.abilityDef == abilityDef);
+    }
+
+    private bool TryGetManagedAbility(AbilityDef abilityDef, out Ability ability,
+        out CompProperties_EquippableAbilityReloadable abilityProps) {
+        ability = null!;
+
+        var matchedProps = _abilityPropsToManage.FirstOrDefault(candidate => candidate.abilityDef == abilityDef);
+        if (matchedProps == null || !_managedAbilityDefs.Contains(abilityDef)) {
+            abilityProps = null!;
+            return false;
+        }
+
+        abilityProps = matchedProps;
+
+        var holder = CurrentHolder;
+        if (holder == null) {
+            return false;
+        }
+
+        ability = AbilityTrackerFor(holder).GetAbility(abilityDef);
+        return ability != null;
+    }
+}
+
+public sealed class ReloadableAbility(CompAbilityProvider provider, AbilityDef abilityDef) : IReloadableComp {
+    private CompAbilityProvider Provider { get; } = provider;
+    public AbilityDef AbilityDef { get; } = abilityDef;
+
+    public string AbilityLabel => Provider.ReloadLabelFor(AbilityDef);
+    public Thing ReloadableThing => Provider.parent;
+    public ThingDef? AmmoDef => Provider.ReloadResourceDefFor(AbilityDef);
+    public int BaseReloadTicks => Provider.BaseReloadTicksFor(AbilityDef);
+    public int RemainingCharges => Provider.RemainingChargesFor(AbilityDef);
+    public int MaxCharges => Provider.MaxChargesFor(AbilityDef);
+    public string LabelRemaining => Provider.LabelRemainingFor(AbilityDef);
+
+    public bool CanBeUsed(out string reason) {
+        var canBeUsed = Provider.CanBeUsed(AbilityDef, out var disabledReason);
+        reason = disabledReason!;
+        return canBeUsed;
+    }
+
+    public bool NeedsReload(bool allowForceReload) {
+        return Provider.NeedsReload(AbilityDef, allowForceReload);
     }
 
     public int MinAmmoNeeded(bool allowForcedReload) {
-        if (!NeedsReload(allowForcedReload)) return 0;
-
-        var ability = _managedAbilities.Keys.FirstOrDefault(a => a.RemainingCharges < a.maxCharges);
-        var abilityProps = ability != null
-            ? _managedAbilities[ability] as CompProperties_EquippableAbilityReloadable
-            : null;
-        return abilityProps?.ammoCountPerCharge ?? 0;
+        return Provider.MinReloadResourceNeeded(AbilityDef, allowForcedReload);
     }
 
     public int MaxAmmoNeeded(bool allowForcedReload) {
-        if (!NeedsReload(allowForcedReload)) return 0;
-
-        var totalAmmoNeeded = 0;
-        foreach (var ability in _managedAbilities.Keys) {
-            if (_managedAbilities[ability] is CompProperties_EquippableAbilityReloadable abilityProps &&
-                ability.RemainingCharges < ability.maxCharges) {
-                totalAmmoNeeded += (ability.maxCharges - ability.RemainingCharges) * abilityProps.ammoCountPerCharge;
-            }
-        }
-
-        return totalAmmoNeeded;
+        return Provider.MaxReloadResourceNeeded(AbilityDef, allowForcedReload);
     }
 
     public int MaxAmmoAmount() {
-        var totalMaxAmmo = 0;
+        return Provider.MaxReloadResourceAmount(AbilityDef);
+    }
 
-        foreach (var ability in _managedAbilities.Keys) {
-            if (_managedAbilities[ability] is CompProperties_EquippableAbilityReloadable abilityProps) {
-                totalMaxAmmo += ability.maxCharges * abilityProps.ammoCountPerCharge;
-            }
-        }
-
-        return totalMaxAmmo;
+    public void ReloadFrom(Thing ammo) {
+        Provider.ReloadFrom(ammo, AbilityDef);
     }
 
     public string DisabledReason(int minNeeded, int maxNeeded) {
-        return AmmoDef == null
-            // Caller guarantees non-null context by checking FirstReloadableAbility first.
-            ? "CommandReload_NoCharges".Translate(ReloadableProps!.ChargeNounArgument)
-            : "CommandReload_NoAmmo".Translate(ReloadableProps!.ChargeNounArgument, AmmoDef.Named("AMMO"),
-                minNeeded.Named("COUNT"));
-    }
-
-    #endregion
-
-    // Helper
-    public bool CanBeReloadedWith(ThingDef ammoDef) {
-        return _managedAbilities.Keys.Any(ability => {
-            var abilityProps = _managedAbilities[ability] as CompProperties_EquippableAbilityReloadable;
-            return abilityProps?.ammoDef == ammoDef && ability.RemainingCharges < ability.maxCharges;
-        });
+        return Provider.DisabledReason(AbilityDef, minNeeded, maxNeeded);
     }
 }
 
 public class AbilityState : IExposable {
-    public string? defName;
+    public AbilityDef? abilityDef;
     public int remainingCharges;
     public int cooldownTicksRemaining;
     public int cooldownTicksTotal;
@@ -260,14 +513,14 @@ public class AbilityState : IExposable {
     public AbilityState() { }
 
     public AbilityState(Ability ability) {
-        defName = ability.def.defName;
+        abilityDef = ability.def;
         remainingCharges = ability.RemainingCharges;
         cooldownTicksRemaining = ability.CooldownTicksRemaining;
         cooldownTicksTotal = ability.CooldownTicksTotal;
     }
 
     public void ExposeData() {
-        Scribe_Values.Look(ref defName, "defName");
+        Scribe_Defs.Look(ref abilityDef, "abilityDef");
         Scribe_Values.Look(ref remainingCharges, "remainingCharges", -1);
         Scribe_Values.Look(ref cooldownTicksRemaining, "cooldownTicksRemaining");
         Scribe_Values.Look(ref cooldownTicksTotal, "cooldownTicksTotal");
