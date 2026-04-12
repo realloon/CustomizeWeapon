@@ -7,6 +7,7 @@
     <label>receiver</label>
     <group>Top</group>
     <order>0</order>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Receiver/ReceiverModule</fallbackTexturePath>
   </CWF.PartDef>
 
   <!-- Sight -->
@@ -15,7 +16,7 @@
     <label>sight</label>
     <group>Top</group>
     <order>10</order>
-    <fallbackTexturePath>CustomizeWeapon/Modules/Sight/4xScope/4xScope_o</fallbackTexturePath>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Sight/SightModule</fallbackTexturePath>
   </CWF.PartDef>
 
   <!-- Barrel -->
@@ -24,7 +25,7 @@
     <label>barrel</label>
     <group>Top</group>
     <order>30</order>
-    <fallbackTexturePath>CustomizeWeapon/Modules/Barrel/ShortenedBarrel/ForChargeRifle_o</fallbackTexturePath>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Barrel/BarrelModule</fallbackTexturePath>
   </CWF.PartDef>
   <!-- #endregion -->
 
@@ -35,7 +36,7 @@
     <label>stock</label>
     <group>Left</group>
     <order>0</order>
-    <fallbackTexturePath>CustomizeWeapon/Modules/Stock/ExtendedStock/ForHellcatRifle_o</fallbackTexturePath>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Stock/StockModule</fallbackTexturePath>
   </CWF.PartDef>
   <!-- #endregion -->
 
@@ -46,6 +47,7 @@
     <label>muzzle</label>
     <group>Right</group>
     <order>0</order>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Muzzle/MuzzleModule</fallbackTexturePath>
   </CWF.PartDef>
 
   <!-- Ammo -->
@@ -54,6 +56,7 @@
     <label>ammo</label>
     <group>Right</group>
     <order>10</order>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Ammo/AmmoModule</fallbackTexturePath>
   </CWF.PartDef>
   <!-- #endregion -->
 
@@ -64,7 +67,7 @@
     <label>grip</label>
     <group>Bottom</group>
     <order>0</order>
-    <fallbackTexturePath>CustomizeWeapon/Modules/Grip/CustomGrip/ForAssaultRifle_o</fallbackTexturePath>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Grip/GripModule</fallbackTexturePath>
   </CWF.PartDef>
 
   <!-- Trigger -->
@@ -73,6 +76,7 @@
     <label>trigger</label>
     <group>Bottom</group>
     <order>10</order>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Trigger/TriggerModule</fallbackTexturePath>
   </CWF.PartDef>
 
   <!-- Magazine -->
@@ -81,7 +85,7 @@
     <label>magazine</label>
     <group>Bottom</group>
     <order>20</order>
-    <fallbackTexturePath>CustomizeWeapon/Modules/Magazine/QuickMagazine/ForAssaultRifle_o</fallbackTexturePath>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Magazine/MagazineModule</fallbackTexturePath>
   </CWF.PartDef>
 
   <!-- Underbarrel -->
@@ -90,7 +94,7 @@
     <label>underbarrel</label>
     <group>Bottom</group>
     <order>30</order>
-    <fallbackTexturePath>CustomizeWeapon/Modules/Unberbarrel/AimAssistance/AimAssistance_o</fallbackTexturePath>
+    <fallbackTexturePath>CustomizeWeapon/Modules/Unberbarrel/UnderbarrelModule</fallbackTexturePath>
   </CWF.PartDef>
   <!-- #endregion -->
 </Defs>
