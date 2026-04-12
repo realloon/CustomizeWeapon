@@ -3,7 +3,6 @@ using RimWorld;
 using RimWorld.Utility;
 using Verse;
 using Verse.AI;
-using CWF.Controllers;
 
 // ReSharper disable InconsistentNaming
 
@@ -57,8 +56,15 @@ public static class Postfix_FloatMenuOptionProvider_Reload_GetOptionsFor {
             }
 
             var action = new Action(() => {
+                var job = JobMaker.MakeJob(DefDatabase<JobDef>.GetNamed("CWF_ReloadAbility"),
+                    reloadable.ReloadableThing);
+                job.targetQueueB = chosenResources.Select(thing => new LocalTargetInfo(thing)).ToList();
+                job.count = Math.Min(chosenResources.Sum(thing => thing.stackCount),
+                    reloadable.MaxAmmoNeeded(allowForcedReload: true));
+                job.source = new ReloadAbilityJobSource { AbilityDef = reloadable.AbilityDef };
+                job.playerForced = true;
                 pawn.jobs.TryTakeOrderedJob(
-                    ReloadAbilityJobMaker.Make(reloadable, chosenResources, playerForced: true),
+                    job,
                     JobTag.Misc);
             });
 
