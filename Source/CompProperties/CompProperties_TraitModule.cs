@@ -6,8 +6,8 @@ using CWF.Extensions;
 
 namespace CWF;
 
-[UsedImplicitly]
 // ReSharper disable once InconsistentNaming
+[UsedImplicitly]
 public class CompProperties_TraitModule : CompProperties {
     public CompProperties_TraitModule() => compClass = typeof(CompTraitModule);
 
@@ -56,19 +56,6 @@ public class CompProperties_TraitModule : CompProperties {
         var ext = parent.GetModExtension<TraitModuleExtension>();
         if (ext?.weaponTraitDef.description != null) {
             parent.description = ext.weaponTraitDef.description;
-        }
-
-        var rewardTag = parent.GetRarity() switch {
-            Rarity.Rare => "RewardStandardMidFreq",
-            Rarity.Legendary => "RewardStandardLowFreq",
-            _ => null
-        };
-
-        if (rewardTag == null) return;
-
-        parent.thingSetMakerTags ??= [];
-        if (!parent.thingSetMakerTags.Contains(rewardTag)) {
-            parent.thingSetMakerTags.Add(rewardTag);
         }
     }
 }
