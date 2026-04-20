@@ -39,10 +39,13 @@ public static class ModuleDatabase {
             TraitToModule[ext.weaponTraitDef] = thingDef;
         }
 
-        foreach (var moduleDef in TraitToModule.Values) {
+        foreach (var (traitDef, moduleDef) in TraitToModule) {
+            // inject description
+            moduleDef.description = traitDef.description;
+
             // inject hyperlinks
-            var weaponDefs = GetCompatibleWeaponDefsFor(moduleDef).ToList();
-            if (weaponDefs.Empty()) continue;
+            var weaponDefs = GetCompatibleWeaponDefsFor(moduleDef).ToArray();
+            if (weaponDefs.NullOrEmpty()) continue;
 
             moduleDef.descriptionHyperlinks ??= [];
             foreach (var weaponDef in weaponDefs) {
@@ -98,5 +101,6 @@ public static class ModuleDatabase {
             yield return weaponDef;
         }
     }
+
     #endregion
 }

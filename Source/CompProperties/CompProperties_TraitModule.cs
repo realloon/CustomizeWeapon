@@ -51,11 +51,4 @@ public class CompProperties_TraitModule : CompProperties {
             998
         );
     }
-
-    public override void PostLoadSpecial(ThingDef parent) {
-        var ext = parent.GetModExtension<TraitModuleExtension>();
-        if (ext?.weaponTraitDef.description != null) {
-            parent.description = ext.weaponTraitDef.description;
-        }
-    }
 }
