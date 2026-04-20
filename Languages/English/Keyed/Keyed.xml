@@ -65,6 +65,8 @@
   <CWF_ConfirmUninstallTitle>Confirm Uninstall</CWF_ConfirmUninstallTitle>
   <CWF_ConfirmUninstallBody>Uninstalling {MODULE} will also remove these modules:\n\n{DEPENDENCIES}\n\nContinue?</CWF_ConfirmUninstallBody>
   <CWF_FromEquipped>From weapon modules</CWF_FromEquipped>
+  <CWF_DynamicTextures>Dynamic Textures</CWF_DynamicTextures>
+  <CWF_DynamicTexturesDesc>If enabled, weapon textures are dynamically composed from installed modules. Disable to keep the weapon's original appearance.</CWF_DynamicTexturesDesc>
   <CWF_RandomModuleGeneration>Random Module Generation</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>If enabled, pawns from other factions, like raiders, allies, and traders, can spawn with weapons that have random modules</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>Rarity Weights</CWF_RarityWeights>

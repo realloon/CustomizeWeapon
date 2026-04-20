@@ -47,9 +47,10 @@ public class CompDynamicGraphic : ThingComp {
         ReleaseCachedTexture();
     }
 
-    public override bool DontDrawParent() => true;
+    public override bool DontDrawParent() => Settings.Current.DynamicTexturesEnabled;
 
     public override void DrawAt(Vector3 drawLoc, bool flip = false) {
+        if (!Settings.Current.DynamicTexturesEnabled) return;
         if (parent.def.drawerType != DrawerType.RealtimeOnly && parent.Spawned) return;
 
         var rotation = flip ? parent.Rotation.Opposite : parent.Rotation;
@@ -57,6 +58,7 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     public override void PostPrintOnto(SectionLayer layer) {
+        if (!Settings.Current.DynamicTexturesEnabled) return;
         if (parent.def.dontPrint) return;
 
         GetDynamicGraphic().Print(layer, parent, 0f);

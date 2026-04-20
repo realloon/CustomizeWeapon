@@ -26,6 +26,8 @@ public static class Transpiler_PawnRenderUtility_DrawEquipmentAiming {
     }
 
     private static Graphic GetDynamicGraphicOrOriginal(Thing thing) {
+        if (!Settings.Current.DynamicTexturesEnabled) return thing.Graphic;
+
         return thing.TryGetComp<CompDynamicGraphic>(out var compDynamicGraphic)
             ? compDynamicGraphic.GetDynamicGraphic()
             : thing.Graphic;

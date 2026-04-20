@@ -56,6 +56,8 @@
   <CWF_ConfirmUninstallTitle>Подтвердить снятие</CWF_ConfirmUninstallTitle>
   <CWF_ConfirmUninstallBody>Снятие {MODULE} также снимет эти модули:\n\n{DEPENDENCIES}\n\nПродолжить?</CWF_ConfirmUninstallBody>
   <CWF_FromEquipped>От модулей оружия</CWF_FromEquipped>
+  <CWF_DynamicTextures>Динамические текстуры</CWF_DynamicTextures>
+  <CWF_DynamicTexturesDesc>Если включено, текстуры оружия динамически составляются из установленных модулей. При отключении сохраняется оригинальный вид оружия.</CWF_DynamicTexturesDesc>
   <CWF_RandomModuleGeneration>Случайная генерация модулей</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>Если включено, пешки других фракций, включая рейдеров, союзников и торговцев, могут появляться с оружием со случайными модулями</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>Вес редкости</CWF_RarityWeights>

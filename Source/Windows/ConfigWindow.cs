@@ -22,6 +22,10 @@ public class ConfigWindow : Mod {
         var listing = new Listing_Standard();
         listing.Begin(inRect);
 
+        listing.CheckboxLabeled("CWF_DynamicTextures".Translate(), ref _settings.DynamicTexturesEnabled,
+            "CWF_DynamicTexturesDesc".Translate());
+
+        listing.Gap();
         listing.CheckboxLabeled("CWF_RandomModuleGeneration".Translate(), ref _settings.RandomModulesEnabled,
             "CWF_RandomModuleGenerationDesc".Translate());
 
@@ -61,6 +65,7 @@ public class ConfigWindow : Mod {
             _settings.Reset();
             RefreshWeightBuffers();
         }
+
         listing.Gap(listing.verticalSpacing);
 
         listing.End();

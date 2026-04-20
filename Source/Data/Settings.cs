@@ -3,6 +3,7 @@ using Verse;
 namespace CWF;
 
 public class Settings : ModSettings {
+    private const bool DefaultDynamicTexturesEnabled = true;
     private const bool DefaultRandomModulesEnabled = true;
     private const int DefaultMinRandomModules = 0;
     private const int DefaultMaxRandomModules = 3;
@@ -10,6 +11,7 @@ public class Settings : ModSettings {
     private const float DefaultRareRarityWeight = 0.2f;
     private const float DefaultLegendaryRarityWeight = 0.01f;
 
+    public bool DynamicTexturesEnabled = DefaultDynamicTexturesEnabled;
     public bool RandomModulesEnabled = DefaultRandomModulesEnabled;
     public int MinRandomModules = DefaultMinRandomModules;
     public int MaxRandomModules = DefaultMaxRandomModules;
@@ -29,6 +31,7 @@ public class Settings : ModSettings {
     }
 
     public void Reset() {
+        DynamicTexturesEnabled = DefaultDynamicTexturesEnabled;
         RandomModulesEnabled = DefaultRandomModulesEnabled;
         MinRandomModules = DefaultMinRandomModules;
         MaxRandomModules = DefaultMaxRandomModules;
@@ -39,6 +42,7 @@ public class Settings : ModSettings {
 
     public override void ExposeData() {
         base.ExposeData();
+        Scribe_Values.Look(ref DynamicTexturesEnabled, "dynamicTexturesEnabled", DefaultDynamicTexturesEnabled);
         Scribe_Values.Look(ref RandomModulesEnabled, "randomModulesEnabled", DefaultRandomModulesEnabled);
         Scribe_Values.Look(ref MinRandomModules, "minRandomModules", DefaultMinRandomModules);
         Scribe_Values.Look(ref MaxRandomModules, "maxRandomModules", DefaultMaxRandomModules);

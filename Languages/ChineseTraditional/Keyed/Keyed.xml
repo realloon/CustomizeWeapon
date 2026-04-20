@@ -65,6 +65,8 @@
   <CWF_ConfirmUninstallTitle>確認移除</CWF_ConfirmUninstallTitle>
   <CWF_ConfirmUninstallBody>移除{MODULE}將會同時卸下以下模組:\n\n{DEPENDENCIES}\n\n確認移除嗎？</CWF_ConfirmUninstallBody>
   <CWF_FromEquipped>源於武器模組</CWF_FromEquipped>
+  <CWF_DynamicTextures>動態貼圖</CWF_DynamicTextures>
+  <CWF_DynamicTexturesDesc>啟用後，武器貼圖將根據已安裝的模組動態合成。禁用後，保持武器的原始外觀。</CWF_DynamicTexturesDesc>
   <CWF_RandomModuleGeneration>隨機生成模組</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>啟用後，產生其他派系的角色（如商隊、盟友和襲擊者）時，其武器會隨機附帶武器模組</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>稀有度權重</CWF_RarityWeights>
