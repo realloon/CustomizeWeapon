@@ -20,10 +20,6 @@ public static class PartAvailabilityAnalyzer {
         var moduleCache = new Dictionary<PartDef, ThingDef>();
 
         foreach (var (part, trait) in desiredTraits) {
-            if (part == null || trait == null) {
-                continue;
-            }
-
             if (!supportedParts.Contains(part)
                 || !trait.TryGetPart(out var expectedPart)
                 || expectedPart != part

@@ -97,7 +97,7 @@ public class TraitEquippedOffsets : StatPart {
         if (traits.IsNullOrEmpty()) return false;
 
         var list = traits
-            .Where(trait => trait != null && trait.equippedStatOffsets?
+            .Where(trait => trait.equippedStatOffsets?
                 .Any(modifier => modifier?.stat == parentStat) == true)
             .ToList();
 
