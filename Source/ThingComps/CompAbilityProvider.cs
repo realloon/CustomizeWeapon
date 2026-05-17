@@ -56,8 +56,8 @@ public class CompAbilityProvider : ThingComp {
         CaptureManagedAbilityStates(pawn);
 
         var abilityTracker = AbilityTrackerFor(pawn);
-        if (abilityTracker != null){
-            foreach (var abilityDef in _managedAbilityDefs){
+        if (abilityTracker != null) {
+            foreach (var abilityDef in _managedAbilityDefs) {
                 abilityTracker.RemoveAbility(abilityDef);
             }
         }
@@ -198,10 +198,8 @@ public class CompAbilityProvider : ThingComp {
         var wasManaged = _managedAbilityDefs.Contains(abilityDef);
         var ability = abilityTracker?.GetAbility(abilityDef);
 
-        if (!wasManaged && ability != null)
-        {
-            if (isPostLoad && TryGetStoredState(abilityDef, out var storedState))
-            {
+        if (!wasManaged && ability != null) {
+            if (isPostLoad && TryGetStoredState(abilityDef, out var storedState)) {
                 _managedAbilityDefs.Add(abilityDef);
                 ApplyProps(ability, abilityProps);
                 ApplyStoredState(ability, storedState);
@@ -275,10 +273,13 @@ public class CompAbilityProvider : ThingComp {
 
     private void CaptureManagedAbilityStates(Pawn holder) {
         var abilityTracker = AbilityTrackerFor(holder);
-        if (abilityTracker == null) _managedAbilityDefs.Clear();
+        if (abilityTracker == null) {
+            _managedAbilityDefs.Clear();
+            return;
+        }
 
         foreach (var abilityDef in _managedAbilityDefs.ToList()) {
-            var ability = abilityTracker!.GetAbility(abilityDef);
+            var ability = abilityTracker.GetAbility(abilityDef);
             if (ability == null) {
                 _managedAbilityDefs.Remove(abilityDef);
                 continue;
