@@ -45,14 +45,10 @@ public static class PartAvailabilityAnalyzer {
             var disabledParts = new HashSet<PartDef>();
 
             foreach (var (part, _) in activeTraits) {
-                if (!moduleCache.TryGetValue(part, out var moduleDef)) {
-                    continue;
-                }
-
+                var moduleDef = moduleCache[part];
                 var modifiers = moduleDef.GetModExtension<TraitModuleExtension>()?.conditionalPartModifiers;
-                if (modifiers == null) {
-                    continue;
-                }
+
+                if (modifiers == null) continue;
 
                 foreach (var rule in modifiers) {
                     if (rule.matcher == null || !rule.matcher.IsMatch(weapon.def)) {
@@ -76,8 +72,7 @@ public static class PartAvailabilityAnalyzer {
             }
 
             foreach (var invalidPart in invalidParts) {
-                if (!candidateTraits.Remove(invalidPart)) continue;
-
+                candidateTraits.Remove(invalidPart);
                 moduleCache.Remove(invalidPart);
                 skippedCount += 1;
             }
