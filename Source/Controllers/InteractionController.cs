@@ -43,7 +43,7 @@ public class InteractionController(Thing weapon) {
     }
 
     private void BuildInstallOptions(PartDef part, List<FloatMenuOption> options) {
-        var installCandidates = new Dictionary<WeaponTraitDef, ThingDef>();
+        var installCandidates = new HashSet<WeaponTraitDef>();
 
         var compatibleModuleDefs = new HashSet<ThingDef>(GetCompatibleModuleDefsFor(part));
 
@@ -66,15 +66,15 @@ public class InteractionController(Thing weapon) {
 
             foreach (var module in availableModules) {
                 var trait = module.def.GetModExtension<TraitModuleExtension>().weaponTraitDef; // todo: fixme
-                installCandidates.TryAdd(trait, module.def);
+                installCandidates.Add(trait);
             }
         }
 
         // from stack
         var stagedCompatibleTraits = Session.GetReinstallableTraitsFor(part);
         foreach (var trait in stagedCompatibleTraits) {
-            if (trait.TryGetModuleDef(out var moduleDef)) {
-                installCandidates.TryAdd(trait, moduleDef);
+            if (trait.TryGetModuleDef(out _)) {
+                installCandidates.Add(trait);
             }
         }
 
@@ -83,7 +83,7 @@ public class InteractionController(Thing weapon) {
             return;
         }
 
-        foreach (var (traitToInstall, _) in installCandidates) {
+        foreach (var traitToInstall in installCandidates) {
             var installAction = CreateInstallAction(part, traitToInstall);
             options.Add(new FloatMenuOption(traitToInstall.LabelCap, installAction));
         }
@@ -210,11 +210,6 @@ public class InteractionController(Thing weapon) {
 
     private Action CreateInstallAction(PartDef part, WeaponTraitDef traitToInstall) {
         return () => {
-            if (!traitToInstall.TryGetModuleDef(out _)) {
-                DoInstall(part, traitToInstall);
-                return;
-            }
-
             var analysis = AnalyzeInstallConflict(part, traitToInstall);
             if (!analysis.HasConflict) {
                 DoInstall(part, traitToInstall);
