@@ -13,7 +13,8 @@ public class CompProperties_TraitModule : CompProperties {
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats(StatRequest req) {
         var ext = req.BuildableDef.GetModExtension<TraitModuleExtension>();
-        if (ext?.weaponTraitDef == null) yield break;
+        if (ext == null || ext.weaponTraitDef.defName == Def.DefaultDefName
+                        || ext.part.defName == Def.DefaultDefName) yield break;
 
         var traitDef = ext.weaponTraitDef;
         var part = ext.part;

@@ -26,7 +26,12 @@ public static class ModuleDatabase {
             }
 
             var ext = thingDef.GetModExtension<TraitModuleExtension>();
-            if (ext?.weaponTraitDef == null) continue;
+            if (ext == null) continue;
+
+            if (ext.weaponTraitDef.defName == Def.DefaultDefName || ext.part.defName == Def.DefaultDefName) {
+                Log.Error($"[CWF] Module '{thingDef.defName}' has an invalid {nameof(TraitModuleExtension)}."); // todo: fixme
+                continue;
+            }
 
             // fill trait caches
             if (TraitToPart.ContainsKey(ext.weaponTraitDef)) {
