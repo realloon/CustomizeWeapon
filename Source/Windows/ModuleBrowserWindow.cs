@@ -174,7 +174,7 @@ public class ModuleBrowserWindow : Window {
             if (_recipeCache.TryGetValue(moduleDef, out var recipe)) {
                 if (recipe.AvailableNow) {
                     if (Widgets.ButtonImage(actionButtonRect, TexButton.Add, tooltip: "CWF_Craft".Translate())) {
-                        TryAddCraftingBill(moduleDef);
+                        AddCraftingBill(moduleDef, recipe);
                     }
                 } else {
                     Widgets.ButtonImage(actionButtonRect, TexButton.Add, Color.gray,
@@ -193,17 +193,9 @@ public class ModuleBrowserWindow : Window {
         listing.End();
     }
 
-    private void TryAddCraftingBill(ThingDef moduleDef) {
-        if (!_recipeCache.TryGetValue(moduleDef, out var recipe)) return;
-
-        if (recipe == null) {
-            Log.Warning("Cannot craft this module.");
-            return;
-        }
-
+    private static void AddCraftingBill(ThingDef moduleDef, RecipeDef recipe) {
         var bench = Find.CurrentMap.listerBuildings.allBuildingsColonist
-            .OfType<IBillGiver>()
-            .FirstOrDefault(b => b is Thing thing && (thing.def.AllRecipes?.Contains(recipe) ?? false));
+            .FirstOrDefault(b => b is IBillGiver && b.def.AllRecipes?.Contains(recipe) == true);
 
         if (bench == null) {
             Messages.Message("CWF_NoWorkbenchToCraftModule".Translate(moduleDef.Named("MODULE")),
@@ -211,16 +203,14 @@ public class ModuleBrowserWindow : Window {
             return;
         }
 
-        var bill = recipe.MakeNewBill();
-        if (bill is Bill_Production billProduction) {
-            billProduction.repeatMode = BillRepeatModeDefOf.RepeatCount;
-            billProduction.repeatCount = 1;
-            bench.BillStack.AddBill(bill);
-        }
+        var bill = (Bill_Production)recipe.MakeNewBill();
+        bill.repeatMode = BillRepeatModeDefOf.RepeatCount;
+        bill.repeatCount = 1;
+        ((IBillGiver)bench).BillStack.AddBill(bill);
 
         SoundDefOf.Click.PlayOneShotOnCamera();
         Messages.Message("CWF_BillAdded".Translate(moduleDef.Named("MODULE"), bench.Named("BENCH")),
-            new LookTargets((Thing)bench), MessageTypeDefOf.PositiveEvent);
+            new LookTargets(bench), MessageTypeDefOf.PositiveEvent);
     }
 
     private static void DrawFilterRow(in Rect rect, string label, int count, bool selected, Action onClick) {
