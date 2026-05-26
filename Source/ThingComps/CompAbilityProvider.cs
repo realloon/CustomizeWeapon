@@ -255,12 +255,12 @@ public class CompAbilityProvider : ThingComp {
     }
 
     private static void ApplyStoredState(Ability ability, AbilityState storedState) {
-        ability.RemainingCharges = Mathf.Clamp(storedState.remainingCharges, 0, ability.maxCharges);
+        ability.RemainingCharges = Mathf.Clamp(storedState.RemainingCharges, 0, ability.maxCharges);
 
-        if (storedState.cooldownTicksRemaining > 0) {
+        if (storedState.CooldownTicksRemaining > 0) {
             InCooldownField.SetValue(ability, true);
-            CooldownEndTickField.SetValue(ability, GenTicks.TicksGame + storedState.cooldownTicksRemaining);
-            CooldownDurationField.SetValue(ability, storedState.cooldownTicksTotal);
+            CooldownEndTickField.SetValue(ability, GenTicks.TicksGame + storedState.CooldownTicksRemaining);
+            CooldownDurationField.SetValue(ability, storedState.CooldownTicksTotal);
             return;
         }
 
@@ -288,11 +288,11 @@ public class CompAbilityProvider : ThingComp {
             .Select(abilityProps => abilityProps.abilityDef)
             .ToHashSet();
 
-        _abilityStates.RemoveAll(state => state.abilityDef == null || !desiredAbilityDefs.Contains(state.abilityDef));
+        _abilityStates.RemoveAll(state => state.AbilityDef == null || !desiredAbilityDefs.Contains(state.AbilityDef));
     }
 
     private bool TryGetStoredState(AbilityDef abilityDef, out AbilityState storedState) {
-        var matchedState = _abilityStates.FirstOrDefault(state => state.abilityDef == abilityDef);
+        var matchedState = _abilityStates.FirstOrDefault(state => state.AbilityDef == abilityDef);
         if (matchedState == null) {
             storedState = null!;
             return false;
@@ -303,16 +303,15 @@ public class CompAbilityProvider : ThingComp {
     }
 
     private void StoreState(AbilityState newState) {
-        RemoveStoredState(newState.abilityDef);
+        var abilityDef = newState.AbilityDef ?? throw new InvalidOperationException(
+            "[CWF] Cannot store ability state without AbilityDef.");
+
+        RemoveStoredState(abilityDef);
         _abilityStates.Add(newState);
     }
 
-    private void RemoveStoredState(AbilityDef? abilityDef) {
-        if (abilityDef == null) {
-            return;
-        }
-
-        _abilityStates.RemoveAll(state => state.abilityDef == abilityDef);
+    private void RemoveStoredState(AbilityDef abilityDef) {
+        _abilityStates.RemoveAll(state => state.AbilityDef == abilityDef);
     }
 
     private bool TryGetManagedAbility(AbilityDef abilityDef, out Ability ability,
@@ -428,25 +427,25 @@ public sealed class ReloadableAbility(CompAbilityProvider provider, AbilityDef a
 }
 
 public class AbilityState : IExposable {
-    public AbilityDef? abilityDef;
-    public int remainingCharges;
-    public int cooldownTicksRemaining;
-    public int cooldownTicksTotal;
+    public AbilityDef? AbilityDef;
+    public int RemainingCharges;
+    public int CooldownTicksRemaining;
+    public int CooldownTicksTotal;
 
     [UsedImplicitly]
     public AbilityState() { }
 
     public AbilityState(Ability ability) {
-        abilityDef = ability.def;
-        remainingCharges = ability.RemainingCharges;
-        cooldownTicksRemaining = ability.CooldownTicksRemaining;
-        cooldownTicksTotal = ability.CooldownTicksTotal;
+        AbilityDef = ability.def;
+        RemainingCharges = ability.RemainingCharges;
+        CooldownTicksRemaining = ability.CooldownTicksRemaining;
+        CooldownTicksTotal = ability.CooldownTicksTotal;
     }
 
     public void ExposeData() {
-        Scribe_Defs.Look(ref abilityDef, "abilityDef");
-        Scribe_Values.Look(ref remainingCharges, "remainingCharges", -1);
-        Scribe_Values.Look(ref cooldownTicksRemaining, "cooldownTicksRemaining");
-        Scribe_Values.Look(ref cooldownTicksTotal, "cooldownTicksTotal");
+        Scribe_Defs.Look(ref AbilityDef, "abilityDef");
+        Scribe_Values.Look(ref RemainingCharges, "remainingCharges", -1);
+        Scribe_Values.Look(ref CooldownTicksRemaining, "cooldownTicksRemaining");
+        Scribe_Values.Look(ref CooldownTicksTotal, "cooldownTicksTotal");
     }
 }
