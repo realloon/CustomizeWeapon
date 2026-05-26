@@ -26,10 +26,6 @@ public class AdapterDef : Def {
             yield return item;
         }
 
-        if (graphicData == null) {
-            yield return "graphicData is null";
-        }
-
         var seenModuleDefs = new HashSet<ThingDef>();
         foreach (var moduleGraphicOverride in moduleGraphicOverrides) {
             if (moduleGraphicOverride.moduleDef == null) {
@@ -83,9 +79,11 @@ public class AdapterDef : Def {
 
     private static void AdaptWeapon(ThingDef weaponDef, AdapterDef adapter) {
         // === graphicData ===
-        weaponDef.graphicData.texPath = adapter.graphicData?.texPath;
-        weaponDef.graphicData.graphicClass = adapter.graphicData?.graphicClass;
-        weaponDef.graphicData.shaderType = adapter.graphicData?.shaderType;
+        if (adapter.graphicData != null) {
+            weaponDef.graphicData.texPath = adapter.graphicData.texPath;
+            weaponDef.graphicData.graphicClass = adapter.graphicData.graphicClass;
+            weaponDef.graphicData.shaderType = adapter.graphicData.shaderType;
+        }
 
         // === weaponTags ===
         if (adapter.weaponTags.Count > 0) {
