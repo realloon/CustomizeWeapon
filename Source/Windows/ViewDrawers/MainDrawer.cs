@@ -85,8 +85,6 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
     }
 
     private void TryDrawSlot(PartDef part, in Rect rect) {
-        if (!session.AvailableParts.Contains(part)) return;
-
         var installedTrait = session.GetInstalledTraitFor(part);
         bool clicked;
 
