@@ -23,7 +23,7 @@ public class CompAbilityProvider : ThingComp {
         : null;
 
     private static Pawn_AbilityTracker AbilityTrackerFor(Pawn pawn) {
-        return pawn.abilities;
+        return pawn.abilities ??= new Pawn_AbilityTracker(pawn);
     }
 
     public IEnumerable<ReloadableAbility> Reloadables {
@@ -53,14 +53,15 @@ public class CompAbilityProvider : ThingComp {
 
     public override void Notify_Unequipped(Pawn pawn) {
         base.Notify_Unequipped(pawn);
+        if (_managedAbilityDefs.Count == 0) return;
+
         CaptureManagedAbilityStates(pawn);
 
         var abilityTracker = AbilityTrackerFor(pawn);
-        if (abilityTracker != null) {
-            foreach (var abilityDef in _managedAbilityDefs) {
-                abilityTracker.RemoveAbility(abilityDef);
-            }
+        foreach (var abilityDef in _managedAbilityDefs) {
+            abilityTracker.RemoveAbility(abilityDef);
         }
+
         _managedAbilityDefs.Clear();
     }
 
@@ -172,6 +173,8 @@ public class CompAbilityProvider : ThingComp {
     }
 
     private void SyncAbilities(Pawn holder, bool isPostLoad) {
+        if (_abilityPropsToManage.Count == 0 && _managedAbilityDefs.Count == 0) return;
+
         var abilityTracker = AbilityTrackerFor(holder);
 
         CaptureManagedAbilityStates(holder);
@@ -182,7 +185,7 @@ public class CompAbilityProvider : ThingComp {
 
         foreach (var managedAbilityDef in
                  _managedAbilityDefs.Where(def => !desiredAbilityDefs.Contains(def)).ToList()) {
-            abilityTracker?.RemoveAbility(managedAbilityDef);
+            abilityTracker.RemoveAbility(managedAbilityDef);
             _managedAbilityDefs.Remove(managedAbilityDef);
             RemoveStoredState(managedAbilityDef);
         }
@@ -192,11 +195,11 @@ public class CompAbilityProvider : ThingComp {
         }
     }
 
-    private void SyncAbility(Pawn holder, Pawn_AbilityTracker? abilityTracker,
+    private void SyncAbility(Pawn holder, Pawn_AbilityTracker abilityTracker,
         CompProperties_EquippableAbilityReloadable abilityProps, bool isPostLoad) {
         var abilityDef = abilityProps.abilityDef;
         var wasManaged = _managedAbilityDefs.Contains(abilityDef);
-        var ability = abilityTracker?.GetAbility(abilityDef);
+        var ability = abilityTracker.GetAbility(abilityDef);
 
         if (!wasManaged && ability != null) {
             if (isPostLoad && TryGetStoredState(abilityDef, out var storedState)) {
@@ -211,8 +214,6 @@ public class CompAbilityProvider : ThingComp {
                 "because the pawn already has the same AbilityDef from another source.");
             return;
         }
-
-        if (abilityTracker == null) return;
 
         var created = false;
         if (ability == null) {
@@ -272,11 +273,9 @@ public class CompAbilityProvider : ThingComp {
     }
 
     private void CaptureManagedAbilityStates(Pawn holder) {
+        if (_managedAbilityDefs.Count == 0) return;
+
         var abilityTracker = AbilityTrackerFor(holder);
-        if (abilityTracker == null) {
-            _managedAbilityDefs.Clear();
-            return;
-        }
 
         foreach (var abilityDef in _managedAbilityDefs.ToList()) {
             var ability = abilityTracker.GetAbility(abilityDef);
@@ -320,7 +319,7 @@ public class CompAbilityProvider : ThingComp {
         _abilityStates.RemoveAll(state => state.AbilityDef == abilityDef);
     }
 
-    private bool TryGetManagedAbility(AbilityDef abilityDef, out Ability? ability,
+    private bool TryGetManagedAbility(AbilityDef abilityDef, out Ability ability,
         out CompProperties_EquippableAbilityReloadable abilityProps) {
         ability = null!;
 
@@ -337,7 +336,7 @@ public class CompAbilityProvider : ThingComp {
             return false;
         }
 
-        ability = AbilityTrackerFor(holder)?.GetAbility(abilityDef);
+        ability = AbilityTrackerFor(holder).GetAbility(abilityDef);
         return ability != null;
     }
 }
