@@ -1,68 +1,42 @@
 using JetBrains.Annotations;
 using System.Reflection.Emit;
 using HarmonyLib;
-using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace CWF.HarmonyPatches;
 
-[HarmonyPatch(typeof(Verb), "get_TicksBetweenBurstShots")]
 // ReSharper disable once InconsistentNaming
+[HarmonyPatch(typeof(Verb), "get_TicksBetweenBurstShots")]
 public static class Transpiler_Verb_TicksBetweenBurstShots {
     [UsedImplicitly]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
         var codes = new List<CodeInstruction>(instructions);
+        var roundToInt = AccessTools.Method(typeof(Mathf), nameof(Mathf.RoundToInt), new[] { typeof(float) });
 
-        var loopStartIndex = codes.FindIndex(code => code.opcode == OpCodes.Stloc_0) + 1;
+        for (var i = 0; i < codes.Count - 2; i++) {
+            if (codes[i].opcode != OpCodes.Ldarg_0 ||
+                codes[i + 1].opcode != OpCodes.Ldloc_0 ||
+                !codes[i + 2].Calls(roundToInt)) continue;
 
-        var loopEndIndex = -1;
-        for (var i = loopStartIndex; i < codes.Count; i++) {
-            if (codes[i].opcode == OpCodes.Ldarg_0 &&
-                codes[i + 1].opcode == OpCodes.Ldloc_0 &&
-                codes[i + 2].opcode == OpCodes.Call &&
-                codes[i + 2].operand.ToString().Contains("RoundToInt")) {
-                loopEndIndex = i;
-                break;
-            }
-        }
-
-        if (loopStartIndex > 0 && loopEndIndex != -1) {
-            codes.RemoveRange(loopStartIndex, loopEndIndex - loopStartIndex);
-
-            var newInstructions = new List<CodeInstruction> {
+            codes.InsertRange(i, new List<CodeInstruction> {
                 new(OpCodes.Ldloc_0),
                 new(OpCodes.Ldarg_0),
-                CodeInstruction.Call(typeof(Transpiler_Verb_TicksBetweenBurstShots), nameof(ApplyAllMultipliers)),
+                CodeInstruction.Call(typeof(Transpiler_Verb_TicksBetweenBurstShots), nameof(ApplyDynamicMultipliers)),
                 new(OpCodes.Stloc_0)
-            };
-
-            codes.InsertRange(loopStartIndex, newInstructions);
-        } else {
-            Log.Error(
-                "[CWF] Transpiler for Verb.get_TicksBetweenBurstShots failed. The mod may not function correctly with this version of RimWorld.");
+            });
+            return codes;
         }
 
-        return codes.AsEnumerable();
+        Log.Error("[CWF] Verb.get_TicksBetweenBurstShots transpiler failed.");
+        return codes;
     }
 
-    private static float ApplyAllMultipliers(float originalTicks, Verb verb) {
-        var ticks = originalTicks;
+    private static float ApplyDynamicMultipliers(float original, Verb verb) {
         var equipment = verb.EquipmentSource;
+        if (equipment == null || !equipment.TryGetComp<CompDynamicTraits>(out var compDynamicTraits)) return original;
 
-        if (equipment == null) return ticks;
-
-        if (equipment.TryGetComp<CompUniqueWeapon>(out var compUniqueWeapon)) {
-            ticks = compUniqueWeapon.TraitsListForReading
-                .Where(trait => trait.burstShotSpeedMultiplier != 0)
-                .Aggregate(ticks, (current, trait) => current / trait.burstShotSpeedMultiplier);
-        }
-
-        if (equipment.TryGetComp<CompDynamicTraits>(out var compDynamicTraits)) {
-            ticks = compDynamicTraits.Traits
-                .Where(trait => trait.burstShotSpeedMultiplier != 0)
-                .Aggregate(ticks, (current, trait) => current / trait.burstShotSpeedMultiplier);
-        }
-
-        return ticks;
+        return compDynamicTraits.Traits.Where(trait => trait.burstShotSpeedMultiplier != 0)
+            .Aggregate(original, (current, trait) => current / trait.burstShotSpeedMultiplier);
     }
 }
