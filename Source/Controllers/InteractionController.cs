@@ -5,24 +5,14 @@ using CWF.Extensions;
 
 namespace CWF.Controllers;
 
-public class InteractionController(Thing weapon) {
+public class InteractionController(Thing weapon, ModificationSession session, Action onDataChanged) {
     private readonly AssemblyPresetManager? _presetManager = Current.Game?.GetComponent<AssemblyPresetManager>();
 
-    public event Action OnDataChanged = delegate { };
-
-    public ModificationSession Session { get; } = new(weapon);
-
-    public bool HasInstalledModules => Session.Traits.Any();
-
-    public bool HasApplicablePresets => _presetManager?.GetPresetsFor(weapon.def).Any() == true;
+    public bool HasInstalledModules => session.Traits.Any();
 
     public IEnumerable<AssemblyPresetData> GetApplicablePresets() {
         return _presetManager?.GetPresetsFor(weapon.def) ?? [];
     }
-
-    private string FailureReason => weapon.ParentHolder is Pawn_EquipmentTracker
-        ? "CWF_NoCompatibleModulesInInventory".Translate()
-        : "CWF_NoCompatibleModulesOnMap".Translate();
 
     /// <summary>
     /// Opens a float-menu for the clicked slot.  
@@ -71,7 +61,7 @@ public class InteractionController(Thing weapon) {
         }
 
         // from stack
-        var stagedCompatibleTraits = Session.GetReinstallableTraitsFor(part);
+        var stagedCompatibleTraits = session.GetReinstallableTraitsFor(part);
         foreach (var trait in stagedCompatibleTraits) {
             if (trait.TryGetModuleDef(out _)) {
                 installCandidates.Add(trait);
@@ -79,7 +69,9 @@ public class InteractionController(Thing weapon) {
         }
 
         if (!installCandidates.Any()) {
-            options.Add(new FloatMenuOption(FailureReason, null));
+            options.Add(new FloatMenuOption(weapon.ParentHolder is Pawn_EquipmentTracker
+                ? "CWF_NoCompatibleModulesInInventory".Translate()
+                : "CWF_NoCompatibleModulesOnMap".Translate(), null));
             return;
         }
 
@@ -118,23 +110,23 @@ public class InteractionController(Thing weapon) {
     }
 
     private void DoInstall(PartDef part, WeaponTraitDef traitToInstall) {
-        Session.InstallTrait(part, traitToInstall);
+        session.InstallTrait(part, traitToInstall);
 
         SoundDefOf.Tick_High.PlayOneShotOnCamera();
-        OnDataChanged();
+        onDataChanged();
     }
 
     private void DoUninstall(PartDef part) {
-        Session.UninstallTrait(part);
+        session.UninstallTrait(part);
         SoundDefOf.Tick_High.PlayOneShotOnCamera();
-        OnDataChanged();
+        onDataChanged();
     }
 
     public void ClearAllModules() {
-        Session.ClearTraits();
+        session.ClearTraits();
 
         SoundDefOf.Click.PlayOneShotOnCamera();
-        OnDataChanged();
+        onDataChanged();
     }
 
     public void SaveCurrentPreset(string name) {
@@ -149,7 +141,7 @@ public class InteractionController(Thing weapon) {
             return;
         }
 
-        _presetManager.SavePreset(weapon, normalizedName, Session.InstalledTraits);
+        _presetManager.SavePreset(weapon, normalizedName, session.InstalledTraits);
         Messages.Message(
             "CWF_PresetSaved".Translate(normalizedName.Named("NAME")),
             MessageTypeDefOf.PositiveEvent,
@@ -192,10 +184,10 @@ public class InteractionController(Thing weapon) {
 
         var analysis = PartAvailabilityAnalyzer.Analyze(weapon, desiredTraits);
         var nextTraits = new Dictionary<PartDef, WeaponTraitDef>(analysis.ActiveTraits);
-        Session.InstalledTraits = nextTraits;
+        session.InstalledTraits = nextTraits;
 
         SoundDefOf.Tick_High.PlayOneShotOnCamera();
-        OnDataChanged();
+        onDataChanged();
 
         var skippedCount = missingDefsCount + analysis.SkippedCount;
         var message = skippedCount > 0
@@ -238,7 +230,7 @@ public class InteractionController(Thing weapon) {
     }
 
     private ConflictAnalysisResult AnalyzeInstallConflict(PartDef partToInstall, WeaponTraitDef traitToInstall) {
-        var currentTraits = Session.InstalledTraits;
+        var currentTraits = session.InstalledTraits;
         currentTraits[partToInstall] = traitToInstall;
 
         var analysis = PartAvailabilityAnalyzer.Analyze(weapon, currentTraits);
@@ -246,7 +238,7 @@ public class InteractionController(Thing weapon) {
     }
 
     private ConflictAnalysisResult AnalyzeUninstallConflict(PartDef partToUninstall) {
-        var currentTraits = Session.InstalledTraits;
+        var currentTraits = session.InstalledTraits;
 
         if (!currentTraits.Remove(partToUninstall)) return new ConflictAnalysisResult();
 

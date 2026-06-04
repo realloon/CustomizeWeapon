@@ -9,8 +9,6 @@ public class WeaponWindow : Window {
     private readonly HeaderDrawer _headerDrawer;
     private readonly AsideDrawer _asideDrawer;
     private readonly MainDrawer _mainDrawer;
-    private readonly SpecDatabase _specDatabase;
-    private readonly InteractionController _interactionController;
     private readonly ModificationSession _session;
     private readonly JobDispatcher _jobDispatcher;
 
@@ -26,16 +24,15 @@ public class WeaponWindow : Window {
         forcePause = true;
 
         // Controllers
-        _interactionController = new InteractionController(weapon);
-        _session = _interactionController.Session;
-        _specDatabase = new SpecDatabase(_session);
-        _interactionController.OnDataChanged += _specDatabase.Recalculate;
+        _session = new ModificationSession(weapon);
+        var specDatabase = new SpecDatabase(_session);
+        var interactionController = new InteractionController(weapon, _session, specDatabase.Recalculate);
         _jobDispatcher = new JobDispatcher(weapon);
 
         // Drawers
-        _headerDrawer = new HeaderDrawer(weapon, _session, _interactionController);
-        _asideDrawer = new AsideDrawer(_specDatabase);
-        _mainDrawer = new MainDrawer(_session, _interactionController.HandleSlotClick);
+        _headerDrawer = new HeaderDrawer(weapon, _session, interactionController);
+        _asideDrawer = new AsideDrawer(specDatabase);
+        _mainDrawer = new MainDrawer(_session, interactionController.HandleSlotClick);
     }
 
     public override void DoWindowContents(Rect inRect) {
@@ -66,7 +63,6 @@ public class WeaponWindow : Window {
 
     public override void PostClose() {
         base.PostClose();
-        _interactionController.OnDataChanged -= _specDatabase.Recalculate;
         _jobDispatcher.Dispatch(_session.CalculateNetChanges());
         _session.DisposePreview();
     }
