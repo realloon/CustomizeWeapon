@@ -9,9 +9,7 @@ About/ModIcon.png
 
 # C#
 Source/obj/
-Source/bin/
-Source/*.DotSettings.user
-Source/.idea/.idea.CWF/.idea/.name
+**.user
 
 # dist
 Assemblies/
