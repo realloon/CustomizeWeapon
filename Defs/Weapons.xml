@@ -1553,7 +1553,6 @@
       <li>CWF_BeamRepeater</li>
     </weaponTags>
     <comps>
-      <li Class="CWF.CompProperties_AbilityProvider" />
       <li Class="CWF.CompProperties_DynamicTraits">
         <supportParts>
           <li>Stock</li>
