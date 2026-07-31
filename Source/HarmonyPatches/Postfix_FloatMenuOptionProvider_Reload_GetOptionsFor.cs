@@ -16,7 +16,7 @@ public static class Postfix_FloatMenuOptionProvider_Reload_GetOptionsFor {
         }
 
         var pawn = context.FirstSelectedPawn;
-        var abilityProvider = pawn.equipment?.Primary?.TryGetComp<CompAbilityProvider>();
+        var abilityProvider = pawn?.equipment?.Primary?.TryGetComp<CompAbilityProvider>();
         if (abilityProvider == null) {
             yield break;
         }
