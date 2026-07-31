@@ -400,8 +400,8 @@ public class CompDynamicTraits : ThingComp {
         if (verb == null) return;
 
         // === cached ===
-        AccessTools.Field(typeof(Verb), "cachedBurstShotCount").SetValue(verb, null);
-        AccessTools.Field(typeof(Verb), "cachedTicksBetweenBurstShots").SetValue(verb, null);
+        AccessTools.Field(typeof(Verb), "cachedBurstShotCount").SetValue(verb, -1);
+        AccessTools.Field(typeof(Verb), "cachedTicksBetweenBurstShots").SetValue(verb, -1);
     }
 
     #endregion
