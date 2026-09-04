@@ -24,6 +24,7 @@ public static class Postfix_Projectile_Launch {
             }
 
             if (!trait.extraDamages.NullOrEmpty()) {
+                __instance.extraDamages ??= [];
                 __instance.extraDamages.AddRange(trait.extraDamages);
             }
 
