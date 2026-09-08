@@ -15,10 +15,7 @@ public static class ModuleDatabase {
             if (thingDef.IsWeapon && !thingDef.weaponTags.NullOrEmpty() && thingDef.race == null &&
                 !thingDef.IsCorpse) {
                 foreach (var tag in thingDef.weaponTags) {
-                    if (!WeaponsByTag.ContainsKey(tag)) {
-                        WeaponsByTag[tag] = [];
-                    }
-
+                    WeaponsByTag.TryAdd(tag, []);
                     WeaponsByTag[tag].Add(thingDef);
                 }
             }
@@ -78,7 +75,7 @@ public static class ModuleDatabase {
             }
         }
 
-        return candidates.Where(weaponDef => moduleDef.IsCompatibleWith(weaponDef));
+        return candidates.Where(moduleDef.IsCompatibleWith);
     }
 
     #endregion

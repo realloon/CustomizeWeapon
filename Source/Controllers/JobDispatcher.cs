@@ -4,7 +4,7 @@ namespace CWF.Controllers;
 
 public class JobDispatcher(Thing weapon) {
     public void Dispatch(List<ModificationData> netChanges) {
-        if (!Enumerable.Any(netChanges)) return;
+        if (netChanges.Count == 0) return;
 
         var ownerPawn = weapon.ParentHolder switch {
             Pawn_EquipmentTracker equipment => equipment.pawn,
