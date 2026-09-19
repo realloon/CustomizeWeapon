@@ -6,6 +6,20 @@ public class ModificationSession {
     private readonly Thing _weapon;
     private Dictionary<PartDef, WeaponTraitDef> _desiredTraits;
 
+    private Dictionary<PartDef, WeaponTraitDef> InitialTraits { get; }
+    public Thing PreviewWeapon { get; }
+    public IReadOnlyCollection<PartDef> AvailableParts { get; private set; } = [];
+
+    public Dictionary<PartDef, WeaponTraitDef> InstalledTraits {
+        get => new(_desiredTraits);
+        set {
+            _desiredTraits = new Dictionary<PartDef, WeaponTraitDef>(value);
+            RefreshPreview();
+        }
+    }
+
+    public IReadOnlyCollection<WeaponTraitDef> Traits => _desiredTraits.Values;
+
     public ModificationSession(Thing weapon) {
         _weapon = weapon;
 
@@ -16,22 +30,6 @@ public class ModificationSession {
         _desiredTraits = new Dictionary<PartDef, WeaponTraitDef>(InitialTraits);
         PreviewWeapon = CreatePreviewWeapon();
         RefreshPreview();
-    }
-
-    private Dictionary<PartDef, WeaponTraitDef> InitialTraits { get; }
-
-    public Thing PreviewWeapon { get; }
-
-    public IReadOnlyCollection<WeaponTraitDef> Traits => _desiredTraits.Values;
-
-    public IReadOnlyCollection<PartDef> AvailableParts { get; private set; } = [];
-
-    public Dictionary<PartDef, WeaponTraitDef> InstalledTraits {
-        get => new(_desiredTraits);
-        set {
-            _desiredTraits = new Dictionary<PartDef, WeaponTraitDef>(value);
-            RefreshPreview();
-        }
     }
 
     public void InstallTrait(PartDef part, WeaponTraitDef traitDef) {
@@ -57,11 +55,9 @@ public class ModificationSession {
         return traitDef;
     }
 
-    public IEnumerable<WeaponTraitDef> GetReinstallableTraitsFor(PartDef part) {
-        return InitialTraits
-            .Where(pair => pair.Key == part && !_desiredTraits.Values.Contains(pair.Value))
-            .Select(pair => pair.Value);
-    }
+    public IEnumerable<WeaponTraitDef> GetReinstallableTraitsFor(PartDef part) => InitialTraits
+        .Where(pair => pair.Key == part && !_desiredTraits.Values.Contains(pair.Value))
+        .Select(pair => pair.Value);
 
     public List<ModificationData> CalculateNetChanges() {
         var changes = new List<ModificationData>();

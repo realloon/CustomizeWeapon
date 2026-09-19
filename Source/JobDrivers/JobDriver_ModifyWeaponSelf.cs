@@ -37,17 +37,13 @@ public class JobDriver_ModifyWeaponSelf : JobDriver {
         var modifyToil = Toils_General.Wait(60 * modDataList.Count);
         modifyToil.WithProgressBarToilDelay(TargetIndex.A);
 
-        modifyToil.AddEndCondition(() => {
-            return ModificationOperations.HasRequiredModules(pawn, modDataList)
-                ? JobCondition.Ongoing
-                : JobCondition.Incompletable;
-        });
+        modifyToil.AddEndCondition(() => ModificationOperations.HasRequiredModules(pawn, modDataList)
+            ? JobCondition.Ongoing
+            : JobCondition.Incompletable);
 
         // finished progress
         modifyToil.AddFinishAction(() => {
-            if (ended) return;
-
-            if (!Weapon.TryGetComp<CompDynamicTraits>(out var compDynamicTraits)) return;
+            if (ended || !Weapon.TryGetComp<CompDynamicTraits>(out var compDynamicTraits)) return;
 
             ModificationOperations.Apply(compDynamicTraits, pawn, modDataList, addUninstalledModulesToInventory: true);
             SoundDefOf.Replant_Complete.PlayOneShot(new TargetInfo(pawn.Position, pawn.Map));

@@ -13,11 +13,9 @@ public class JobDispatcher(Thing weapon) {
         };
 
         if (ownerPawn != null) {
-            // Equip
-            DispatchFieldModificationJobs(ownerPawn, netChanges);
+            DispatchFieldModificationJobs(ownerPawn, netChanges); // Equip
         } else {
-            // Ground
-            DispatchHaulModificationJob(netChanges);
+            DispatchHaulModificationJob(netChanges); // Ground
         }
     }
 
