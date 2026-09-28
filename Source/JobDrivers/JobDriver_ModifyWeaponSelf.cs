@@ -8,14 +8,14 @@ namespace CWF;
 [UsedImplicitly]
 public class JobDriver_ModifyWeaponSelf : JobDriver {
     private Thing Weapon => TargetA.Thing;
-    private List<ModificationData>? _modDataList;
+    private List<ModificationData> _modDataList = [];
 
     public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
 
     public override void Notify_Starting() {
         base.Notify_Starting();
 
-        _modDataList = (job.source as ModificationJobSource)?.ModDataList;
+        _modDataList = ((ModificationJobSource)job.source).ModDataList;
         job.source = null;
     }
 
@@ -25,12 +25,6 @@ public class JobDriver_ModifyWeaponSelf : JobDriver {
     }
 
     protected override IEnumerable<Toil> MakeNewToils() {
-        // safe check
-        if (_modDataList == null || _modDataList.Count == 0) {
-            Log.Error("[CWF] JobDriver_ModifyWeaponSelf started with empty ModDataList. Aborting.");
-            yield break; // end job
-        }
-
         var modDataList = _modDataList;
 
         // wait and show progress

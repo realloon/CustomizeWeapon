@@ -35,7 +35,7 @@ public class CompAbilityProvider : ThingComp {
     }
 
     public void SetOrUpdateAbilities(List<CompProperties_EquippableAbilityReloadable> newPropsList, bool isPostLoad) {
-        _abilityPropsToManage = SanitizeAbilityProps(newPropsList);
+        _abilityPropsToManage = newPropsList;
         PruneStoredStates();
 
         var holder = CurrentHolder;
@@ -76,7 +76,6 @@ public class CompAbilityProvider : ThingComp {
         Scribe_Collections.Look(ref _abilityStates, "abilityStates", LookMode.Deep);
 
         if (Scribe.mode == LoadSaveMode.PostLoadInit) {
-            _abilityStates ??= [];
             _managedAbilityDefs.Clear();
         }
     }
@@ -134,42 +133,6 @@ public class CompAbilityProvider : ThingComp {
         StoreState(new AbilityState(ability));
     }
 
-    private List<CompProperties_EquippableAbilityReloadable> SanitizeAbilityProps(
-        IEnumerable<CompProperties_EquippableAbilityReloadable> propsList) {
-        var sanitized = new List<CompProperties_EquippableAbilityReloadable>();
-        var seenAbilityDefs = new HashSet<AbilityDef>();
-
-        foreach (var abilityProps in propsList) {
-            if (abilityProps.abilityDef == null) {
-                Log.Error($"[CWF] {parent.def.defName} has an ability provider entry without an AbilityDef.");
-                continue;
-            }
-
-            if (!seenAbilityDefs.Add(abilityProps.abilityDef)) {
-                Log.Error(
-                    $"[CWF] {parent.def.defName} tries to manage ability '{abilityProps.abilityDef.defName}' more than once.");
-                continue;
-            }
-
-            if (abilityProps.ammoCountToRefill != 0) {
-                Log.Error(
-                    $"[CWF] {parent.def.defName} uses unsupported ammoCountToRefill on '{abilityProps.abilityDef.defName}'. " +
-                    "CompAbilityProvider only supports ammoCountPerCharge.");
-                continue;
-            }
-
-            if (abilityProps.replenishAfterCooldown) {
-                Log.Error(
-                    $"[CWF] {parent.def.defName} uses unsupported replenishAfterCooldown on '{abilityProps.abilityDef.defName}'.");
-                continue;
-            }
-
-            sanitized.Add(abilityProps);
-        }
-
-        return sanitized;
-    }
-
     private void SyncAbilities(Pawn holder, bool isPostLoad) {
         if (_abilityPropsToManage.Count == 0 && _managedAbilityDefs.Count == 0) return;
 
@@ -216,15 +179,7 @@ public class CompAbilityProvider : ThingComp {
         var created = false;
         if (ability == null) {
             abilityTracker.GainAbility(abilityDef);
-            ability = abilityTracker.GetAbility(abilityDef);
-            if (ability == null) {
-                Log.Error(wasManaged
-                    ? $"[CWF] Failed to recreate managed ability '{abilityDef.defName}' for {holder.LabelShortCap}."
-                    : $"[CWF] Failed to add ability '{abilityDef.defName}' for {holder.LabelShortCap}.");
-                _managedAbilityDefs.Remove(abilityDef);
-                return;
-            }
-
+            ability = abilityTracker.GetAbility(abilityDef)!;
             created = true;
         }
 
@@ -291,7 +246,7 @@ public class CompAbilityProvider : ThingComp {
             .Select(abilityProps => abilityProps.abilityDef)
             .ToHashSet();
 
-        _abilityStates.RemoveAll(state => state.AbilityDef == null || !desiredAbilityDefs.Contains(state.AbilityDef));
+        _abilityStates.RemoveAll(state => !desiredAbilityDefs.Contains(state.AbilityDef));
     }
 
     private bool TryGetStoredState(AbilityDef abilityDef, out AbilityState storedState) {
@@ -306,10 +261,7 @@ public class CompAbilityProvider : ThingComp {
     }
 
     private void StoreState(AbilityState newState) {
-        var abilityDef = newState.AbilityDef ?? throw new InvalidOperationException(
-            "[CWF] Cannot store ability state without AbilityDef.");
-
-        RemoveStoredState(abilityDef);
+        RemoveStoredState(newState.AbilityDef);
         _abilityStates.Add(newState);
     }
 
@@ -430,7 +382,7 @@ public sealed class ReloadableAbility(CompAbilityProvider provider, AbilityDef a
 }
 
 public class AbilityState : IExposable {
-    public AbilityDef? AbilityDef;
+    public AbilityDef AbilityDef = null!;
     public int RemainingCharges;
     public int CooldownTicksRemaining;
     public int CooldownTicksTotal;

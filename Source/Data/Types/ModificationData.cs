@@ -23,8 +23,7 @@ internal static class ModificationOperations {
     internal static bool HasRequiredModules(Pawn pawn, List<ModificationData> modifications) {
         return modifications
             .Where(modification => modification.Type == ModificationType.Install)
-            .All(modification => pawn.inventory.innerContainer
-                .Any(thing => thing.def == modification.ModuleDef));
+            .All(modification => pawn.inventory.innerContainer.Any(thing => thing.def == modification.ModuleDef));
     }
 
     internal static void Apply(CompDynamicTraits comp, Pawn pawn, List<ModificationData> modifications,
@@ -41,14 +40,8 @@ internal static class ModificationOperations {
         foreach (var modification in
                  modifications.Where(modification => modification.Type == ModificationType.Install)) {
             var module = pawn.inventory.innerContainer.FirstOrDefault(thing => thing.def == modification.ModuleDef);
-            if (module == null) {
-                Log.Error(
-                    $"[CWF] '{modification.ModuleDef.defName}' missing in FinishAction despite passing EndCondition.");
-                continue;
-            }
-
             comp.InstallTrait(modification.Part, modification.Trait);
-            module.SplitOff(1).Destroy();
+            module!.SplitOff(1).Destroy();
         }
     }
 }

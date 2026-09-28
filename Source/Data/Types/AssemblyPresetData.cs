@@ -10,11 +10,9 @@ public class AssemblyPresetData : IExposable {
     public void ExposeData() {
         var name = Name;
         Scribe_Values.Look(ref name, "name");
-        Name = name ?? string.Empty;
+        Name = name!;
         Scribe_Defs.Look(ref WeaponDef, "weaponDef");
         Scribe_Collections.Look(ref Entries, "entries", LookMode.Deep);
-
-        Entries ??= [];
     }
 }
 

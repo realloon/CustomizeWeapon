@@ -5,16 +5,6 @@ using UnityEngine;
 namespace CWF.Extensions;
 
 internal static class Extensions {
-    [Obsolete("Please use NullOrEmpty instead of this method.")]
-    internal static bool IsNullOrEmpty([NotNullWhen(false)] this string? str) {
-        return string.IsNullOrEmpty(str);
-    }
-
-    [Obsolete("Please use NullOrEmpty instead of this method.")]
-    internal static bool IsNullOrEmpty<T>([NotNullWhen(false)] this IReadOnlyCollection<T>? collection) {
-        return collection == null || collection.Count == 0;
-    }
-
     extension(ThingDef moduleDef) {
         internal bool IsCompatibleWith(ThingDef weaponDef) {
             var ext = moduleDef.GetModExtension<TraitModuleExtension>();

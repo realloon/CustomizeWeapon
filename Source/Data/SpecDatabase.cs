@@ -43,20 +43,18 @@ public class SpecDatabase {
         AccuracyLong = new Spec(weaponDef.GetStatValueAbstract(StatDefOf.AccuracyLong));
 
         // === Verb ===
-        var weaponDefVerb = weaponDef.Verbs.FirstOrFallback();
-        if (weaponDefVerb != null) {
-            Range = new Spec(weaponDefVerb.range);
-            WarmupTime = new Spec(weaponDefVerb.warmupTime, true);
-            BurstShotCount = new Spec(weaponDefVerb.burstShotCount);
-            _ticksBetweenBurstShots = new Spec(weaponDefVerb.ticksBetweenBurstShots);
+        var weaponDefVerb = weaponDef.Verbs.First();
+        Range = new Spec(weaponDefVerb.range);
+        WarmupTime = new Spec(weaponDefVerb.warmupTime, true);
+        BurstShotCount = new Spec(weaponDefVerb.burstShotCount);
+        _ticksBetweenBurstShots = new Spec(weaponDefVerb.ticksBetweenBurstShots);
 
-            // === Projectile ===
-            var weaponDefProjectile = weaponDefVerb.defaultProjectile?.projectile;
-            if (weaponDefProjectile != null) {
-                Damage = new Spec(weaponDefProjectile.GetDamageAmount(weaponDef, _previewWeapon.Stuff));
-                ArmorPenetration = new Spec(weaponDefProjectile.GetArmorPenetration());
-                StoppingPower = new Spec(weaponDefProjectile.stoppingPower);
-            }
+        // === Projectile ===
+        var weaponDefProjectile = weaponDefVerb.defaultProjectile?.projectile;
+        if (weaponDefProjectile != null) {
+            Damage = new Spec(weaponDefProjectile.GetDamageAmount(weaponDef, _previewWeapon.Stuff));
+            ArmorPenetration = new Spec(weaponDefProjectile.GetArmorPenetration());
+            StoppingPower = new Spec(weaponDefProjectile.stoppingPower);
         }
 
         Dps = new Spec(CalculateDps(Mode.Raw));
@@ -84,7 +82,7 @@ public class SpecDatabase {
         _ticksBetweenBurstShots.Dynamic = weaponVerb?.TicksBetweenBurstShots ?? -1; // harmony patched
 
         // === Projectile ===
-        var weaponDefProjectile = _previewWeapon.def.Verbs.FirstOrFallback()?.defaultProjectile?.projectile;
+        var weaponDefProjectile = _previewWeapon.def.Verbs.First().defaultProjectile?.projectile;
         if (weaponDefProjectile != null) {
             Damage.Dynamic = weaponDefProjectile.GetDamageAmount(_previewWeapon);
             ArmorPenetration.Dynamic = weaponDefProjectile.GetArmorPenetration(_previewWeapon);
@@ -111,8 +109,7 @@ public class SpecDatabase {
     }
 
     private float GetComputedStoppingPower() {
-        var basePower = _previewWeapon.def.Verbs
-            .FirstOrFallback()?.defaultProjectile?.projectile.stoppingPower ?? 0.5f;
+        var basePower = _previewWeapon.def.Verbs.First().defaultProjectile?.projectile.stoppingPower ?? 0.5f;
 
         // CompUniqueWeapon
         if (_previewWeapon.TryGetComp<CompUniqueWeapon>(out var compUniqueWeapon)) {

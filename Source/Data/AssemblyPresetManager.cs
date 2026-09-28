@@ -41,6 +41,5 @@ public class AssemblyPresetManager : GameComponent {
 
     public override void ExposeData() {
         Scribe_Collections.Look(ref _presets, "assemblyPresets", LookMode.Deep);
-        _presets ??= [];
     }
 }

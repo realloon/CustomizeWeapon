@@ -72,8 +72,6 @@ public class JobDispatcher(Thing weapon) {
     }
 
     private Thing? FindBestAvailableModuleFor(ModificationData change, Pawn pawn) {
-        if (change.Type != ModificationType.Install) return null;
-
         return GenClosest.ClosestThingReachable(
             weapon.Position,
             weapon.Map,

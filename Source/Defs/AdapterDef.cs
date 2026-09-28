@@ -54,13 +54,7 @@ public class AdapterDef : Def {
         ModuleOverridesByWeapon.Clear();
 
         foreach (var adapter in allAdapters) {
-            var weaponDef = DefDatabase<ThingDef>.GetNamed(adapter.defName, false);
-
-            if (weaponDef == null) {
-                Log.Warning($"[CWF] AdapterDef '{adapter.defName}' could not find a matching ThingDef to adapt.");
-                continue;
-            }
-
+            var weaponDef = DefDatabase<ThingDef>.GetNamed(adapter.defName);
             AdaptWeapon(weaponDef, adapter);
         }
     }

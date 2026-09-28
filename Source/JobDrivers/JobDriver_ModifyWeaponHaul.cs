@@ -12,7 +12,7 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
     private const int TicksPerModification = 60;
 
     private Thing Weapon => job.GetTarget(WeaponInd).Thing;
-    private List<ModificationData>? _modDataList;
+    private List<ModificationData> _modDataList = [];
 
     public override bool TryMakePreToilReservations(bool errorOnFailed) {
         // reserve weapon
@@ -40,7 +40,7 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
     public override void Notify_Starting() {
         base.Notify_Starting();
 
-        _modDataList = (job.source as ModificationJobSource)?.ModDataList;
+        _modDataList = ((ModificationJobSource)job.source).ModDataList;
         job.source = null;
     }
 
@@ -68,22 +68,18 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
         yield return Toils_Goto.GotoThing(WeaponInd, PathEndMode.Touch);
 
         var finalToil =
-            Toils_General.WaitWith(WeaponInd, TicksPerModification * (_modDataList?.Count ?? 1), true, true);
+            Toils_General.WaitWith(WeaponInd, TicksPerModification * _modDataList.Count, true, true);
         finalToil.FailOnCannotTouch(WeaponInd, PathEndMode.Touch);
 
-        finalToil.AddEndCondition(() => {
-            if (_modDataList.NullOrEmpty()) return JobCondition.Ongoing;
-
-            return ModificationOperations.HasRequiredModules(pawn, _modDataList!)
-                ? JobCondition.Ongoing
-                : JobCondition.Incompletable;
-        });
+        finalToil.AddEndCondition(() => ModificationOperations.HasRequiredModules(pawn, _modDataList)
+            ? JobCondition.Ongoing
+            : JobCondition.Incompletable);
 
         finalToil.AddFinishAction(() => {
             if (ended) return;
 
             var comp = Weapon.TryGetComp<CompDynamicTraits>();
-            if (comp == null || _modDataList == null) return;
+            if (comp == null) return;
 
             ModificationOperations.Apply(comp, pawn, _modDataList, addUninstalledModulesToInventory: false);
 
