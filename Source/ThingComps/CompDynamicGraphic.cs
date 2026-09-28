@@ -68,11 +68,9 @@ public class CompDynamicGraphic : ThingComp {
     public ModuleGraphicData? GetGraphicDataFor(WeaponTraitDef traitDef) {
         if (!traitDef.TryGetModuleDef(out var moduleDef)) return null;
 
-        if (AdapterDef.TryGetModuleGraphicOverride(parent.def, moduleDef, out var adapterGraphicData)) {
-            return adapterGraphicData;
-        }
-
-        return null;
+        return AdapterDef.TryGetModuleGraphicOverride(parent.def, moduleDef, out var adapterGraphicData)
+            ? adapterGraphicData
+            : null;
     }
 
     // === Helper ===

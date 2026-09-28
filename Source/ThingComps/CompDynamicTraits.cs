@@ -12,6 +12,10 @@ public class CompDynamicTraits : ThingComp {
 
     private HashSet<PartDef> _availableParts = [];
 
+    private DamageDef? _projectileDamageOverride;
+    private float _projectileStoppingPowerOffset;
+    private readonly List<ExtraDamage> _projectileExtraDamages = [];
+
     /// <summary>
     /// Gets a copy of the dictionary containing all currently installed Traits,
     /// or sets a new dictionary of Traits, completely overwriting the old one.
@@ -27,6 +31,15 @@ public class CompDynamicTraits : ThingComp {
     public IReadOnlyCollection<WeaponTraitDef> Traits => _installedTraits.Values;
 
     public IReadOnlyCollection<PartDef> AvailableParts => _availableParts;
+
+    internal void ApplyProjectileEffects(Projectile projectile) {
+        if (_projectileDamageOverride != null) {
+            projectile.damageDefOverride = _projectileDamageOverride;
+        }
+
+        projectile.extraDamages.AddRange(_projectileExtraDamages);
+        projectile.stoppingPower += _projectileStoppingPowerOffset;
+    }
 
     public void InstallTrait(PartDef part, WeaponTraitDef traitDef) {
         if (!_installedTraits.TryAdd(part, traitDef)) {
@@ -191,6 +204,7 @@ public class CompDynamicTraits : ThingComp {
         base.PostPostMake();
 
         InitializeTraits();
+        RebuildProjectileEffects();
         RecalculateAvailableParts();
         SetupAbility(false);
     }
@@ -204,6 +218,7 @@ public class CompDynamicTraits : ThingComp {
 
         if (Scribe.mode is not LoadSaveMode.PostLoadInit) return;
 
+        RebuildProjectileEffects();
         RecalculateAvailableParts();
         SetupAbility(true);
     }
@@ -333,6 +348,7 @@ public class CompDynamicTraits : ThingComp {
     }
 
     private void OnTraitsChanged() {
+        RebuildProjectileEffects();
         RecalculateAvailableParts();
         SetupAbility(false);
         ClearAllCaches();
@@ -354,9 +370,28 @@ public class CompDynamicTraits : ThingComp {
         #endregion
     }
 
+    private void RebuildProjectileEffects() {
+        _projectileDamageOverride = null;
+        _projectileStoppingPowerOffset = 0f;
+        _projectileExtraDamages.Clear();
+
+        foreach (var trait in _installedTraits.Values) {
+            if (trait.damageDefOverride != null) {
+                _projectileDamageOverride = trait.damageDefOverride;
+            }
+
+            if (!trait.extraDamages.NullOrEmpty()) {
+                _projectileExtraDamages.AddRange(trait.extraDamages);
+            }
+
+            if (!Mathf.Approximately(trait.additionalStoppingPower, 0f)) {
+                _projectileStoppingPowerOffset += trait.additionalStoppingPower;
+            }
+        }
+    }
+
     private void RecalculateAvailableParts() {
-        _availableParts =
-            new HashSet<PartDef>(PartAvailabilityAnalyzer.Analyze(parent, _installedTraits).AvailableParts);
+        _availableParts = [.. PartAvailabilityAnalyzer.Analyze(parent, _installedTraits).AvailableParts];
     }
 
     private void SetupAbility(bool isPostLoad) {
