@@ -218,6 +218,24 @@ public class CompDynamicTraits : ThingComp {
 
         if (Scribe.mode is not LoadSaveMode.PostLoadInit) return;
 
+        #region AutoFixMissing
+
+        _installedTraits ??= new Dictionary<PartDef, WeaponTraitDef>();
+
+        var partsWithMissingTraits = _installedTraits
+            .Where(pair => pair.Value == null)
+            .Select(pair => pair.Key)
+            .ToArray();
+
+        if (partsWithMissingTraits.Any()) {
+            _installedTraits.RemoveRange(partsWithMissingTraits);
+
+            Log.Warning($"[CWF] Removed {partsWithMissingTraits.Length} missing traits from '{parent.LabelCap}'. " +
+                        $"This is a safe, one-time operation.");
+        }
+
+        #endregion
+
         RebuildProjectileEffects();
         RecalculateAvailableParts();
         SetupAbility(true);
