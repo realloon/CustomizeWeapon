@@ -13,3 +13,4 @@ Source/obj/
 
 # dist
 Assemblies/
+!1.6/Assemblies/
