@@ -15,7 +15,7 @@ public static class Postfix_Thing_UIIconOverride {
         if (!Settings.Current.DynamicTexturesEnabled) return;
 
         if (__instance.TryGetComp<CompDynamicGraphic>(out var compDynamicGraphic)) {
-            __result = compDynamicGraphic.GetUIIconTexture();
+            __result = compDynamicGraphic.GetUiIconTexture();
         }
     }
 }
