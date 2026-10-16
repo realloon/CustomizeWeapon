@@ -43,7 +43,7 @@ public static class PartAvailabilityAnalyzer {
 
             foreach (var (part, _) in activeTraits) {
                 var moduleDef = moduleCache[part];
-                var modifiers = moduleDef.GetModExtension<TraitModuleExtension>().conditionalPartModifiers;
+                var modifiers = moduleDef.TraitModule().conditionalPartModifiers;
 
                 if (modifiers == null) continue;
 

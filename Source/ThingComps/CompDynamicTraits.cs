@@ -88,7 +88,7 @@ public class CompDynamicTraits : ThingComp {
             availableEmptyParts.Remove(randomPart);
 
             var compatibleModules = ModuleDatabase.AllModuleDefs
-                .Where(moduleDef => moduleDef.GetModExtension<TraitModuleExtension>().part == randomPart)
+                .Where(moduleDef => moduleDef.TraitModule().part == randomPart)
                 .Where(moduleDef => moduleDef.IsCompatibleWith(parent.def))
                 .ToList();
 
@@ -102,7 +102,7 @@ public class CompDynamicTraits : ThingComp {
                 continue;
             }
 
-            var traitToInstall = moduleToInstall.GetModExtension<TraitModuleExtension>().weaponTraitDef;
+            var traitToInstall = moduleToInstall.TraitModule().weaponTraitDef;
 
             InstallTrait(randomPart, traitToInstall);
         }

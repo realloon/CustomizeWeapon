@@ -53,7 +53,7 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
             );
 
             foreach (var module in availableModules) {
-                var trait = module.def.GetModExtension<TraitModuleExtension>().weaponTraitDef; // todo: fixme
+                var trait = module.def.TraitModule().weaponTraitDef;
                 installCandidates.Add(trait);
             }
         }
@@ -278,7 +278,7 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
 
     private IEnumerable<ThingDef> GetCompatibleModuleDefsFor(PartDef part) {
         return ModuleDatabase.AllModuleDefs
-            .Where(moduleDef => moduleDef.GetModExtension<TraitModuleExtension>().part == part)
+            .Where(moduleDef => moduleDef.TraitModule().part == part)
             .Where(moduleDef => moduleDef.IsCompatibleWith(weapon.def));
     }
 

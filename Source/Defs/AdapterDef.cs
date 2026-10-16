@@ -37,7 +37,7 @@ public class AdapterDef : Def {
                     $"moduleGraphicOverrides for '{moduleGraphicOverride.moduleDef.defName}' has null graphicData";
             }
 
-            if (moduleGraphicOverride.moduleDef.GetModExtension<TraitModuleExtension>() == null) {
+            if (moduleGraphicOverride.moduleDef.GetModExtension<TraitModuleExtension>() is null) {
                 yield return
                     $"moduleGraphicOverrides references '{moduleGraphicOverride.moduleDef.defName}', but it is not a CWF module";
             }

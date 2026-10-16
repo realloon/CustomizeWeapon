@@ -31,7 +31,7 @@ public class ModuleBrowserWindow : Window {
             .ToArray();
 
         foreach (var moduleDef in compatibleModules) {
-            var part = moduleDef.GetModExtension<TraitModuleExtension>().part;
+            var part = moduleDef.TraitModule().part;
 
             if (!_groupedModules.ContainsKey(part)) {
                 _groupedModules[part] = [];
@@ -156,7 +156,7 @@ public class ModuleBrowserWindow : Window {
                 actionButtonRect.x - rowRect.x - padding, rowRect.height);
 
             var sb = new StringBuilder();
-            var traitDef = moduleDef.GetModExtension<TraitModuleExtension>().weaponTraitDef;
+            var traitDef = moduleDef.TraitModule().weaponTraitDef;
             sb.AppendLine(moduleDef.description);
             sb.AppendInNewLine(traitDef.GetTraitEffect());
 

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using CWF.Extensions;
 
 namespace CWF;
@@ -55,7 +56,7 @@ public static class ModuleDatabase {
     }
 
 
-    internal static bool TryGetPart(WeaponTraitDef traitDef, out PartDef part) {
+    internal static bool TryGetPart(WeaponTraitDef traitDef, [NotNullWhen(true)] out PartDef? part) {
         return TraitToPart.TryGetValue(traitDef, out part);
     }
 
@@ -66,7 +67,7 @@ public static class ModuleDatabase {
     #region Helpers
 
     private static IEnumerable<ThingDef> GetCompatibleWeaponDefsFor(ThingDef moduleDef) {
-        var ext = moduleDef.GetModExtension<TraitModuleExtension>();
+        var ext = moduleDef.TraitModule();
         var candidates = new HashSet<ThingDef>(ext.requiredWeaponDefs ?? []);
 
         foreach (var tag in ext.requiredWeaponTags ?? []) {

@@ -7,8 +7,9 @@ namespace CWF.Extensions;
 internal static class Extensions {
     extension(ThingDef moduleDef) {
         internal bool IsCompatibleWith(ThingDef weaponDef) {
-            var ext = moduleDef.GetModExtension<TraitModuleExtension>();
-            if (ext == null) return false;
+            if (moduleDef.GetModExtension<TraitModuleExtension>() is not { } ext) {
+                return false;
+            }
 
             if (ext.excludeWeaponDefs != null && ext.excludeWeaponDefs.Contains(weaponDef)) {
                 return false;
@@ -40,15 +41,12 @@ internal static class Extensions {
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        private Rarity GetRarity() {
-            var ext = moduleDef.GetModExtension<TraitModuleExtension>();
-            if (ext == null) {
-                throw new InvalidOperationException(
-                    $"[CWF] Module '{moduleDef.defName}' is missing {nameof(TraitModuleExtension)}.");
-            }
+        private Rarity GetRarity() => moduleDef.GetModExtension<TraitModuleExtension>() is { } ext
+            ? ext.rarity
+            : throw new InvalidOperationException(
+                $"[CWF] Module '{moduleDef.defName}' is missing {nameof(TraitModuleExtension)}.");
 
-            return ext.rarity;
-        }
+        internal TraitModuleExtension TraitModule() => moduleDef.GetModExtension<TraitModuleExtension>()!;
     }
 
     extension(WeaponTraitDef traitDef) {
@@ -100,7 +98,8 @@ internal static class Extensions {
             return sb.ToString();
         }
 
-        internal bool TryGetPart(out PartDef part) => ModuleDatabase.TryGetPart(traitDef, out part);
+        internal bool TryGetPart([NotNullWhen(true)] out PartDef? part) =>
+            ModuleDatabase.TryGetPart(traitDef, out part);
 
         internal bool TryGetModuleDef([NotNullWhen(true)] out ThingDef? moduleDef) {
             return ModuleDatabase.TryGetModuleDef(traitDef, out moduleDef);

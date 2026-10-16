@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
@@ -249,15 +250,9 @@ public class CompAbilityProvider : ThingComp {
         _abilityStates.RemoveAll(state => !desiredAbilityDefs.Contains(state.AbilityDef));
     }
 
-    private bool TryGetStoredState(AbilityDef abilityDef, out AbilityState storedState) {
-        var matchedState = _abilityStates.FirstOrDefault(state => state.AbilityDef == abilityDef);
-        if (matchedState == null) {
-            storedState = null!;
-            return false;
-        }
-
-        storedState = matchedState;
-        return true;
+    private bool TryGetStoredState(AbilityDef abilityDef, [NotNullWhen(true)] out AbilityState? storedState) {
+        storedState = _abilityStates.FirstOrDefault(state => state.AbilityDef == abilityDef);
+        return storedState != null;
     }
 
     private void StoreState(AbilityState newState) {
