@@ -41,7 +41,7 @@
             <part>Sight</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Sight</texturePath>
-              <offset>(77, 175)</offset>
+              <offset>(83, 177)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
@@ -49,7 +49,7 @@
             <part>Barrel</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Barrel</texturePath>
-              <offset>(257, 146)</offset>
+              <offset>(255, 146)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
@@ -57,7 +57,7 @@
             <part>Grip</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Grip</texturePath>
-              <offset>(31, 76)</offset>
+              <offset>(32, 79)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
@@ -65,7 +65,7 @@
             <part>Magazine</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Magazine</texturePath>
-              <offset>(119, 66)</offset>
+              <offset>(115, 70)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
@@ -73,14 +73,14 @@
             <part>Stock</part>
             <baseTexture>
               <texturePath>CustomizeWeapon/Weapons/AssaultRifle/Stock</texturePath>
-              <offset>(-35, 129)</offset>
+              <offset>(-33, 130)</offset>
             </baseTexture>
             <layer>20</layer>
           </li>
           <li>
             <part>Underbarrel</part>
             <baseTexture>
-              <offset>(206, 90)</offset>
+              <offset>(206, 87)</offset>
             </baseTexture>
             <layer>2</layer>
           </li>
@@ -92,6 +92,7 @@
         <moduleDef>CWF_Module_Holoscope</moduleDef>
         <graphicData>
           <texturePath>CustomizeWeapon/Modules/Sight/Holoscope/Holoscope</texturePath>
+          <offset>(77, 171)</offset>
         </graphicData>
       </li>
       <li>

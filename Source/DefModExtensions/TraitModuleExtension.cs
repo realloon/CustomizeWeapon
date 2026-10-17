@@ -30,6 +30,9 @@ public class TraitModuleExtension : DefModExtension {
     [UsedImplicitly]
     public Rarity rarity = Rarity.Standard;
 
+    [UsedImplicitly]
+    public bool disableDyeing;
+
     public override IEnumerable<string> ConfigErrors() {
         if (weaponTraitDef.defName == Def.DefaultDefName) {
             yield return "Required field 'weaponTraitDef' is missing in XML.";

@@ -5,13 +5,22 @@ namespace CWF;
 
 public class CompDynamicGraphic : ThingComp {
     private const float BakeCameraHeight = 10f;
+    private const byte DyeMinChannel = 200;
+    private const int OutlineWidth = 8;
+
+    private static Camera? _bakeCamera;
+    private static IReadOnlyList<Quad> _quads = [];
+    private static readonly Dictionary<(Texture2D, Color), Material> Materials = [];
+    private static readonly Dictionary<Texture2D, Texture2D?> DyeMasks = [];
+    private static readonly Dictionary<Texture2D, Texture2D?> ModuleOutlines = [];
+
     private Graphic? _cachedGraphic;
     private Texture2D? _cachedBakedTexture;
-    private RenderTexture? _bakeTarget;
     private bool _isDirty = true;
+    private RenderTexture? _bakeTarget;
     private CompDynamicTraits? _compDynamicTraits;
 
-    private CompProperties_DynamicGraphic Props => (CompProperties_DynamicGraphic)props;
+    private readonly record struct Quad(Texture2D Texture, Color Tint, int X, int Y, int Width, int Height);
 
     private readonly record struct TextureLayer(Texture2D Texture, Placement Placement, int SortOrder, Color Tint);
 
@@ -21,9 +30,7 @@ public class CompDynamicGraphic : ThingComp {
         internal float BottomUpShiftY(int fallbackHeight) => Height - fallbackHeight - ShiftY;
     }
 
-    private static Camera? _bakeCamera;
-    private static IReadOnlyList<Quad> _quads = [];
-    private static readonly Dictionary<(Texture, Color), Material> Materials = [];
+    private CompProperties_DynamicGraphic Props => (CompProperties_DynamicGraphic)props;
 
     public override void Initialize(CompProperties properties) {
         base.Initialize(properties);
@@ -31,7 +38,9 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     public Graphic GetDynamicGraphic() {
-        if (!_isDirty && _cachedGraphic != null) return _cachedGraphic;
+        if (!_isDirty && _cachedGraphic != null) {
+            return _cachedGraphic;
+        }
 
         _cachedGraphic = GenerateGraphic();
         _isDirty = false;
@@ -79,14 +88,27 @@ public class CompDynamicGraphic : ThingComp {
     /// Finds a weapon-specific graphic override for a given module trait.
     /// </summary>
     public ModuleGraphicData? GetGraphicDataFor(WeaponTraitDef traitDef) {
-        if (!traitDef.TryGetModuleDef(out var moduleDef)) return null;
+        if (!traitDef.TryGetModuleDef(out var moduleDef)) {
+            return null;
+        }
 
         return AdapterDef.TryGetModuleGraphicOverride(parent.def, moduleDef, out var adapterGraphicData)
             ? adapterGraphicData
             : null;
     }
 
-    // === Helper ===
+    public static Texture2D? GetModuleOutline(Texture2D source) {
+        if (ModuleOutlines.TryGetValue(source, out var cached)) {
+            return cached;
+        }
+
+        var outline = BuildModuleOutline(source);
+        ModuleOutlines[source] = outline;
+        return outline;
+    }
+
+    #region MyRegion
+
     private Graphic GenerateGraphic() {
         var originalGraphicData = parent.def.graphicData;
         if (originalGraphicData == null) {
@@ -96,8 +118,7 @@ public class CompDynamicGraphic : ThingComp {
         var sizeReference = ContentFinder<Texture2D>.Get(originalGraphicData.texPath, false);
         var fallbackWidth = sizeReference?.width ?? _cachedBakedTexture?.width ?? 512;
         var fallbackHeight = sizeReference?.height ?? _cachedBakedTexture?.height ?? 512;
-
-        var layersToDraw = CollectLayers(originalGraphicData);
+        var layersToDraw = CollectLayers();
         layersToDraw.Sort((left, right) => left.SortOrder.CompareTo(right.SortOrder));
 
         var canvas = MeasureCanvas(layersToDraw, fallbackWidth, fallbackHeight);
@@ -107,6 +128,7 @@ public class CompDynamicGraphic : ThingComp {
 
         var finalBakedTexture = EnsureBakedTexture(canvas.Width, canvas.Height);
         ReadBackInto(bakeTarget, finalBakedTexture);
+        ApplyCompositeOutline(finalBakedTexture);
 
         var drawSizeScaleX = (float)canvas.Width / fallbackWidth;
         var drawSizeScaleY = (float)canvas.Height / fallbackHeight;
@@ -136,16 +158,21 @@ public class CompDynamicGraphic : ThingComp {
         );
 
         graphicSingle.Init(request);
-        _cachedGraphic = WrapGraphicIfNeeded(graphicSingle, adjustedGraphicData);
+
+        _cachedGraphic = adjustedGraphicData.onGroundRandomRotateAngle > 0.01f
+            ? new Graphic_RandomRotated(graphicSingle, adjustedGraphicData.onGroundRandomRotateAngle)
+            : graphicSingle;
 
         return _cachedGraphic;
     }
 
-    private List<TextureLayer> CollectLayers(GraphicData originalGraphicData) {
+    private List<TextureLayer> CollectLayers() {
         var layers = new List<TextureLayer>();
-        if (_compDynamicTraits == null) return layers;
+        if (_compDynamicTraits == null) {
+            return layers;
+        }
 
-        var canTint = originalGraphicData.shaderType?.Shader != null;
+        var dyeColor = parent.TryGetComp<CompColorable>()?.ColorDef?.color ?? Color.white;
 
         foreach (var point in Props.attachmentPoints) {
             if (point.part == null) continue;
@@ -158,33 +185,26 @@ public class CompDynamicGraphic : ThingComp {
             }
 
             graphicToRender ??= point.baseTexture;
-
             if (graphicToRender == null) continue;
 
             var finalOffset = graphicToRender.offset ?? point.baseTexture?.offset ?? Vector2.zero;
             var finalScale = graphicToRender.scale ?? point.baseTexture?.scale ?? 1f;
             var baseSortOrder = point.layer * 10;
 
-            // outline
-            var outlineTex = GetOutlineTexture(graphicToRender);
-            if (outlineTex != null) {
-                layers.Add(new TextureLayer(outlineTex,
-                    new Placement(finalOffset, finalScale, outlineTex.width, outlineTex.height), baseSortOrder - 999,
-                    Color.white));
-            }
-
             // module
             if (graphicToRender.texturePath.NullOrEmpty()) continue;
             var moduleTexture = ContentFinder<Texture2D>.Get(graphicToRender.texturePath, false);
             if (moduleTexture == null) continue;
 
-            var tint = point.receivesColor && canTint
-                ? parent.TryGetComp<CompColorable>()?.ColorDef?.color ?? originalGraphicData.color
-                : Color.white;
+            var disableDyeing = installedTrait != null &&
+                                installedTrait.TryGetModuleDef(out var moduleDef) &&
+                                moduleDef.GetModExtension<TraitModuleExtension>() is { disableDyeing: true };
+            var layerTint = disableDyeing ? Color.white : dyeColor;
+            if (!layerTint.IndistinguishableFrom(Color.white)) EnsureDyeMask(moduleTexture);
 
             layers.Add(new TextureLayer(moduleTexture,
                 new Placement(finalOffset, finalScale, moduleTexture.width, moduleTexture.height), baseSortOrder,
-                tint));
+                layerTint));
         }
 
         return layers;
@@ -216,15 +236,8 @@ public class CompDynamicGraphic : ThingComp {
         Mathf.RoundToInt(layer.Placement.Offset.x + canvas.ShiftX),
         Mathf.RoundToInt(layer.Placement.Offset.y + bottomUpShiftY),
         Mathf.Max(1, Mathf.RoundToInt(layer.Placement.Width * layer.Placement.Scale)),
-        Mathf.Max(1, Mathf.RoundToInt(layer.Placement.Height * layer.Placement.Scale)));
-
-    private static Graphic WrapGraphicIfNeeded(Graphic graphic, GraphicData originalGraphicData) {
-        if (originalGraphicData.onGroundRandomRotateAngle > 0.01f) {
-            graphic = new Graphic_RandomRotated(graphic, originalGraphicData.onGroundRandomRotateAngle);
-        }
-
-        return graphic;
-    }
+        Mathf.Max(1, Mathf.RoundToInt(layer.Placement.Height * layer.Placement.Scale))
+    );
 
     private static GraphicData CreateAdjustedGraphicData(GraphicData originalGraphicData,
         Vector3 drawOffsetCompensation) {
@@ -302,16 +315,216 @@ public class CompDynamicGraphic : ThingComp {
         RenderTexture.active = previous;
     }
 
-    public static Texture2D? GetOutlineTexture(ModuleGraphicData graphicData) {
-        string? outlinePathToLoad = null;
+    private static void EnsureDyeMask(Texture2D source) {
+        if (DyeMasks.ContainsKey(source)) return;
 
-        if (!graphicData.outlinePath.NullOrEmpty()) {
-            outlinePathToLoad = graphicData.outlinePath;
-        } else if (!graphicData.texturePath.NullOrEmpty()) {
-            outlinePathToLoad = graphicData.texturePath + "_o";
+        DyeMasks[source] = BuildDyeMask(source);
+    }
+
+    private static Texture2D? BuildDyeMask(Texture2D source) {
+        Texture2D? readableCopy = null;
+        Color32[] pixels;
+
+        // Mod textures are loaded with makeNoLongerReadable, so grab a temporary CPU
+        // copy through the game's own blit helper and discard it after building the mask.
+        if (source.isReadable) {
+            pixels = source.GetPixels32();
+        } else {
+            readableCopy = TextureAtlasHelper.MakeReadableTextureInstance(source);
+            pixels = readableCopy.GetPixels32();
         }
 
-        return outlinePathToLoad != null ? ContentFinder<Texture2D>.Get(outlinePathToLoad, false) : null;
+        var maskPixels = new Color32[pixels.Length];
+        var dyeable = new bool[pixels.Length];
+        var hasDyePixels = false;
+
+        for (var i = 0; i < pixels.Length; i++) {
+            var pixel = pixels[i];
+            var isDyeable = pixel is { a: > 0, r: >= DyeMinChannel, g: >= DyeMinChannel, b: >= DyeMinChannel };
+
+            // Keep the source RGB on every pixel so bilinear filtering of the mask
+            // fades smoothly at the boundary; the alpha channel is the actual mask.
+            maskPixels[i] = new Color32(pixel.r, pixel.g, pixel.b, 0);
+            if (!isDyeable) continue;
+
+            dyeable[i] = true;
+            hasDyePixels = true;
+        }
+
+        if (!hasDyePixels) {
+            if (readableCopy != null) UnityEngine.Object.Destroy(readableCopy);
+            return null;
+        }
+
+        // Expand the mask by one pixel. Hard dark/white borders (and texture
+        // compression) otherwise leave a one-pixel un-dyed line at the edge.
+        var width = source.width;
+        var height = source.height;
+        for (var y = 0; y < height; y++) {
+            for (var x = 0; x < width; x++) {
+                if (!dyeable[y * width + x]) continue;
+
+                for (var dy = -1; dy <= 1; dy++) {
+                    var ny = y + dy;
+                    if (ny < 0 || ny >= height) continue;
+
+                    for (var dx = -1; dx <= 1; dx++) {
+                        var nx = x + dx;
+                        if (nx < 0 || nx >= width) continue;
+
+                        maskPixels[ny * width + nx].a = 255;
+                    }
+                }
+            }
+        }
+
+        if (readableCopy != null) {
+            UnityEngine.Object.Destroy(readableCopy);
+        }
+
+        return CreateTexture(source, maskPixels, "_dyeMask");
+    }
+
+    private static void ApplyCompositeOutline(Texture2D texture) {
+        var width = texture.width;
+        var height = texture.height;
+        var pixels = texture.GetPixels32();
+        var opaque = new bool[pixels.Length];
+
+        for (var i = 0; i < pixels.Length; i++) {
+            opaque[i] = pixels[i].a > 0;
+        }
+
+        var squaredDistance = SquaredDistanceTransform(opaque, width, height);
+
+        for (var i = 0; i < pixels.Length; i++) {
+            var a = pixels[i].a / 255f;
+            var distance = Mathf.Sqrt(squaredDistance[i]);
+            var outlineAlpha = Mathf.Clamp01(OutlineWidth + 0.5f - distance);
+            var finalAlpha = a + outlineAlpha * (1f - a);
+
+            if (finalAlpha <= 0f) {
+                pixels[i] = default;
+                continue;
+            }
+
+            var scale = a / finalAlpha;
+            pixels[i] = new Color32(
+                (byte)Mathf.Clamp(pixels[i].r * scale, 0f, 255f),
+                (byte)Mathf.Clamp(pixels[i].g * scale, 0f, 255f),
+                (byte)Mathf.Clamp(pixels[i].b * scale, 0f, 255f),
+                (byte)Mathf.Clamp(finalAlpha * 255f, 0f, 255f)
+            );
+        }
+
+        texture.SetPixels32(pixels);
+        texture.Apply(false);
+    }
+
+    private static Texture2D? BuildModuleOutline(Texture2D source) {
+        Texture2D? readableCopy = null;
+        Color32[] pixels;
+
+        if (source.isReadable) {
+            pixels = source.GetPixels32();
+        } else {
+            readableCopy = TextureAtlasHelper.MakeReadableTextureInstance(source);
+            pixels = readableCopy.GetPixels32();
+        }
+
+        var opaque = new bool[pixels.Length];
+        var hasOpaque = false;
+        for (var i = 0; i < pixels.Length; i++) {
+            opaque[i] = pixels[i].a > 0;
+            if (opaque[i]) hasOpaque = true;
+        }
+
+        if (!hasOpaque) {
+            if (readableCopy != null) {
+                UnityEngine.Object.Destroy(readableCopy);
+            }
+
+            return null;
+        }
+
+        var squaredDistance = SquaredDistanceTransform(opaque, source.width, source.height);
+        var outlinePixels = new Color32[pixels.Length];
+        for (var i = 0; i < pixels.Length; i++) {
+            var distance = Mathf.Sqrt(squaredDistance[i]);
+            var outlineAlpha = Mathf.Clamp01(OutlineWidth + 0.5f - distance);
+            outlinePixels[i] = new Color32(0, 0, 0, (byte)Mathf.Clamp(outlineAlpha * 255f, 0f, 255f));
+        }
+
+        if (readableCopy != null) {
+            UnityEngine.Object.Destroy(readableCopy);
+        }
+
+        return CreateTexture(source, outlinePixels, "_slotOutline");
+    }
+
+    private static float[] SquaredDistanceTransform(bool[] mask, int width, int height) {
+        var f = new float[width * height];
+        var d = new float[width * height];
+        var v = new int[Mathf.Max(width, height)];
+        var z = new float[Mathf.Max(width, height) + 1];
+
+        for (var i = 0; i < f.Length; i++) {
+            f[i] = mask[i] ? 0f : 1e20f;
+        }
+
+        for (var y = 0; y < height; y++) {
+            DistanceTransform1D(f, y * width, 1, width, d, v, z);
+        }
+
+        for (var x = 0; x < width; x++) {
+            DistanceTransform1D(d, x, width, height, f, v, z);
+        }
+
+        return f;
+    }
+
+    private static void DistanceTransform1D(float[] f, int start, int stride, int count, float[] d, int[] v,
+        float[] z) {
+        var k = 0;
+        v[0] = 0;
+        z[0] = float.NegativeInfinity;
+        z[1] = float.PositiveInfinity;
+
+        for (var q = 1; q < count; q++) {
+            var s = (f[start + q * stride] + q * q - (f[start + v[k] * stride] + v[k] * v[k])) /
+                    (2f * q - 2f * v[k]);
+
+            while (s <= z[k]) {
+                k -= 1;
+                s = (f[start + q * stride] + q * q - (f[start + v[k] * stride] + v[k] * v[k])) / (2f * q - 2f * v[k]);
+            }
+
+            k += 1;
+            v[k] = q;
+            z[k] = s;
+            z[k + 1] = float.PositiveInfinity;
+        }
+
+        k = 0;
+        for (var q = 0; q < count; q++) {
+            while (z[k + 1] < q) {
+                k += 1;
+            }
+
+            var dq = q - v[k];
+            d[start + q * stride] = dq * dq + f[start + v[k] * stride];
+        }
+    }
+
+    private static Texture2D CreateTexture(Texture2D source, Color32[] pixels, string suffix) {
+        var texture = new Texture2D(source.width, source.height, TextureFormat.RGBA32, false) {
+            name = source.name + suffix,
+            filterMode = source.filterMode,
+            wrapMode = source.wrapMode
+        };
+        texture.SetPixels32(pixels);
+        texture.Apply(false);
+        return texture;
     }
 
     private static void Bake(IReadOnlyList<TextureLayer> layers, Canvas canvas, int fallbackHeight,
@@ -373,14 +586,23 @@ public class CompDynamicGraphic : ThingComp {
         }
     }
 
-    private static Material MaterialFor(Texture texture, Color tint) {
-        if (Materials.TryGetValue((texture, tint), out var cached)) return cached;
+    private static Material MaterialFor(Texture2D texture, Color tint) {
+        if (Materials.TryGetValue((texture, tint), out var cached)) {
+            return cached;
+        }
 
         var material = new Material(ShaderDatabase.CutoutComplexBlend) {
             mainTexture = texture,
-            color = tint
+            color = Color.white
         };
         material.SetColor(ShaderPropertyIDs.ColorTwo, tint);
+
+        if (!tint.IndistinguishableFrom(Color.white)
+            && DyeMasks.TryGetValue(texture, out var mask)
+            && mask != null) {
+            material.SetTexture(ShaderPropertyIDs.MaskTex, mask);
+        }
+
         material.SetFloat("_ZTestMode", 8f);
         material.SetFloat("_ZWriteMode", 0f);
 
@@ -388,5 +610,5 @@ public class CompDynamicGraphic : ThingComp {
         return material;
     }
 
-    private readonly record struct Quad(Texture2D Texture, Color Tint, int X, int Y, int Width, int Height);
+    #endregion Helper
 }

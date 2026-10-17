@@ -89,9 +89,9 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
         if (installedTrait != null) {
             Widgets.DrawOptionBackground(rect, Mouse.IsOver(rect));
 
-            var moduleGraphicData = GetSlotGraphicData(part, installedTrait);
+            var moduleGraphicData = GetSlotGraphicData(part, installedTrait, out var isFallback);
             if (moduleGraphicData != null) {
-                DrawModuleTexture(in rect, moduleGraphicData);
+                DrawModuleTexture(in rect, moduleGraphicData, !isFallback);
             } else {
                 var inRect = rect;
                 UIKit.WithStyle(() => Widgets.Label(inRect, installedTrait.LabelCap),
@@ -113,7 +113,9 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
         if (clicked) onSlotClick.Invoke(part, installedTrait);
     }
 
-    private ModuleGraphicData? GetSlotGraphicData(PartDef part, WeaponTraitDef installedTrait) {
+    private ModuleGraphicData? GetSlotGraphicData(PartDef part, WeaponTraitDef installedTrait, out bool isFallback) {
+        isFallback = false;
+
         var moduleGraphicData = session.PreviewWeapon.TryGetComp<CompDynamicGraphic>()
             ?.GetGraphicDataFor(installedTrait);
 
@@ -121,25 +123,30 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
             return moduleGraphicData;
         }
 
-        if (part.fallbackTexturePath.NullOrEmpty()) return null;
+        if (part.fallbackTexturePath.NullOrEmpty()) {
+            return null;
+        }
 
+        isFallback = true;
         return new ModuleGraphicData {
             texturePath = part.fallbackTexturePath
         };
     }
 
-    private static void DrawModuleTexture(in Rect rect, ModuleGraphicData moduleGraphicData) {
-        // Outline
-        var outlineTexture = CompDynamicGraphic.GetOutlineTexture(moduleGraphicData);
-        if (outlineTexture != null) {
-            Widgets.DrawTextureFitted(rect, outlineTexture, 1f);
+    private static void DrawModuleTexture(in Rect rect, ModuleGraphicData moduleGraphicData, bool drawOutline) {
+        if (moduleGraphicData.texturePath.NullOrEmpty()) return;
+
+        var mainTexture = ContentFinder<Texture2D>.Get(moduleGraphicData.texturePath);
+        if (mainTexture == null) return;
+
+        if (drawOutline) {
+            var outlineTexture = CompDynamicGraphic.GetModuleOutline(mainTexture);
+            if (outlineTexture != null) {
+                Widgets.DrawTextureFitted(rect, outlineTexture, 1f);
+            }
         }
 
-        // module
-        var mainTexture = ContentFinder<Texture2D>.Get(moduleGraphicData.texturePath);
-        if (mainTexture != null) {
-            Widgets.DrawTextureFitted(rect, mainTexture, 1f);
-        }
+        Widgets.DrawTextureFitted(rect, mainTexture, 1f);
     }
 
     /// Returns a boolean indicating whether the element was clicked.

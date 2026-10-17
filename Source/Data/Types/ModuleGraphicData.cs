@@ -11,10 +11,6 @@ public class ModuleGraphicData {
     [UsedImplicitly]
     public string? texturePath;
 
-    [NoTranslate]
-    [UsedImplicitly]
-    public string? outlinePath;
-
     [UsedImplicitly]
     public Vector2? offset;
 

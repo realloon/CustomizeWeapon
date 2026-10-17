@@ -17,13 +17,10 @@ public class AttachmentPointData {
 
     public int layer;
 
-    public bool receivesColor;
-
     [UsedImplicitly]
     public void ExposeData() {
         Scribe_Defs.Look(ref part, "part");
         Scribe_Values.Look(ref baseTexture, "baseTexture");
         Scribe_Values.Look(ref layer, "layer");
-        Scribe_Values.Look(ref receivesColor, "receivesColor");
     }
 }
