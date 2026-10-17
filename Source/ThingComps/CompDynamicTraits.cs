@@ -259,7 +259,7 @@ public class CompDynamicTraits : ThingComp {
             action = () => { Find.WindowStack.Add(new WeaponWindow(parent)); }
         };
 
-        if (!Prefs.DevMode) yield break;
+        if (!DebugSettings.ShowDevGizmos) yield break;
         var addTraitGizmo = new Command_Action {
             defaultLabel = "Dev: + Add Trait",
             action = () => {
