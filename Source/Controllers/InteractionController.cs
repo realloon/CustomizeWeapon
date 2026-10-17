@@ -6,10 +6,28 @@ namespace CWF.Controllers;
 public class InteractionController(Thing weapon, ModificationSession session, Action onDataChanged) {
     private readonly AssemblyPresetManager? _presetManager = Current.Game?.GetComponent<AssemblyPresetManager>();
 
-    public bool HasInstalledModules => session.Traits.Any();
+    public bool HasInstalledModules => session.Traits.Count != 0;
 
-    public IEnumerable<AssemblyPresetData> GetApplicablePresets() {
-        return _presetManager?.GetPresetsFor(weapon.def) ?? [];
+    public IEnumerable<AssemblyPresetData> GetApplicablePresets() => _presetManager?.GetPresetsFor(weapon.def) ?? [];
+
+    public void OpenColorMenu() {
+        var options = CompColorable.AvailableColors
+            .Select(color => new FloatMenuOption(color.LabelCap, () => ApplyColor(color),
+                UIKit.GetColorSwatch(color.color), color.color))
+            .ToList();
+        Find.WindowStack.Add(new FloatMenu(options));
+    }
+
+    private void ApplyColor(ColorDef colorDef) {
+        if (weapon.TryGetComp<CompColorable>(out var colorable)) {
+            colorable.ColorDef = colorDef;
+        }
+
+        if (session.PreviewWeapon.TryGetComp<CompColorable>(out var previewColorable)) {
+            previewColorable.ColorDef = colorDef;
+        }
+
+        onDataChanged();
     }
 
     /// <summary>
@@ -25,7 +43,7 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
             BuildUninstallOption(part, options, installedTrait);
         }
 
-        if (Enumerable.Any(options)) {
+        if (options.Count != 0) {
             Find.WindowStack.Add(new FloatMenu(options));
         }
     }
@@ -48,8 +66,7 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
                 : weapon.Map?.listerThings.AllThings ?? Enumerable.Empty<Thing>();
 
             var availableModules = searchScope.Where(t =>
-                compatibleModuleDefs.Contains(t.def) &&
-                (ownerPawn != null || !t.IsForbidden(Faction.OfPlayer))
+                compatibleModuleDefs.Contains(t.def) && (ownerPawn != null || !t.IsForbidden(Faction.OfPlayer))
             );
 
             foreach (var module in availableModules) {
@@ -109,7 +126,6 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
 
     private void DoInstall(PartDef part, WeaponTraitDef traitToInstall) {
         session.InstallTrait(part, traitToInstall);
-
         SoundDefOf.Tick_High.PlayOneShotOnCamera();
         onDataChanged();
     }
@@ -122,7 +138,6 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
 
     public void ClearAllModules() {
         session.ClearTraits();
-
         SoundDefOf.Click.PlayOneShotOnCamera();
         onDataChanged();
     }
@@ -140,10 +155,8 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
         }
 
         _presetManager.SavePreset(weapon, normalizedName, session.InstalledTraits);
-        Messages.Message(
-            "CWF_PresetSaved".Translate(normalizedName.Named("NAME")),
-            MessageTypeDefOf.PositiveEvent,
-            false);
+        Messages.Message("CWF_PresetSaved".Translate(normalizedName.Named("NAME")),
+            MessageTypeDefOf.PositiveEvent, false);
     }
 
     public void DeletePreset(AssemblyPresetData preset) {
@@ -154,17 +167,13 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
 
         var deleted = _presetManager.DeletePreset(weapon.def, preset.Name);
         if (!deleted) {
-            Messages.Message(
-                "CWF_PresetDeleteFailed".Translate(preset.Name.Named("NAME")),
-                MessageTypeDefOf.RejectInput,
-                false);
+            Messages.Message("CWF_PresetDeleteFailed".Translate(preset.Name.Named("NAME")),
+                MessageTypeDefOf.RejectInput, false);
             return;
         }
 
-        Messages.Message(
-            "CWF_PresetDeleted".Translate(preset.Name.Named("NAME")),
-            MessageTypeDefOf.PositiveEvent,
-            false);
+        Messages.Message("CWF_PresetDeleted".Translate(preset.Name.Named("NAME")),
+            MessageTypeDefOf.PositiveEvent, false);
     }
 
     public void ApplyPreset(AssemblyPresetData preset) {
@@ -198,34 +207,31 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
 
     #region Helpers
 
-    private Action CreateInstallAction(PartDef part, WeaponTraitDef traitToInstall) {
-        return () => {
-            var analysis = AnalyzeInstallConflict(part, traitToInstall);
-            if (!analysis.HasConflict) {
-                DoInstall(part, traitToInstall);
-                return;
-            }
+    private Action CreateInstallAction(PartDef part, WeaponTraitDef traitToInstall) => () => {
+        var analysis = AnalyzeInstallConflict(part, traitToInstall);
+        if (!analysis.HasConflict) {
+            DoInstall(part, traitToInstall);
+            return;
+        }
 
-            ShowConfirmationDialog(
-                "CWF_ConfirmInstallTitle".Translate(),
-                "CWF_ConfirmInstallBody".Translate(
-                    traitToInstall.LabelCap.Named("MODULE"),
-                    analysis.ModulesToRemove
-                        .Select(t => " - " + t.LabelCap.ToString()).ToLineList()
-                        .Named("CONFLICTS")
-                ),
-                () => {
-                    foreach (var conflictTrait in analysis.ModulesToRemove) {
-                        if (conflictTrait.TryGetPart(out var conflictPart)) {
-                            DoUninstall(conflictPart);
-                        }
+        ShowConfirmationDialog(
+            "CWF_ConfirmInstallTitle".Translate(),
+            "CWF_ConfirmInstallBody".Translate(traitToInstall.LabelCap.Named("MODULE"),
+                analysis.ModulesToRemove
+                    .Select(t => " - " + t.LabelCap.ToString()).ToLineList()
+                    .Named("CONFLICTS")
+            ),
+            () => {
+                foreach (var conflictTrait in analysis.ModulesToRemove) {
+                    if (conflictTrait.TryGetPart(out var conflictPart)) {
+                        DoUninstall(conflictPart);
                     }
-
-                    DoInstall(part, traitToInstall);
                 }
-            );
-        };
-    }
+
+                DoInstall(part, traitToInstall);
+            }
+        );
+    };
 
     private ConflictAnalysisResult AnalyzeInstallConflict(PartDef partToInstall, WeaponTraitDef traitToInstall) {
         var currentTraits = session.InstalledTraits;
@@ -237,8 +243,9 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
 
     private ConflictAnalysisResult AnalyzeUninstallConflict(PartDef partToUninstall) {
         var currentTraits = session.InstalledTraits;
-
-        if (!currentTraits.Remove(partToUninstall)) return new ConflictAnalysisResult();
+        if (!currentTraits.Remove(partToUninstall)) {
+            return new ConflictAnalysisResult();
+        }
 
         var analysis = PartAvailabilityAnalyzer.Analyze(weapon, currentTraits);
         return CollectRemovedTraits(currentTraits, analysis.ActiveTraits);
@@ -251,13 +258,8 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
         var result = new ConflictAnalysisResult();
 
         foreach (var (part, trait) in desiredTraits) {
-            if (excludePart == part) {
-                continue;
-            }
-
-            if (activeTraits.TryGetValue(part, out var activeTrait) && activeTrait == trait) {
-                continue;
-            }
+            if (excludePart == part) continue;
+            if (activeTraits.TryGetValue(part, out var activeTrait) && activeTrait == trait) continue;
 
             result.ModulesToRemove.Add(trait);
         }
@@ -276,11 +278,9 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
         Find.WindowStack.Add(dialog);
     }
 
-    private IEnumerable<ThingDef> GetCompatibleModuleDefsFor(PartDef part) {
-        return ModuleDatabase.AllModuleDefs
-            .Where(moduleDef => moduleDef.TraitModule().part == part)
-            .Where(moduleDef => moduleDef.IsCompatibleWith(weapon.def));
-    }
+    private IEnumerable<ThingDef> GetCompatibleModuleDefsFor(PartDef part) => ModuleDatabase.AllModuleDefs
+        .Where(moduleDef => moduleDef.TraitModule().part == part)
+        .Where(moduleDef => moduleDef.IsCompatibleWith(weapon.def));
 
     #endregion
 }

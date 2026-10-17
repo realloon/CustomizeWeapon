@@ -57,7 +57,7 @@ public class JobDispatcher(Thing weapon) {
         job.count = 1;
 
         // fill queue only when it needs haul
-        if (Enumerable.Any(modulesToHaul)) {
+        if (modulesToHaul.Count != 0) {
             job.targetQueueB = modulesToHaul.Select(t => new LocalTargetInfo(t)).ToList();
         }
 
@@ -71,22 +71,18 @@ public class JobDispatcher(Thing weapon) {
             new LookTargets(bestPawn, weapon), MessageTypeDefOf.PositiveEvent);
     }
 
-    private Thing? FindBestAvailableModuleFor(ModificationData change, Pawn pawn) {
-        return GenClosest.ClosestThingReachable(
-            weapon.Position,
-            weapon.Map,
-            ThingRequest.ForDef(change.ModuleDef),
-            PathEndMode.ClosestTouch,
-            TraverseParms.For(pawn),
-            validator: t => !t.IsForbidden(pawn) && !t.IsBurning() && pawn.CanReserve(t)
-        );
-    }
+    private Thing? FindBestAvailableModuleFor(ModificationData change, Pawn pawn) => GenClosest.ClosestThingReachable(
+        weapon.Position,
+        weapon.Map,
+        ThingRequest.ForDef(change.ModuleDef),
+        PathEndMode.ClosestTouch,
+        TraverseParms.For(pawn),
+        validator: t => !t.IsForbidden(pawn) && !t.IsBurning() && pawn.CanReserve(t)
+    );
 
-    private static Pawn? FindBestPawnForJob(IntVec3 jobLocation, Map map) {
-        return map.mapPawns.FreeColonistsSpawned
-            .Where(p => !p.Downed && !p.Drafted && p.workSettings.WorkIsActive(WorkTypeDefOf.Crafting) &&
-                        p.health.capacities.CanBeAwake)
-            .OrderBy(p => p.Position.DistanceToSquared(jobLocation))
-            .FirstOrFallback();
-    }
+    private static Pawn? FindBestPawnForJob(IntVec3 jobLocation, Map map) => map.mapPawns.FreeColonistsSpawned
+        .Where(p => !p.Downed && !p.Drafted && p.workSettings.WorkIsActive(WorkTypeDefOf.Crafting) &&
+                    p.health.capacities.CanBeAwake)
+        .OrderBy(p => p.Position.DistanceToSquared(jobLocation))
+        .FirstOrFallback();
 }

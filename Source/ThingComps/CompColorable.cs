@@ -4,6 +4,13 @@ namespace CWF;
 
 public class CompColorable : ThingComp {
     private ColorDef? _colorDef;
+    private static IReadOnlyList<ColorDef>? _availableColors;
+
+    public static IReadOnlyList<ColorDef> AvailableColors => _availableColors ??= [
+        .. DefDatabase<ColorDef>.AllDefs
+            .Where(c => c.defName.StartsWith("CWF_Color_"))
+            .OrderBy(c => c.label)
+    ];
 
     public ColorDef? ColorDef {
         get => _colorDef;
@@ -15,19 +22,11 @@ public class CompColorable : ThingComp {
         }
     }
 
-    private void RandomizeColor() {
-        var randomColor = DefDatabase<ColorDef>.AllDefs
-            .Where(c => c.colorType == ColorType.Weapon && c.randomlyPickable)
-            .RandomElementWithFallback();
-
-        if (randomColor != null) {
-            ColorDef = randomColor;
-        }
-    }
-
     // Override default color if defined.
     public override Color? ForceColor() {
-        if (ColorDef == null) return null;
+        if (ColorDef == null) {
+            return null;
+        }
 
         return parent.TryGetComp<CompDynamicGraphic>() != null
             ? Color.white
@@ -39,25 +38,11 @@ public class CompColorable : ThingComp {
 
         if (Scribe.mode != LoadSaveMode.Inactive || ColorDef != null) return;
 
-        RandomizeColor();
+        ColorDef = DefDatabase<ColorDef>.GetNamed("CWF_Color_Gray");
     }
 
     public override void PostExposeData() {
         base.PostExposeData();
         Scribe_Defs.Look(ref _colorDef, "colorDef");
-    }
-
-    // debug
-    public override IEnumerable<Gizmo> CompGetGizmosExtra() {
-        foreach (var g in base.CompGetGizmosExtra()) {
-            yield return g;
-        }
-
-        if (!Prefs.DevMode || parent.IsForbidden(Faction.OfPlayer)) yield break;
-
-        yield return new Command_Action {
-            defaultLabel = "Dev: Randomize color",
-            action = RandomizeColor
-        };
     }
 }

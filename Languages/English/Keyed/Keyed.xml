@@ -39,6 +39,7 @@
   <!-- #endregion -->
 
   <!-- #region Window -->
+  <CWF_WeaponColor>Dye</CWF_WeaponColor>
   <CWF_SettingsCategory>Customize Weapon</CWF_SettingsCategory>
   <CWF_Parts>Parts</CWF_Parts>
   <CWF_CompatibleModules>Compatible modules</CWF_CompatibleModules>

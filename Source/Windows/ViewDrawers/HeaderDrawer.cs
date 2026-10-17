@@ -46,8 +46,16 @@ public class HeaderDrawer(Thing weapon, ModificationSession session, Interaction
             Find.WindowStack.Add(inputModal);
         }
 
+        // Render color button
+        var colorButtonRect = new Rect(renameButtonRect.x - gap - buttonSize, renameButtonRect.y,
+            buttonSize, buttonSize);
+        TooltipHandler.TipRegion(colorButtonRect, "CWF_WeaponColor".Translate());
+        if (Widgets.ButtonImage(colorButtonRect.ContractedBy(5f), TexButton.ToggleDevPalette)) {
+            controller.OpenColorMenu();
+        }
+
         // Render action button
-        var actionButtonRect = new Rect(renameButtonRect.x - gap - buttonSize, renameButtonRect.y,
+        var actionButtonRect = new Rect(colorButtonRect.x - gap - buttonSize, renameButtonRect.y,
             buttonSize, buttonSize);
         if (Widgets.ButtonImage(actionButtonRect.ContractedBy(4f), TexButton.OpenDebugActionsMenu)) {
             var applicablePresets = controller.GetApplicablePresets().ToList();

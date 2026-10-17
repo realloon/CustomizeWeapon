@@ -39,6 +39,7 @@
   <!-- #endregion -->
 
   <!-- #region Window -->
+  <CWF_WeaponColor>染色</CWF_WeaponColor>
   <CWF_SettingsCategory>自訂武器</CWF_SettingsCategory>
   <CWF_Parts>部件</CWF_Parts>
   <CWF_CompatibleModules>可用模組</CWF_CompatibleModules>

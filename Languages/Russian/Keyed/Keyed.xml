@@ -18,6 +18,7 @@
   <CWF_BurstShotSpeedMultiplier>Множитель скорострельности</CWF_BurstShotSpeedMultiplier>
   <CWF_AdditionalStoppingPower>Бонус останавливающего действия</CWF_AdditionalStoppingPower>
 
+  <CWF_WeaponColor>Покраска</CWF_WeaponColor>
   <CWF_WeaponPanel>Панель оружия</CWF_WeaponPanel>
   <CWF_WeaponPanelDesc>Открыть панель оружия</CWF_WeaponPanelDesc>
 

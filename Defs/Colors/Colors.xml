@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ColorDef>
+    <defName>CWF_Color_White</defName>
+    <label>white</label>
+    <color>(166, 166, 166)</color>
+  </ColorDef>
+
+  <ColorDef>
+    <defName>CWF_Color_Gray</defName>
+    <label>gray</label>
+    <color>(100, 100, 100)</color>
+  </ColorDef>
+
+  <ColorDef>
+    <defName>CWF_Color_Red</defName>
+    <label>red</label>
+    <color>(101, 67, 71)</color>
+  </ColorDef>
+
+  <ColorDef>
+    <defName>CWF_Color_Purple</defName>
+    <label>purple</label>
+    <color>(80, 64, 80)</color>
+  </ColorDef>
+
+  <ColorDef>
+    <defName>CWF_Color_Green</defName>
+    <label>green</label>
+    <color>(86, 93, 76)</color>
+  </ColorDef>
+
+  <ColorDef>
+    <defName>CWF_Color_Blue</defName>
+    <label>blue</label>
+    <color>(67, 81, 101)</color>
+  </ColorDef>
+</Defs>
