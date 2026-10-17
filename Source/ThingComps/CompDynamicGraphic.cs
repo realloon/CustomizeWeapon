@@ -17,7 +17,7 @@ public class CompDynamicGraphic : ThingComp {
     private Graphic? _cachedGraphic;
     private Texture2D? _cachedBakedTexture;
     private bool _isDirty = true;
-    private RenderTexture? _bakeTarget;
+    private static RenderTexture? _bakeTarget;
     private CompDynamicTraits? _compDynamicTraits;
 
     private readonly record struct Quad(Texture2D Texture, Color Tint, int X, int Y, int Width, int Height);
@@ -65,7 +65,6 @@ public class CompDynamicGraphic : ThingComp {
     public override void PostDestroy(DestroyMode mode, Map previousMap) {
         base.PostDestroy(mode, previousMap);
         ReleaseCachedTexture();
-        ReleaseBakeTarget();
     }
 
     public override bool DontDrawParent() => Settings.Current.DynamicTexturesEnabled;
@@ -268,7 +267,7 @@ public class CompDynamicGraphic : ThingComp {
 
     private static Vector3 RotateOffsetForRotation(Vector3 offset, Rot4 rotation) => rotation.AsQuat * offset;
 
-    private RenderTexture EnsureBakeTarget(int width, int height) {
+    private static RenderTexture EnsureBakeTarget(int width, int height) {
         if (_bakeTarget != null && _bakeTarget.width == width && _bakeTarget.height == height) {
             return _bakeTarget;
         }
@@ -280,7 +279,7 @@ public class CompDynamicGraphic : ThingComp {
         return _bakeTarget;
     }
 
-    private void ReleaseBakeTarget() {
+    private static void ReleaseBakeTarget() {
         if (_bakeTarget == null) return;
 
         _bakeTarget.Release();
