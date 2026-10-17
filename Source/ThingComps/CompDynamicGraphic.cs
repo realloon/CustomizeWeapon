@@ -7,6 +7,7 @@ public class CompDynamicGraphic : ThingComp {
     private const float BakeCameraHeight = 10f;
     private const byte DyeMinChannel = 200;
     private const int OutlineWidth = 8;
+    private const float MapBakeScale = 0.5f; // map item and gizmo
 
     private static Camera? _bakeCamera;
     private static IReadOnlyList<Quad> _quads = [];
@@ -19,6 +20,16 @@ public class CompDynamicGraphic : ThingComp {
     private bool _isDirty = true;
     private static RenderTexture? _bakeTarget;
     private CompDynamicTraits? _compDynamicTraits;
+
+    public bool UseFullResolutionBake {
+        get;
+        set {
+            if (field == value) return;
+
+            field = value;
+            _isDirty = true;
+        }
+    }
 
     private readonly record struct Quad(Texture2D Texture, Color Tint, int X, int Y, int Width, int Height);
 
@@ -115,23 +126,24 @@ public class CompDynamicGraphic : ThingComp {
         }
 
         var sizeReference = ContentFinder<Texture2D>.Get(originalGraphicData.texPath, false);
-        var fallbackWidth = sizeReference?.width ?? _cachedBakedTexture?.width ?? 512;
-        var fallbackHeight = sizeReference?.height ?? _cachedBakedTexture?.height ?? 512;
+        var fallbackWidth = sizeReference?.width ?? 512;
+        var fallbackHeight = sizeReference?.height ?? 512;
         var layersToDraw = CollectLayers();
         layersToDraw.Sort((left, right) => left.SortOrder.CompareTo(right.SortOrder));
 
         var canvas = MeasureCanvas(layersToDraw, fallbackWidth, fallbackHeight);
+        var bakeScale = UseFullResolutionBake ? 1f : MapBakeScale;
+        var bakedWidth = Mathf.Max(1, Mathf.RoundToInt(canvas.Width * bakeScale));
+        var bakedHeight = Mathf.Max(1, Mathf.RoundToInt(canvas.Height * bakeScale));
+        var bakeTarget = EnsureBakeTarget(bakedWidth, bakedHeight);
+        Bake(layersToDraw, canvas, fallbackHeight, bakeTarget, bakeScale);
 
-        var bakeTarget = EnsureBakeTarget(canvas.Width, canvas.Height);
-        Bake(layersToDraw, canvas, fallbackHeight, bakeTarget);
-
-        var finalBakedTexture = EnsureBakedTexture(canvas.Width, canvas.Height);
+        var finalBakedTexture = EnsureBakedTexture(bakedWidth, bakedHeight);
         ReadBackInto(bakeTarget, finalBakedTexture);
-        ApplyCompositeOutline(finalBakedTexture);
+        ApplyCompositeOutline(finalBakedTexture, bakeScale);
 
         var drawSizeScaleX = (float)canvas.Width / fallbackWidth;
         var drawSizeScaleY = (float)canvas.Height / fallbackHeight;
-
         var adjustedDrawSize = new Vector2(
             originalGraphicData.drawSize.x * drawSizeScaleX,
             originalGraphicData.drawSize.y * drawSizeScaleY
@@ -140,15 +152,12 @@ public class CompDynamicGraphic : ThingComp {
         // Keep the original weapon body anchored when the baked canvas expands on only one side.
         var originalCenterDeltaX = canvas.ShiftX + fallbackWidth * 0.5f - canvas.Width * 0.5f;
         var originalCenterDeltaY = canvas.ShiftY + fallbackHeight * 0.5f - canvas.Height * 0.5f;
-
         var drawOffsetCompensation = new Vector3(
             -originalCenterDeltaX / fallbackWidth * originalGraphicData.drawSize.x,
             0f,
             originalCenterDeltaY / fallbackHeight * originalGraphicData.drawSize.y
         );
-
         var adjustedGraphicData = CreateAdjustedGraphicData(originalGraphicData, drawOffsetCompensation);
-
         var graphicSingle = new Graphic_Single();
         var request = new GraphicRequest(
             typeof(Graphic_Single), finalBakedTexture, ShaderDatabase.Cutout,
@@ -190,13 +199,12 @@ public class CompDynamicGraphic : ThingComp {
             var finalScale = graphicToRender.scale ?? point.baseTexture?.scale ?? 1f;
             var baseSortOrder = point.layer * 10;
 
-            // module
             if (graphicToRender.texturePath.NullOrEmpty()) continue;
+
             var moduleTexture = ContentFinder<Texture2D>.Get(graphicToRender.texturePath, false);
             if (moduleTexture == null) continue;
 
-            var disableDyeing = installedTrait != null &&
-                                installedTrait.TryGetModuleDef(out var moduleDef) &&
+            var disableDyeing = installedTrait != null && installedTrait.TryGetModuleDef(out var moduleDef) &&
                                 moduleDef.GetModExtension<TraitModuleExtension>() is { disableDyeing: true };
             var layerTint = disableDyeing ? Color.white : dyeColor;
             if (!layerTint.IndistinguishableFrom(Color.white)) EnsureDyeMask(moduleTexture);
@@ -231,11 +239,11 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     private static (int X, int Y, int Width, int Height) PlaceLayer(TextureLayer layer, Canvas canvas,
-        float bottomUpShiftY) => (
-        Mathf.RoundToInt(layer.Placement.Offset.x + canvas.ShiftX),
-        Mathf.RoundToInt(layer.Placement.Offset.y + bottomUpShiftY),
-        Mathf.Max(1, Mathf.RoundToInt(layer.Placement.Width * layer.Placement.Scale)),
-        Mathf.Max(1, Mathf.RoundToInt(layer.Placement.Height * layer.Placement.Scale))
+        float bottomUpShiftY, float bakeScale) => (
+        Mathf.RoundToInt((layer.Placement.Offset.x + canvas.ShiftX) * bakeScale),
+        Mathf.RoundToInt((layer.Placement.Offset.y + bottomUpShiftY) * bakeScale),
+        Mathf.Max(1, Mathf.RoundToInt(layer.Placement.Width * layer.Placement.Scale * bakeScale)),
+        Mathf.Max(1, Mathf.RoundToInt(layer.Placement.Height * layer.Placement.Scale * bakeScale))
     );
 
     private static GraphicData CreateAdjustedGraphicData(GraphicData originalGraphicData,
@@ -293,7 +301,12 @@ public class CompDynamicGraphic : ThingComp {
 
         ReleaseCachedTexture();
 
-        _cachedBakedTexture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+        // mipmapped like the game's own textures
+        _cachedBakedTexture = new Texture2D(width, height, TextureFormat.RGBA32, true) {
+            filterMode = FilterMode.Trilinear,
+            anisoLevel = 2,
+            wrapMode = TextureWrapMode.Clamp
+        };
         return _cachedBakedTexture;
     }
 
@@ -384,7 +397,7 @@ public class CompDynamicGraphic : ThingComp {
         return CreateTexture(source, maskPixels, "_dyeMask");
     }
 
-    private static void ApplyCompositeOutline(Texture2D texture) {
+    private static void ApplyCompositeOutline(Texture2D texture, float bakeScale) {
         var width = texture.width;
         var height = texture.height;
         var pixels = texture.GetPixels32();
@@ -394,12 +407,13 @@ public class CompDynamicGraphic : ThingComp {
             opaque[i] = pixels[i].a > 0;
         }
 
+        var outlineWidth = OutlineWidth * bakeScale;
         var squaredDistance = SquaredDistanceTransform(opaque, width, height);
 
         for (var i = 0; i < pixels.Length; i++) {
             var a = pixels[i].a / 255f;
             var distance = Mathf.Sqrt(squaredDistance[i]);
-            var outlineAlpha = Mathf.Clamp01(OutlineWidth + 0.5f - distance);
+            var outlineAlpha = Mathf.Clamp01(outlineWidth + 0.5f - distance);
             var finalAlpha = a + outlineAlpha * (1f - a);
 
             if (finalAlpha <= 0f) {
@@ -417,7 +431,7 @@ public class CompDynamicGraphic : ThingComp {
         }
 
         texture.SetPixels32(pixels);
-        texture.Apply(false);
+        texture.Apply(true);
     }
 
     private static Texture2D? BuildModuleOutline(Texture2D source) {
@@ -516,30 +530,31 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     private static Texture2D CreateTexture(Texture2D source, Color32[] pixels, string suffix) {
-        var texture = new Texture2D(source.width, source.height, TextureFormat.RGBA32, false) {
+        var texture = new Texture2D(source.width, source.height, TextureFormat.RGBA32, true) {
             name = source.name + suffix,
             filterMode = source.filterMode,
-            wrapMode = source.wrapMode
+            wrapMode = source.wrapMode,
+            anisoLevel = 2
         };
         texture.SetPixels32(pixels);
-        texture.Apply(false);
+        texture.Apply(true);
         return texture;
     }
 
     private static void Bake(IReadOnlyList<TextureLayer> layers, Canvas canvas, int fallbackHeight,
-        RenderTexture target) {
+        RenderTexture target, float bakeScale) {
         var camera = EnsureBakeCamera();
         var bottomUpShiftY = canvas.BottomUpShiftY(fallbackHeight);
 
         var quads = new List<Quad>(layers.Count);
         foreach (var layer in layers) {
-            var (x, y, width, height) = PlaceLayer(layer, canvas, bottomUpShiftY);
+            var (x, y, width, height) = PlaceLayer(layer, canvas, bottomUpShiftY, bakeScale);
             quads.Add(new Quad(layer.Texture, layer.Tint, x, y, width, height));
         }
 
-        // One world unit per canvas pixel, centred on the canvas, looking straight down.
-        camera.transform.position = new Vector3(canvas.Width * 0.5f, BakeCameraHeight, canvas.Height * 0.5f);
-        camera.orthographicSize = canvas.Height * 0.5f;
+        // one world unit per baked pixel
+        camera.transform.position = new Vector3(target.width * 0.5f, BakeCameraHeight, target.height * 0.5f);
+        camera.orthographicSize = target.height * 0.5f;
         camera.targetTexture = target;
 
         _quads = quads;

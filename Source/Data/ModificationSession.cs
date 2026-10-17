@@ -97,6 +97,7 @@ public class ModificationSession {
 
     private Thing CreatePreviewWeapon() {
         var previewWeapon = ThingMaker.MakeThing(_weapon.def, _weapon.Stuff);
+        previewWeapon.TryGetComp<CompDynamicGraphic>()?.UseFullResolutionBake = true;
 
         CopyQuality(_weapon, previewWeapon);
         CopyRenamable(_weapon, previewWeapon);
