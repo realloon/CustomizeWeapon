@@ -14,3 +14,9 @@ Source/obj/
 # dist
 Assemblies/
 !1.6/Assemblies/
+
+# tmp
+1.6/Textures/*
+!1.6/Textures/LICENSE
+1.7/Textures/*
+!1.7/Textures/LICENSE
