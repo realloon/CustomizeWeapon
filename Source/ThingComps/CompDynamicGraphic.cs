@@ -117,7 +117,7 @@ public class CompDynamicGraphic : ThingComp {
         return outline;
     }
 
-    #region MyRegion
+    #region Helper
 
     private Graphic GenerateGraphic() {
         var originalGraphicData = parent.def.graphicData;
@@ -624,5 +624,5 @@ public class CompDynamicGraphic : ThingComp {
         return material;
     }
 
-    #endregion Helper
+    #endregion
 }
