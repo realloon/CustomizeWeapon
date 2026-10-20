@@ -3,6 +3,7 @@ using CWF.Extensions;
 
 namespace CWF;
 
+[StaticConstructorOnStartup] // silences a false-positive startup warning
 public class CompDynamicGraphic : ThingComp {
     private const float BakeCameraHeight = 10f;
     private const byte DyeMinChannel = 200;
