@@ -40,6 +40,7 @@
 
   <!-- #region Window -->
   <CWF_WeaponColor>Dye</CWF_WeaponColor>
+  <CWF_WeaponColorUnavailable>Dye is only available in Dynamic appearance.</CWF_WeaponColorUnavailable>
   <CWF_SettingsCategory>Customize Weapon</CWF_SettingsCategory>
   <CWF_Parts>Parts</CWF_Parts>
   <CWF_CompatibleModules>Compatible modules</CWF_CompatibleModules>
@@ -65,8 +66,6 @@
   <CWF_ConfirmUninstallTitle>Confirm Uninstall</CWF_ConfirmUninstallTitle>
   <CWF_ConfirmUninstallBody>Uninstalling {MODULE} will also remove these modules:\n\n{DEPENDENCIES}\n\nContinue?</CWF_ConfirmUninstallBody>
   <CWF_FromEquipped>From weapon modules</CWF_FromEquipped>
-  <CWF_DynamicTextures>Enable Dynamic Textures</CWF_DynamicTextures>
-  <CWF_DynamicTexturesDesc>If enabled, weapon textures are dynamically composed from installed modules. Disable to keep the weapon's original appearance.</CWF_DynamicTexturesDesc>
   <CWF_RandomModuleGeneration>Random Module Generation</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>If enabled, pawns from other factions, like raiders, allies, and traders, can spawn with weapons that have random modules</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>Rarity Weights</CWF_RarityWeights>
@@ -89,5 +88,10 @@
   <CWF_PresetDeleteFailed>Failed to delete preset: {NAME}</CWF_PresetDeleteFailed>
   <CWF_PresetApplied>Applied preset: {NAME}</CWF_PresetApplied>
   <CWF_PresetAppliedWithSkipped>Applied preset: {NAME} (skipped {COUNT} missing or incompatible modules)</CWF_PresetAppliedWithSkipped>
+  <!-- #endregion -->
+  <!-- #region Appearance -->
+  <CWF_WeaponStyle>Style</CWF_WeaponStyle>
+  <CWF_AppearanceOriginal>Original</CWF_AppearanceOriginal>
+  <CWF_AppearanceDynamic>Dynamic</CWF_AppearanceDynamic>
   <!-- #endregion -->
 </LanguageData>

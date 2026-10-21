@@ -19,6 +19,7 @@
   <CWF_AdditionalStoppingPower>Бонус останавливающего действия</CWF_AdditionalStoppingPower>
 
   <CWF_WeaponColor>Покраска</CWF_WeaponColor>
+  <CWF_WeaponColorUnavailable>Покраска доступна только в динамическом виде.</CWF_WeaponColorUnavailable>
   <CWF_WeaponPanel>Панель оружия</CWF_WeaponPanel>
   <CWF_WeaponPanelDesc>Открыть панель оружия</CWF_WeaponPanelDesc>
 
@@ -56,8 +57,6 @@
   <CWF_ConfirmUninstallTitle>Подтвердить снятие</CWF_ConfirmUninstallTitle>
   <CWF_ConfirmUninstallBody>Снятие {MODULE} также снимет эти модули:\n\n{DEPENDENCIES}\n\nПродолжить?</CWF_ConfirmUninstallBody>
   <CWF_FromEquipped>От модулей оружия</CWF_FromEquipped>
-  <CWF_DynamicTextures>Включить динамические текстуры</CWF_DynamicTextures>
-  <CWF_DynamicTexturesDesc>Если включено, текстуры оружия динамически составляются из установленных модулей. При отключении сохраняется оригинальный вид оружия.</CWF_DynamicTexturesDesc>
   <CWF_RandomModuleGeneration>Случайная генерация модулей</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>Если включено, пешки других фракций, включая рейдеров, союзников и торговцев, могут появляться с оружием со случайными модулями</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>Вес редкости</CWF_RarityWeights>
@@ -80,4 +79,7 @@
   <CWF_PresetDeleteFailed>Не удалось удалить пресет: {NAME}</CWF_PresetDeleteFailed>
   <CWF_PresetApplied>Пресет применен: {NAME}</CWF_PresetApplied>
   <CWF_PresetAppliedWithSkipped>Пресет применен: {NAME} (пропущено {COUNT} отсутствующих или несовместимых модулей)</CWF_PresetAppliedWithSkipped>
+  <CWF_WeaponStyle>Стиль</CWF_WeaponStyle>
+  <CWF_AppearanceOriginal>Оригинал</CWF_AppearanceOriginal>
+  <CWF_AppearanceDynamic>Динамический</CWF_AppearanceDynamic>
 </LanguageData>

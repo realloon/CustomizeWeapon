@@ -40,6 +40,7 @@
 
   <!-- #region Window -->
   <CWF_WeaponColor>染色</CWF_WeaponColor>
+  <CWF_WeaponColorUnavailable>僅在動態外觀下可用染色。</CWF_WeaponColorUnavailable>
   <CWF_SettingsCategory>自訂武器</CWF_SettingsCategory>
   <CWF_Parts>部件</CWF_Parts>
   <CWF_CompatibleModules>可用模組</CWF_CompatibleModules>
@@ -65,8 +66,6 @@
   <CWF_ConfirmUninstallTitle>確認移除</CWF_ConfirmUninstallTitle>
   <CWF_ConfirmUninstallBody>移除{MODULE}將會同時卸下以下模組:\n\n{DEPENDENCIES}\n\n確認移除嗎？</CWF_ConfirmUninstallBody>
   <CWF_FromEquipped>源於武器模組</CWF_FromEquipped>
-  <CWF_DynamicTextures>啟用動態貼圖</CWF_DynamicTextures>
-  <CWF_DynamicTexturesDesc>啟用後，武器貼圖將根據已安裝的模組動態合成。禁用後，保持武器的原始外觀。</CWF_DynamicTexturesDesc>
   <CWF_RandomModuleGeneration>隨機生成模組</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>啟用後，產生其他派系的角色（如商隊、盟友和襲擊者）時，其武器會隨機附帶武器模組</CWF_RandomModuleGenerationDesc>
   <CWF_RarityWeights>稀有度權重</CWF_RarityWeights>
@@ -89,5 +88,10 @@
   <CWF_PresetDeleteFailed>刪除方案失敗：{NAME}</CWF_PresetDeleteFailed>
   <CWF_PresetApplied>已套用方案：{NAME}</CWF_PresetApplied>
   <CWF_PresetAppliedWithSkipped>已套用方案：{NAME}（跳過 {COUNT} 個失效或不相容模組）</CWF_PresetAppliedWithSkipped>
+  <!-- #endregion -->
+  <!-- #region Appearance -->
+  <CWF_WeaponStyle>樣式</CWF_WeaponStyle>
+  <CWF_AppearanceOriginal>原始</CWF_AppearanceOriginal>
+  <CWF_AppearanceDynamic>動態</CWF_AppearanceDynamic>
   <!-- #endregion -->
 </LanguageData>
