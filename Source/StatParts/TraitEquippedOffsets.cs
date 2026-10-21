@@ -86,18 +86,22 @@ public class TraitEquippedOffsets : StatPart {
     // helper
     private bool TryGetApplicableTraits(StatRequest req, out IReadOnlyList<WeaponTraitDef> applicableTraits) {
         applicableTraits = [];
-        if (req.Thing is not Pawn pawn) return false;
+        if (req.Thing is not Pawn pawn) {
+            return false;
+        }
 
-        var weapon = pawn.equipment?.Primary;
-
-        var traits = weapon?.TryGetComp<CompDynamicTraits>()?.Traits;
-        if (traits == null) return false;
+        var traits = pawn.equipment?.Primary?.TryGetComp<CompDynamicTraits>()?.Traits;
+        if (traits == null) {
+            return false;
+        }
 
         var list = traits
-            .Where(trait => trait.equippedStatOffsets.Any(modifier => modifier.stat == parentStat))
+            .Where(trait => trait.equippedStatOffsets?.Any(modifier => modifier.stat == parentStat) == true)
             .ToList();
 
-        if (list.Count == 0) return false;
+        if (list.Count == 0) {
+            return false;
+        }
 
         applicableTraits = list;
         return true;
