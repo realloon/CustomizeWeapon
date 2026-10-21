@@ -16,6 +16,7 @@
       <Flammability>0.2</Flammability>
       <DeteriorationRate>2</DeteriorationRate>
       <MarketValue>150</MarketValue>
+      <SellPriceFactor>0.20</SellPriceFactor>
     </statBases>
     <recipeMaker>
       <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
@@ -42,10 +43,4 @@
       <li Class="CWF.CompProperties_TraitModule" />
     </comps>
   </ThingDef>
-
-  <!-- #region Muzzle -->
-  <!-- #endregion -->
-
-  <!-- #region accessories -->
-  <!-- #endregion -->
 </Defs>
