@@ -19,18 +19,9 @@ public class CompDynamicGraphic : ThingComp {
     private Graphic? _cachedGraphic;
     private Texture2D? _cachedBakedTexture;
     private bool _isDirty = true;
+    private bool _useDynamicTextures = true;
     private static RenderTexture? _bakeTarget;
     private CompDynamicTraits? _compDynamicTraits;
-
-    public bool UseFullResolutionBake {
-        get;
-        set {
-            if (field == value) return;
-
-            field = value;
-            _isDirty = true;
-        }
-    }
 
     private readonly record struct Quad(Texture2D Texture, Color Tint, int X, int Y, int Width, int Height);
 
@@ -42,7 +33,29 @@ public class CompDynamicGraphic : ThingComp {
         internal float BottomUpShiftY(int fallbackHeight) => Height - fallbackHeight - ShiftY;
     }
 
+    public bool UseDynamicTextures {
+        get => _useDynamicTextures;
+        set {
+            if (_useDynamicTextures == value) return;
+
+            _useDynamicTextures = value;
+            Notify_ThingGraphicDirty(parent);
+        }
+    }
+
+    public bool UseFullResolutionBake {
+        get;
+        set {
+            if (field == value) return;
+
+            field = value;
+            _isDirty = true;
+        }
+    }
+
     private CompProperties_DynamicGraphic Props => (CompProperties_DynamicGraphic)props;
+
+    public bool UsesDynamicComposite => UseDynamicTextures && parent.StyleDef?.Graphic == null;
 
     public override void Initialize(CompProperties properties) {
         base.Initialize(properties);
@@ -50,6 +63,10 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     public Graphic GetDynamicGraphic() {
+        if (!UsesDynamicComposite) {
+            return parent.Graphic;
+        }
+
         if (!_isDirty && _cachedGraphic != null) {
             return _cachedGraphic;
         }
@@ -61,12 +78,25 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     public Texture? GetUiIconTexture() {
+        if (!UsesDynamicComposite) {
+            return null;
+        }
+
         GetDynamicGraphic();
         return _cachedBakedTexture;
     }
 
     public void Notify_GraphicDirty() {
         _isDirty = true;
+        Notify_ThingGraphicDirty(parent);
+    }
+
+    public static void Notify_ThingGraphicDirty(Thing thing) {
+        if (thing.Map != null) { // ground graphic dirty
+            thing.Map.mapDrawer.MapMeshDirty(thing.Position, MapMeshFlagDefOf.Things);
+        } else if (thing.ParentHolder is Pawn_EquipmentTracker equipmentTracker) { // equipment graphic dirty
+            equipmentTracker.pawn.Drawer.renderer.SetAllGraphicsDirty();
+        }
     }
 
     public override void Notify_ColorChanged() {
@@ -74,15 +104,20 @@ public class CompDynamicGraphic : ThingComp {
         Notify_GraphicDirty();
     }
 
+    public override void PostExposeData() {
+        base.PostExposeData();
+        Scribe_Values.Look(ref _useDynamicTextures, "useDynamicTextures", true);
+    }
+
     public override void PostDestroy(DestroyMode mode, Map previousMap) {
         base.PostDestroy(mode, previousMap);
         ReleaseCachedTexture();
     }
 
-    public override bool DontDrawParent() => Settings.Current.DynamicTexturesEnabled;
+    public override bool DontDrawParent() => UsesDynamicComposite;
 
     public override void DrawAt(Vector3 drawLoc, bool flip = false) {
-        if (!Settings.Current.DynamicTexturesEnabled) return;
+        if (!UsesDynamicComposite) return;
         if (parent.def.drawerType != DrawerType.RealtimeOnly && parent.Spawned) return;
 
         var rotation = flip ? parent.Rotation.Opposite : parent.Rotation;
@@ -90,7 +125,7 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     public override void PostPrintOnto(SectionLayer layer) {
-        if (!Settings.Current.DynamicTexturesEnabled || parent.def.dontPrint) return;
+        if (!UsesDynamicComposite || parent.def.dontPrint) return;
 
         GetDynamicGraphic().Print(layer, parent, 0f);
     }
@@ -121,10 +156,7 @@ public class CompDynamicGraphic : ThingComp {
     #region Helper
 
     private Graphic GenerateGraphic() {
-        var originalGraphicData = parent.def.graphicData;
-        if (originalGraphicData == null) {
-            return BaseContent.BadGraphic;
-        }
+        var originalGraphicData = parent.def.graphicData!;
 
         var sizeReference = ContentFinder<Texture2D>.Get(originalGraphicData.texPath, false);
         var fallbackWidth = sizeReference?.width ?? 512;
@@ -184,8 +216,6 @@ public class CompDynamicGraphic : ThingComp {
         var dyeColor = parent.TryGetComp<CompColorable>()?.ColorDef?.color ?? Color.white;
 
         foreach (var point in Props.attachmentPoints) {
-            if (point.part == null) continue;
-
             var installedTrait = _compDynamicTraits.GetInstalledTraitFor(point.part);
             ModuleGraphicData? graphicToRender = null;
 
@@ -205,8 +235,9 @@ public class CompDynamicGraphic : ThingComp {
             var moduleTexture = ContentFinder<Texture2D>.Get(graphicToRender.texturePath, false);
             if (moduleTexture == null) continue;
 
-            var disableDyeing = installedTrait != null && installedTrait.TryGetModuleDef(out var moduleDef) &&
-                                moduleDef.GetModExtension<TraitModuleExtension>() is { disableDyeing: true };
+            var disableDyeing = installedTrait != null &&
+                                installedTrait.TryGetModuleDef(out var moduleDef) &&
+                                moduleDef.TraitModule().disableDyeing;
             var layerTint = disableDyeing ? Color.white : dyeColor;
             if (!layerTint.IndistinguishableFrom(Color.white)) EnsureDyeMask(moduleTexture);
 

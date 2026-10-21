@@ -60,7 +60,6 @@
   <CWF_Rarity_Rare>Rare</CWF_Rarity_Rare>
   <CWF_Rarity_Legendary>Legendary</CWF_Rarity_Legendary>
   <CWF_InputTitle>Input</CWF_InputTitle>
-  <CWF_NotRanged>Only ranged weapons are supported right now.</CWF_NotRanged>
   <CWF_ConfirmInstallTitle>Confirm Install</CWF_ConfirmInstallTitle>
   <CWF_ConfirmInstallBody>Installing {MODULE} will also remove these modules:\n\n{CONFLICTS}\n\nContinue?</CWF_ConfirmInstallBody>
   <CWF_ConfirmUninstallTitle>Confirm Uninstall</CWF_ConfirmUninstallTitle>

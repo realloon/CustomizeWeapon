@@ -7,29 +7,16 @@ namespace CWF.Extensions;
 internal static class Extensions {
     extension(ThingDef moduleDef) {
         internal bool IsCompatibleWith(ThingDef weaponDef) {
-            if (moduleDef.GetModExtension<TraitModuleExtension>() is not { } ext) {
-                return false;
-            }
+            var ext = moduleDef.TraitModule();
+            var weaponTags = weaponDef.weaponTags;
 
-            if (ext.excludeWeaponDefs != null && ext.excludeWeaponDefs.Contains(weaponDef)) {
-                return false;
-            }
+            if (ext.excludeWeaponDefs.Contains(weaponDef)) return false;
+            if (weaponTags != null && ext.excludeWeaponTags.Any(weaponTags.Contains)) return false;
 
-            if (!ext.excludeWeaponTags.NullOrEmpty() && !weaponDef.weaponTags.NullOrEmpty() &&
-                ext.excludeWeaponTags.Any(t => weaponDef.weaponTags.Contains(t))) {
-                return false;
-            }
+            if (ext.requiredWeaponDefs.Contains(weaponDef)) return true;
+            if (weaponTags != null && ext.requiredWeaponTags.Any(weaponTags.Contains)) return true;
 
-            if (!ext.requiredWeaponDefs.NullOrEmpty() && ext.requiredWeaponDefs!.Contains(weaponDef)) {
-                return true;
-            }
-
-            if (!ext.requiredWeaponTags.NullOrEmpty() && !weaponDef.weaponTags.NullOrEmpty() &&
-                ext.requiredWeaponTags.Any(tag => weaponDef.weaponTags.Contains(tag))) {
-                return true;
-            }
-
-            return ext.requiredWeaponDefs.NullOrEmpty() && ext.requiredWeaponTags.NullOrEmpty();
+            return ext.requiredWeaponDefs.Count == 0 && ext.requiredWeaponTags.Count == 0;
         }
 
         internal float GetRarityWeight() => Settings.Current.GetRarityWeight(moduleDef.GetRarity());
@@ -41,12 +28,12 @@ internal static class Extensions {
             _ => throw new ArgumentOutOfRangeException()
         };
 
-        private Rarity GetRarity() => moduleDef.GetModExtension<TraitModuleExtension>() is { } ext
-            ? ext.rarity
-            : throw new InvalidOperationException(
-                $"[CWF] Module '{moduleDef.defName}' is missing {nameof(TraitModuleExtension)}.");
+        private Rarity GetRarity() => moduleDef.TraitModule().rarity;
 
-        internal TraitModuleExtension TraitModule() => moduleDef.GetModExtension<TraitModuleExtension>()!;
+        internal TraitModuleExtension TraitModule() =>
+            moduleDef.GetModExtension<TraitModuleExtension>() ??
+            throw new InvalidOperationException(
+                $"[CWF] Module '{moduleDef.defName}' is missing {nameof(TraitModuleExtension)}.");
     }
 
     extension(WeaponTraitDef traitDef) {
@@ -101,8 +88,7 @@ internal static class Extensions {
         internal bool TryGetPart([NotNullWhen(true)] out PartDef? part) =>
             ModuleDatabase.TryGetPart(traitDef, out part);
 
-        internal bool TryGetModuleDef([NotNullWhen(true)] out ThingDef? moduleDef) {
-            return ModuleDatabase.TryGetModuleDef(traitDef, out moduleDef);
-        }
+        internal bool TryGetModuleDef([NotNullWhen(true)] out ThingDef? moduleDef) =>
+            ModuleDatabase.TryGetModuleDef(traitDef, out moduleDef);
     }
 }

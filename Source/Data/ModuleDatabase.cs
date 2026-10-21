@@ -68,9 +68,9 @@ public static class ModuleDatabase {
 
     private static IEnumerable<ThingDef> GetCompatibleWeaponDefsFor(ThingDef moduleDef) {
         var ext = moduleDef.TraitModule();
-        var candidates = new HashSet<ThingDef>(ext.requiredWeaponDefs ?? []);
+        var candidates = new HashSet<ThingDef>(ext.requiredWeaponDefs);
 
-        foreach (var tag in ext.requiredWeaponTags ?? []) {
+        foreach (var tag in ext.requiredWeaponTags) {
             if (WeaponsByTag.TryGetValue(tag, out var weapons)) {
                 candidates.UnionWith(weapons);
             }

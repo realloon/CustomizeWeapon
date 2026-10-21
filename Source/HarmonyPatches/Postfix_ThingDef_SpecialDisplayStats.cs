@@ -30,10 +30,10 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
             return [];
         }
 
-        var verb = thingDef.Verbs?.FirstOrDefault(v => v.isPrimary);
+        var verb = thingDef.Verbs.FirstOrDefault(v => v.isPrimary);
         if (verb == null) return [];
 
-        var statCat = thingDef.IsMeleeWeapon ? StatCategoryDefOf.Weapon_Melee : StatCategoryDefOf.Weapon_Ranged;
+        var statCat = StatCategoryDefOf.Weapon_Ranged;
         var customEntries = new List<StatDrawEntry>();
 
         if (verb is { showBurstShotStats: true, burstShotCount: > 1 }) {

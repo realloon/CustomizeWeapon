@@ -5,12 +5,28 @@ namespace CWF.Controllers;
 
 public class InteractionController(Thing weapon, ModificationSession session, Action onDataChanged) {
     private readonly AssemblyPresetManager? _presetManager = Current.Game?.GetComponent<AssemblyPresetManager>();
+    private readonly CompDynamicGraphic? _dynamicGraphic = weapon.TryGetComp<CompDynamicGraphic>();
+    private readonly CompColorable? _colorable = weapon.TryGetComp<CompColorable>();
+
+    private readonly List<StyleCategoryDef> _styleCategories = weapon.def.CanBeStyled()
+        ? [
+            .. DefDatabase<StyleCategoryDef>.AllDefs.Where(styleCategory =>
+                styleCategory.GetStyleForThingDef(weapon.def)?.Graphic != null)
+        ]
+        : [];
 
     public bool HasInstalledModules => session.Traits.Count != 0;
+
+    public bool HasAppearanceOptions =>
+        _dynamicGraphic != null || weapon.StyleDef != null || _styleCategories.Count > 0;
+
+    public bool HasDyeOptions => _colorable != null && _dynamicGraphic is { UsesDynamicComposite: true };
 
     public IEnumerable<AssemblyPresetData> GetApplicablePresets() => _presetManager?.GetPresetsFor(weapon.def) ?? [];
 
     public void OpenColorMenu() {
+        if (!HasDyeOptions) return;
+
         var options = CompColorable.AvailableColors
             .Select(color => new FloatMenuOption(color.LabelCap, () => ApplyColor(color),
                 UIKit.GetColorSwatch(color.color), color.color))
@@ -19,14 +35,71 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
     }
 
     private void ApplyColor(ColorDef colorDef) {
-        if (weapon.TryGetComp<CompColorable>(out var colorable)) {
-            colorable.ColorDef = colorDef;
-        }
+        if (!HasDyeOptions) return;
+
+        _colorable!.ColorDef = colorDef;
 
         if (session.PreviewWeapon.TryGetComp<CompColorable>(out var previewColorable)) {
             previewColorable.ColorDef = colorDef;
         }
 
+        onDataChanged();
+    }
+
+    public void OpenAppearanceMenu() {
+        var currentStyle = weapon.StyleDef;
+        var isDynamic = currentStyle == null && _dynamicGraphic is { UsesDynamicComposite: true };
+
+        var options = new List<FloatMenuOption> {
+            new(FormatMenuLabel("CWF_AppearanceOriginal".Translate(), currentStyle == null && !isDynamic),
+                () => ApplyAppearance(null, false))
+        };
+
+        if (_dynamicGraphic != null) {
+            options.Add(new FloatMenuOption(
+                FormatMenuLabel("CWF_AppearanceDynamic".Translate(), isDynamic),
+                () => ApplyAppearance(null, true)));
+        }
+
+        foreach (var styleCategory in _styleCategories) {
+            var styleDef = styleCategory.GetStyleForThingDef(weapon.def);
+            if (styleDef == null) continue;
+
+            var label = FormatMenuLabel(styleCategory.LabelCap, styleDef == currentStyle);
+            options.Add(new FloatMenuOption(label, () => ApplyAppearance(styleDef, true)));
+        }
+
+        Find.WindowStack.Add(new FloatMenu(options));
+    }
+
+    private static string FormatMenuLabel(string label, bool selected) => (selected ? "✓ " : string.Empty) + label;
+
+    private void ApplyAppearance(ThingStyleDef? styleDef, bool useDynamicTextures) {
+        var changed = false;
+
+        if (weapon.StyleDef != styleDef) {
+            weapon.StyleDef = styleDef;
+            changed = true;
+        }
+
+        if (session.PreviewWeapon.StyleDef != styleDef) {
+            session.PreviewWeapon.StyleDef = styleDef;
+        }
+
+        if (_dynamicGraphic != null && _dynamicGraphic.UseDynamicTextures != useDynamicTextures) {
+            _dynamicGraphic.UseDynamicTextures = useDynamicTextures;
+            changed = true;
+        }
+
+        if (session.PreviewWeapon.TryGetComp<CompDynamicGraphic>(out var previewDynamicGraphic) &&
+            previewDynamicGraphic.UseDynamicTextures != useDynamicTextures) {
+            previewDynamicGraphic.UseDynamicTextures = useDynamicTextures;
+        }
+
+        if (!changed) return;
+
+        CompDynamicGraphic.Notify_ThingGraphicDirty(weapon);
+        SoundDefOf.Tick_High.PlayOneShotOnCamera();
         onDataChanged();
     }
 

@@ -46,17 +46,32 @@ public class HeaderDrawer(Thing weapon, ModificationSession session, Interaction
             Find.WindowStack.Add(inputModal);
         }
 
-        // Render color button
+        // Render color button, disabled outside the dynamic appearance.
         var colorButtonRect = new Rect(renameButtonRect.x - gap - buttonSize, renameButtonRect.y,
             buttonSize, buttonSize);
-        TooltipHandler.TipRegion(colorButtonRect, "CWF_WeaponColor".Translate());
-        if (Widgets.ButtonImage(colorButtonRect.ContractedBy(5f), TexButton.ToggleDevPalette)) {
+        var canDye = controller.HasDyeOptions;
+        var colorButtonColor = canDye ? Color.white : Color.gray;
+        TooltipHandler.TipRegion(colorButtonRect,
+            (canDye ? "CWF_WeaponColor" : "CWF_WeaponColorUnavailable").Translate());
+        if (Widgets.ButtonImage(colorButtonRect.ContractedBy(5f), TexButton.ToggleDevPalette,
+                colorButtonColor, canDye ? GenUI.MouseoverColor : colorButtonColor, canDye) && canDye) {
             controller.OpenColorMenu();
         }
 
-        // Render action button
-        var actionButtonRect = new Rect(colorButtonRect.x - gap - buttonSize, renameButtonRect.y,
+        // Render appearance button
+        var appearanceButtonRect = new Rect(colorButtonRect.x - gap - buttonSize, colorButtonRect.y,
             buttonSize, buttonSize);
+        if (controller.HasAppearanceOptions) {
+            TooltipHandler.TipRegion(appearanceButtonRect, "CWF_WeaponStyle".Translate());
+            if (Widgets.ButtonImage(appearanceButtonRect.ContractedBy(3f), TexButton.NewItem)) {
+                controller.OpenAppearanceMenu();
+            }
+        }
+
+        // Render action button
+        var actionButtonRect = new Rect(
+            (controller.HasAppearanceOptions ? appearanceButtonRect.x : colorButtonRect.x) - gap - buttonSize,
+            renameButtonRect.y, buttonSize, buttonSize);
         if (Widgets.ButtonImage(actionButtonRect.ContractedBy(4f), TexButton.OpenDebugActionsMenu)) {
             var applicablePresets = controller.GetApplicablePresets().ToList();
             var options = new List<FloatMenuOption> {

@@ -24,13 +24,12 @@ public class CompColorable : ThingComp {
 
     // Override default color if defined.
     public override Color? ForceColor() {
-        if (ColorDef == null) {
+        if (!parent.TryGetComp<CompDynamicGraphic>(out var dynamicGraphic)) {
             return null;
         }
 
-        return parent.TryGetComp<CompDynamicGraphic>() != null
-            ? Color.white
-            : ColorDef.color;
+        // The dye is baked into the dynamic composite. Original and style modes keep their own colors.
+        return dynamicGraphic.UsesDynamicComposite ? Color.white : null;
     }
 
     public override void PostPostMake() {

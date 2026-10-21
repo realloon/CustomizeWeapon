@@ -99,10 +99,17 @@ public class ModificationSession {
         var previewWeapon = ThingMaker.MakeThing(_weapon.def, _weapon.Stuff);
         previewWeapon.TryGetComp<CompDynamicGraphic>()?.UseFullResolutionBake = true;
 
-        CopyQuality(_weapon, previewWeapon);
-        CopyRenamable(_weapon, previewWeapon);
-        CopyColorable(_weapon, previewWeapon);
-        CopyUniqueWeapon(_weapon, previewWeapon);
+        CopyComp<CompQuality>(_weapon, previewWeapon, (source, preview) => preview.SetQuality(source.Quality, null));
+        CopyComp<CompRenamable>(_weapon, previewWeapon, (source, preview) => preview.Nickname = source.Nickname);
+        CopyComp<CompColorable>(_weapon, previewWeapon, (source, preview) => preview.ColorDef = source.ColorDef);
+        CopyComp<CompDynamicGraphic>(_weapon, previewWeapon,
+            (source, preview) => preview.UseDynamicTextures = source.UseDynamicTextures);
+        CopyComp<CompUniqueWeapon>(_weapon, previewWeapon, (source, preview) => {
+            preview.TraitsListForReading.Clear();
+            preview.TraitsListForReading.AddRange(source.TraitsListForReading);
+            preview.Setup(true);
+        });
+        CopyStyle(_weapon, previewWeapon);
 
         return previewWeapon;
     }
@@ -115,35 +122,15 @@ public class ModificationSession {
         }
     }
 
-    private static void CopyQuality(Thing source, Thing preview) {
-        if (source.TryGetComp<CompQuality>(out var sourceQuality) &&
-            preview.TryGetComp<CompQuality>(out var previewQuality)) {
-            previewQuality.SetQuality(sourceQuality.Quality, null);
+    private static void CopyComp<T>(Thing source, Thing preview, Action<T, T> copy) where T : ThingComp {
+        if (source.TryGetComp<T>(out var sourceComp) && preview.TryGetComp<T>(out var previewComp)) {
+            copy(sourceComp, previewComp);
         }
     }
 
-    private static void CopyRenamable(Thing source, Thing preview) {
-        if (source.TryGetComp<CompRenamable>(out var sourceRenamable) &&
-            preview.TryGetComp<CompRenamable>(out var previewRenamable)) {
-            previewRenamable.Nickname = sourceRenamable.Nickname;
-        }
-    }
+    private static void CopyStyle(Thing source, Thing preview) {
+        if (source.StyleDef == preview.StyleDef) return;
 
-    private static void CopyColorable(Thing source, Thing preview) {
-        if (!source.TryGetComp<CompColorable>(out var sourceColorable) ||
-            !preview.TryGetComp<CompColorable>(out var previewColorable)) return;
-
-        previewColorable.ColorDef = sourceColorable.ColorDef;
-    }
-
-    private static void CopyUniqueWeapon(Thing source, Thing preview) {
-        if (!source.TryGetComp<CompUniqueWeapon>(out var sourceUniqueWeapon) ||
-            !preview.TryGetComp<CompUniqueWeapon>(out var previewUniqueWeapon)) {
-            return;
-        }
-
-        previewUniqueWeapon.TraitsListForReading.Clear();
-        previewUniqueWeapon.TraitsListForReading.AddRange(sourceUniqueWeapon.TraitsListForReading);
-        previewUniqueWeapon.Setup(true);
+        preview.StyleDef = source.StyleDef;
     }
 }

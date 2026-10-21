@@ -13,19 +13,19 @@ public class TraitModuleExtension : DefModExtension {
     public PartDef part = new();
 
     [UsedImplicitly]
-    public List<ConditionalPartModifier>? conditionalPartModifiers;
+    public List<ConditionalPartModifier> conditionalPartModifiers = [];
 
     [UsedImplicitly]
-    public List<ThingDef>? requiredWeaponDefs;
+    public List<ThingDef> requiredWeaponDefs = [];
 
     [UsedImplicitly]
-    public List<string>? requiredWeaponTags;
+    public List<string> requiredWeaponTags = [];
 
     [UsedImplicitly]
-    public List<ThingDef>? excludeWeaponDefs;
+    public List<ThingDef> excludeWeaponDefs = [];
 
     [UsedImplicitly]
-    public List<string>? excludeWeaponTags;
+    public List<string> excludeWeaponTags = [];
 
     [UsedImplicitly]
     public Rarity rarity = Rarity.Standard;

@@ -60,7 +60,6 @@
   <CWF_Rarity_Rare>稀有</CWF_Rarity_Rare>
   <CWF_Rarity_Legendary>传奇</CWF_Rarity_Legendary>
   <CWF_InputTitle>输入</CWF_InputTitle>
-  <CWF_NotRanged>暂时只支持远程武器。</CWF_NotRanged>
   <CWF_ConfirmInstallTitle>确认安装</CWF_ConfirmInstallTitle>
   <CWF_ConfirmInstallBody>安装{MODULE}将会同时卸下以下模块:\n\n{CONFLICTS}\n\n确认安装吗？</CWF_ConfirmInstallBody>
   <CWF_ConfirmUninstallTitle>确认移除</CWF_ConfirmUninstallTitle>

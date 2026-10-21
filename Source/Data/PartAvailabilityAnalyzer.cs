@@ -45,12 +45,8 @@ public static class PartAvailabilityAnalyzer {
                 var moduleDef = moduleCache[part];
                 var modifiers = moduleDef.TraitModule().conditionalPartModifiers;
 
-                if (modifiers == null) continue;
-
                 foreach (var rule in modifiers) {
-                    if (rule.matcher == null || !rule.matcher.IsMatch(weapon.def)) {
-                        continue;
-                    }
+                    if (!rule.matcher.IsMatch(weapon.def)) continue;
 
                     enabledParts.UnionWith(rule.enablesParts);
                     disabledParts.UnionWith(rule.disablesParts);

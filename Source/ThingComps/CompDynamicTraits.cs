@@ -10,8 +10,6 @@ public class CompDynamicTraits : ThingComp {
 
     private Dictionary<PartDef, WeaponTraitDef> _installedTraits = new();
 
-    private HashSet<PartDef> _availableParts = [];
-
     private DamageDef? _projectileDamageOverride;
     private float _projectileStoppingPowerOffset;
     private readonly List<ExtraDamage> _projectileExtraDamages = [];
@@ -29,8 +27,6 @@ public class CompDynamicTraits : ThingComp {
     }
 
     public IReadOnlyCollection<WeaponTraitDef> Traits => _installedTraits.Values;
-
-    public IReadOnlyCollection<PartDef> AvailableParts => _availableParts;
 
     internal void ApplyProjectileEffects(Projectile projectile) {
         if (_projectileDamageOverride != null) {
@@ -68,7 +64,7 @@ public class CompDynamicTraits : ThingComp {
     }
 
     public void RandomizeTraits() {
-        var settings = LoadedModManager.GetMod<ConfigWindow>().GetSettings<Settings>();
+        var settings = Settings.Current;
         if (!settings.RandomModulesEnabled) return;
 
         var allSupportedParts = Props.supportParts;
@@ -82,8 +78,6 @@ public class CompDynamicTraits : ThingComp {
         modulesToInstallCount = Mathf.Min(modulesToInstallCount, availableEmptyParts.Count);
 
         for (var i = 0; i < modulesToInstallCount; i++) {
-            if (availableEmptyParts.Empty()) break;
-
             var randomPart = availableEmptyParts.RandomElement();
             availableEmptyParts.Remove(randomPart);
 
@@ -188,7 +182,7 @@ public class CompDynamicTraits : ThingComp {
         sb.Append(traitDescriptionBlocks.ToLineList());
 
         yield return new StatDrawEntry(
-            parent.def.IsMeleeWeapon ? StatCategoryDefOf.Weapon_Melee : StatCategoryDefOf.Weapon_Ranged,
+            StatCategoryDefOf.Weapon_Ranged,
             "CWF_WeaponModules".Translate(),
             Traits.Select(x => x.label).ToCommaList().CapitalizeFirst(),
             sb.ToString(),
@@ -205,7 +199,6 @@ public class CompDynamicTraits : ThingComp {
 
         InitializeTraits();
         RebuildProjectileEffects();
-        RecalculateAvailableParts();
         SetupAbility(false);
     }
 
@@ -237,7 +230,6 @@ public class CompDynamicTraits : ThingComp {
         #endregion
 
         RebuildProjectileEffects();
-        RecalculateAvailableParts();
         SetupAbility(true);
     }
 
@@ -252,12 +244,7 @@ public class CompDynamicTraits : ThingComp {
 
         if (parent.IsForbidden(Faction.OfPlayer)) yield break;
 
-        yield return new Command_Action {
-            defaultLabel = "CWF_WeaponPanel".Translate(),
-            defaultDesc = "CWF_WeaponPanelDesc".Translate(),
-            icon = ContentFinder<Texture2D>.Get("CustomizeWeapon/Gizmos/Panel"),
-            action = () => { Find.WindowStack.Add(new WeaponWindow(parent)); }
-        };
+        yield return CreatePanelGizmo();
 
         if (!DebugSettings.ShowDevGizmos) yield break;
         var addTraitGizmo = new Command_Action {
@@ -281,13 +268,11 @@ public class CompDynamicTraits : ThingComp {
                 var options = new List<FloatMenuOption>();
 
                 foreach (var traitDef in availableTraits) {
-                    var localTraitDef = traitDef;
-
                     var option = new FloatMenuOption(
-                        localTraitDef.LabelCap,
+                        traitDef.LabelCap,
                         () => {
-                            if (!localTraitDef.TryGetPart(out var part)) return;
-                            InstallTrait(part, localTraitDef);
+                            if (!traitDef.TryGetPart(out var part)) return;
+                            InstallTrait(part, traitDef);
                         }
                     );
                     options.Add(option);
@@ -329,14 +314,16 @@ public class CompDynamicTraits : ThingComp {
     public IEnumerable<Gizmo> CompGetEquippedGizmosExtra(Pawn owner) {
         // harmony patched
         if (owner.Faction == Faction.OfPlayer) {
-            yield return new Command_Action {
-                defaultLabel = "CWF_WeaponPanel".Translate(),
-                defaultDesc = "CWF_WeaponPanelDesc".Translate(),
-                icon = ContentFinder<Texture2D>.Get("CustomizeWeapon/Gizmos/Panel"),
-                action = () => { Find.WindowStack.Add(new WeaponWindow(parent)); }
-            };
+            yield return CreatePanelGizmo();
         }
     }
+
+    private Command_Action CreatePanelGizmo() => new() {
+        defaultLabel = "CWF_WeaponPanel".Translate(),
+        defaultDesc = "CWF_WeaponPanelDesc".Translate(),
+        icon = ContentFinder<Texture2D>.Get("CustomizeWeapon/Gizmos/Panel"),
+        action = () => Find.WindowStack.Add(new WeaponWindow(parent))
+    };
 
     #endregion
 
@@ -367,25 +354,10 @@ public class CompDynamicTraits : ThingComp {
 
     private void OnTraitsChanged() {
         RebuildProjectileEffects();
-        RecalculateAvailableParts();
         SetupAbility(false);
         ClearAllCaches();
 
-        #region Refresh graphic
-
-        if (!parent.TryGetComp<CompDynamicGraphic>(out var compDynamicGraphic)) return;
-
-        compDynamicGraphic.Notify_GraphicDirty();
-
-        if (parent.Map != null) {
-            // ground graphic dirty
-            parent.Map.mapDrawer.MapMeshDirty(parent.Position, MapMeshFlagDefOf.Things);
-        } else if (parent.ParentHolder is Pawn_EquipmentTracker equipmentTracker) {
-            // equipment graphic dirty
-            equipmentTracker.pawn.Drawer.renderer.SetAllGraphicsDirty();
-        }
-
-        #endregion
+        parent.TryGetComp<CompDynamicGraphic>()?.Notify_GraphicDirty();
     }
 
     private void RebuildProjectileEffects() {
@@ -406,10 +378,6 @@ public class CompDynamicTraits : ThingComp {
                 _projectileStoppingPowerOffset += trait.additionalStoppingPower;
             }
         }
-    }
-
-    private void RecalculateAvailableParts() {
-        _availableParts = [.. PartAvailabilityAnalyzer.Analyze(parent, _installedTraits).AvailableParts];
     }
 
     private void SetupAbility(bool isPostLoad) {

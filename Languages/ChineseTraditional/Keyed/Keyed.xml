@@ -60,7 +60,6 @@
   <CWF_Rarity_Rare>稀有</CWF_Rarity_Rare>
   <CWF_Rarity_Legendary>傳奇</CWF_Rarity_Legendary>
   <CWF_InputTitle>輸入</CWF_InputTitle>
-  <CWF_NotRanged>暫時僅支援遠程武器。</CWF_NotRanged>
   <CWF_ConfirmInstallTitle>確認安裝</CWF_ConfirmInstallTitle>
   <CWF_ConfirmInstallBody>安裝{MODULE}將同時卸下以下模組:\n\n{CONFLICTS}\n\n確認安裝嗎？</CWF_ConfirmInstallBody>
   <CWF_ConfirmUninstallTitle>確認移除</CWF_ConfirmUninstallTitle>

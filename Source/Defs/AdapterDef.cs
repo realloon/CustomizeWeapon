@@ -61,6 +61,12 @@ public class AdapterDef : Def {
                 continue;
             }
 
+            if (weaponDef.IsMeleeWeapon) {
+                Log.Warning(
+                    $"[CWF] AdapterDef '{adapter.defName}' targets a melee weapon; only ranged weapons are supported.");
+                continue;
+            }
+
             AdaptWeapon(weaponDef, adapter);
         }
     }

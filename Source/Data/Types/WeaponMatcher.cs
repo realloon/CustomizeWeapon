@@ -15,8 +15,6 @@ public class WeaponMatcher {
     public bool IsMatch(ThingDef weaponDef) {
         if (weaponDefs.Contains(weaponDef)) return true;
 
-        if (weaponTags.Empty() || weaponDef.weaponTags.NullOrEmpty()) return false;
-
-        return weaponTags.Any(tag => weaponDef.weaponTags.Contains(tag));
+        return weaponDef.weaponTags != null && weaponTags.Any(weaponDef.weaponTags.Contains);
     }
 }

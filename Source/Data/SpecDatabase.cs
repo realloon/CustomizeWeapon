@@ -18,18 +18,16 @@ public class SpecDatabase {
     private Spec _ticksBetweenBurstShots;
 
     private readonly Thing _previewWeapon;
-    private readonly CompDynamicTraits? _previewDynamicTraits;
+    private readonly CompDynamicTraits _previewDynamicTraits;
 
     private enum Mode {
         Raw,
         Dynamic
     }
 
-    public bool IsMeleeWeapon => _previewWeapon.def.IsMeleeWeapon;
-
     public SpecDatabase(ModificationSession session) {
         _previewWeapon = session.PreviewWeapon;
-        _previewDynamicTraits = _previewWeapon.TryGetComp<CompDynamicTraits>();
+        _previewDynamicTraits = _previewWeapon.TryGetComp<CompDynamicTraits>()!;
 
         // Raw values
         // === Stat ===
@@ -117,7 +115,7 @@ public class SpecDatabase {
         }
 
         // CompDynamicTraits
-        var additional = _previewDynamicTraits?.Traits.Sum(traitDef => traitDef.additionalStoppingPower) ?? 0;
+        var additional = _previewDynamicTraits.Traits.Sum(traitDef => traitDef.additionalStoppingPower);
 
         return basePower + additional;
     }

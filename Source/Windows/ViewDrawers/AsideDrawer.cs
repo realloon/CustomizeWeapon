@@ -3,12 +3,11 @@ using UnityEngine;
 namespace CWF.ViewDrawers;
 
 public class AsideDrawer(SpecDatabase specDatabase) {
-    private Vector2 _scrollPosition = Vector2.zero;
-
     private const float StatRowHeight = 22f;
     private const float SectionGapHeight = 12f;
     private const float SectionHeaderHeight = 24f;
-    private const float MeleeLabelHeight = 24f;
+
+    private Vector2 _scrollPosition = Vector2.zero;
 
     public void Draw(in Rect rect) {
         var contentRect = new Rect(0f, 0f, rect.width, Mathf.Max(rect.height, EstimateContentHeight()));
@@ -16,13 +15,6 @@ public class AsideDrawer(SpecDatabase specDatabase) {
 
         var listing = new Listing_Standard();
         listing.Begin(contentRect);
-
-        if (specDatabase.IsMeleeWeapon) {
-            listing.Label("CWF_NotRanged".Translate());
-            listing.End();
-            Widgets.EndScrollView();
-            return;
-        }
 
         // === Weapon Stats ===
         DrawStatRow(listing, "CWF_Range".Translate(), specDatabase.Range);
@@ -56,11 +48,7 @@ public class AsideDrawer(SpecDatabase specDatabase) {
     }
 
     // helper
-    private float EstimateContentHeight() {
-        if (specDatabase.IsMeleeWeapon) {
-            return MeleeLabelHeight;
-        }
-
+    private static float EstimateContentHeight() {
         const int totalStatRowCount = 14;
         const int sectionGapCount = 3;
         const int sectionHeaderCount = 2;

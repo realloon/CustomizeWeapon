@@ -8,9 +8,7 @@ public class AssemblyPresetData : IExposable {
     public List<AssemblyPresetEntryData> Entries = [];
 
     public void ExposeData() {
-        var name = Name;
-        Scribe_Values.Look(ref name, "name");
-        Name = name!;
+        Scribe_Values.Look(ref Name, "name", string.Empty);
         Scribe_Defs.Look(ref WeaponDef, "weaponDef");
         Scribe_Collections.Look(ref Entries, "entries", LookMode.Deep);
     }

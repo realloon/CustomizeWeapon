@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using CWF.Extensions;
 
 namespace CWF;
@@ -9,8 +9,8 @@ public class TraitEquippedOffsets : StatPart {
 
         var totalOffset = traits
             .SelectMany(trait => trait.equippedStatOffsets)
-            .Where(modifier => modifier?.stat == parentStat)
-            .Sum(modifier => modifier!.value);
+            .Where(modifier => modifier.stat == parentStat)
+            .Sum(modifier => modifier.value);
 
         if (totalOffset != 0f) {
             val += totalOffset;
@@ -29,7 +29,7 @@ public class TraitEquippedOffsets : StatPart {
             if (modifiers.NullOrEmpty()) continue;
 
             var localOffset = modifiers
-                .Where(modifier => modifier?.stat == parentStat)
+                .Where(modifier => modifier.stat == parentStat)
                 .Sum(modifier => modifier.value);
 
             if (localOffset == 0f) continue;
@@ -63,7 +63,7 @@ public class TraitEquippedOffsets : StatPart {
             if (modifiers.NullOrEmpty()) continue;
 
             foreach (var modifier in modifiers) {
-                if (modifier?.stat == null) continue;
+                if (modifier.stat == null) continue;
                 if (!modifier.stat.showOnPawns || !modifier.stat.showOnHumanlikes) continue;
 
                 targetStats.Add(modifier.stat);
@@ -94,8 +94,7 @@ public class TraitEquippedOffsets : StatPart {
         if (traits == null) return false;
 
         var list = traits
-            .Where(trait => trait.equippedStatOffsets?
-                .Any(modifier => modifier?.stat == parentStat) == true)
+            .Where(trait => trait.equippedStatOffsets.Any(modifier => modifier.stat == parentStat))
             .ToList();
 
         if (list.Count == 0) return false;

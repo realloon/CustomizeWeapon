@@ -7,7 +7,7 @@ namespace CWF;
 [UsedImplicitly]
 public class ConditionalPartModifier {
     [UsedImplicitly]
-    public readonly WeaponMatcher? matcher;
+    public readonly WeaponMatcher matcher = new();
 
     [UsedImplicitly]
     public readonly List<PartDef> enablesParts = [];
