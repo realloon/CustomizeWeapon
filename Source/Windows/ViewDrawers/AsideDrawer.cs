@@ -25,14 +25,14 @@ public class AsideDrawer(SpecDatabase specDatabase) {
 
         // === Projectile Stats ===
         listing.GapLine();
-        listing.Label($"<color=#999999><b>{"CWF_Projectile".Translate()}</b></color>", 22f);
+        DrawSectionHeader(listing, "CWF_Projectile".Translate());
         DrawStatRow(listing, "CWF_Damage".Translate(), specDatabase.Damage);
         DrawStatRow(listing, "CWF_ArmorPenetration".Translate(), specDatabase.ArmorPenetration, unit: "%");
         DrawStatRow(listing, "CWF_StoppingPower".Translate(), specDatabase.StoppingPower, "F1");
 
         // === Accuracy Stats ===
         listing.GapLine();
-        listing.Label($"<color=#999999><b>{"CWF_Accuracy".Translate()}</b></color>", 22f);
+        DrawSectionHeader(listing, "CWF_Accuracy".Translate());
         DrawStatRow(listing, "CWF_Touch".Translate(), specDatabase.AccuracyTouch, unit: "%");
         DrawStatRow(listing, "CWF_Short".Translate(), specDatabase.AccuracyShort, unit: "%");
         DrawStatRow(listing, "CWF_Medium".Translate(), specDatabase.AccuracyMedium, unit: "%");
@@ -47,7 +47,8 @@ public class AsideDrawer(SpecDatabase specDatabase) {
         Widgets.EndScrollView();
     }
 
-    // helper
+    #region Helper
+
     private static float EstimateContentHeight() {
         const int totalStatRowCount = 14;
         const int sectionGapCount = 3;
@@ -58,9 +59,15 @@ public class AsideDrawer(SpecDatabase specDatabase) {
                + sectionHeaderCount * SectionHeaderHeight;
     }
 
-    private static void DrawStatRow(
-        Listing_Standard listing, string label, Spec spec,
-        string format = "N0", string unit = "") {
+    private static void DrawSectionHeader(Listing_Standard listing, string label) {
+        var height = Mathf.Max(SectionHeaderHeight, Text.CalcHeight(label, listing.ColumnWidth));
+        var rect = listing.GetRect(height);
+        UIKit.WithStyle(() => Widgets.Label(rect, $"<color=#999999><b>{label}</b></color>"),
+            anchor: TextAnchor.MiddleLeft);
+    }
+
+    private static void DrawStatRow(Listing_Standard listing, string label, Spec spec, string format = "N0",
+        string unit = "") {
         var value = unit == "%" ? spec.Dynamic * 100 : spec.Dynamic;
         var valueString = value.ToString(format) + unit;
         var delta = spec.IsLowerValueBetter ? spec.Raw - spec.Dynamic : spec.Dynamic - spec.Raw;
@@ -83,4 +90,6 @@ public class AsideDrawer(SpecDatabase specDatabase) {
 
         UIKit.WithStyle(() => Widgets.Label(inRect, value), color: color, anchor: TextAnchor.MiddleRight);
     }
+
+    #endregion
 }
