@@ -56,7 +56,7 @@ public class ModificationSession {
     }
 
     public IEnumerable<WeaponTraitDef> GetReinstallableTraitsFor(PartDef part) => InitialTraits
-        .Where(pair => pair.Key == part && !_desiredTraits.Values.Contains(pair.Value))
+        .Where(pair => pair.Key == part && !_desiredTraits.ContainsValue(pair.Value))
         .Select(pair => pair.Value);
 
     public List<ModificationData> CalculateNetChanges() {
