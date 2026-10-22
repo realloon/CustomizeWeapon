@@ -54,7 +54,7 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
 
     // === Helper ===
     private void DrawPartGroup(in Rect container, List<PartDef> groupParts, Direction direction) {
-        if (groupParts.Empty()) return;
+        if (groupParts.Count == 0) return;
 
         var count = groupParts.Count;
 

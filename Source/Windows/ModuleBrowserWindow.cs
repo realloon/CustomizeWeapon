@@ -42,7 +42,7 @@ public class ModuleBrowserWindow : Window {
 
         var relevantModules = compatibleModules.ToHashSet();
         foreach (var recipe in DefDatabase<RecipeDef>.AllDefsListForReading) {
-            if (recipe.products.Empty()) continue;
+            if (recipe.products.Count == 0) continue;
 
             var productDef = recipe.products[0].thingDef;
             if (relevantModules.Contains(productDef)) {
@@ -75,7 +75,7 @@ public class ModuleBrowserWindow : Window {
         UIKit.WithStyle(() => listing.Label("CWF_Parts".Translate()), GameFont.Medium);
         listing.Gap(TitleContentGap);
 
-        if (_groupedModules.NullOrEmpty()) {
+        if (_groupedModules.Count == 0) {
             listing.End();
             return;
         }
@@ -123,7 +123,7 @@ public class ModuleBrowserWindow : Window {
             _ => _groupedModules.GetValueOrDefault(_selectedPart) ?? []
         };
 
-        if (modulesToShow.Empty()) {
+        if (modulesToShow.Count == 0) {
             var noModuleLabelRect = listing.GetRect(Text.LineHeight);
             noModuleLabelRect.x += padding;
             Widgets.Label(noModuleLabelRect, "CWF_NoCompatibleModules".Translate());

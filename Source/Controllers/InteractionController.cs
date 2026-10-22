@@ -133,7 +133,7 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
         };
 
         // from inventory or map
-        if (compatibleModuleDefs.Any()) {
+        if (compatibleModuleDefs.Count > 0) {
             var searchScope = ownerPawn != null
                 ? ownerPawn.inventory.innerContainer
                 : weapon.Map?.listerThings.AllThings ?? Enumerable.Empty<Thing>();
@@ -156,7 +156,7 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
             }
         }
 
-        if (!installCandidates.Any()) {
+        if (installCandidates.Count == 0) {
             options.Add(new FloatMenuOption(weapon.ParentHolder is Pawn_EquipmentTracker
                 ? "CWF_NoCompatibleModulesInInventory".Translate()
                 : "CWF_NoCompatibleModulesOnMap".Translate(), null));
@@ -361,5 +361,5 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
 public class ConflictAnalysisResult {
     public List<WeaponTraitDef> ModulesToRemove { get; } = [];
 
-    public bool HasConflict => !ModulesToRemove.NullOrEmpty();
+    public bool HasConflict => ModulesToRemove.Count > 0;
 }

@@ -20,7 +20,7 @@ public class CompProperties_TraitModule : CompProperties {
         var sb = new StringBuilder();
         var effect = traitDef.GetTraitEffect();
 
-        if (effect.Any()) {
+        if (effect.Length > 0) {
             sb.AppendLine("CWF_ModuleEffectsDesc".Translate(traitDef.Named("MODULE")) + ":");
             sb.AppendLine();
             sb.AppendLine(effect);
