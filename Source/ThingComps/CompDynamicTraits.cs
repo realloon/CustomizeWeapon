@@ -6,17 +6,13 @@ using CWF.Extensions;
 namespace CWF;
 
 public class CompDynamicTraits : ThingComp {
-    private CompProperties_DynamicTraits Props => (CompProperties_DynamicTraits)props;
-
     private Dictionary<PartDef, WeaponTraitDef> _installedTraits = new();
-
     private DamageDef? _projectileDamageOverride;
     private float _projectileStoppingPowerOffset;
     private readonly List<ExtraDamage> _projectileExtraDamages = [];
 
     /// <summary>
-    /// Gets a copy of the dictionary containing all currently installed Traits,
-    /// or sets a new dictionary of Traits, completely overwriting the old one.
+    /// Gets a copy of all installed Traits, or overwrites them with a new dictionary.
     /// </summary>
     public Dictionary<PartDef, WeaponTraitDef> InstalledTraits {
         get => new(_installedTraits);
@@ -26,16 +22,9 @@ public class CompDynamicTraits : ThingComp {
         }
     }
 
+    private CompProperties_DynamicTraits Props => (CompProperties_DynamicTraits)props;
+
     public IReadOnlyCollection<WeaponTraitDef> Traits => _installedTraits.Values;
-
-    internal void ApplyProjectileEffects(Projectile projectile) {
-        if (_projectileDamageOverride != null) {
-            projectile.damageDefOverride = _projectileDamageOverride;
-        }
-
-        projectile.extraDamages.AddRange(_projectileExtraDamages);
-        projectile.stoppingPower += _projectileStoppingPowerOffset;
-    }
 
     public void InstallTrait(PartDef part, WeaponTraitDef traitDef) {
         if (!_installedTraits.TryAdd(part, traitDef)) {
@@ -67,52 +56,57 @@ public class CompDynamicTraits : ThingComp {
         var settings = Settings.Current;
         if (!settings.RandomModulesEnabled) return;
 
-        var allSupportedParts = Props.supportParts;
-        if (allSupportedParts.Empty()) return;
-
-        var occupiedParts = _installedTraits.Keys;
-        var availableEmptyParts = allSupportedParts.Except(occupiedParts).ToList();
-        if (availableEmptyParts.NullOrEmpty()) return;
-
         var modulesToInstallCount = Rand.RangeInclusive(0, settings.MaxRandomModules);
-        modulesToInstallCount = Mathf.Min(modulesToInstallCount, availableEmptyParts.Count);
+        if (modulesToInstallCount == 0) return;
 
-        for (var i = 0; i < modulesToInstallCount; i++) {
-            var randomPart = availableEmptyParts.RandomElement();
-            availableEmptyParts.Remove(randomPart);
+        var availableParts = Props.supportParts.Except(_installedTraits.Keys).ToList();
+        if (availableParts.Count == 0) return;
+
+        var installedCount = 0;
+
+        while (installedCount < modulesToInstallCount && availableParts.Count > 0) {
+            var randomPart = availableParts.RandomElement();
+            availableParts.Remove(randomPart);
 
             var compatibleModules = ModuleDatabase.AllModuleDefs
                 .Where(moduleDef => moduleDef.TraitModule().part == randomPart)
                 .Where(moduleDef => moduleDef.IsCompatibleWith(parent.def))
                 .ToList();
-
-            if (compatibleModules.Empty()) continue;
+            if (compatibleModules.Count == 0) continue;
 
             if (!compatibleModules.TryRandomElementByWeight(moduleDef => moduleDef.GetRarityWeight(),
                     out var moduleToInstall)) {
                 Log.Error(
-                    $"[CWF] Failed to pick a random trait for part '{randomPart.defName}' on weapon '{parent.def.defName}'. " +
-                    "Please ensure at least one rarity weight is greater than 0 in mod settings.");
+                    $"[CWF] No valid rarity weight for trait on part '{randomPart.defName}' ('{parent.def.defName}'). " +
+                    $"Ensure at least one rarity weight > 0 in mod settings.");
                 continue;
             }
 
-            var traitToInstall = moduleToInstall.TraitModule().weaponTraitDef;
+            _installedTraits.Add(randomPart, moduleToInstall.TraitModule().weaponTraitDef);
+            installedCount += 1;
+        }
 
-            InstallTrait(randomPart, traitToInstall);
+        // Rebuild stat, ability and graphic caches once instead of once per installed module.
+        if (installedCount > 0) {
+            OnTraitsChanged();
         }
     }
 
-    #region Stat
+    #region Effects
 
-    public override float GetStatOffset(StatDef stat) {
-        return Traits
-            .Sum(traitDef => traitDef.statOffsets.GetStatOffsetFromList(stat));
-    }
+    public override float GetStatOffset(StatDef stat) => Traits
+        .Sum(traitDef => traitDef.statOffsets.GetStatOffsetFromList(stat));
 
-    public override float GetStatFactor(StatDef stat) {
-        return Traits
-            .Aggregate(1f, (current, traitDef)
-                => current * traitDef.statFactors.GetStatFactorFromList(stat));
+    public override float GetStatFactor(StatDef stat) => Traits
+        .Aggregate(1f, (current, traitDef) => current * traitDef.statFactors.GetStatFactorFromList(stat));
+
+    internal void ApplyProjectileEffects(Projectile projectile) {
+        if (_projectileDamageOverride != null) {
+            projectile.damageDefOverride = _projectileDamageOverride;
+        }
+
+        projectile.extraDamages.AddRange(_projectileExtraDamages);
+        projectile.stoppingPower += _projectileStoppingPowerOffset;
     }
 
     #endregion
@@ -152,7 +146,7 @@ public class CompDynamicTraits : ThingComp {
     }
 
     public override string? CompInspectStringExtra() {
-        if (_installedTraits.NullOrEmpty()) return null;
+        if (_installedTraits.Count == 0) return null;
 
         return "CWF_WeaponModules".Translate() + ": " + Traits
             .Select(traitDef => traitDef.label).ToCommaList()
@@ -160,7 +154,7 @@ public class CompDynamicTraits : ThingComp {
     }
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats() {
-        if (_installedTraits.NullOrEmpty()) yield break;
+        if (_installedTraits.Count == 0) yield break;
 
         var sb = new StringBuilder();
         sb.AppendLine("CWF_WeaponModules_Desc".Translate());
@@ -172,7 +166,7 @@ public class CompDynamicTraits : ThingComp {
             blockBuilder.AppendLine(trait.description);
 
             var effect = trait.GetTraitEffect();
-            if (effect.Any()) {
+            if (effect.Length > 0) {
                 blockBuilder.AppendLine(effect);
             }
 
@@ -220,7 +214,7 @@ public class CompDynamicTraits : ThingComp {
             .Select(pair => pair.Key)
             .ToArray();
 
-        if (partsWithMissingTraits.Any()) {
+        if (partsWithMissingTraits.Length > 0) {
             _installedTraits.RemoveRange(partsWithMissingTraits);
 
             Log.Warning($"[CWF] Removed {partsWithMissingTraits.Length} missing traits from '{parent.LabelCap}'. " +
@@ -260,7 +254,7 @@ public class CompDynamicTraits : ThingComp {
                     })
                     .ToList();
 
-                if (availableTraits.Empty()) {
+                if (availableTraits.Count == 0) {
                     Messages.Message("Debug: No available traits to install.", MessageTypeDefOf.NeutralEvent);
                     return;
                 }
@@ -301,7 +295,7 @@ public class CompDynamicTraits : ThingComp {
                     options.Add(option);
                 }
 
-                if (options.Empty()) {
+                if (options.Count == 0) {
                     options.Add(new FloatMenuOption("Nothing to remove", null));
                 }
 
@@ -327,11 +321,11 @@ public class CompDynamicTraits : ThingComp {
 
     #endregion
 
-    #region Private Helper
+    #region Helper
 
     private void InitializeTraits() {
         var defaultTraitsList = Props.defaultWeaponTraitDefs;
-        if (defaultTraitsList.Empty()) return;
+        if (defaultTraitsList.Count == 0) return;
 
         foreach (var traitDef in defaultTraitsList) {
             if (traitDef.TryGetPart(out var part)) {
