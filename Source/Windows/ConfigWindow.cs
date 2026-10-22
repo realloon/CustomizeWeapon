@@ -25,15 +25,12 @@ public class ConfigWindow : Mod {
             "CWF_RandomModuleGenerationDesc".Translate());
 
         if (_settings.RandomModulesEnabled) {
-            var range = new IntRange(_settings.MinRandomModules, _settings.MaxRandomModules);
-            listing.IntRange(ref range, 0, 10);
+            listing.Label("CWF_RandomModuleLimit".Translate(_settings.MaxRandomModules));
+            var countSliderRect = listing.GetRect(22f);
+            _settings.MaxRandomModules = Mathf.RoundToInt(
+                Widgets.HorizontalSlider(countSliderRect, _settings.MaxRandomModules, 0f, 10f, roundTo: 1f));
 
-            _settings.MinRandomModules = range.min;
-            _settings.MaxRandomModules = range.max;
-
-            listing.Gap();
             listing.Label("CWF_RarityWeights".Translate());
-
             var descRect = listing.GetRect(Text.LineHeight);
             UIKit.WithStyle(
                 () => Widgets.Label(descRect, "CWF_RarityWeightsDesc".Translate()),

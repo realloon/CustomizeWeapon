@@ -67,6 +67,7 @@
   <CWF_FromEquipped>源于武器模块</CWF_FromEquipped>
   <CWF_RandomModuleGeneration>随机生成模块</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>启用后，生成其他派系的角色（如商队、盟友和袭击者）时，其武器会随机附带武器模块</CWF_RandomModuleGenerationDesc>
+  <CWF_RandomModuleLimit>随机生成上限：{0}</CWF_RandomModuleLimit>
   <CWF_RarityWeights>稀有度权重</CWF_RarityWeights>
   <CWF_RarityWeightsDesc>随机生成模块时，不同稀有度的分配权重，权重越高，越常见。</CWF_RarityWeightsDesc>
   <CWF_RarityWeight_Standard>标准</CWF_RarityWeight_Standard>

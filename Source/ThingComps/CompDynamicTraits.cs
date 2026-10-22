@@ -74,7 +74,7 @@ public class CompDynamicTraits : ThingComp {
         var availableEmptyParts = allSupportedParts.Except(occupiedParts).ToList();
         if (availableEmptyParts.NullOrEmpty()) return;
 
-        var modulesToInstallCount = Rand.RangeInclusive(settings.MinRandomModules, settings.MaxRandomModules);
+        var modulesToInstallCount = Rand.RangeInclusive(0, settings.MaxRandomModules);
         modulesToInstallCount = Mathf.Min(modulesToInstallCount, availableEmptyParts.Count);
 
         for (var i = 0; i < modulesToInstallCount; i++) {

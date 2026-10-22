@@ -67,6 +67,7 @@
   <CWF_FromEquipped>源於武器模組</CWF_FromEquipped>
   <CWF_RandomModuleGeneration>隨機生成模組</CWF_RandomModuleGeneration>
   <CWF_RandomModuleGenerationDesc>啟用後，產生其他派系的角色（如商隊、盟友和襲擊者）時，其武器會隨機附帶武器模組</CWF_RandomModuleGenerationDesc>
+  <CWF_RandomModuleLimit>隨機生成上限：{0}</CWF_RandomModuleLimit>
   <CWF_RarityWeights>稀有度權重</CWF_RarityWeights>
   <CWF_RarityWeightsDesc>隨機生成模組時，不同稀有度的分配權重，權重越高，越常見。</CWF_RarityWeightsDesc>
   <CWF_RarityWeight_Standard>標準</CWF_RarityWeight_Standard>

@@ -2,14 +2,12 @@ namespace CWF;
 
 public class Settings : ModSettings {
     private const bool DefaultRandomModulesEnabled = true;
-    private const int DefaultMinRandomModules = 0;
     private const int DefaultMaxRandomModules = 3;
     private const float DefaultStandardRarityWeight = 1f;
     private const float DefaultRareRarityWeight = 0.2f;
     private const float DefaultLegendaryRarityWeight = 0.01f;
 
     public bool RandomModulesEnabled = DefaultRandomModulesEnabled;
-    public int MinRandomModules = DefaultMinRandomModules;
     public int MaxRandomModules = DefaultMaxRandomModules;
     public float StandardRarityWeight = DefaultStandardRarityWeight;
     public float RareRarityWeight = DefaultRareRarityWeight;
@@ -26,7 +24,6 @@ public class Settings : ModSettings {
 
     public void Reset() {
         RandomModulesEnabled = DefaultRandomModulesEnabled;
-        MinRandomModules = DefaultMinRandomModules;
         MaxRandomModules = DefaultMaxRandomModules;
         StandardRarityWeight = DefaultStandardRarityWeight;
         RareRarityWeight = DefaultRareRarityWeight;
@@ -36,7 +33,6 @@ public class Settings : ModSettings {
     public override void ExposeData() {
         base.ExposeData();
         Scribe_Values.Look(ref RandomModulesEnabled, "randomModulesEnabled", DefaultRandomModulesEnabled);
-        Scribe_Values.Look(ref MinRandomModules, "minRandomModules", DefaultMinRandomModules);
         Scribe_Values.Look(ref MaxRandomModules, "maxRandomModules", DefaultMaxRandomModules);
         Scribe_Values.Look(ref StandardRarityWeight, "standardRarityWeight", DefaultStandardRarityWeight);
         Scribe_Values.Look(ref RareRarityWeight, "rareRarityWeight", DefaultRareRarityWeight);
