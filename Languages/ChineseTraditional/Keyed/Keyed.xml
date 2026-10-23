@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <!-- #region Stat -->
-  <CWF_Range>射程</CWF_Range>
   <CWF_RangeDPS>DPS</CWF_RangeDPS>
   <CWF_RangeBurstCount>連發數</CWF_RangeBurstCount>
-  <CWF_RangeWarmupTime>瞄準時間</CWF_RangeWarmupTime>
   <CWF_RangeCooldown>冷卻時間</CWF_RangeCooldown>
   <CWF_Projectile>子弹</CWF_Projectile>
-  <CWF_Damage>單發傷害</CWF_Damage>
-  <CWF_ArmorPenetration>護甲穿透</CWF_ArmorPenetration>
-  <CWF_StoppingPower>抑制力</CWF_StoppingPower>
   <CWF_Accuracy>射擊精度</CWF_Accuracy>
   <CWF_Touch>貼近</CWF_Touch>
   <CWF_Short>近</CWF_Short>

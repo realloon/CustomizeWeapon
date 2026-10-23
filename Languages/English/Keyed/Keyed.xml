@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <!-- #region Stat -->
-  <CWF_Range>Range</CWF_Range>
   <CWF_RangeDPS>DPS</CWF_RangeDPS>
   <CWF_RangeBurstCount>Burst count</CWF_RangeBurstCount>
-  <CWF_RangeWarmupTime>Warmup time</CWF_RangeWarmupTime>
   <CWF_RangeCooldown>Cooldown</CWF_RangeCooldown>
   <CWF_Projectile>Projectile</CWF_Projectile>
-  <CWF_Damage>Damage</CWF_Damage>
-  <CWF_ArmorPenetration>Armor penetration</CWF_ArmorPenetration>
-  <CWF_StoppingPower>Stopping power</CWF_StoppingPower>
   <CWF_Accuracy>Accuracy</CWF_Accuracy>
   <CWF_Touch>Touch</CWF_Touch>
   <CWF_Short>Short</CWF_Short>

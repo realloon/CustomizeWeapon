@@ -17,21 +17,18 @@ public class SpecDatabase {
     internal Spec Dps;
     private Spec _ticksBetweenBurstShots;
 
-    private readonly Thing _previewWeapon;
-    private readonly CompDynamicTraits _previewDynamicTraits;
+    internal Thing PreviewWeapon { get; }
 
-    private enum Mode {
-        Raw,
-        Dynamic
-    }
+    internal IEnumerable<WeaponTraitDef> AllTraits =>
+        (PreviewWeapon.TryGetComp<CompDynamicTraits>()?.Traits ?? [])
+        .Concat(PreviewWeapon.TryGetComp<CompUniqueWeapon>()?.TraitsListForReading ?? []);
 
+    // Note: downstream mod CWE transpiles `Verbs.First()` in the ctor, Recalculate, and GetComputedStoppingPower.
     public SpecDatabase(ModificationSession session) {
-        _previewWeapon = session.PreviewWeapon;
-        _previewDynamicTraits = _previewWeapon.TryGetComp<CompDynamicTraits>()!;
+        PreviewWeapon = session.PreviewWeapon;
 
-        // Raw values
         // === Stat ===
-        var weaponDef = _previewWeapon.def;
+        var weaponDef = PreviewWeapon.def;
         Mass = new Spec(weaponDef.GetStatValueAbstract(StatDefOf.Mass), true);
         MarketValue = new Spec(weaponDef.GetStatValueAbstract(StatDefOf.MarketValue));
         Cooldown = new Spec(weaponDef.GetStatValueAbstract(StatDefOf.RangedWeapon_Cooldown), true);
@@ -48,86 +45,56 @@ public class SpecDatabase {
         _ticksBetweenBurstShots = new Spec(weaponDefVerb.ticksBetweenBurstShots);
 
         // === Projectile ===
-        var weaponDefProjectile = weaponDefVerb.defaultProjectile?.projectile;
-        if (weaponDefProjectile != null) {
-            Damage = new Spec(weaponDefProjectile.GetDamageAmount(weaponDef, _previewWeapon.Stuff));
-            ArmorPenetration = new Spec(weaponDefProjectile.GetArmorPenetration());
-            StoppingPower = new Spec(weaponDefProjectile.stoppingPower);
+        if (weaponDefVerb.defaultProjectile?.projectile is { } projectile) {
+            Damage = new Spec(projectile.GetDamageAmount(weaponDef, PreviewWeapon.Stuff));
+            ArmorPenetration = new Spec(projectile.GetArmorPenetration());
+            StoppingPower = new Spec(projectile.stoppingPower);
         }
 
-        Dps = new Spec(CalculateDps(Mode.Raw));
-
-        Recalculate(); // init calc
+        Dps = new Spec(CalculateDps(s => s.Raw));
+        Recalculate();
     }
 
     public void Recalculate() {
-        // === Stat ===
-        Mass.Dynamic = _previewWeapon.GetStatValue(StatDefOf.Mass);
-        MarketValue.Dynamic = _previewWeapon.GetStatValue(StatDefOf.MarketValue);
-        Cooldown.Dynamic = _previewWeapon.GetStatValue(StatDefOf.RangedWeapon_Cooldown);
-        AccuracyTouch.Dynamic = _previewWeapon.GetStatValue(StatDefOf.AccuracyTouch);
-        AccuracyShort.Dynamic = _previewWeapon.GetStatValue(StatDefOf.AccuracyShort);
-        AccuracyMedium.Dynamic = _previewWeapon.GetStatValue(StatDefOf.AccuracyMedium);
-        AccuracyLong.Dynamic = _previewWeapon.GetStatValue(StatDefOf.AccuracyLong);
+        Mass.Dynamic = PreviewWeapon.GetStatValue(StatDefOf.Mass);
+        MarketValue.Dynamic = PreviewWeapon.GetStatValue(StatDefOf.MarketValue);
+        Cooldown.Dynamic = PreviewWeapon.GetStatValue(StatDefOf.RangedWeapon_Cooldown);
+        AccuracyTouch.Dynamic = PreviewWeapon.GetStatValue(StatDefOf.AccuracyTouch);
+        AccuracyShort.Dynamic = PreviewWeapon.GetStatValue(StatDefOf.AccuracyShort);
+        AccuracyMedium.Dynamic = PreviewWeapon.GetStatValue(StatDefOf.AccuracyMedium);
+        AccuracyLong.Dynamic = PreviewWeapon.GetStatValue(StatDefOf.AccuracyLong);
 
-        // === Verb ===
-        var weaponVerb = _previewWeapon.TryGetComp<CompEquippableAbilityReloadable>()?.PrimaryVerb
-                         ?? _previewWeapon.TryGetComp<CompEquippable>()?.PrimaryVerb;
+        var weaponVerb = PreviewWeapon.TryGetComp<CompEquippableAbilityReloadable>()?.PrimaryVerb
+                         ?? PreviewWeapon.TryGetComp<CompEquippable>()?.PrimaryVerb;
 
-        Range.Dynamic = Range.Raw * _previewWeapon.GetStatValue(StatDefOf.RangedWeapon_RangeMultiplier);
-        WarmupTime.Dynamic = WarmupTime.Raw * _previewWeapon.GetStatValue(StatDefOf.RangedWeapon_WarmupMultiplier);
+        Range.Dynamic = Range.Raw * PreviewWeapon.GetStatValue(StatDefOf.RangedWeapon_RangeMultiplier);
+        WarmupTime.Dynamic = WarmupTime.Raw * PreviewWeapon.GetStatValue(StatDefOf.RangedWeapon_WarmupMultiplier);
         BurstShotCount.Dynamic = weaponVerb?.BurstShotCount ?? -1; // harmony patched
         _ticksBetweenBurstShots.Dynamic = weaponVerb?.TicksBetweenBurstShots ?? -1; // harmony patched
 
-        // === Projectile ===
-        var weaponDefProjectile = _previewWeapon.def.Verbs.First().defaultProjectile?.projectile;
-        if (weaponDefProjectile != null) {
-            Damage.Dynamic = weaponDefProjectile.GetDamageAmount(_previewWeapon);
-            ArmorPenetration.Dynamic = weaponDefProjectile.GetArmorPenetration(_previewWeapon);
+        if (PreviewWeapon.def.Verbs.First().defaultProjectile?.projectile is { } projectile) {
+            Damage.Dynamic = projectile.GetDamageAmount(PreviewWeapon);
+            ArmorPenetration.Dynamic = projectile.GetArmorPenetration(PreviewWeapon);
             StoppingPower.Dynamic = GetComputedStoppingPower(); // harmony patched
         }
 
-        Dps.Dynamic = CalculateDps(Mode.Dynamic);
+        Dps.Dynamic = CalculateDps(s => s.Dynamic);
     }
 
-    // === Helper ===
-    private float CalculateDps(Mode mode) {
-        var damage = mode == Mode.Raw ? Damage.Raw : Damage.Dynamic;
-        var burstCount = mode == Mode.Raw ? BurstShotCount.Raw : BurstShotCount.Dynamic;
-        var ticksBetweenShots = mode == Mode.Raw
-            ? _ticksBetweenBurstShots.Raw
-            : _ticksBetweenBurstShots.Dynamic;
-        var warmup = mode == Mode.Raw ? WarmupTime.Raw : WarmupTime.Dynamic;
-        var cooldown = mode == Mode.Raw ? Cooldown.Raw : Cooldown.Dynamic;
-
-        var totalDamage = damage * burstCount;
-        var totalBurstSec = ticksBetweenShots * (burstCount - 1) / 60f;
-        var totalCycleSec = warmup + cooldown + totalBurstSec;
-        return totalCycleSec <= 0 ? 0f : totalDamage / totalCycleSec;
+    private float CalculateDps(Func<Spec, float> get) {
+        var burstCount = get(BurstShotCount);
+        var burstSec = get(_ticksBetweenBurstShots) * (burstCount - 1) / 60f;
+        var cycleSec = get(WarmupTime) + get(Cooldown) + burstSec;
+        return cycleSec <= 0 ? 0f : get(Damage) * burstCount / cycleSec;
     }
 
-    private float GetComputedStoppingPower() {
-        var basePower = _previewWeapon.def.Verbs.First().defaultProjectile?.projectile.stoppingPower ?? 0.5f;
-
-        // CompUniqueWeapon
-        if (_previewWeapon.TryGetComp<CompUniqueWeapon>(out var compUniqueWeapon)) {
-            basePower += compUniqueWeapon.TraitsListForReading.Sum(trait => trait.additionalStoppingPower);
-        }
-
-        // CompDynamicTraits
-        var additional = _previewDynamicTraits.Traits.Sum(traitDef => traitDef.additionalStoppingPower);
-
-        return basePower + additional;
-    }
+    private float GetComputedStoppingPower() =>
+        (PreviewWeapon.def.Verbs.First().defaultProjectile?.projectile.stoppingPower ?? 0.5f)
+        + AllTraits.Sum(trait => trait.additionalStoppingPower);
 }
 
-internal struct Spec {
-    public readonly float Raw;
-    public float Dynamic = 0f;
-    public bool IsLowerValueBetter { get; }
-
-    internal Spec(float raw, bool isLowerValueBetter = false) {
-        Raw = raw;
-        IsLowerValueBetter = isLowerValueBetter;
-    }
+public struct Spec(float raw, bool isLowerValueBetter = false) {
+    public readonly float Raw = raw;
+    public float Dynamic;
+    public bool IsLowerValueBetter { get; } = isLowerValueBetter;
 }

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-  <CWF_Range>Дальность</CWF_Range>
   <CWF_RangeDPS>DPS</CWF_RangeDPS>
   <CWF_RangeBurstCount>Выстрелов в очереди</CWF_RangeBurstCount>
-  <CWF_RangeWarmupTime>Время прицеливания</CWF_RangeWarmupTime>
   <CWF_RangeCooldown>Задержка</CWF_RangeCooldown>
   <CWF_Projectile>Снаряд</CWF_Projectile>
-  <CWF_Damage>Урон</CWF_Damage>
-  <CWF_ArmorPenetration>Бронепробитие</CWF_ArmorPenetration>
-  <CWF_StoppingPower>Останавливающее действие</CWF_StoppingPower>
   <CWF_Accuracy>Точность</CWF_Accuracy>
   <CWF_Touch>В упор</CWF_Touch>
   <CWF_Short>Близко</CWF_Short>
