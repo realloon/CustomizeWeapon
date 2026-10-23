@@ -31,65 +31,69 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
         }
 
         var verb = thingDef.Verbs.FirstOrDefault(v => v.isPrimary);
-        if (verb == null) return [];
+        if (verb == null) {
+            return [];
+        }
 
         var statCat = StatCategoryDefOf.Weapon_Ranged;
+        var baseValueLabel = "StatsReport_BaseValue".Translate();
+        var finalValueLabel = "StatsReport_FinalValue".Translate();
         var customEntries = new List<StatDrawEntry>();
 
         if (verb is { showBurstShotStats: true, burstShotCount: > 1 }) {
             resultList.RemoveAll(entry => entry.DisplayPriorityWithinCategory == 5391);
             var baseBurstCount = (float)verb.burstShotCount;
-            var burstCountMultiplier =
-                comp.Traits.Aggregate(1f, (current, trait) => current * trait.burstShotCountMultiplier);
+            var burstCountMultiplier = comp.Traits
+                .Aggregate(1f, (current, trait) => current * trait.burstShotCountMultiplier);
             var finalBurstCount = baseBurstCount * burstCountMultiplier;
 
             var burstCountSb = new StringBuilder("Stat_Thing_Weapon_BurstShotFireRate_Desc".Translate());
             burstCountSb.AppendLine().AppendLine();
-            burstCountSb.AppendLine("StatsReport_BaseValue".Translate() + ": " + verb.burstShotCount);
+            burstCountSb.AppendLine($"{baseValueLabel}: {verb.burstShotCount}");
             comp.GetStatsExplanation(burstCountSb, "    ", t => t.burstShotCountMultiplier, 1f,
                 ToStringNumberSense.Factor, ToStringStyle.PercentZero);
             burstCountSb.AppendLine()
-                .AppendLine("StatsReport_FinalValue".Translate() + ": " + Mathf.CeilToInt(finalBurstCount));
+                .AppendLine($"{finalValueLabel}: {Mathf.CeilToInt(finalBurstCount)}");
 
             customEntries.Add(new StatDrawEntry(statCat, "BurstShotCount".Translate(),
                 Mathf.CeilToInt(finalBurstCount).ToString(), burstCountSb.ToString(), 5391));
 
             resultList.RemoveAll(entry => entry.DisplayPriorityWithinCategory == 5395);
             var baseTicksBetweenShots = (float)verb.ticksBetweenBurstShots;
-            var burstSpeedMultiplier =
-                comp.Traits.Aggregate(1f, (current, trait) => current * trait.burstShotSpeedMultiplier);
+            var burstSpeedMultiplier = comp.Traits
+                .Aggregate(1f, (current, trait) => current * trait.burstShotSpeedMultiplier);
             var finalTicksBetweenShots = baseTicksBetweenShots / burstSpeedMultiplier;
             var finalFireRate = 60f / (finalTicksBetweenShots / 60f);
 
             var fireRateSb = new StringBuilder("Stat_Thing_Weapon_BurstShotFireRate_Desc".Translate());
             fireRateSb.AppendLine().AppendLine();
-            fireRateSb.AppendLine("StatsReport_BaseValue".Translate() + ": " +
-                                  (60f / verb.ticksBetweenBurstShots.TicksToSeconds()).ToString("0.##") + " rpm");
+            var baseFireRate = 60f / verb.ticksBetweenBurstShots.TicksToSeconds();
+            fireRateSb.AppendLine($"{baseValueLabel}: {baseFireRate:0.##} rpm");
             comp.GetStatsExplanation(fireRateSb, "    ", t => t.burstShotSpeedMultiplier, 1f,
                 ToStringNumberSense.Factor, ToStringStyle.PercentZero);
-            fireRateSb.AppendLine().AppendLine("StatsReport_FinalValue".Translate() + ": " +
-                                               finalFireRate.ToString("0.##") + " rpm");
+            fireRateSb.AppendLine().AppendLine($"{finalValueLabel}: {finalFireRate:0.##} rpm");
 
             customEntries.Add(new StatDrawEntry(statCat, "BurstShotFireRate".Translate(),
-                finalFireRate.ToString("0.##") + " rpm", fireRateSb.ToString(), 5395));
+                $"{finalFireRate:0.##} rpm", fireRateSb.ToString(), 5395));
         }
 
         var stoppingPowerStat = verb.defaultProjectile?.projectile?.stoppingPower;
-        if (stoppingPowerStat is not > 0f) return customEntries;
+        if (stoppingPowerStat is not > 0f) {
+            return customEntries;
+        }
 
         resultList.RemoveAll(entry => entry.DisplayPriorityWithinCategory == 5402);
+
         var baseStoppingPower = stoppingPowerStat.Value;
         var additionalStoppingPower = comp.Traits.Sum(t => t.additionalStoppingPower);
         var finalStoppingPower = baseStoppingPower + additionalStoppingPower;
 
         var stoppingPowerSb = new StringBuilder("StoppingPowerExplanation".Translate());
         stoppingPowerSb.AppendLine().AppendLine();
-        stoppingPowerSb.AppendLine(
-            "StatsReport_BaseValue".Translate() + ": " + baseStoppingPower.ToString("F1"));
-        comp.GetStatsExplanation(stoppingPowerSb, "    ", t => t.additionalStoppingPower, 0f,
-            ToStringNumberSense.Offset, ToStringStyle.FloatOne);
-        stoppingPowerSb.AppendLine()
-            .AppendLine("StatsReport_FinalValue".Translate() + ": " + finalStoppingPower.ToString("F1"));
+        stoppingPowerSb.AppendLine($"{baseValueLabel}: {baseStoppingPower:F1}");
+        comp.GetStatsExplanation(stoppingPowerSb, "    ", t => t.additionalStoppingPower,
+            0f, ToStringNumberSense.Offset, ToStringStyle.FloatOne);
+        stoppingPowerSb.AppendLine().AppendLine($"{finalValueLabel}: {finalStoppingPower:F1}");
 
         customEntries.Add(new StatDrawEntry(statCat, "StoppingPower".Translate(),
             finalStoppingPower.ToString("F1"), stoppingPowerSb.ToString(), 5402));
@@ -97,13 +101,8 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
         return customEntries;
     }
 
-    private static void GetStatsExplanation(
-        this CompDynamicTraits comp,
-        StringBuilder sb,
-        string whitespace,
-        Func<WeaponTraitDef, float> valueSelector,
-        float defaultValue,
-        ToStringNumberSense numberSense,
+    private static void GetStatsExplanation(this CompDynamicTraits comp, StringBuilder sb, string whitespace,
+        Func<WeaponTraitDef, float> valueSelector, float defaultValue, ToStringNumberSense numberSense,
         ToStringStyle toStringStyle) {
         var stringBuilder = new StringBuilder();
 

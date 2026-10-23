@@ -44,36 +44,34 @@ internal static class Extensions {
                 foreach (var modifier in traitDef.statOffsets) {
                     if (modifier.stat == StatDefOf.MarketValue || modifier.stat == StatDefOf.Mass) continue;
 
-                    sb.AppendLine($" - {modifier.stat.LabelCap}: " +
-                                  modifier.stat.Worker.ValueToString(modifier.value, false,
-                                      ToStringNumberSense.Offset));
+                    var value = modifier.stat.Worker.ValueToString(modifier.value, false, ToStringNumberSense.Offset);
+                    sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
                 }
             }
 
             if (!traitDef.statFactors.NullOrEmpty()) {
                 foreach (var modifier in traitDef.statFactors) {
-                    sb.AppendLine($" - {modifier.stat.LabelCap}: " +
-                                  modifier.stat.Worker.ValueToString(modifier.value, false,
-                                      ToStringNumberSense.Factor));
+                    var value = modifier.stat.Worker.ValueToString(modifier.value, false, ToStringNumberSense.Factor);
+                    sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
                 }
             }
 
             if (!Mathf.Approximately(traitDef.burstShotCountMultiplier, 1f)) {
-                sb.AppendLine($" - {"CWF_BurstShotCountMultiplier".Translate()}: " +
-                              traitDef.burstShotCountMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
-                                  ToStringNumberSense.Factor));
+                var value = traitDef.burstShotCountMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
+                    ToStringNumberSense.Factor);
+                sb.AppendLine($" - {"CWF_BurstShotCountMultiplier".Translate()}: {value}");
             }
 
             if (!Mathf.Approximately(traitDef.burstShotSpeedMultiplier, 1f)) {
-                sb.AppendLine($" - {"CWF_BurstShotSpeedMultiplier".Translate()}: " +
-                              traitDef.burstShotSpeedMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
-                                  ToStringNumberSense.Factor));
+                var value = traitDef.burstShotSpeedMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
+                    ToStringNumberSense.Factor);
+                sb.AppendLine($" - {"CWF_BurstShotSpeedMultiplier".Translate()}: {value}");
             }
 
             if (!Mathf.Approximately(traitDef.additionalStoppingPower, 0.0f)) {
-                sb.AppendLine($" - {"CWF_AdditionalStoppingPower".Translate()}: " +
-                              traitDef.additionalStoppingPower.ToStringByStyle(ToStringStyle.FloatOne,
-                                  ToStringNumberSense.Offset));
+                var value = traitDef.additionalStoppingPower.ToStringByStyle(ToStringStyle.FloatOne,
+                    ToStringNumberSense.Offset);
+                sb.AppendLine($" - {"CWF_AdditionalStoppingPower".Translate()}: {value}");
             }
 
             if (!traitDef.equippedStatOffsets.NullOrEmpty()) {

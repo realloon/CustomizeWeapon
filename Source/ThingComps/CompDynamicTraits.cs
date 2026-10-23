@@ -121,20 +121,18 @@ public class CompDynamicTraits : ThingComp {
             var statOffsetFromList = weaponTraitDef.statOffsets.GetStatOffsetFromList(stat);
             if (!Mathf.Approximately(statOffsetFromList, 0.0f)) {
                 stringBuilder ??= new StringBuilder();
-                stringBuilder.AppendLine(
-                    whitespace + " - " +
-                    weaponTraitDef.LabelCap + ": " +
-                    stat.Worker.ValueToString(statOffsetFromList, false, ToStringNumberSense.Offset));
+                var valueStr = stat.Worker.ValueToString(statOffsetFromList, false,
+                    ToStringNumberSense.Offset);
+                stringBuilder.AppendLine($"{whitespace} - {weaponTraitDef.LabelCap}: {valueStr}");
             }
 
             // factor
             var statFactorFromList = weaponTraitDef.statFactors.GetStatFactorFromList(stat);
             if (!Mathf.Approximately(statFactorFromList, 1f)) {
                 stringBuilder ??= new StringBuilder();
-                stringBuilder.AppendLine(
-                    whitespace + " - " +
-                    weaponTraitDef.LabelCap + ": " +
-                    stat.Worker.ValueToString(statFactorFromList, false, ToStringNumberSense.Factor));
+                var valueStr = stat.Worker.ValueToString(statFactorFromList, false,
+                    ToStringNumberSense.Factor);
+                stringBuilder.AppendLine($"{whitespace} - {weaponTraitDef.LabelCap}: {valueStr}");
             }
         }
 
@@ -148,9 +146,9 @@ public class CompDynamicTraits : ThingComp {
     public override string? CompInspectStringExtra() {
         if (_installedTraits.Count == 0) return null;
 
-        return "CWF_WeaponModules".Translate() + ": " + Traits
-            .Select(traitDef => traitDef.label).ToCommaList()
-            .CapitalizeFirst();
+        var label = "CWF_WeaponModules".Translate();
+        var traits = Traits.Select(traitDef => traitDef.label).ToCommaList().CapitalizeFirst();
+        return $"{label}: {traits}";
     }
 
     public override IEnumerable<StatDrawEntry> SpecialDisplayStats() {
