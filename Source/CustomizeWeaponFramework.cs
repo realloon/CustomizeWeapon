@@ -14,6 +14,5 @@ public class CustomizeWeaponFramework {
 
         AdapterDef.Inject();
         ModuleDatabase.BuildCacheAndInject();
-        TraitEquippedOffsets.Inject();
     }
 }

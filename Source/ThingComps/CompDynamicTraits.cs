@@ -10,6 +10,7 @@ public class CompDynamicTraits : ThingComp {
     private DamageDef? _projectileDamageOverride;
     private float _projectileStoppingPowerOffset;
     private readonly List<ExtraDamage> _projectileExtraDamages = [];
+    private readonly Dictionary<StatDef, float> _equippedOffsets = new();
 
     /// <summary>
     /// Gets a copy of all installed Traits, or overwrites them with a new dictionary.
@@ -100,7 +101,7 @@ public class CompDynamicTraits : ThingComp {
     public override float GetStatFactor(StatDef stat) => Traits
         .Aggregate(1f, (current, traitDef) => current * traitDef.statFactors.GetStatFactorFromList(stat));
 
-    internal void ApplyProjectileEffects(Projectile projectile) {
+    public void ApplyProjectileEffects(Projectile projectile) {
         if (_projectileDamageOverride != null) {
             projectile.damageDefOverride = _projectileDamageOverride;
         }
@@ -108,6 +109,10 @@ public class CompDynamicTraits : ThingComp {
         projectile.extraDamages.AddRange(_projectileExtraDamages);
         projectile.stoppingPower += _projectileStoppingPowerOffset;
     }
+
+    public bool TryGetEquippedOffset(StatDef stat, out float value) => _equippedOffsets.TryGetValue(stat, out value);
+
+    public bool HasEquippedOffset(StatDef stat) => _equippedOffsets.TryGetValue(stat, out var value) && value != 0f;
 
     #endregion
 
@@ -190,7 +195,7 @@ public class CompDynamicTraits : ThingComp {
         base.PostPostMake();
 
         InitializeTraits();
-        RebuildProjectileEffects();
+        RebuildDerivedState();
         SetupAbility(false);
     }
 
@@ -221,7 +226,7 @@ public class CompDynamicTraits : ThingComp {
 
         #endregion
 
-        RebuildProjectileEffects();
+        RebuildDerivedState();
         SetupAbility(true);
     }
 
@@ -345,11 +350,16 @@ public class CompDynamicTraits : ThingComp {
     }
 
     private void OnTraitsChanged() {
-        RebuildProjectileEffects();
+        RebuildDerivedState();
         SetupAbility(false);
-        ClearAllCaches();
+        InvalidateParentCaches();
 
         parent.TryGetComp<CompDynamicGraphic>()?.Notify_GraphicDirty();
+    }
+
+    private void RebuildDerivedState() {
+        RebuildProjectileEffects();
+        RebuildEquippedOffsets();
     }
 
     private void RebuildProjectileEffects() {
@@ -372,6 +382,21 @@ public class CompDynamicTraits : ThingComp {
         }
     }
 
+    private void RebuildEquippedOffsets() {
+        _equippedOffsets.Clear();
+
+        foreach (var trait in _installedTraits.Values) {
+            if (trait.equippedStatOffsets.NullOrEmpty()) continue;
+
+            foreach (var modifier in trait.equippedStatOffsets) {
+                if (modifier.stat == null || modifier.value == 0f) continue;
+
+                _equippedOffsets.TryGetValue(modifier.stat, out var current);
+                _equippedOffsets[modifier.stat] = current + modifier.value;
+            }
+        }
+    }
+
     private void SetupAbility(bool isPostLoad) {
         var abilityProvider = parent.TryGetComp<CompAbilityProvider>();
         if (abilityProvider == null) return;
@@ -384,7 +409,7 @@ public class CompDynamicTraits : ThingComp {
         abilityProvider.SetOrUpdateAbilities(propsList, isPostLoad);
     }
 
-    private void ClearAllCaches() {
+    private void InvalidateParentCaches() {
         // === stats ===
         foreach (var statDef in DefDatabase<StatDef>.AllDefs) {
             statDef.Worker.ClearCacheForThing(parent);
