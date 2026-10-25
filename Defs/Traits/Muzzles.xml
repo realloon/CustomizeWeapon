@@ -5,7 +5,7 @@
     <label>suppressor</label>
     <description>A muzzle-mounted suppressor that reduces the sound and flash produced when firing, making hunted animals less likely to retaliate.</description>
     <equippedStatOffsets>
-      <HuntingStealth>0.1</HuntingStealth>
+      <HuntingStealth>0.8</HuntingStealth>
     </equippedStatOffsets>
   </WeaponTraitDef>
 </Defs>
