@@ -206,7 +206,7 @@ public class CompDynamicTraits : ThingComp {
 
         if (Scribe.mode is not LoadSaveMode.PostLoadInit) return;
 
-        #region AutoFixMissing
+        #region RemoveMissing
 
         _installedTraits ??= new Dictionary<PartDef, WeaponTraitDef>();
 
@@ -217,9 +217,8 @@ public class CompDynamicTraits : ThingComp {
 
         if (partsWithMissingTraits.Length > 0) {
             _installedTraits.RemoveRange(partsWithMissingTraits);
-
-            Log.Warning($"[CWF] Removed {partsWithMissingTraits.Length} missing traits from '{parent.LabelCap}'. " +
-                        $"This is a safe, one-time operation.");
+            Log.WarningOnce("[CWF] " + "CWF_RemovedMissingTraits".Translate(),
+                GenText.StableStringHash("CWF_RemovedMissingTraits"));
         }
 
         #endregion

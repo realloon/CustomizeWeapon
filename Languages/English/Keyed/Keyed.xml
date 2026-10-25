@@ -31,6 +31,7 @@
   <CWF_ModificationComplete>{PAWN_label} finished modifying {WEAPON_label}</CWF_ModificationComplete>
   <CWF_NoWorkbenchToCraftModule>No suitable workbench to craft {MODULE_label}</CWF_NoWorkbenchToCraftModule>
   <CWF_BillAdded>Bill added: {MODULE_label} ({BENCH_label})</CWF_BillAdded>
+  <CWF_RemovedMissingTraits>Safely removed missing weapon modules. It is recommended to save the current game again.</CWF_RemovedMissingTraits>
   <!-- #endregion -->
 
   <!-- #region Window -->
@@ -83,8 +84,6 @@
   <CWF_PresetDeleteFailed>Failed to delete preset: {NAME}</CWF_PresetDeleteFailed>
   <CWF_PresetApplied>Applied preset: {NAME}</CWF_PresetApplied>
   <CWF_PresetAppliedWithSkipped>Applied preset: {NAME} (skipped {COUNT} missing or incompatible modules)</CWF_PresetAppliedWithSkipped>
-  <!-- #endregion -->
-  <!-- #region Appearance -->
   <CWF_WeaponStyle>Style</CWF_WeaponStyle>
   <CWF_AppearanceOriginal>Original</CWF_AppearanceOriginal>
   <CWF_AppearanceDynamic>Dynamic</CWF_AppearanceDynamic>

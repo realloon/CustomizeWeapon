@@ -26,6 +26,7 @@
   <CWF_ModificationComplete>{PAWN_label} закончил модификацию {WEAPON_label}</CWF_ModificationComplete>
   <CWF_NoWorkbenchToCraftModule>Нет подходящего верстака для создания {MODULE_label}</CWF_NoWorkbenchToCraftModule>
   <CWF_BillAdded>Добавлен заказ: {MODULE_label} ({BENCH_label})</CWF_BillAdded>
+  <CWF_RemovedMissingTraits>Отсутствующие модули оружия безопасно удалены. Рекомендуется повторно сохранить игру.</CWF_RemovedMissingTraits>
 
   <CWF_SettingsCategory>Настройки оружия</CWF_SettingsCategory>
   <CWF_Parts>Части</CWF_Parts>

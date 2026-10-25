@@ -31,6 +31,7 @@
   <CWF_ModificationComplete>{PAWN_label}完成了對{WEAPON_label}的改造</CWF_ModificationComplete>
   <CWF_NoWorkbenchToCraftModule>沒有合適的工作台來製作{MODULE_label}</CWF_NoWorkbenchToCraftModule>
   <CWF_BillAdded>添加清單: {MODULE_label} ({BENCH_label})</CWF_BillAdded>
+  <CWF_RemovedMissingTraits>已安全移除缺失的武器模組，建議重新儲存目前存檔。</CWF_RemovedMissingTraits>
   <!-- #endregion -->
 
   <!-- #region Window -->
@@ -83,8 +84,6 @@
   <CWF_PresetDeleteFailed>刪除方案失敗：{NAME}</CWF_PresetDeleteFailed>
   <CWF_PresetApplied>已套用方案：{NAME}</CWF_PresetApplied>
   <CWF_PresetAppliedWithSkipped>已套用方案：{NAME}（跳過 {COUNT} 個失效或不相容模組）</CWF_PresetAppliedWithSkipped>
-  <!-- #endregion -->
-  <!-- #region Appearance -->
   <CWF_WeaponStyle>樣式</CWF_WeaponStyle>
   <CWF_AppearanceOriginal>原始</CWF_AppearanceOriginal>
   <CWF_AppearanceDynamic>動態</CWF_AppearanceDynamic>
