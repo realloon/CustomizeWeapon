@@ -35,16 +35,16 @@
   <CWF_Trait_CustomGrip.description>符合人体工学的定制握把。射手能更好掌控武器，提高短距离内的射击精度。</CWF_Trait_CustomGrip.description>
 
   <CWF_Trait_Holoscope.label>全息瞄具</CWF_Trait_Holoscope.label>
-  <CWF_Trait_Holoscope.description>先进的全息瞄准镜。它呈现清晰的瞄准标线，以便双眼快速瞄准，显著减少锁定目标所需的时间，并提升中近距离内的射击精度。</CWF_Trait_Holoscope.description>
+  <CWF_Trait_Holoscope.description>先进的全息瞄准镜。它呈现清晰的瞄准标线，以便双眼快速瞄准，显著减少锁定目标所需的时间，并提升射击精度。</CWF_Trait_Holoscope.description>
 
   <CWF_Trait_2xScope.label>二倍光学瞄具</CWF_Trait_2xScope.label>
-  <CWF_Trait_2xScope.description>这款光学瞄准镜提供 2 倍放大效果。能让目标看起来更大、更清晰，为中距离内的精确射击提供便利。</CWF_Trait_2xScope.description>
+  <CWF_Trait_2xScope.description>这款光学瞄准镜提供 2 倍放大效果。能让目标看起来更大、更清晰，更便于精确射击。</CWF_Trait_2xScope.description>
 
   <CWF_Trait_4xScope.label>四倍光学瞄具</CWF_Trait_4xScope.label>
-  <CWF_Trait_4xScope.description>这款光学瞄准镜提供 4 倍放大效果，专为中远程交战设计。它让使用者清晰地识别并精确瞄准远距离目标，从而小幅提升了武器的最大有效射程。</CWF_Trait_4xScope.description>
+  <CWF_Trait_4xScope.description>这款光学瞄准镜提供 4 倍放大效果，为中远程交战设计。它让使用者能更清晰地瞄准远距离的目标，从而小幅提升了武器的最大有效射程。</CWF_Trait_4xScope.description>
 
   <CWF_Trait_8xScope.label>八倍光学瞄具</CWF_Trait_8xScope.label>
-  <CWF_Trait_8xScope.description>这款光学瞄准镜提供 8 倍放大效果，为远距离射击准备。其高倍率放大效果能将远距离目标清晰地置于视野中心，让射手能精确打击位于射程极限处的目标。</CWF_Trait_8xScope.description>
+  <CWF_Trait_8xScope.description>这款光学瞄准镜提供 8 倍放大效果，专为远距离射击准备。其高倍率放大效果能将远距离目标清晰地置于视野中，让射手能精确打击位于射程极限处的目标。</CWF_Trait_8xScope.description>
 
   <CWF_Trait_QuickMagazine.label>快速弹匣</CWF_Trait_QuickMagazine.label>
   <CWF_Trait_QuickMagazine.description>这款弹匣采用了经过改良的释放机构，换弹更快捷，缩短火力中断时间。</CWF_Trait_QuickMagazine.description>

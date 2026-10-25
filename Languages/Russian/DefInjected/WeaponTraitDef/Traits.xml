@@ -34,16 +34,16 @@
   <CWF_Trait_CustomGrip.description>Эргономичная рукоять. Улучшает контроль и точность на короткой дистанции.</CWF_Trait_CustomGrip.description>
 
   <CWF_Trait_Holoscope.label>голографический прицел</CWF_Trait_Holoscope.label>
-  <CWF_Trait_Holoscope.description>Продвинутый голографический прицел. Четкая метка ускоряет захват цели и повышает точность на ближней и средней дистанции.</CWF_Trait_Holoscope.description>
+  <CWF_Trait_Holoscope.description>Продвинутый голографический прицел. Четкая метка ускоряет захват цели и повышает точность.</CWF_Trait_Holoscope.description>
 
   <CWF_Trait_2xScope.label>прицел 2x</CWF_Trait_2xScope.label>
-  <CWF_Trait_2xScope.description>Оптика 2x делает цели крупнее и четче. Помогает точным выстрелам на средней дистанции.</CWF_Trait_2xScope.description>
+  <CWF_Trait_2xScope.description>Оптика 2x делает цели крупнее и четче. Облегчает точные выстрелы.</CWF_Trait_2xScope.description>
 
   <CWF_Trait_4xScope.label>прицел 4x</CWF_Trait_4xScope.label>
-  <CWF_Trait_4xScope.description>Оптика 4x для средней и дальней дистанции. Помогает распознавать удаленные цели и немного увеличивает эффективную дальность.</CWF_Trait_4xScope.description>
+  <CWF_Trait_4xScope.description>Оптика 4x создана для боя на средней и дальней дистанции. Она позволяет четче прицеливаться по удаленным целям и немного увеличивает максимальную эффективную дальность оружия.</CWF_Trait_4xScope.description>
 
   <CWF_Trait_8xScope.label>прицел 8x</CWF_Trait_8xScope.label>
-  <CWF_Trait_8xScope.description>Оптика 8x для точной стрельбы на дальних дистанциях. Высокое увеличение помогает поражать цели у предела дальности оружия.</CWF_Trait_8xScope.description>
+  <CWF_Trait_8xScope.description>Оптика 8x специально создана для стрельбы на дальних дистанциях. Высокое увеличение четко помещает удаленные цели в поле зрения, позволяя стрелку поражать цели у предела дальности оружия.</CWF_Trait_8xScope.description>
 
   <CWF_Trait_QuickMagazine.label>быстрый магазин</CWF_Trait_QuickMagazine.label>
   <CWF_Trait_QuickMagazine.description>Магазин с улучшенным механизмом сброса. Ускоряет перезарядку и сокращает паузы в бою.</CWF_Trait_QuickMagazine.description>

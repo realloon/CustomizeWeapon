@@ -4,53 +4,50 @@
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_Holoscope</defName>
     <label>holoscope</label>
-    <description>An advanced holographic sight. Its clear reticle speeds up target acquisition and improves accuracy at close to medium range.</description>
+    <description>An advanced holographic sight. Its clear reticle speeds up target acquisition and improves accuracy.</description>
     <statOffsets>
       <RangedWeapon_WarmupMultiplier>-0.2</RangedWeapon_WarmupMultiplier>
     </statOffsets>
-    <statFactors>
-      <AccuracyTouch>1.15</AccuracyTouch>
-      <AccuracyShort>1.15</AccuracyShort>
-      <AccuracyMedium>1.15</AccuracyMedium>
-    </statFactors>
+    <equippedStatOffsets>
+      <ShootingAccuracyPawn>0.5</ShootingAccuracyPawn>
+    </equippedStatOffsets>
   </WeaponTraitDef>
 
   <!-- 2xScope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_2xScope</defName>
     <label>2x scope</label>
-    <description>A 2x optic that makes targets larger and clearer. It helps with precise shots at medium range.</description>
-    <statFactors>
-      <AccuracyTouch>1.3</AccuracyTouch>
-      <AccuracyShort>1.3</AccuracyShort>
-      <AccuracyMedium>1.2</AccuracyMedium>
-    </statFactors>
+    <description>A 2x optic that makes targets larger and clearer. It makes precise shots easier.</description>
+    <equippedStatOffsets>
+      <ShootingAccuracyPawn>1</ShootingAccuracyPawn>
+    </equippedStatOffsets>
   </WeaponTraitDef>
 
   <!-- 4xScope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_4xScope</defName>
     <label>4x scope</label>
-    <description>A 4x optic built for medium to long range. It helps identify distant targets and slightly extends effective range.</description>
-    <statFactors>
-      <AccuracyTouch>1.3</AccuracyTouch>
-      <AccuracyShort>1.3</AccuracyShort>
-      <AccuracyMedium>1.3</AccuracyMedium>
-      <RangedWeapon_RangeMultiplier>1.05</RangedWeapon_RangeMultiplier>
-    </statFactors>
+    <description>A 4x optic built for medium to long engagements. It lets the shooter aim more clearly at distant targets, slightly increasing the weapon's maximum effective range.</description>
+    <statOffsets>
+      <RangedWeapon_RangeMultiplier>0.05</RangedWeapon_RangeMultiplier>
+      <RangedWeapon_WarmupMultiplier>0.05</RangedWeapon_WarmupMultiplier>
+    </statOffsets>
+    <equippedStatOffsets>
+      <ShootingAccuracyPawn>1.5</ShootingAccuracyPawn>
+    </equippedStatOffsets>
   </WeaponTraitDef>
 
   <!-- 8xScope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_8xScope</defName>
     <label>8x scope</label>
-    <description>An 8x optic for long-range precision. Its high magnification helps the shooter hit targets near the weapon's range limit.</description>
-    <statFactors>
-      <AccuracyTouch>1.3</AccuracyTouch>
-      <AccuracyShort>1.3</AccuracyShort>
-      <AccuracyMedium>1.3</AccuracyMedium>
-      <AccuracyLong>1.2</AccuracyLong>
-      <RangedWeapon_RangeMultiplier>1.1</RangedWeapon_RangeMultiplier>
-    </statFactors>
+    <description>An 8x optic made for long-range shooting. Its high magnification places distant targets clearly in view, letting the shooter hit targets at the weapon's range limit.</description>
+    <statOffsets>
+      <RangedWeapon_RangeMultiplier>0.1</RangedWeapon_RangeMultiplier>
+      <RangedWeapon_WarmupMultiplier>0.1</RangedWeapon_WarmupMultiplier>
+    </statOffsets>
+    <equippedStatOffsets>
+      <ShootingAccuracyPawn>2.5</ShootingAccuracyPawn>
+    </equippedStatOffsets>
   </WeaponTraitDef>
 </Defs>
