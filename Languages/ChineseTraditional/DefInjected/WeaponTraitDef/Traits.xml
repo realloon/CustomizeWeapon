@@ -36,9 +36,6 @@
   <CWF_Trait_Holoscope.label>全像瞄準鏡</CWF_Trait_Holoscope.label>
   <CWF_Trait_Holoscope.description>先進的全像瞄準鏡。它呈現清晰的瞄準標線，以便雙眼快速瞄準，顯著減少鎖定目標所需的時間，並提升中近距離內的射擊精度。</CWF_Trait_Holoscope.description>
 
-  <CWF_Trait_RedDotScope.label>紅點瞄準鏡</CWF_Trait_RedDotScope.label>
-  <CWF_Trait_RedDotScope.description>紅點瞄準鏡提供單一、明亮的紅點來瞄準。它無需對齊照門與準星，並全面提升了武器的射擊精度。</CWF_Trait_RedDotScope.description>
-
   <CWF_Trait_2xScope.label>二倍光學瞄準鏡</CWF_Trait_2xScope.label>
   <CWF_Trait_2xScope.description>這款光學瞄準鏡提供 2 倍放大效果。能讓目標看起來更大、更清晰，為中距離內的精確射擊提供便利。</CWF_Trait_2xScope.description>
 

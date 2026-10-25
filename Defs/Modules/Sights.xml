@@ -35,39 +35,6 @@
   </ThingDef>
 
   <ThingDef ParentName="CWF_Module">
-    <defName>CWF_Module_RedDotScope</defName>
-    <label>red dot scope</label>
-    <graphicData>
-      <texPath>CustomizeWeapon/Modules/Sight/Sight</texPath>
-    </graphicData>
-    <statBases>
-      <WorkToMake>1500</WorkToMake>
-    </statBases>
-    <costList>
-      <Steel>10</Steel>
-      <ComponentIndustrial>1</ComponentIndustrial>
-    </costList>
-    <recipeMaker>
-      <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-    </recipeMaker>
-    <modExtensions>
-      <li Class="CWF.TraitModuleExtension">
-        <weaponTraitDef>CWF_Trait_RedDotScope</weaponTraitDef>
-        <part>Sight</part>
-        <requiredWeaponTags>
-          <li>CWF_AssaultRifle</li>
-          <li>CWF_BoltActionRifle</li>
-          <li>CWF_SniperRifle</li>
-          <li>CWF_Shotgun</li>
-          <li>CWF_SMG</li>
-          <li>CWF_LMG</li>
-          <li>CWF_Handgun</li>
-        </requiredWeaponTags>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_2xScope</defName>
     <label>2x scope</label>
     <graphicData>

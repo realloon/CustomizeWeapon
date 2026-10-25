@@ -96,12 +96,6 @@
         </graphicData>
       </li>
       <li>
-        <moduleDef>CWF_Module_RedDotScope</moduleDef>
-        <graphicData>
-          <texturePath>CustomizeWeapon/Modules/Sight/RedDotScope/RedDotScope</texturePath>
-        </graphicData>
-      </li>
-      <li>
         <moduleDef>CWF_Module_2xScope</moduleDef>
         <graphicData>
           <texturePath>CustomizeWeapon/Modules/Sight/2xScope/2xScope</texturePath>

@@ -36,9 +36,6 @@
   <CWF_Trait_Holoscope.label>голографический прицел</CWF_Trait_Holoscope.label>
   <CWF_Trait_Holoscope.description>Продвинутый голографический прицел. Четкая метка ускоряет захват цели и повышает точность на ближней и средней дистанции.</CWF_Trait_Holoscope.description>
 
-  <CWF_Trait_RedDotScope.label>коллиматорный прицел</CWF_Trait_RedDotScope.label>
-  <CWF_Trait_RedDotScope.description>Коллиматорный прицел с яркой точкой. Упрощает прицеливание и повышает точность на всех рабочих дистанциях.</CWF_Trait_RedDotScope.description>
-
   <CWF_Trait_2xScope.label>прицел 2x</CWF_Trait_2xScope.label>
   <CWF_Trait_2xScope.description>Оптика 2x делает цели крупнее и четче. Помогает точным выстрелам на средней дистанции.</CWF_Trait_2xScope.description>
 

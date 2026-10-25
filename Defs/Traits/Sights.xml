@@ -15,19 +15,6 @@
     </statFactors>
   </WeaponTraitDef>
 
-  <!-- RedDotScope -->
-  <WeaponTraitDef ParentName="CWF_Trait">
-    <defName>CWF_Trait_RedDotScope</defName>
-    <label>red dot scope</label>
-    <description>A red dot sight with a bright aiming point. It simplifies aiming and improves accuracy at all effective ranges.</description>
-    <statFactors>
-      <AccuracyTouch>1.15</AccuracyTouch>
-      <AccuracyShort>1.15</AccuracyShort>
-      <AccuracyMedium>1.15</AccuracyMedium>
-      <AccuracyLong>1.15</AccuracyLong>
-    </statFactors>
-  </WeaponTraitDef>
-
   <!-- 2xScope -->
   <WeaponTraitDef ParentName="CWF_Trait">
     <defName>CWF_Trait_2xScope</defName>

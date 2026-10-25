@@ -37,9 +37,6 @@
   <CWF_Trait_Holoscope.label>全息瞄具</CWF_Trait_Holoscope.label>
   <CWF_Trait_Holoscope.description>先进的全息瞄准镜。它呈现清晰的瞄准标线，以便双眼快速瞄准，显著减少锁定目标所需的时间，并提升中近距离内的射击精度。</CWF_Trait_Holoscope.description>
 
-  <CWF_Trait_RedDotScope.label>红点瞄具</CWF_Trait_RedDotScope.label>
-  <CWF_Trait_RedDotScope.description>红点瞄具提供单一、明亮的红点来瞄准。它无需对齐照门和流程，并全面提升了武器的射击精度。</CWF_Trait_RedDotScope.description>
-
   <CWF_Trait_2xScope.label>二倍光学瞄具</CWF_Trait_2xScope.label>
   <CWF_Trait_2xScope.description>这款光学瞄准镜提供 2 倍放大效果。能让目标看起来更大、更清晰，为中距离内的精确射击提供便利。</CWF_Trait_2xScope.description>
 
