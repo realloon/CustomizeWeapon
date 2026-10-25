@@ -8,4 +8,15 @@
       <HuntingStealth>0.8</HuntingStealth>
     </equippedStatOffsets>
   </WeaponTraitDef>
+
+  <WeaponTraitDef ParentName="CWF_Trait">
+    <defName>CWF_Trait_Compensator</defName>
+    <label>compensator</label>
+    <description>A muzzle-mounted recoil compensator. It vents gas to reduce recoil and improve accuracy at close to medium range.</description>
+    <statFactors>
+      <AccuracyTouch>1.2</AccuracyTouch>
+      <AccuracyShort>1.15</AccuracyShort>
+      <AccuracyMedium>1.1</AccuracyMedium>
+    </statFactors>
+  </WeaponTraitDef>
 </Defs>

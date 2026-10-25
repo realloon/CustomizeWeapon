@@ -2,6 +2,8 @@
 <LanguageData>
   <CWF_Trait_Suppressor.label>消音器</CWF_Trait_Suppressor.label>
   <CWF_Trait_Suppressor.description>安裝在槍口上的消音裝置，可以降低射擊產生的聲響與槍口焰，使被獵殺的動物更不容易反擊。</CWF_Trait_Suppressor.description>
+  <CWF_Trait_Compensator.label>補償器</CWF_Trait_Compensator.label>
+  <CWF_Trait_Compensator.description>位於槍口的後坐補償裝置。利用導氣抑制後坐力，提升中近距離精度。</CWF_Trait_Compensator.description>
 
   <CWF_Trait_ExtendedBarrel.label>長槍管</CWF_Trait_ExtendedBarrel.label>
   <CWF_Trait_ExtendedBarrel.description>精心打造的加長槍管。它提高了彈丸的槍口初速，使其飛得更遠，從而增加武器的有效射程。</CWF_Trait_ExtendedBarrel.description>

@@ -2,6 +2,8 @@
 <LanguageData>
   <CWF_Trait_Suppressor.label>глушитель</CWF_Trait_Suppressor.label>
   <CWF_Trait_Suppressor.description>Установленный на ствол глушитель снижает звук и вспышку выстрела, уменьшая вероятность ответной атаки животного во время охоты.</CWF_Trait_Suppressor.description>
+  <CWF_Trait_Compensator.label>компенсатор</CWF_Trait_Compensator.label>
+  <CWF_Trait_Compensator.description>Дульное устройство компенсации отдачи. Отводит газы, снижая отдачу и повышая точность на ближней и средней дистанции.</CWF_Trait_Compensator.description>
 
   <CWF_Trait_ExtendedBarrel.label>удлиненный ствол</CWF_Trait_ExtendedBarrel.label>
   <CWF_Trait_ExtendedBarrel.description>Тщательно сделанный удлиненный ствол. Он повышает начальную скорость пули и увеличивает эффективную дальность.</CWF_Trait_ExtendedBarrel.description>

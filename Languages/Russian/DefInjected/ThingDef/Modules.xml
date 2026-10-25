@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <CWF_Module_Suppressor.label>глушитель</CWF_Module_Suppressor.label>
+  <CWF_Module_Compensator.label>компенсатор</CWF_Module_Compensator.label>
   <CWF_Module_ExtendedBarrel.label>удлиненный ствол</CWF_Module_ExtendedBarrel.label>
   <CWF_Module_ShortenedBarrel.label>укороченный ствол</CWF_Module_ShortenedBarrel.label>
   <CWF_Module_TacticalBarrel.label>тактический ствол</CWF_Module_TacticalBarrel.label>

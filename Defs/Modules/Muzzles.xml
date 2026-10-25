@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
+  <!-- Suppressor -->
   <ThingDef ParentName="CWF_Module">
     <defName>CWF_Module_Suppressor</defName>
     <label>suppressor</label>
@@ -19,6 +20,41 @@
     <modExtensions>
       <li Class="CWF.TraitModuleExtension">
         <weaponTraitDef>CWF_Trait_Suppressor</weaponTraitDef>
+        <part>Muzzle</part>
+        <requiredWeaponTags>
+          <li>CWF_AssaultRifle</li>
+          <li>CWF_BoltActionRifle</li>
+          <li>CWF_SniperRifle</li>
+          <li>CWF_Handgun</li>
+          <li>CWF_SMG</li>
+        </requiredWeaponTags>
+        <excludeWeaponTags>
+          <li>CWF_Charge</li>
+        </excludeWeaponTags>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- Compensator -->
+  <ThingDef ParentName="CWF_Module">
+    <defName>CWF_Module_Compensator</defName>
+    <label>compensator</label>
+    <graphicData>
+      <texPath>CustomizeWeapon/Modules/Muzzle/Muzzle</texPath>
+    </graphicData>
+    <statBases>
+      <WorkToMake>1500</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+    <modExtensions>
+      <li Class="CWF.TraitModuleExtension">
+        <weaponTraitDef>CWF_Trait_Compensator</weaponTraitDef>
         <part>Muzzle</part>
         <requiredWeaponTags>
           <li>CWF_AssaultRifle</li>
