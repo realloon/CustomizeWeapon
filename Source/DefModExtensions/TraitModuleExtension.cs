@@ -1,7 +1,5 @@
 using JetBrains.Annotations;
 
-// ReSharper disable InconsistentNaming
-
 namespace CWF;
 
 [UsedImplicitly]

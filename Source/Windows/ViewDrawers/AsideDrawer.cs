@@ -183,7 +183,7 @@ public class AsideDrawer(SpecDatabase specDatabase) {
         return;
 
         string? StatText(float value, float neutral, ToStringNumberSense sense) =>
-            Mathf.Approximately(value, neutral) ? null : stat.Worker.ValueToString(value, false, sense);
+            Mathf.Approximately(value, neutral) ? null : stat.ValueToString(value, sense, false);
     }
 
     private static void AppendLine(StringBuilder sb, string label, string? valueText) {

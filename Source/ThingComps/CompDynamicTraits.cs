@@ -126,8 +126,7 @@ public class CompDynamicTraits : ThingComp {
             var statOffsetFromList = weaponTraitDef.statOffsets.GetStatOffsetFromList(stat);
             if (!Mathf.Approximately(statOffsetFromList, 0.0f)) {
                 stringBuilder ??= new StringBuilder();
-                var valueStr = stat.Worker.ValueToString(statOffsetFromList, false,
-                    ToStringNumberSense.Offset);
+                var valueStr = stat.ValueToString(statOffsetFromList, ToStringNumberSense.Offset, false);
                 stringBuilder.AppendLine($"{whitespace} - {weaponTraitDef.LabelCap}: {valueStr}");
             }
 
@@ -135,8 +134,7 @@ public class CompDynamicTraits : ThingComp {
             var statFactorFromList = weaponTraitDef.statFactors.GetStatFactorFromList(stat);
             if (!Mathf.Approximately(statFactorFromList, 1f)) {
                 stringBuilder ??= new StringBuilder();
-                var valueStr = stat.Worker.ValueToString(statFactorFromList, false,
-                    ToStringNumberSense.Factor);
+                var valueStr = stat.ValueToString(statFactorFromList, ToStringNumberSense.Factor, false);
                 stringBuilder.AppendLine($"{whitespace} - {weaponTraitDef.LabelCap}: {valueStr}");
             }
         }

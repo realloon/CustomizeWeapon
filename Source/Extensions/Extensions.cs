@@ -44,14 +44,14 @@ internal static class Extensions {
                 foreach (var modifier in traitDef.statOffsets) {
                     if (modifier.stat == StatDefOf.MarketValue || modifier.stat == StatDefOf.Mass) continue;
 
-                    var value = modifier.stat.Worker.ValueToString(modifier.value, false, ToStringNumberSense.Offset);
+                    var value = modifier.stat.ValueToString(modifier.value, ToStringNumberSense.Offset, false);
                     sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
                 }
             }
 
             if (!traitDef.statFactors.NullOrEmpty()) {
                 foreach (var modifier in traitDef.statFactors) {
-                    var value = modifier.stat.Worker.ValueToString(modifier.value, false, ToStringNumberSense.Factor);
+                    var value = modifier.stat.ValueToString(modifier.value, ToStringNumberSense.Factor, false);
                     sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
                 }
             }
@@ -76,7 +76,8 @@ internal static class Extensions {
 
             if (!traitDef.equippedStatOffsets.NullOrEmpty()) {
                 foreach (var modifier in traitDef.equippedStatOffsets) {
-                    sb.AppendLine($" - {modifier.stat.LabelCap}: {modifier.stat.ValueToString(modifier.value)}");
+                    var value = modifier.stat.ValueToString(modifier.value, ToStringNumberSense.Offset, false);
+                    sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
                 }
             }
 
