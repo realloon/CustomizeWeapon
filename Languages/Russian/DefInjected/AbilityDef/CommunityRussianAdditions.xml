@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LanguageData>
+  <CWF_Ability_LaunchEMPShell.description>Выпустить снаряд, создающий электромагнитный импульс и оглушающий механические цели. Для перезарядки используется сталь.</CWF_Ability_LaunchEMPShell.description>
+  <CWF_Ability_LaunchEMPShell.label>выпустить ЭМИ-снаряд</CWF_Ability_LaunchEMPShell.label>
+  <CWF_Ability_LaunchFragGrenade.description>Выпустить гранату. Для перезарядки используется сталь.</CWF_Ability_LaunchFragGrenade.description>
+  <CWF_Ability_LaunchFragGrenade.label>выпустить осколочную гранату</CWF_Ability_LaunchFragGrenade.label>
+  <CWF_Ability_LaunchIncendiaryShell.description>Выпустить снаряд, который взрывается при попадании и поджигает всё поблизости. Для перезарядки используется химическое топливо.</CWF_Ability_LaunchIncendiaryShell.description>
+  <CWF_Ability_LaunchIncendiaryShell.label>выпустить зажигательный снаряд</CWF_Ability_LaunchIncendiaryShell.label>
+  <CWF_Ability_LaunchSmokeShell.description>Выпустить дымовой снаряд. Дым мешает прицеливанию и не даёт турелям захватить цель. Для перезарядки используется сталь.</CWF_Ability_LaunchSmokeShell.description>
+  <CWF_Ability_LaunchSmokeShell.label>выпустить дымовой снаряд</CWF_Ability_LaunchSmokeShell.label>
+</LanguageData>
