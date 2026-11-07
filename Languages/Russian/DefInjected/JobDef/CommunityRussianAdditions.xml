@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LanguageData>
+  <CWF_ModifyWeaponHaul.description>Установка модуля на оружие.</CWF_ModifyWeaponHaul.description>
+  <CWF_ModifyWeaponHaul.reportString>модифицирует TargetA.</CWF_ModifyWeaponHaul.reportString>
+  <CWF_ModifyWeaponSelf.description>Установка модуля на оружие.</CWF_ModifyWeaponSelf.description>
+  <CWF_ModifyWeaponSelf.reportString>модифицирует TargetA.</CWF_ModifyWeaponSelf.reportString>
+  <CWF_ReloadAbility.description>Перезарядка устройства, обеспечивающего особую способность оружия.</CWF_ReloadAbility.description>
+  <CWF_ReloadAbility.reportString>перезаряжает TargetA.</CWF_ReloadAbility.reportString>
+</LanguageData>
