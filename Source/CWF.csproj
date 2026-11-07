@@ -17,8 +17,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4984-unstable" />
-      <PackageReference Include="Lib.Harmony.Ref" Version="3.0.0-rc.3" />
+      <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.5000-unstable" />
+      <PackageReference Include="Lib.Harmony.Ref" Version="3.0.0-rc.5" />
     </ItemGroup>
 
     <ItemGroup>
