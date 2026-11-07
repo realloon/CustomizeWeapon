@@ -4,7 +4,7 @@
     <defName>CWF_TraitModules</defName>
     <label>weapon module</label>
     <parent>Manufactured</parent>
-    <iconPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel_tmp</iconPath>
+    <iconPath>CustomizeWeapon/Modules/Modules</iconPath>
   </ThingCategoryDef>
 
   <StatCategoryDef>
