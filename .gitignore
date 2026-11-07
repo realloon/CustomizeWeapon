@@ -15,8 +15,6 @@ Source/obj/
 Assemblies/
 !1.6/Assemblies/
 
-# tmp
+# version-specific assets
 1.6/Textures/*
-!1.6/Textures/LICENSE
 1.7/Textures/*
-!1.7/Textures/LICENSE
