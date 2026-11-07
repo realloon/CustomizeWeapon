@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Defs>
-  <ThingCategoryDef>
-    <defName>CWF_TraitModules</defName>
-    <label>weapon module</label>
-    <parent>Manufactured</parent>
-    <iconPath>CustomizeWeapon/Modules/Unberbarrel/Underbarrel_tmp</iconPath>
-  </ThingCategoryDef>
-</Defs>
