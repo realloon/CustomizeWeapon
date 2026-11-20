@@ -10,7 +10,7 @@ public class AssemblyPresetManager : GameComponent {
 
     public IEnumerable<AssemblyPresetData> GetPresetsFor(ThingDef weaponDef) => _presets
         .Where(preset => preset.WeaponDef == weaponDef)
-        .OrderBy(preset => preset.Name);
+        .OrderBy(preset => preset.Name, StringComparer.CurrentCultureIgnoreCase);
 
     public void SavePreset(Thing weapon, string name, IReadOnlyDictionary<PartDef, WeaponTraitDef> traits) {
         var normalizedName = name.Trim();
@@ -22,7 +22,7 @@ public class AssemblyPresetManager : GameComponent {
         preset.Entries = [
             .. traits
                 .OrderBy(pair => pair.Key.order)
-                .ThenBy(pair => pair.Key.defName)
+                .ThenBy(pair => pair.Key.defName, StringComparer.Ordinal)
                 .Select(pair => new AssemblyPresetEntryData(pair.Key, pair.Value))
         ];
 

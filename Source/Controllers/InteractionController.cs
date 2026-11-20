@@ -8,17 +8,19 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
     private readonly CompDynamicGraphic? _dynamicGraphic = weapon.TryGetComp<CompDynamicGraphic>();
     private readonly CompColorable? _colorable = weapon.TryGetComp<CompColorable>();
 
-    private readonly List<StyleCategoryDef> _styleCategories = weapon.def.CanBeStyled()
+    private readonly List<(string Label, ThingStyleDef Style)> _styleOptions = weapon.def.CanBeStyled()
         ? [
-            .. DefDatabase<StyleCategoryDef>.AllDefs.Where(styleCategory =>
-                styleCategory.GetStyleForThingDef(weapon.def)?.Graphic != null)
+            .. DefDatabase<StyleCategoryDef>.AllDefs
+                .Select(c => (Label: c.LabelCap.ToString(), Style: c.GetStyleForThingDef(weapon.def)))
+                .Where(x => x.Style?.Graphic != null)
+                .Select(x => (x.Label, x.Style!))
         ]
         : [];
 
     public bool HasInstalledModules => session.Traits.Count != 0;
 
     public bool HasAppearanceOptions =>
-        _dynamicGraphic != null || weapon.StyleDef != null || _styleCategories.Count > 0;
+        _dynamicGraphic != null || weapon.StyleDef != null || _styleOptions.Count > 0;
 
     public bool HasDyeOptions => _colorable != null && _dynamicGraphic is { UsesDynamicComposite: true };
 
@@ -61,12 +63,10 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
                 () => ApplyAppearance(null, true)));
         }
 
-        foreach (var styleCategory in _styleCategories) {
-            var styleDef = styleCategory.GetStyleForThingDef(weapon.def);
-            if (styleDef == null) continue;
-
-            var label = FormatMenuLabel(styleCategory.LabelCap, styleDef == currentStyle);
-            options.Add(new FloatMenuOption(label, () => ApplyAppearance(styleDef, true)));
+        foreach (var (label, styleDef) in _styleOptions) {
+            options.Add(new FloatMenuOption(
+                FormatMenuLabel(label, styleDef == currentStyle),
+                () => ApplyAppearance(styleDef, true)));
         }
 
         Find.WindowStack.Add(new FloatMenu(options));
@@ -138,23 +138,14 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
                 ? ownerPawn.inventory.innerContainer
                 : weapon.Map?.listerThings.AllThings ?? Enumerable.Empty<Thing>();
 
-            var availableModules = searchScope.Where(t =>
-                compatibleModuleDefs.Contains(t.def) && (ownerPawn != null || !t.IsForbidden(Faction.OfPlayer))
-            );
-
-            foreach (var module in availableModules) {
-                var trait = module.def.TraitModule().weaponTraitDef;
-                installCandidates.Add(trait);
-            }
+            installCandidates.UnionWith(searchScope
+                .Where(t => compatibleModuleDefs.Contains(t.def) &&
+                            (ownerPawn != null || !t.IsForbidden(Faction.OfPlayer)))
+                .Select(t => t.def.TraitModule().weaponTraitDef));
         }
 
         // from stack
-        var stagedCompatibleTraits = session.GetReinstallableTraitsFor(part);
-        foreach (var trait in stagedCompatibleTraits) {
-            if (trait.TryGetModuleDef(out _)) {
-                installCandidates.Add(trait);
-            }
-        }
+        installCandidates.UnionWith(session.GetReinstallableTraitsFor(part).Where(t => t.TryGetModuleDef(out _)));
 
         if (installCandidates.Count == 0) {
             options.Add(new FloatMenuOption(weapon.ParentHolder is Pawn_EquipmentTracker
@@ -174,26 +165,11 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
             var analysis = AnalyzeUninstallConflict(part);
             if (!analysis.HasConflict) {
                 DoUninstall(part);
-            } else {
-                ShowConfirmationDialog(
-                    "CWF_ConfirmUninstallTitle".Translate(),
-                    "CWF_ConfirmUninstallBody".Translate(
-                        installedTrait.LabelCap.Named("MODULE"),
-                        analysis.ModulesToRemove
-                            .Select(t => " - " + t.LabelCap.ToString()).ToLineList()
-                            .Named("DEPENDENCIES")
-                    ),
-                    () => {
-                        foreach (var dependencyTrait in analysis.ModulesToRemove) {
-                            if (dependencyTrait.TryGetPart(out var dependencyPart)) {
-                                DoUninstall(dependencyPart);
-                            }
-                        }
-
-                        DoUninstall(part);
-                    }
-                );
+                return;
             }
+
+            ConfirmWithRemovals("CWF_ConfirmUninstallTitle", "CWF_ConfirmUninstallBody", "DEPENDENCIES",
+                installedTrait, analysis.ModulesToRemove, () => DoUninstall(part));
         }));
     }
 
@@ -287,24 +263,24 @@ public class InteractionController(Thing weapon, ModificationSession session, Ac
             return;
         }
 
+        ConfirmWithRemovals("CWF_ConfirmInstallTitle", "CWF_ConfirmInstallBody", "CONFLICTS",
+            traitToInstall, analysis.ModulesToRemove, () => DoInstall(part, traitToInstall));
+    };
+
+    private void ConfirmWithRemovals(string titleKey, string bodyKey, string listArg,
+        WeaponTraitDef targetTrait, List<WeaponTraitDef> traitsToRemove, Action afterRemoval) {
+        var list = traitsToRemove.Select(t => $" - {t.LabelCap}").ToLineList();
         ShowConfirmationDialog(
-            "CWF_ConfirmInstallTitle".Translate(),
-            "CWF_ConfirmInstallBody".Translate(traitToInstall.LabelCap.Named("MODULE"),
-                analysis.ModulesToRemove
-                    .Select(t => " - " + t.LabelCap.ToString()).ToLineList()
-                    .Named("CONFLICTS")
-            ),
+            titleKey.Translate(),
+            bodyKey.Translate(targetTrait.LabelCap.Named("MODULE"), list.Named(listArg)),
             () => {
-                foreach (var conflictTrait in analysis.ModulesToRemove) {
-                    if (conflictTrait.TryGetPart(out var conflictPart)) {
-                        DoUninstall(conflictPart);
-                    }
+                foreach (var trait in traitsToRemove) {
+                    if (trait.TryGetPart(out var traitPart)) DoUninstall(traitPart);
                 }
 
-                DoInstall(part, traitToInstall);
-            }
-        );
-    };
+                afterRemoval();
+            });
+    }
 
     private ConflictAnalysisResult AnalyzeInstallConflict(PartDef partToInstall, WeaponTraitDef traitToInstall) {
         var currentTraits = session.InstalledTraits;

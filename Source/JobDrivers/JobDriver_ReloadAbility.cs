@@ -96,16 +96,7 @@ public class JobDriver_ReloadAbility : JobDriver {
         yield return done;
     }
 
-    private bool TryGetProvider(out CompAbilityProvider provider) {
-        var matchedProvider = Gear.TryGetComp<CompAbilityProvider>();
-        if (matchedProvider == null) {
-            provider = null!;
-            return false;
-        }
-
-        provider = matchedProvider;
-        return true;
-    }
+    private bool TryGetProvider(out CompAbilityProvider provider) => Gear.TryGetComp(out provider);
 
     private bool HasReloadable() {
         return TryGetProvider(out var provider) && provider.TryGetReloadable(AbilityDef, out _);

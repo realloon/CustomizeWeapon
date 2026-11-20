@@ -30,9 +30,7 @@ public class JobDriver_ModifyWeaponHaul : JobDriver {
             .ToList();
 
         // replace queue with succeed reserved modules.
-        job.targetQueueB = Enumerable.Any(succeedReserved)
-            ? succeedReserved
-            : null;
+        job.targetQueueB = succeedReserved.Count > 0 ? succeedReserved : null;
 
         return true; // always succeed while holding a weapon.
     }

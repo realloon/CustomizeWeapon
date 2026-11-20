@@ -36,11 +36,10 @@ public class JobDispatcher(Thing weapon) {
         }
 
         var modulesToHaul = new List<Thing>();
-        var installChanges = netChanges
-            .Where(c => c.Type == ModificationType.Install)
-            .ToList();
 
-        foreach (var change in installChanges) {
+        foreach (var change in netChanges) {
+            if (change.Type != ModificationType.Install) continue;
+
             var module = FindBestAvailableModuleFor(change, bestPawn);
             if (module == null) {
                 Messages.Message("CWF_CannotFindModuleForModification"
@@ -58,7 +57,7 @@ public class JobDispatcher(Thing weapon) {
 
         // fill queue only when it needs haul
         if (modulesToHaul.Count != 0) {
-            job.targetQueueB = modulesToHaul.Select(t => new LocalTargetInfo(t)).ToList();
+            job.targetQueueB = [.. modulesToHaul.Select(thing => new LocalTargetInfo(thing))];
         }
 
         job.source = new ModificationJobSource { ModDataList = netChanges };
@@ -83,6 +82,5 @@ public class JobDispatcher(Thing weapon) {
     private static Pawn? FindBestPawnForJob(IntVec3 jobLocation, Map map) => map.mapPawns.FreeColonistsSpawned
         .Where(p => !p.Downed && !p.Drafted && p.workSettings.WorkIsActive(WorkTypeDefOf.Crafting) &&
                     p.health.capacities.CanBeAwake)
-        .OrderBy(p => p.Position.DistanceToSquared(jobLocation))
-        .FirstOrFallback();
+        .MinBy(p => p.Position.DistanceToSquared(jobLocation));
 }

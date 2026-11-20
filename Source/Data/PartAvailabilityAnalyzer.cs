@@ -33,27 +33,20 @@ public static class PartAvailabilityAnalyzer {
         var availableParts = new HashSet<PartDef>(supportedParts);
 
         while (true) {
-            var activeTraits = candidateTraits
-                .Where(pair => availableParts.Contains(pair.Key))
-                .ToDictionary(pair => pair.Key, pair => pair.Value);
-
             var nextAvailableParts = new HashSet<PartDef>(supportedParts);
-            var enabledParts = new HashSet<PartDef>();
             var disabledParts = new HashSet<PartDef>();
 
-            foreach (var (part, _) in activeTraits) {
-                var moduleDef = moduleCache[part];
-                var modifiers = moduleDef.TraitModule().conditionalPartModifiers;
+            foreach (var part in candidateTraits.Keys) {
+                if (!availableParts.Contains(part)) continue;
 
-                foreach (var rule in modifiers) {
+                foreach (var rule in moduleCache[part].TraitModule().conditionalPartModifiers) {
                     if (!rule.matcher.IsMatch(weapon.def)) continue;
 
-                    enabledParts.UnionWith(rule.enablesParts);
+                    nextAvailableParts.UnionWith(rule.enablesParts);
                     disabledParts.UnionWith(rule.disablesParts);
                 }
             }
 
-            nextAvailableParts.UnionWith(enabledParts);
             nextAvailableParts.ExceptWith(disabledParts);
 
             var invalidParts = candidateTraits.Keys
