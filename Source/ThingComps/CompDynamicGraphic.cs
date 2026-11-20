@@ -283,29 +283,18 @@ public class CompDynamicGraphic : ThingComp {
         var adjustedGraphicData = new GraphicData();
         adjustedGraphicData.CopyFrom(originalGraphicData);
 
-        adjustedGraphicData.drawOffset = GetOffsetForRotation(originalGraphicData, Rot4.North)
-                                         + RotateOffsetForRotation(drawOffsetCompensation, Rot4.North);
-        adjustedGraphicData.drawOffsetNorth = GetOffsetForRotation(originalGraphicData, Rot4.North)
-                                              + RotateOffsetForRotation(drawOffsetCompensation, Rot4.North);
-        adjustedGraphicData.drawOffsetEast = GetOffsetForRotation(originalGraphicData, Rot4.East)
-                                             + RotateOffsetForRotation(drawOffsetCompensation, Rot4.East);
-        adjustedGraphicData.drawOffsetSouth = GetOffsetForRotation(originalGraphicData, Rot4.South)
-                                              + RotateOffsetForRotation(drawOffsetCompensation, Rot4.South);
-        adjustedGraphicData.drawOffsetWest = GetOffsetForRotation(originalGraphicData, Rot4.West)
-                                             + RotateOffsetForRotation(drawOffsetCompensation, Rot4.West);
+        var northOffset = Adjust(originalGraphicData.drawOffsetNorth, Rot4.North);
+        adjustedGraphicData.drawOffset = northOffset;
+        adjustedGraphicData.drawOffsetNorth = northOffset;
+        adjustedGraphicData.drawOffsetEast = Adjust(originalGraphicData.drawOffsetEast, Rot4.East);
+        adjustedGraphicData.drawOffsetSouth = Adjust(originalGraphicData.drawOffsetSouth, Rot4.South);
+        adjustedGraphicData.drawOffsetWest = Adjust(originalGraphicData.drawOffsetWest, Rot4.West);
 
         return adjustedGraphicData;
+
+        Vector3 Adjust(Vector3? baseOffset, Rot4 rotation) =>
+            (baseOffset ?? originalGraphicData.drawOffset) + rotation.AsQuat * drawOffsetCompensation;
     }
-
-    private static Vector3 GetOffsetForRotation(GraphicData graphicData, Rot4 rotation) => rotation.AsInt switch {
-        Rot4.NorthInt => graphicData.drawOffsetNorth ?? graphicData.drawOffset,
-        Rot4.EastInt => graphicData.drawOffsetEast ?? graphicData.drawOffset,
-        Rot4.SouthInt => graphicData.drawOffsetSouth ?? graphicData.drawOffset,
-        Rot4.WestInt => graphicData.drawOffsetWest ?? graphicData.drawOffset,
-        _ => graphicData.drawOffset
-    };
-
-    private static Vector3 RotateOffsetForRotation(Vector3 offset, Rot4 rotation) => rotation.AsQuat * offset;
 
     private static RenderTexture EnsureBakeTarget(int width, int height) {
         if (_bakeTarget != null && _bakeTarget.width == width && _bakeTarget.height == height) {
@@ -365,19 +354,19 @@ public class CompDynamicGraphic : ThingComp {
         DyeMasks[source] = BuildDyeMask(source);
     }
 
+    // Mod textures are loaded with makeNoLongerReadable, so grab a temporary CPU
+    // copy through the game's own blit helper and discard it right after reading pixels.
+    private static Color32[] ReadPixels(Texture2D source) {
+        if (source.isReadable) return source.GetPixels32();
+
+        var copy = TextureAtlasHelper.MakeReadableTextureInstance(source);
+        var pixels = copy.GetPixels32();
+        UnityEngine.Object.Destroy(copy);
+        return pixels;
+    }
+
     private static Texture2D? BuildDyeMask(Texture2D source) {
-        Texture2D? readableCopy = null;
-        Color32[] pixels;
-
-        // Mod textures are loaded with makeNoLongerReadable, so grab a temporary CPU
-        // copy through the game's own blit helper and discard it after building the mask.
-        if (source.isReadable) {
-            pixels = source.GetPixels32();
-        } else {
-            readableCopy = TextureAtlasHelper.MakeReadableTextureInstance(source);
-            pixels = readableCopy.GetPixels32();
-        }
-
+        var pixels = ReadPixels(source);
         var maskPixels = new Color32[pixels.Length];
         var dyeable = new bool[pixels.Length];
         var hasDyePixels = false;
@@ -395,10 +384,7 @@ public class CompDynamicGraphic : ThingComp {
             hasDyePixels = true;
         }
 
-        if (!hasDyePixels) {
-            if (readableCopy != null) UnityEngine.Object.Destroy(readableCopy);
-            return null;
-        }
+        if (!hasDyePixels) return null;
 
         // Expand the mask by one pixel. Hard dark/white borders (and texture
         // compression) otherwise leave a one-pixel un-dyed line at the edge.
@@ -420,10 +406,6 @@ public class CompDynamicGraphic : ThingComp {
                     }
                 }
             }
-        }
-
-        if (readableCopy != null) {
-            UnityEngine.Object.Destroy(readableCopy);
         }
 
         return CreateTexture(source, maskPixels, "_dyeMask");
@@ -467,16 +449,7 @@ public class CompDynamicGraphic : ThingComp {
     }
 
     private static Texture2D? BuildModuleOutline(Texture2D source) {
-        Texture2D? readableCopy = null;
-        Color32[] pixels;
-
-        if (source.isReadable) {
-            pixels = source.GetPixels32();
-        } else {
-            readableCopy = TextureAtlasHelper.MakeReadableTextureInstance(source);
-            pixels = readableCopy.GetPixels32();
-        }
-
+        var pixels = ReadPixels(source);
         var opaque = new bool[pixels.Length];
         var hasOpaque = false;
         for (var i = 0; i < pixels.Length; i++) {
@@ -484,13 +457,7 @@ public class CompDynamicGraphic : ThingComp {
             if (opaque[i]) hasOpaque = true;
         }
 
-        if (!hasOpaque) {
-            if (readableCopy != null) {
-                UnityEngine.Object.Destroy(readableCopy);
-            }
-
-            return null;
-        }
+        if (!hasOpaque) return null;
 
         var squaredDistance = SquaredDistanceTransform(opaque, source.width, source.height);
         var outlinePixels = new Color32[pixels.Length];
@@ -498,10 +465,6 @@ public class CompDynamicGraphic : ThingComp {
             var distance = Mathf.Sqrt(squaredDistance[i]);
             var outlineAlpha = Mathf.Clamp01(OutlineWidth + 0.5f - distance);
             outlinePixels[i] = new Color32(0, 0, 0, (byte)Mathf.Clamp(outlineAlpha * 255f, 0f, 255f));
-        }
-
-        if (readableCopy != null) {
-            UnityEngine.Object.Destroy(readableCopy);
         }
 
         return CreateTexture(source, outlinePixels, "_slotOutline");

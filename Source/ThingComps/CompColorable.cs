@@ -8,8 +8,8 @@ public class CompColorable : ThingComp {
 
     public static IReadOnlyList<ColorDef> AvailableColors => _availableColors ??= [
         .. DefDatabase<ColorDef>.AllDefs
-            .Where(c => c.defName.StartsWith("CWF_Color_"))
-            .OrderBy(c => c.label)
+            .Where(c => c.defName.StartsWith("CWF_Color_", StringComparison.Ordinal))
+            .OrderBy(c => c.label, StringComparer.CurrentCultureIgnoreCase)
     ];
 
     public ColorDef? ColorDef {

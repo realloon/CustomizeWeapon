@@ -25,15 +25,9 @@ public class CompAbilityProvider : ThingComp {
         return pawn.abilities ??= new Pawn_AbilityTracker(pawn);
     }
 
-    public IEnumerable<ReloadableAbility> Reloadables {
-        get {
-            foreach (var abilityProps in _abilityPropsToManage) {
-                if (TryGetManagedAbility(abilityProps.abilityDef, out _, out _)) {
-                    yield return new ReloadableAbility(this, abilityProps.abilityDef);
-                }
-            }
-        }
-    }
+    public IEnumerable<ReloadableAbility> Reloadables => _abilityPropsToManage
+        .Where(abilityProps => TryGetManagedAbility(abilityProps.abilityDef, out _, out _))
+        .Select(abilityProps => new ReloadableAbility(this, abilityProps.abilityDef));
 
     public void SetOrUpdateAbilities(List<CompProperties_EquippableAbilityReloadable> newPropsList, bool isPostLoad) {
         _abilityPropsToManage = newPropsList;
@@ -83,13 +77,8 @@ public class CompAbilityProvider : ThingComp {
 
     public bool IsEquippedBy(Pawn pawn) => CurrentHolder == pawn;
 
-    public IEnumerable<ReloadableAbility> GetReloadablesNeeding(ThingDef resourceDef, bool allowForcedReload) {
-        foreach (var reloadable in Reloadables) {
-            if (reloadable.AmmoDef == resourceDef && reloadable.NeedsReload(allowForcedReload)) {
-                yield return reloadable;
-            }
-        }
-    }
+    public IEnumerable<ReloadableAbility> GetReloadablesNeeding(ThingDef resourceDef, bool allowForcedReload) =>
+        Reloadables.Where(reloadable => reloadable.AmmoDef == resourceDef && reloadable.NeedsReload(allowForcedReload));
 
     public bool TryGetReloadable(AbilityDef abilityDef, out ReloadableAbility reloadable) {
         if (TryGetManagedAbility(abilityDef, out _, out _)) {

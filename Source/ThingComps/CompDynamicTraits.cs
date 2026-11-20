@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text;
 using HarmonyLib;
 using UnityEngine;
@@ -6,6 +7,12 @@ using CWF.Extensions;
 namespace CWF;
 
 public class CompDynamicTraits : ThingComp {
+    private static readonly FieldInfo CachedBurstShotCountField =
+        AccessTools.Field(typeof(Verb), "cachedBurstShotCount");
+
+    private static readonly FieldInfo CachedTicksBetweenBurstShotsField =
+        AccessTools.Field(typeof(Verb), "cachedTicksBetweenBurstShots");
+
     private Dictionary<PartDef, WeaponTraitDef> _installedTraits = new();
     private DamageDef? _projectileDamageOverride;
     private float _projectileStoppingPowerOffset;
@@ -48,10 +55,7 @@ public class CompDynamicTraits : ThingComp {
         OnTraitsChanged();
     }
 
-    public WeaponTraitDef? GetInstalledTraitFor(PartDef part) {
-        _installedTraits.TryGetValue(part, out var traitDef);
-        return traitDef;
-    }
+    public WeaponTraitDef? GetInstalledTraitFor(PartDef part) => _installedTraits.GetValueOrDefault(part);
 
     public void RandomizeTraits() {
         var settings = Settings.Current;
@@ -95,11 +99,25 @@ public class CompDynamicTraits : ThingComp {
 
     #region Effects
 
-    public override float GetStatOffset(StatDef stat) => Traits
-        .Sum(traitDef => traitDef.statOffsets.GetStatOffsetFromList(stat));
+    public override float GetStatOffset(StatDef stat) {
+        var total = 0f;
 
-    public override float GetStatFactor(StatDef stat) => Traits
-        .Aggregate(1f, (current, traitDef) => current * traitDef.statFactors.GetStatFactorFromList(stat));
+        foreach (var traitDef in _installedTraits.Values) {
+            total += traitDef.statOffsets.GetStatOffsetFromList(stat);
+        }
+
+        return total;
+    }
+
+    public override float GetStatFactor(StatDef stat) {
+        var factor = 1f;
+
+        foreach (var traitDef in _installedTraits.Values) {
+            factor *= traitDef.statFactors.GetStatFactorFromList(stat);
+        }
+
+        return factor;
+    }
 
     public void ApplyProjectileEffects(Projectile projectile) {
         if (_projectileDamageOverride != null) {
@@ -208,7 +226,7 @@ public class CompDynamicTraits : ThingComp {
 
         #region RemoveMissing
 
-        _installedTraits ??= new Dictionary<PartDef, WeaponTraitDef>();
+        _installedTraits ??= [];
 
         var partsWithMissingTraits = _installedTraits
             .Where(pair => pair.Value == null)
@@ -417,8 +435,8 @@ public class CompDynamicTraits : ThingComp {
         if (verb == null) return;
 
         // === cached ===
-        AccessTools.Field(typeof(Verb), "cachedBurstShotCount").SetValue(verb, null);
-        AccessTools.Field(typeof(Verb), "cachedTicksBetweenBurstShots").SetValue(verb, null);
+        CachedBurstShotCountField.SetValue(verb, null);
+        CachedTicksBetweenBurstShotsField.SetValue(verb, null);
     }
 
     #endregion
