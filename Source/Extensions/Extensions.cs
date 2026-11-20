@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using UnityEngine;
 
@@ -40,54 +39,41 @@ internal static class Extensions {
         internal string GetTraitEffect() {
             var sb = new StringBuilder();
 
-            if (!traitDef.statOffsets.NullOrEmpty()) {
-                foreach (var modifier in traitDef.statOffsets) {
-                    if (modifier.stat == StatDefOf.MarketValue || modifier.stat == StatDefOf.Mass) continue;
+            // Market value and mass are already shown by the item stats, so they are skipped here.
+            AppendStatModifiers(sb, traitDef.statOffsets, ToStringNumberSense.Offset, skipMassAndMarketValue: true);
+            AppendStatModifiers(sb, traitDef.statFactors, ToStringNumberSense.Factor);
 
-                    var value = modifier.stat.ValueToString(modifier.value, ToStringNumberSense.Offset, false);
-                    sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
-                }
-            }
+            AppendScalarLine(sb, "CWF_BurstShotCountMultiplier", traitDef.burstShotCountMultiplier, 1f,
+                ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+            AppendScalarLine(sb, "CWF_BurstShotSpeedMultiplier", traitDef.burstShotSpeedMultiplier, 1f,
+                ToStringStyle.PercentZero, ToStringNumberSense.Factor);
+            AppendScalarLine(sb, "CWF_AdditionalStoppingPower", traitDef.additionalStoppingPower, 0f,
+                ToStringStyle.FloatOne, ToStringNumberSense.Offset);
 
-            if (!traitDef.statFactors.NullOrEmpty()) {
-                foreach (var modifier in traitDef.statFactors) {
-                    var value = modifier.stat.ValueToString(modifier.value, ToStringNumberSense.Factor, false);
-                    sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
-                }
-            }
-
-            if (!Mathf.Approximately(traitDef.burstShotCountMultiplier, 1f)) {
-                var value = traitDef.burstShotCountMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
-                    ToStringNumberSense.Factor);
-                sb.AppendLine($" - {"CWF_BurstShotCountMultiplier".Translate()}: {value}");
-            }
-
-            if (!Mathf.Approximately(traitDef.burstShotSpeedMultiplier, 1f)) {
-                var value = traitDef.burstShotSpeedMultiplier.ToStringByStyle(ToStringStyle.PercentZero,
-                    ToStringNumberSense.Factor);
-                sb.AppendLine($" - {"CWF_BurstShotSpeedMultiplier".Translate()}: {value}");
-            }
-
-            if (!Mathf.Approximately(traitDef.additionalStoppingPower, 0.0f)) {
-                var value = traitDef.additionalStoppingPower.ToStringByStyle(ToStringStyle.FloatOne,
-                    ToStringNumberSense.Offset);
-                sb.AppendLine($" - {"CWF_AdditionalStoppingPower".Translate()}: {value}");
-            }
-
-            if (!traitDef.equippedStatOffsets.NullOrEmpty()) {
-                foreach (var modifier in traitDef.equippedStatOffsets) {
-                    var value = modifier.stat.ValueToString(modifier.value, ToStringNumberSense.Offset, false);
-                    sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
-                }
-            }
+            AppendStatModifiers(sb, traitDef.equippedStatOffsets, ToStringNumberSense.Offset);
 
             return sb.ToString();
         }
+    }
 
-        internal bool TryGetPart([NotNullWhen(true)] out PartDef? part) =>
-            ModuleDatabase.TryGetPart(traitDef, out part);
+    private static void AppendStatModifiers(StringBuilder sb, List<StatModifier>? modifiers,
+        ToStringNumberSense numberSense, bool skipMassAndMarketValue = false) {
+        if (modifiers is not { Count: > 0 }) return;
 
-        internal bool TryGetModuleDef([NotNullWhen(true)] out ThingDef? moduleDef) =>
-            ModuleDatabase.TryGetModuleDef(traitDef, out moduleDef);
+        foreach (var modifier in modifiers) {
+            if (skipMassAndMarketValue && (modifier.stat == StatDefOf.MarketValue || modifier.stat == StatDefOf.Mass)) {
+                continue;
+            }
+
+            var value = modifier.stat.ValueToString(modifier.value, numberSense, false);
+            sb.AppendLine($" - {modifier.stat.LabelCap}: {value}");
+        }
+    }
+
+    private static void AppendScalarLine(StringBuilder sb, string labelKey, float value, float neutral,
+        ToStringStyle style, ToStringNumberSense numberSense) {
+        if (Mathf.Approximately(value, neutral)) return;
+
+        sb.AppendLine($" - {labelKey.Translate()}: {value.ToStringByStyle(style, numberSense)}");
     }
 }

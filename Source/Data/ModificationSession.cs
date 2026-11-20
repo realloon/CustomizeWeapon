@@ -1,5 +1,3 @@
-using CWF.Extensions;
-
 namespace CWF;
 
 public class ModificationSession {
@@ -50,10 +48,7 @@ public class ModificationSession {
         RefreshPreview();
     }
 
-    public WeaponTraitDef? GetInstalledTraitFor(PartDef part) {
-        _desiredTraits.TryGetValue(part, out var traitDef);
-        return traitDef;
-    }
+    public WeaponTraitDef? GetInstalledTraitFor(PartDef part) => _desiredTraits.GetValueOrDefault(part);
 
     public IEnumerable<WeaponTraitDef> GetReinstallableTraitsFor(PartDef part) => InitialTraits
         .Where(pair => pair.Key == part && !_desiredTraits.ContainsValue(pair.Value))
