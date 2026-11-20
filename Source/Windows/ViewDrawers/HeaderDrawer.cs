@@ -97,8 +97,9 @@ public class HeaderDrawer(Thing weapon, ModificationSession session, Interaction
 
         // Render name label
         var finalDisplayName = _compRenamable?.Nickname ?? weapon.LabelCap;
-        UIKit.WithStyle(() => Widgets.Label(labelRect, finalDisplayName),
-            GameFont.Medium, anchor: TextAnchor.MiddleLeft);
+        using (UIKit.Style(GameFont.Medium, anchor: TextAnchor.MiddleLeft)) {
+            Widgets.Label(labelRect, finalDisplayName);
+        }
     }
 
     private static Action? CreatePresetMenuAction(IEnumerable<AssemblyPresetData> presets,

@@ -1,3 +1,4 @@
+using System.Globalization;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -32,11 +33,9 @@ public class ConfigWindow : Mod {
 
             listing.Label("CWF_RarityWeights".Translate());
             var descRect = listing.GetRect(Text.LineHeight);
-            UIKit.WithStyle(
-                () => Widgets.Label(descRect, "CWF_RarityWeightsDesc".Translate()),
-                GameFont.Tiny,
-                Color.gray
-            );
+            using (UIKit.Style(GameFont.Tiny, Color.gray)) {
+                Widgets.Label(descRect, "CWF_RarityWeightsDesc".Translate());
+            }
 
             DrawRarityWeightRow(listing, "CWF_RarityWeight_Standard".Translate(), ref _settings.StandardRarityWeight,
                 ref _standardWeightBuffer);
@@ -65,10 +64,12 @@ public class ConfigWindow : Mod {
     }
 
     private void RefreshWeightBuffers() {
-        _standardWeightBuffer = _settings.StandardRarityWeight.ToString("0.##########");
-        _rareWeightBuffer = _settings.RareRarityWeight.ToString("0.##########");
-        _legendaryWeightBuffer = _settings.LegendaryRarityWeight.ToString("0.##########");
+        _standardWeightBuffer = FormatWeight(_settings.StandardRarityWeight);
+        _rareWeightBuffer = FormatWeight(_settings.RareRarityWeight);
+        _legendaryWeightBuffer = FormatWeight(_settings.LegendaryRarityWeight);
     }
+
+    private static string FormatWeight(float weight) => weight.ToString("0.##########", CultureInfo.InvariantCulture);
 
     private static void DrawRarityWeightRow(Listing_Standard listing, string label, ref float value,
         ref string buffer) {
@@ -80,7 +81,10 @@ public class ConfigWindow : Mod {
         var labelRect = new Rect(rowRect.x, rowRect.y, rowRect.width - fieldWidth - gap, rowHeight);
         var fieldRect = new Rect(rowRect.xMax - fieldWidth, rowRect.y, fieldWidth, rowHeight);
 
-        UIKit.WithStyle(() => Widgets.Label(labelRect, label), anchor: TextAnchor.MiddleLeft);
+        using (UIKit.Style(anchor: TextAnchor.MiddleLeft)) {
+            Widgets.Label(labelRect, label);
+        }
+
         Widgets.TextFieldNumeric(fieldRect, ref value, ref buffer);
     }
 }

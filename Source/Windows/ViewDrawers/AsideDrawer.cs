@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using UnityEngine;
 
@@ -19,7 +20,8 @@ public class AsideDrawer(SpecDatabase specDatabase) {
         StatDef? Stat = null,
         Func<Thing, float?>? Base = null,
         Func<WeaponTraitDef, string?>? TraitLine = null) {
-        public string Display(float value) => (Unit == "%" ? value * 100f : value).ToString(Format) + Unit;
+        public string Display(float value) =>
+            (Unit == "%" ? value * 100f : value).ToString(Format, CultureInfo.CurrentCulture) + Unit;
     }
 
     private sealed record StatSection(string? Header, StatRow[] Rows);
@@ -93,9 +95,14 @@ public class AsideDrawer(SpecDatabase specDatabase) {
         };
 
         Widgets.DrawHighlightIfMouseover(rect);
-        UIKit.WithStyle(() => Widgets.Label(inRect, row.Label), anchor: TextAnchor.MiddleLeft);
-        UIKit.WithStyle(() => Widgets.Label(inRect, row.Display(value.Dynamic)), color: color,
-            anchor: TextAnchor.MiddleRight);
+
+        using (UIKit.Style(anchor: TextAnchor.MiddleLeft)) {
+            Widgets.Label(inRect, row.Label);
+        }
+
+        using (UIKit.Style(color: color, anchor: TextAnchor.MiddleRight)) {
+            Widgets.Label(inRect, row.Display(value.Dynamic));
+        }
 
         if (delta != 0f && Event.current.type == EventType.Repaint && Mouse.IsOver(rect)) {
             TooltipHandler.TipRegion(rect, BuildTooltip(row, value));
@@ -103,10 +110,14 @@ public class AsideDrawer(SpecDatabase specDatabase) {
     }
 
     private static void DrawSectionHeader(Listing_Standard listing, string label) {
+        // Measure the plain label: CalcHeight strips rich-text tags with two regexes per call,
+        // so the markup is only built for the actual draw.
         var height = Mathf.Max(SectionHeaderHeight, Text.CalcHeight(label, listing.ColumnWidth));
         var labelRect = listing.GetRect(height).ContractedBy(StatRowPaddingInline, 0f);
-        UIKit.WithStyle(() => Widgets.Label(labelRect, $"<color=#999999><b>{label}</b></color>"),
-            anchor: TextAnchor.MiddleLeft);
+
+        using (UIKit.Style(anchor: TextAnchor.MiddleLeft)) {
+            Widgets.Label(labelRect, $"<color=#999999><b>{label}</b></color>");
+        }
     }
 
     #region Tooltip

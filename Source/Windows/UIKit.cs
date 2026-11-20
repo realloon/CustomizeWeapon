@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace CWF;
 
+// ReSharper disable once InconsistentNaming
 internal static class UIKit {
     private static readonly Dictionary<Color, Texture2D> ColorSwatches = [];
 
@@ -23,20 +24,28 @@ internal static class UIKit {
         return texture;
     }
 
-    internal static void WithStyle(Action drawAction, GameFont font = GameFont.Small, Color? color = null,
-        TextAnchor anchor = TextAnchor.UpperLeft) {
-        var originalFont = Text.Font;
-        var originalColor = GUI.color;
-        var originalAnchor = Text.Anchor;
+    internal static StyleScope Style(GameFont font = GameFont.Small, Color? color = null,
+        TextAnchor anchor = TextAnchor.UpperLeft) => new(font, color ?? Color.white, anchor);
 
-        Text.Font = font;
-        GUI.color = color ?? Color.white;
-        Text.Anchor = anchor;
+    internal readonly ref struct StyleScope {
+        private readonly GameFont _previousFont;
+        private readonly Color _previousColor;
+        private readonly TextAnchor _previousAnchor;
 
-        drawAction();
+        internal StyleScope(GameFont font, Color color, TextAnchor anchor) {
+            _previousFont = Text.Font;
+            _previousColor = GUI.color;
+            _previousAnchor = Text.Anchor;
 
-        Text.Font = originalFont;
-        GUI.color = originalColor;
-        Text.Anchor = originalAnchor;
+            Text.Font = font;
+            GUI.color = color;
+            Text.Anchor = anchor;
+        }
+
+        internal void Dispose() {
+            Text.Font = _previousFont;
+            GUI.color = _previousColor;
+            Text.Anchor = _previousAnchor;
+        }
     }
 }

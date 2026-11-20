@@ -5,14 +5,8 @@ using CWF.Extensions;
 namespace CWF.ViewDrawers;
 
 public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTraitDef?> onSlotClick) {
-    // private readonly Thing _weapon = weapon;
     private const float SlotSize = 56f;
     private const float SlotPadding = 12f;
-
-    private enum Direction {
-        Horizontal,
-        Vertical
-    }
 
     public void Draw(in Rect rect) {
         // define gird row Height
@@ -39,75 +33,65 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
 
         WeaponPreviewDrawer.Draw(in middleCenterRect, session.PreviewWeapon);
 
-        var availableParts = session.AvailableParts;
-
-        var topParts = availableParts.Where(p => p.group == PartGroup.Top).OrderBy(p => p.order).ToList();
-        var bottomParts = availableParts.Where(p => p.group == PartGroup.Bottom).OrderBy(p => p.order).ToList();
-        var leftParts = availableParts.Where(p => p.group == PartGroup.Left).OrderBy(p => p.order).ToList();
-        var rightParts = availableParts.Where(p => p.group == PartGroup.Right).OrderBy(p => p.order).ToList();
-
-        DrawPartGroup(in topCenterRect, topParts, Direction.Horizontal);
-        DrawPartGroup(in bottomCenterRect, bottomParts, Direction.Horizontal);
-        DrawPartGroup(in middleLeftRect, leftParts, Direction.Vertical);
-        DrawPartGroup(in middleRightRect, rightParts, Direction.Vertical);
+        DrawPartGroup(in topCenterRect, PartGroup.Top, horizontal: true);
+        DrawPartGroup(in bottomCenterRect, PartGroup.Bottom, horizontal: true);
+        DrawPartGroup(in middleLeftRect, PartGroup.Left, horizontal: false);
+        DrawPartGroup(in middleRightRect, PartGroup.Right, horizontal: false);
     }
 
     // === Helper ===
-    private void DrawPartGroup(in Rect container, List<PartDef> groupParts, Direction direction) {
-        if (groupParts.Count == 0) return;
-
+    private void DrawPartGroup(in Rect container, PartGroup group, bool horizontal) {
+        var groupParts = session.AvailableParts
+            .Where(p => p.group == group)
+            .OrderBy(p => p.order)
+            .ToList();
         var count = groupParts.Count;
+        if (count == 0) return;
 
-        if (direction == Direction.Horizontal) {
-            var totalWidth = count * SlotSize + Math.Max(0, count - 1) * SlotPadding;
-            var startX = container.center.x - totalWidth / 2f;
-            var startY = container.center.y - SlotSize / 2f;
+        const float step = SlotSize + SlotPadding;
+        var span = count * SlotSize + (count - 1) * SlotPadding;
+        var startX = container.center.x - (horizontal ? span : SlotSize) / 2f;
+        var startY = container.center.y - (horizontal ? SlotSize : span) / 2f;
 
-            for (var i = 0; i < count; i++) {
-                var part = groupParts[i];
-                var slotRect = new Rect(startX + i * (SlotSize + SlotPadding), startY, SlotSize, SlotSize);
-                TryDrawSlot(part, in slotRect);
-            }
-        } else {
-            // Vertical
-            var totalHeight = count * SlotSize + Math.Max(0, count - 1) * SlotPadding;
-            var startX = container.center.x - SlotSize / 2f;
-            var startY = container.center.y - totalHeight / 2f;
-
-            for (var i = 0; i < count; i++) {
-                var part = groupParts[i];
-                var slotRect = new Rect(startX, startY + i * (SlotSize + SlotPadding), SlotSize, SlotSize);
-                TryDrawSlot(part, in slotRect);
-            }
+        for (var i = 0; i < count; i++) {
+            var offset = i * step;
+            var slotRect = new Rect(
+                startX + (horizontal ? offset : 0f),
+                startY + (horizontal ? 0f : offset),
+                SlotSize, SlotSize);
+            TryDrawSlot(groupParts[i], in slotRect);
         }
     }
 
     private void TryDrawSlot(PartDef part, in Rect rect) {
         var installedTrait = session.GetInstalledTraitFor(part);
+        var isHovered = Mouse.IsOver(rect);
         bool clicked;
 
         if (installedTrait != null) {
-            Widgets.DrawOptionBackground(rect, Mouse.IsOver(rect));
+            Widgets.DrawOptionBackground(rect, isHovered);
 
             var moduleGraphicData = GetSlotGraphicData(part, installedTrait, out var isFallback);
             if (moduleGraphicData != null) {
                 DrawModuleTexture(in rect, moduleGraphicData, !isFallback);
             } else {
-                var inRect = rect;
-                UIKit.WithStyle(() => Widgets.Label(inRect, installedTrait.LabelCap),
-                    GameFont.Tiny, anchor: TextAnchor.MiddleCenter);
+                using (UIKit.Style(GameFont.Tiny, anchor: TextAnchor.MiddleCenter)) {
+                    Widgets.Label(rect, installedTrait.LabelCap);
+                }
             }
 
-            var tipSb = new StringBuilder();
-            tipSb.AppendLine($"<b>{installedTrait.LabelCap}</b>");
-            tipSb.AppendLine(installedTrait.description);
-            tipSb.AppendInNewLine(installedTrait.GetTraitEffect());
+            if (Event.current.type == EventType.Repaint && isHovered) {
+                var tipSb = new StringBuilder();
+                tipSb.AppendLine($"<b>{installedTrait.LabelCap}</b>");
+                tipSb.AppendLine(installedTrait.description);
+                tipSb.AppendInNewLine(installedTrait.GetTraitEffect());
 
-            TooltipHandler.TipRegion(rect, tipSb.ToString());
+                TooltipHandler.TipRegion(rect, tipSb.ToString());
+            }
 
             clicked = Widgets.ButtonInvisible(rect);
         } else {
-            clicked = DrawPartSlot(in rect, part.LabelCap);
+            clicked = DrawPartSlot(in rect, part.LabelCap, isHovered);
         }
 
         if (clicked) onSlotClick.Invoke(part, installedTrait);
@@ -150,16 +134,19 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
     }
 
     /// Returns a boolean indicating whether the element was clicked.
-    private static bool DrawPartSlot(in Rect rect, string label) {
-        Widgets.DrawOptionBackground(rect, Mouse.IsOver(rect));
+    private static bool DrawPartSlot(in Rect rect, string label, bool isHovered) {
+        Widgets.DrawOptionBackground(rect, isHovered);
 
         // render label
         var labelRect = new Rect(rect.x + 4f, rect.y + 2f, rect.width - 8f, rect.height - 3f);
-        UIKit.WithStyle(() => Widgets.Label(labelRect, label), GameFont.Tiny, Color.gray, TextAnchor.LowerLeft);
+        using (UIKit.Style(GameFont.Tiny, Color.gray, TextAnchor.LowerLeft)) {
+            Widgets.Label(labelRect, label);
+        }
 
         // render '+'
-        var inRect = rect;
-        UIKit.WithStyle(() => Widgets.Label(inRect, "+"), GameFont.Medium, anchor: TextAnchor.MiddleCenter);
+        using (UIKit.Style(GameFont.Medium, anchor: TextAnchor.MiddleCenter)) {
+            Widgets.Label(rect, "+");
+        }
 
         return Widgets.ButtonInvisible(rect);
     }

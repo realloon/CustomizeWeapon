@@ -6,15 +6,19 @@ using CWF.Extensions;
 namespace CWF;
 
 public class ModuleBrowserWindow : Window {
-    private readonly Dictionary<PartDef, List<ThingDef>> _groupedModules = new();
+    private readonly List<FilterRow> _filters = [];
     private readonly Dictionary<ThingDef, RecipeDef> _recipeCache = new();
-    private PartDef? _selectedPart;
+    private FilterRow _selectedFilter;
     private Vector2 _leftColumnScrollPosition = Vector2.zero;
     private Vector2 _rightColumnScrollPosition = Vector2.zero;
 
     private const float FilterRowHeight = 30f;
     private const float FilterRowPadding = 8f;
     private const float TitleContentGap = 6f;
+
+    private sealed record FilterRow(string Label, List<ThingDef> Modules) {
+        internal string CountLabel { get; } = Modules.Count.ToString();
+    }
 
     public override Vector2 InitialSize => new(550f, 420f);
 
@@ -28,17 +32,17 @@ public class ModuleBrowserWindow : Window {
 
         var compatibleModules = ModuleDatabase.AllModuleDefs
             .Where(moduleDef => moduleDef.IsCompatibleWith(weapon.def))
-            .ToArray();
+            .OrderBy(moduleDef => moduleDef.LabelCap.ToString(), StringComparer.CurrentCultureIgnoreCase)
+            .ToList();
 
-        foreach (var moduleDef in compatibleModules) {
-            var part = moduleDef.TraitModule().part;
+        // Sorting the flat list first means every GroupBy bucket inherits the same ordering.
+        _filters.Add(new FilterRow("CWF_All".Translate(), compatibleModules));
+        _filters.AddRange(compatibleModules
+            .GroupBy(moduleDef => moduleDef.TraitModule().part)
+            .OrderBy(group => group.Key.LabelCap.ToString(), StringComparer.CurrentCultureIgnoreCase)
+            .Select(group => new FilterRow(group.Key.LabelCap.ToString(), [.. group])));
 
-            if (!_groupedModules.ContainsKey(part)) {
-                _groupedModules[part] = [];
-            }
-
-            _groupedModules[part].Add(moduleDef);
-        }
+        _selectedFilter = _filters[0];
 
         var relevantModules = compatibleModules.ToHashSet();
         foreach (var recipe in DefDatabase<RecipeDef>.AllDefsListForReading) {
@@ -49,10 +53,6 @@ public class ModuleBrowserWindow : Window {
                 _recipeCache.TryAdd(productDef, recipe);
             }
         }
-
-        _groupedModules = _groupedModules
-            .OrderBy(kvp => kvp.Key.LabelCap.ToString())
-            .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
     }
 
     public override void DoWindowContents(Rect inRect) {
@@ -72,33 +72,31 @@ public class ModuleBrowserWindow : Window {
 
         listing.Begin(rect);
 
-        UIKit.WithStyle(() => listing.Label("CWF_Parts".Translate()), GameFont.Medium);
+        using (UIKit.Style(GameFont.Medium)) {
+            listing.Label("CWF_Parts".Translate());
+        }
+
         listing.Gap(TitleContentGap);
 
-        if (_groupedModules.Count == 0) {
+        if (_filters[0].Modules.Count == 0) {
             listing.End();
             return;
         }
 
-        var filters = new List<(PartDef? Part, string Label, int Count)> {
-            (null, "CWF_All".Translate(), _groupedModules.Values.Sum(modules => modules.Count))
-        };
-
-        filters.AddRange(
-            _groupedModules.Select(kvp => ((PartDef?)kvp.Key, kvp.Key.LabelCap.ToString(), kvp.Value.Count)));
-
         var viewHeight = rect.height - listing.CurHeight;
         var viewRect = new Rect(0f, listing.CurHeight, rect.width, viewHeight);
-        var contentHeight = Mathf.Max(viewRect.height, filters.Count * FilterRowHeight);
+        var contentHeight = Mathf.Max(viewRect.height, _filters.Count * FilterRowHeight);
         var contentRect = new Rect(0f, 0f, viewRect.width, contentHeight);
 
         Widgets.BeginScrollView(viewRect, ref _leftColumnScrollPosition, contentRect, showScrollbars: false);
 
         var currentY = 0f;
-        foreach (var filter in filters) {
+        foreach (var filter in _filters) {
             var rowRect = new Rect(0f, currentY, contentRect.width, FilterRowHeight);
-            DrawFilterRow(rowRect, filter.Label, filter.Count, _selectedPart == filter.Part,
-                () => { _selectedPart = filter.Part; });
+            if (DrawFilterRow(rowRect, filter, ReferenceEquals(_selectedFilter, filter))) {
+                _selectedFilter = filter;
+            }
+
             currentY += FilterRowHeight;
         }
 
@@ -115,13 +113,13 @@ public class ModuleBrowserWindow : Window {
         var titleRect = listing.GetRect(titleHeight);
         var paddedTitleRect = new Rect(titleRect.x + padding, titleRect.y, titleRect.width - padding, titleRect.height);
 
-        UIKit.WithStyle(() => Widgets.Label(paddedTitleRect, "CWF_CompatibleModules".Translate()), GameFont.Medium);
+        using (UIKit.Style(GameFont.Medium)) {
+            Widgets.Label(paddedTitleRect, "CWF_CompatibleModules".Translate());
+        }
+
         listing.Gap(TitleContentGap);
 
-        var modulesToShow = _selectedPart switch {
-            null => _groupedModules.Values.SelectMany(list => list).ToList(),
-            _ => _groupedModules.GetValueOrDefault(_selectedPart) ?? []
-        };
+        var modulesToShow = _selectedFilter.Modules;
 
         if (modulesToShow.Count == 0) {
             var noModuleLabelRect = listing.GetRect(Text.LineHeight);
@@ -143,7 +141,7 @@ public class ModuleBrowserWindow : Window {
 
         var currentY = 0f;
 
-        foreach (var moduleDef in modulesToShow.OrderBy(m => m.LabelCap.ToString())) {
+        foreach (var moduleDef in modulesToShow) {
             var rowRect = new Rect(contentRect.x, currentY, contentRect.width, rowHeight);
             Widgets.DrawHighlightIfMouseover(rowRect);
 
@@ -155,14 +153,18 @@ public class ModuleBrowserWindow : Window {
             var labelRect = new Rect(rowRect.x + padding, rowRect.y,
                 actionButtonRect.x - rowRect.x - padding, rowRect.height);
 
-            var sb = new StringBuilder();
-            var traitDef = moduleDef.TraitModule().weaponTraitDef;
-            sb.AppendLine(moduleDef.description);
-            sb.AppendInNewLine(traitDef.GetTraitEffect());
+            if (Event.current.type == EventType.Repaint && Mouse.IsOver(labelRect)) {
+                var sb = new StringBuilder();
+                var traitDef = moduleDef.TraitModule().weaponTraitDef;
+                sb.AppendLine(moduleDef.description);
+                sb.AppendInNewLine(traitDef.GetTraitEffect());
 
-            TooltipHandler.TipRegion(labelRect, sb.ToString());
+                TooltipHandler.TipRegion(labelRect, sb.ToString());
+            }
 
-            UIKit.WithStyle(() => Widgets.Label(labelRect, moduleDef.LabelCap), anchor: TextAnchor.MiddleLeft);
+            using (UIKit.Style(anchor: TextAnchor.MiddleLeft)) {
+                Widgets.Label(labelRect, moduleDef.LabelCap);
+            }
 
             currentY += rowHeight;
 
@@ -211,7 +213,7 @@ public class ModuleBrowserWindow : Window {
             new LookTargets(bench), MessageTypeDefOf.PositiveEvent);
     }
 
-    private static void DrawFilterRow(in Rect rect, string label, int count, bool selected, Action onClick) {
+    private static bool DrawFilterRow(in Rect rect, FilterRow filter, bool selected) {
         var backgroundColor = selected
             ? new Color(1f, 1f, 1f, 0.14f)
             : new Color(1f, 1f, 1f, 0.04f);
@@ -224,12 +226,14 @@ public class ModuleBrowserWindow : Window {
         var labelColor = selected ? Color.white : new Color(0.85f, 0.85f, 0.85f);
         var countColor = selected ? Color.white : Color.gray;
 
-        UIKit.WithStyle(() => Widgets.Label(labelRect, label), color: labelColor, anchor: TextAnchor.MiddleLeft);
-        UIKit.WithStyle(() => Widgets.Label(countRect, count.ToString()), GameFont.Tiny, countColor,
-            TextAnchor.MiddleRight);
-
-        if (Widgets.ButtonInvisible(rect)) {
-            onClick();
+        using (UIKit.Style(color: labelColor, anchor: TextAnchor.MiddleLeft)) {
+            Widgets.Label(labelRect, filter.Label);
         }
+
+        using (UIKit.Style(GameFont.Tiny, countColor, TextAnchor.MiddleRight)) {
+            Widgets.Label(countRect, filter.CountLabel);
+        }
+
+        return Widgets.ButtonInvisible(rect);
     }
 }
