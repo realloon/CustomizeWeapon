@@ -1,5 +1,6 @@
-using JetBrains.Annotations;
+using System.Globalization;
 using System.Text;
+using JetBrains.Annotations;
 using HarmonyLib;
 using UnityEngine;
 
@@ -96,7 +97,7 @@ public static class Postfix_ThingDef_SpecialDisplayStats {
         stoppingPowerSb.AppendLine().AppendLine($"{finalValueLabel}: {finalStoppingPower:F1}");
 
         customEntries.Add(new StatDrawEntry(statCat, "StoppingPower".Translate(),
-            finalStoppingPower.ToString("F1"), stoppingPowerSb.ToString(), 5402));
+            finalStoppingPower.ToString("F1", CultureInfo.CurrentCulture), stoppingPowerSb.ToString(), 5402));
 
         return customEntries;
     }
