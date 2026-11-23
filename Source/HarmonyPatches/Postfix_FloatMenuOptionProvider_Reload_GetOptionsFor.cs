@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using HarmonyLib;
 using RimWorld.Utility;
 using Verse.AI;
 
@@ -6,7 +7,7 @@ using Verse.AI;
 
 namespace CWF.HarmonyPatches;
 
-[HarmonyLib.HarmonyPatch(typeof(FloatMenuOptionProvider_Reload), "GetOptionsFor")]
+[HarmonyPatch(typeof(FloatMenuOptionProvider_Reload), "GetOptionsFor")]
 public static class Postfix_FloatMenuOptionProvider_Reload_GetOptionsFor {
     [UsedImplicitly]
     public static IEnumerable<FloatMenuOption> Postfix(IEnumerable<FloatMenuOption> __result, Thing clickedThing,

@@ -1,4 +1,3 @@
-using System.Reflection;
 using System.Text;
 using HarmonyLib;
 using UnityEngine;
@@ -7,11 +6,11 @@ using CWF.Extensions;
 namespace CWF;
 
 public class CompDynamicTraits : ThingComp {
-    private static readonly FieldInfo CachedBurstShotCountField =
-        AccessTools.Field(typeof(Verb), "cachedBurstShotCount");
+    private static readonly AccessTools.FieldRef<Verb, int?> CachedBurstShotCountRef =
+        AccessTools.FieldRefAccess<Verb, int?>("cachedBurstShotCount");
 
-    private static readonly FieldInfo CachedTicksBetweenBurstShotsField =
-        AccessTools.Field(typeof(Verb), "cachedTicksBetweenBurstShots");
+    private static readonly AccessTools.FieldRef<Verb, int?> CachedTicksBetweenBurstShotsRef =
+        AccessTools.FieldRefAccess<Verb, int?>("cachedTicksBetweenBurstShots");
 
     private Dictionary<PartDef, WeaponTraitDef> _installedTraits = new();
     private DamageDef? _projectileDamageOverride;
@@ -435,8 +434,8 @@ public class CompDynamicTraits : ThingComp {
         if (verb == null) return;
 
         // === cached ===
-        CachedBurstShotCountField.SetValue(verb, null);
-        CachedTicksBetweenBurstShotsField.SetValue(verb, null);
+        CachedBurstShotCountRef(verb) = null;
+        CachedTicksBetweenBurstShotsRef(verb) = null;
     }
 
     #endregion

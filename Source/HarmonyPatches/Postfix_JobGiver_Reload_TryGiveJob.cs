@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using HarmonyLib;
 using RimWorld.Utility;
 using Verse.AI;
 
@@ -6,7 +7,7 @@ using Verse.AI;
 
 namespace CWF.HarmonyPatches;
 
-[HarmonyLib.HarmonyPatch(typeof(JobGiver_Reload), "TryGiveJob")]
+[HarmonyPatch(typeof(JobGiver_Reload), "TryGiveJob")]
 public static class Postfix_JobGiver_Reload_TryGiveJob {
     [UsedImplicitly]
     public static Job? Postfix(Job? __result, Pawn pawn) {

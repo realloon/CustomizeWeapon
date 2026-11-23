@@ -1,6 +1,5 @@
 using JetBrains.Annotations;
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
 using RimWorld.Utility;
@@ -9,9 +8,12 @@ using Verse.Sound;
 namespace CWF;
 
 public class CompAbilityProvider : ThingComp {
-    private static readonly FieldInfo InCooldownField = AccessTools.Field(typeof(Ability), "inCooldown");
-    private static readonly FieldInfo CooldownEndTickField = AccessTools.Field(typeof(Ability), "cooldownEndTick");
-    private static readonly FieldInfo CooldownDurationField = AccessTools.Field(typeof(Ability), "cooldownDuration");
+    private static readonly AccessTools.FieldRef<Ability, bool> InCooldownRef =
+        AccessTools.FieldRefAccess<Ability, bool>("inCooldown");
+    private static readonly AccessTools.FieldRef<Ability, int> CooldownEndTickRef =
+        AccessTools.FieldRefAccess<Ability, int>("cooldownEndTick");
+    private static readonly AccessTools.FieldRef<Ability, int> CooldownDurationRef =
+        AccessTools.FieldRefAccess<Ability, int>("cooldownDuration");
 
     private readonly HashSet<AbilityDef> _managedAbilityDefs = [];
     private List<CompProperties_EquippableAbilityReloadable> _abilityPropsToManage = [];
@@ -203,16 +205,10 @@ public class CompAbilityProvider : ThingComp {
     private static void ApplyStoredState(Ability ability, AbilityState storedState) {
         ability.RemainingCharges = Mathf.Clamp(storedState.RemainingCharges, 0, ability.maxCharges);
 
-        if (storedState.CooldownTicksRemaining > 0) {
-            InCooldownField.SetValue(ability, true);
-            CooldownEndTickField.SetValue(ability, GenTicks.TicksGame + storedState.CooldownTicksRemaining);
-            CooldownDurationField.SetValue(ability, storedState.CooldownTicksTotal);
-            return;
-        }
-
-        InCooldownField.SetValue(ability, false);
-        CooldownEndTickField.SetValue(ability, 0);
-        CooldownDurationField.SetValue(ability, 0);
+        var hasCooldown = storedState.CooldownTicksRemaining > 0;
+        InCooldownRef(ability) = hasCooldown;
+        CooldownEndTickRef(ability) = hasCooldown ? GenTicks.TicksGame + storedState.CooldownTicksRemaining : 0;
+        CooldownDurationRef(ability) = hasCooldown ? storedState.CooldownTicksTotal : 0;
     }
 
     private void CaptureManagedAbilityStates(Pawn holder) {

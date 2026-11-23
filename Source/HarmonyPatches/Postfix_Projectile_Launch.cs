@@ -7,11 +7,11 @@ using UnityEngine;
 namespace CWF.HarmonyPatches;
 
 [HarmonyPatch(
-    typeof(Projectile),
-    nameof(Projectile.Launch), new[] {
-        typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo),
-        typeof(ProjectileHitFlags), typeof(bool), typeof(Thing), typeof(ThingDef)
-    }
+    typeof(Projectile), nameof(Projectile.Launch),
+    [
+        typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags),
+        typeof(bool), typeof(Thing), typeof(ThingDef)
+    ]
 )]
 public static class Postfix_Projectile_Launch {
     [UsedImplicitly]
