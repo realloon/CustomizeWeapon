@@ -2,9 +2,9 @@
 <ModMetaData>
   <packageId>Vortex.CustomizeWeapon</packageId>
   <name>Customize Weapon</name>
-  <description>Customize Weapon: Modify weapons as much as you can. Built-in framework.</description>
+  <description>Modify weapons as much as you can.</description>
   <author>Vortex</author>
-  <modVersion>0.29.0</modVersion>
+  <modVersion>0.30.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
     <li>1.7</li>
