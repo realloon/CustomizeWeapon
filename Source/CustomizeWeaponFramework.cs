@@ -1,7 +1,6 @@
 global using Verse;
 global using RimWorld;
 using JetBrains.Annotations;
-using System.Reflection;
 using HarmonyLib;
 
 namespace CWF;
@@ -11,7 +10,7 @@ namespace CWF;
 public class CustomizeWeaponFramework {
     static CustomizeWeaponFramework() {
         var harmony = new Harmony("Vortex.CustomizeWeaponFramework");
-        harmony.PatchAll(Assembly.GetExecutingAssembly());
+        harmony.PatchAll(typeof(CustomizeWeaponFramework).Assembly);
 
         AdapterDef.Inject();
         ModuleDatabase.BuildCacheAndInject();
