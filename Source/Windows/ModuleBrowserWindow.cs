@@ -67,7 +67,7 @@ public class ModuleBrowserWindow : Window {
         DrawRightColumn(rightRect);
     }
 
-    private void DrawLeftColumn(in Rect rect) {
+    private void DrawLeftColumn(Rect rect) {
         var listing = new Listing_Standard();
 
         listing.Begin(rect);
@@ -104,7 +104,7 @@ public class ModuleBrowserWindow : Window {
         listing.End();
     }
 
-    private void DrawRightColumn(in Rect rect) {
+    private void DrawRightColumn(Rect rect) {
         var listing = new Listing_Standard();
         listing.Begin(rect);
 
@@ -213,7 +213,7 @@ public class ModuleBrowserWindow : Window {
             new LookTargets(bench), MessageTypeDefOf.PositiveEvent);
     }
 
-    private static bool DrawFilterRow(in Rect rect, FilterRow filter, bool selected) {
+    private static bool DrawFilterRow(Rect rect, FilterRow filter, bool selected) {
         var backgroundColor = selected
             ? new Color(1f, 1f, 1f, 0.14f)
             : new Color(1f, 1f, 1f, 0.04f);

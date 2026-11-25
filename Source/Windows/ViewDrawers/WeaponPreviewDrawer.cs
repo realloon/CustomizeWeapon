@@ -3,7 +3,7 @@ using UnityEngine;
 namespace CWF.ViewDrawers;
 
 internal static class WeaponPreviewDrawer {
-    internal static void Draw(in Rect rect, Thing weapon) {
+    internal static void Draw(Rect rect, Thing weapon) {
         var previewTexture = weapon.UIIconOverride;
         if (previewTexture == null) {
             Widgets.ThingIcon(rect, weapon);

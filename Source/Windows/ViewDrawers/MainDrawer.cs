@@ -8,7 +8,7 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
     private const float SlotSize = 56f;
     private const float SlotPadding = 12f;
 
-    public void Draw(in Rect rect) {
+    public void Draw(Rect rect) {
         // define gird row Height
         const float topRowHeight = SlotSize + SlotPadding;
         const float bottomRowHeight = SlotSize + SlotPadding;
@@ -31,16 +31,16 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
         var bottomCenterRect = new Rect(rect.x + leftColWidth, rect.y + topRowHeight + middleRowHeight,
             middleColWidth, bottomRowHeight);
 
-        WeaponPreviewDrawer.Draw(in middleCenterRect, session.PreviewWeapon);
+        WeaponPreviewDrawer.Draw(middleCenterRect, session.PreviewWeapon);
 
-        DrawPartGroup(in topCenterRect, PartGroup.Top, horizontal: true);
-        DrawPartGroup(in bottomCenterRect, PartGroup.Bottom, horizontal: true);
-        DrawPartGroup(in middleLeftRect, PartGroup.Left, horizontal: false);
-        DrawPartGroup(in middleRightRect, PartGroup.Right, horizontal: false);
+        DrawPartGroup(topCenterRect, PartGroup.Top, horizontal: true);
+        DrawPartGroup(bottomCenterRect, PartGroup.Bottom, horizontal: true);
+        DrawPartGroup(middleLeftRect, PartGroup.Left, horizontal: false);
+        DrawPartGroup(middleRightRect, PartGroup.Right, horizontal: false);
     }
 
     // === Helper ===
-    private void DrawPartGroup(in Rect container, PartGroup group, bool horizontal) {
+    private void DrawPartGroup(Rect container, PartGroup group, bool horizontal) {
         var groupParts = session.AvailableParts
             .Where(p => p.group == group)
             .OrderBy(p => p.order)
@@ -59,11 +59,11 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
                 startX + (horizontal ? offset : 0f),
                 startY + (horizontal ? 0f : offset),
                 SlotSize, SlotSize);
-            TryDrawSlot(groupParts[i], in slotRect);
+            TryDrawSlot(groupParts[i], slotRect);
         }
     }
 
-    private void TryDrawSlot(PartDef part, in Rect rect) {
+    private void TryDrawSlot(PartDef part, Rect rect) {
         var installedTrait = session.GetInstalledTraitFor(part);
         var isHovered = Mouse.IsOver(rect);
         bool clicked;
@@ -73,7 +73,7 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
 
             var moduleGraphicData = GetSlotGraphicData(part, installedTrait, out var isFallback);
             if (moduleGraphicData != null) {
-                DrawModuleTexture(in rect, moduleGraphicData, !isFallback);
+                DrawModuleTexture(rect, moduleGraphicData, !isFallback);
             } else {
                 using (UIKit.Style(GameFont.Tiny, anchor: TextAnchor.MiddleCenter)) {
                     Widgets.Label(rect, installedTrait.LabelCap);
@@ -91,7 +91,7 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
 
             clicked = Widgets.ButtonInvisible(rect);
         } else {
-            clicked = DrawPartSlot(in rect, part.LabelCap, isHovered);
+            clicked = DrawPartSlot(rect, part.LabelCap, isHovered);
         }
 
         if (clicked) onSlotClick.Invoke(part, installedTrait);
@@ -117,7 +117,7 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
         };
     }
 
-    private static void DrawModuleTexture(in Rect rect, ModuleGraphicData moduleGraphicData, bool drawOutline) {
+    private static void DrawModuleTexture(Rect rect, ModuleGraphicData moduleGraphicData, bool drawOutline) {
         if (moduleGraphicData.texturePath.NullOrEmpty()) return;
 
         var mainTexture = ContentFinder<Texture2D>.Get(moduleGraphicData.texturePath);
@@ -134,7 +134,7 @@ public class MainDrawer(ModificationSession session, Action<PartDef, WeaponTrait
     }
 
     /// Returns a boolean indicating whether the element was clicked.
-    private static bool DrawPartSlot(in Rect rect, string label, bool isHovered) {
+    private static bool DrawPartSlot(Rect rect, string label, bool isHovered) {
         Widgets.DrawOptionBackground(rect, isHovered);
 
         // render label

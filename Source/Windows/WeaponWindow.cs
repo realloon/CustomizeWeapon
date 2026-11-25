@@ -57,7 +57,7 @@ public class WeaponWindow : Window {
         // Draw
         _headerDrawer.Draw(in headerRect);
         _asideDrawer.Draw(in asideRect);
-        _mainDrawer.Draw(in mainRect);
+        _mainDrawer.Draw(mainRect);
     }
 
     public override void PostClose() {

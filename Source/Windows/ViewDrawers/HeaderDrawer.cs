@@ -6,14 +6,14 @@ namespace CWF.ViewDrawers;
 public class HeaderDrawer(Thing weapon, ModificationSession session, InteractionController controller) {
     private readonly CompRenamable? _compRenamable = weapon.TryGetComp<CompRenamable>();
 
-    public void Draw(in Rect rect) {
+    public void Draw(in Rect rect) { // todo: remove `in` modifier
         const float iconSize = 40f;
         const float buttonSize = 32f;
         const float gap = 8f;
 
         // Render weapon icon
         var iconRect = new Rect(rect.x, rect.y + (rect.height - iconSize) / 2f, iconSize, iconSize);
-        WeaponPreviewDrawer.Draw(in iconRect, session.PreviewWeapon);
+        WeaponPreviewDrawer.Draw(iconRect, session.PreviewWeapon);
 
         // Render search button
         var searchButtonRect = new Rect(rect.xMax - buttonSize, rect.y + (rect.height - buttonSize) / 2f,
