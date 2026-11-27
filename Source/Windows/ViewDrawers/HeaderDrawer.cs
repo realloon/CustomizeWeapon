@@ -6,7 +6,7 @@ namespace CWF.ViewDrawers;
 public class HeaderDrawer(Thing weapon, ModificationSession session, InteractionController controller) {
     private readonly CompRenamable? _compRenamable = weapon.TryGetComp<CompRenamable>();
 
-    public void Draw(in Rect rect) { // todo: remove `in` modifier
+    public void Draw(Rect rect) {
         const float iconSize = 40f;
         const float buttonSize = 32f;
         const float gap = 8f;

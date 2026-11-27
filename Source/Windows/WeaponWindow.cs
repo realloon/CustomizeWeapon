@@ -55,8 +55,8 @@ public class WeaponWindow : Window {
             bodyRect.width - asideWidth - asideGap, bodyRect.height);
 
         // Draw
-        _headerDrawer.Draw(in headerRect);
-        _asideDrawer.Draw(in asideRect);
+        _headerDrawer.Draw(headerRect);
+        _asideDrawer.Draw(asideRect);
         _mainDrawer.Draw(mainRect);
     }
 

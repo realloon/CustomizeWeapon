@@ -63,7 +63,7 @@ public class AsideDrawer(SpecDatabase specDatabase) {
         + (Layout.Length - 1) * SectionGapHeight
         + Layout.Count(section => section.Header != null) * SectionHeaderHeight;
 
-    public void Draw(in Rect rect) { // todo: remove `in` modifier
+    public void Draw(Rect rect) {
         var contentRect = new Rect(0f, 0f, rect.width, Mathf.Max(rect.height, ContentHeight));
         Widgets.BeginScrollView(rect, ref _scrollPosition, contentRect, showScrollbars: false);
 
